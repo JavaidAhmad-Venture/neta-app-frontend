@@ -1,0 +1,159 @@
+@media(max-width:1280px) and (min-width:995px){
+    button.btn.vote-btn{margin-left: 10px;margin-top: 10px; float: left;}
+    .candidate-info{width: calc(100% - 40px);}
+}
+@media(max-width:995px) and (min-width:768px){
+    ul.navigation li a {padding: 0 10px;font-size: 14px;}
+    nav{padding-left: 20px;}
+    input.search-input{width: 170px}
+}
+@media(max-width:767px){
+    .statistics-block.custom-block h2{ margin-bottom: 10px;}
+    .panel.cust-panel .panel-footer, .panel.cust-panel .panel-head{ padding:10px;}
+    ul.vote-data-list li{ padding:12px 10px;}
+    span.poll-img{ height: 35px; width:35px; margin-right: 10px;}
+    .vote-result{ width:55px;}
+    .vote-break-data {padding-right: 10px; width: calc(100% - 105px); }
+    .vote-result h5{ font-size: 14px; margin-top:4px;}
+    .vote-result span{ font-size: 10px; font-weight: 500;}
+    ul.vote-data-list li .progress-bar .progress{ height: 8px;}
+    ul.vote-data-list li .progress-bar{height: 8px;}
+    ul.vote-data-list li label {font-size: 10px; font-weight: bold; margin-bottom: 6px;  margin-top: 2px;}
+    .panel.cust-panel .panel-footer a.more-det{ font-size:12px; font-weight:500;}
+    img.graph{ height: auto;}
+    .statistics-block.custom-block{ margin: 0;}
+    .leader-profile-pic{width: 120px;height: 120px;}
+    ul.nav.nav-tabs.nav-justified.profile-tab {
+        text-align: center;
+    }
+    .logo-section{display: none}
+    .tab-content.card.tab-content-section{padding: 10px 0}
+    .custom-card{padding: 20px}
+    .custom-card h3{font-size: 20px}
+    ul.navigation li{width: 100%}
+    ul.navigation li a{min-height: 48px ; font-size: 14px; color: var(--font-color)}
+    .navbar-toggle {display: block;}
+    header.open input.search-input{opacity: 1; visibility: visible;}
+    input.search-input {opacity: 0; visibility: hidden;padding: 5px 20px;position: absolute;width: calc(100% - 20px);left: 10px;right: 10px;top: 60px;z-index: 10;border-radius: 50px;}
+    .open header.fixed{left: -230px; transition: left 0.5s}
+    header.fixed{left: 0px; transition: left 0.5s}
+    .poll-option input[type="radio"] +label {min-height: 60px;font-size: 14px;line-height: 16px;}
+ 
+    button.signup.btn{margin-left: 15px}
+    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 14px;padding: 0 8px;}
+    .panel.cust-panel {height: auto;margin-bottom: 20px;}
+    button.search-btn i {font-size: 24px;}
+    header{    transition: height 0.5s;}
+    header.open {height: 110px;        transition: height 0.5s;}
+    nav {padding: 0;position: fixed;top: 0;bottom: 0;background: #fff;width: 230px;left: 0;height: 100vh;z-index: 10;transform: translate3d(-230px,0,0);transition: transform 0.5s;}
+    .search-section{margin: 0; position: static}
+    button.search-btn {position: relative;left: 0;background: rgba(0,0,0,0.05);border: 0px;color: #fff;top: 0;font-size: 16px;bottom: 0;display: flex;align-items: center;width: 40px;justify-content: center;padding: 0;height: 40px;border-radius: 50%;}
+   .open  nav {margin-right: 0px;transition: margin 0.5s;}
+    body.open {position: relative;transform:translate3d(230px , 0,0);transition: transform 0.5s; overflow: hidden;}
+    body{ transform:translate3d(0px , 0,0);transition: transform 0.5s;}
+    body.open nav {transition: transform 0.5s;}
+    ul.navigation li a:after {content: '';width: 2px;background: #fff;position: absolute;bottom: 0;left: 0;right: auto;        transition: transform 0.5s;transform: scale(1,0);top: 0;        height: 100%;}
+    nav::after{display: none}
+    .toogle-btn {display: block}
+    .overlay {background: rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;bottom: 0;right: 0;z-index: 10;float: left;height: 100vh;opacity: 0;display: none;}
+   body.open  .overlay {opacity: 1;display: block}
+   .panel.cust-panel.extra-padding .panel-body {
+    padding: 15px 20px;
+}
+.video-part {
+    float: left;
+    width: 100PX;
+ 
+}
+.video-part iframe{width: 100% !important}
+.video-part-info {
+    FLOAT: LEFT;
+    WIDTH: calc(100% - 100px);
+}
+ul.leader-info-list li{width: 100%; margin: 10px 0}
+   ul.candidate-list.candidate-block li{padding: 15px 10px;}
+   ul.candidate-list.candidate-block li .candidate-info , ul.candidate-list.candidate-block.voted li .candidate-info { width: calc(100% - 60px); padding: 0 10px; margin-top: 0px;}
+   .done-vote{margin-top: 0}
+   .voste-stat{ text-align: left; padding: 0 10px; width:107px; }
+   ul.candidate-list.candidate-block li .candidate-info h6{ font-size: 10px; margin-bottom:2px;;}
+   ul.candidate-list.candidate-block li .candidate-info h4{font-size: 12px; font-weight: bold;}
+   .voste-stat>span{ font-size: 10px;}
+   .voste-stat h6{ float: left;  font-size: 13px}
+   .voste-stat h6 span{ float: right; margin-left: 6px; margin-top: 2px;font-size: 10px; margin-right: 0;}
+   span.up-icons i {color: var(--green-color)!important; position: relative; line-height: 1; top: 1px; font-size: 10px; margin-right: 3px;}
+   ul.candidate-list.candidate-block li button.btn.vote-btn { min-width: 60px; min-height: 20px; margin-top: 12px;  font-size: 10px;}
+   ul.candidate-list.candidate-block li span.candidate-pic{ margin-top:5px;}
+   
+   ul.chips {float: left;  width:100%; margin: 0;}
+   .assembly h5{ float: left; width:100%; text-align: center; margin-bottom: 10px; }
+   ul.chips li{ float: none;}
+   .sort{ font-size: 10px;}
+   .sort i{font-size: 14px; line-height: 1.5; top: 1px; font-weight: bold;}
+   .sort-option ul li a{ font-size: 10px;}
+   aside{ padding:8px 0;}
+   .candidate-block{ margin-top:25px;}
+
+   span.issue-date {width: 35px; min-height: 33px; padding: 4px 3px; left:10px ;top:10px;}
+   span.issue-date i {font-size: 13px;}
+   span.issue-date em { font-size: 12px;}
+   .issue-block { padding: 10px 10px 20px 54px;}
+   .issue-block-info h3 {font-size: 11px; margin-bottom: 5px; line-height: 13px;}
+   .issue-block-info p {font-size: 11px;}
+   .all-cmnt .cmnt-info { width: calc(100% - 111px); padding-right: 4px; padding-left: 6px;}
+   span.total-reply{ margin-top: 12px; font-size: 10px;}
+   span.total-reply i {position: relative;top: 0px; font-size: 14px; margin-right: 3px;}
+   .cmnt-info {width: calc(100% - 31px);  padding: 0 0 0 6px;}
+   .comment-block{ padding: 10px;}
+   .cmnt-info h6{font-size: 10px;}
+   .cmnt-info p {font-size: 10px;}
+   .poll-block li.list-group-item{ font-size: 11px;}
+   .poll-block li.list-group-item input[type="radio"] + label{ font-size: 11px;}
+   button.btn.issue-btn { min-height: 40px; font-size: 11px;}
+   button.btn.issue-btn i{ font-size: 13px;}
+   h1.main-heading{ font-size: 12px; margin-top:18px;}
+   span.cat-icons {width: 30px; height: 30px;}
+   span.cat-icons img { height: 16px;}
+   .cat-ino h5{ font-size: 12px;}
+   .category-icons { width: 60px; height: 60px;}
+   .category-icons img { width: 50%;}
+   .category-block-content h3{ font-size: 14px;}
+   .category-block-content p{font-size: 12px;}
+   .sort { height: 14px;}
+   .sort i, h1 span.cat-icons { margin-right: 3px;}
+
+   .comment-section .issue-block{ padding:0 0 0 48px;}
+   .comment-section .issue-block.poll-block .issue-block-info .list-group li.list-group-item label{padding: 14px 70px 13px 50px;}
+   span.poll-value{ font-size: 11px; margin-top:4px;}
+   span.poll-value span{ margin-bottom: 5px;}
+   .comment-block-section {  margin-bottom: 30px; margin-top: 20px;}
+   .media-section{ margin-top:30px;}
+   .media-section iframe{width: 100% !important; height: auto; padding-bottom: 20px;}
+   .replied > .comment { padding: 12px 12px;}
+   .comment-data h4{ font-size:11px; }
+   .comment-data p { font-size: 11px; line-height: 16px;}
+   ul.comment-action-list li a{ font-size: 11px;}
+   span.comment-time {font-size: 11px; line-height: 9px;}
+   ul.comment-action-list li a i{ font-size: 10px;}
+   ul.comment-action-list li a i.material-icons{ font-size: 16px;}
+   .comment-reply{ padding-left:43px;}
+   .candidate-block h3 {font-size: 12px; margin-bottom: 15px;}
+   section.comment-section1 .news-aside-block p{ font-size: 11px;}
+   span.news-date { font-size: 11px;}
+   .poll-block ul.list-group.img-poll{display: block;text-align: center}
+   ul.list-group.img-poll li{width: 100%; max-width:200px; display:inline-block;float:none;margin-bottom: 10px; vertical-align: top}
+
+   .poll-option-pic{height: 60px;}
+   .poll-block ul.list-group.img-poll li.list-group-item input[type="radio"] + label::after {
+    left: 10px;
+    top: 75px;
+    width: 10px;
+    height: 10px;
+}
+
+.poll-cont{font-size: 12px; padding-right: 40px;padding-left: 25px; text-align: left}
+}
+@media(max-width:400px){
+    .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
+    .news-img + .news-content {float: left;width: 100%;padding-left: 0;}
+  
+}
