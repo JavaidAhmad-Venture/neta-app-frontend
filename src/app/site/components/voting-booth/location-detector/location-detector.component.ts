@@ -18,6 +18,10 @@ export class LocationDetectorComponent implements OnInit {
   parliamentId: string = '';
   assemblyId: string = '';
 
+  //for two binding
+  state:any;
+  parliament:any;
+  assembly:any;
   @Output("ids") C_ID = new EventEmitter<{}>();
 
   constructor(private locationService: LocationService) { }
