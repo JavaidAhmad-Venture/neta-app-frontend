@@ -1,3 +1,4 @@
+import { PopularPeopleService } from './services/popular-people.service';
 import { Candidate } from './models/candidate';
 import { CloudnaryService } from './services/cloudnary.service';
 import { CommonModule } from '@angular/common';
@@ -28,7 +29,7 @@ import { SmallLoaderComponent } from './components/small-loader/small-loader.com
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
   ],
   declarations: [NotFoundComponent, LoaderComponent, SmallLoaderComponent],
-  providers:[CondidatesService,CandidateProfileService,CloudnaryService,CookieService,LocationService,InfluencersService],
+  providers:[CondidatesService,CandidateProfileService,CloudnaryService,CookieService,LocationService,InfluencersService,PopularPeopleService],
   exports:[CommonModule,LoaderComponent,SmallLoaderComponent]
 })
 export class SharedModule { }

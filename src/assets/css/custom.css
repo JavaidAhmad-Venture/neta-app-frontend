@@ -1060,3 +1060,260 @@ span.info-list-icon svg {
 }
 
 
+/* start citizins page */
+
+section.citizens {
+    float: left;
+    width: 100%;
+    margin-top: 70px;
+}
+.citizen-rank {
+    float: left;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 60px;
+    font-size: 18px;
+    color: var(--font-color);
+    opacity: 0.7;
+    padding-right: 10px;
+}
+.citizens ul.candidate-list.candidate-block li .candidate-info p {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    color: var(--font-color);
+    margin: 0;
+}
+.citizens ul.candidate-list.candidate-block li .candidate-info p i {
+
+    font-size: 14px;
+    position: relative;
+    top: 3px;
+    opacity: 0.6;
+}
+.citizens ul.candidate-list.candidate-block li .candidate-info h6{font-size: 12px}
+.citizens  ul.candidate-list.candidate-block li .candidate-info{margin-top: 0}
+.citizens .done-vote.other-vote {
+    display: flex;
+    text-align: right;
+    align-items: center;
+    margin: 0;
+    justify-content: flex-end;
+    min-height: 60px;
+}
+.citizens.citizens1 .voste-stat p i {
+
+    font-size: 14px;
+    position: relative;
+    top: 3px;
+    opacity: 0.6;
+}
+.citizens.citizens1 .voste-stat {
+    margin: 0;
+    display: flex;
+    align-items: center;
+
+}
+ul.candidate-list.candidate-block li:hover{border-color: var(--main-color)}
+ul.candidate-list.candidate-block li:hover .citizen-rank{color: var(--main-color); opacity: 1;font-weight: bold}
+ul.candidate-list.candidate-block li:hover .voste-stat .my-score{color: var(--main-color);opacity: 1;}
+.citizens .voste-stat {
+    margin: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 175px
+
+}
+.citizens.citizens1 ul.candidate-list.candidate-block li .candidate-info {
+    margin-top: 10px;
+}
+.citizens.citizens1 .voste-stat h6 {
+    float: right;
+    margin: 0 15px 0 0;
+}
+.citizens.citizens1 .voste-stat p {   float: left;
+    width: auto;
+    font-size: 12px;
+    color: var(--font-color);
+    margin: 0;
+}
+.citizens .voste-stat  h6{
+    color: var(--green-color);
+        font-size: 18px;
+        font-weight: bold;
+    
+}
+.citizens span.up-icons i{font-size: 12px; margin-right: 0}
+.citizens.citizens1 ul.candidate-list.candidate-block li.myself .candidate-info {
+    margin: 0;
+    display: flex;
+    min-height: 60px;
+    align-items: center;
+}
+.citizens.citizens1 .myself .voste-stat span.my-rank {
+    display: block;
+    text-transform: uppercase;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    font-size: 10px;
+}
+.citizens.citizens1 .myself .voste-stat h6 {
+    margin: 0;
+}
+.citizens.citizens1 .myself .voste-stat h6 span.my-rank-val {
+    font-size: 22px;
+    color: var(--main-color);
+    opacity: 1;
+    margin: 0
+}
+
+.citizens.citizens1 .myself .voste-stat h6 span.up-icons{color: var(--green-color)}
+.citizens.citizens1 .myself  .voste-stat{width:220px; justify-content: space-between }
+.citizens.citizens1 .myself .voste-stat .my-score {
+    display: block;
+    color: var(--main-color);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-align: left;
+   
+}
+.citizens.citizens1 .myself .voste-stat .my-score span{
+
+    display: block;
+    text-transform: uppercase;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    font-size: 10px;
+    color: var(--font-color);
+}
+.citizens.citizens1 .myself .voste-stat .my-score span i {
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+    margin-right: 3px;
+}
+
+.citizens.citizens1  .voste-stat .my-score {
+    display: block;
+    color: var(--font-color);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-align: right;
+    opacity: 0.8;
+   
+}
+.citizens.citizens1  .voste-stat .my-score span{
+
+    display: block;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    font-size: 10px;
+    color: var(--font-color);
+    line-height: 1.5;
+}
+.citizens.citizens1 .voste-stat .my-score span i {
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+    margin-right: 3px;
+}
+section.citizens.citizens1.citizens2 .candidate-info .up-icons {
+    color: var(--green-color);
+    font-size: 16px;
+    font-weight: bold;
+}
+section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 1px}
+.citizens .user-content .voste-stat {
+    float: left;
+    width: 100%;
+    display: block;
+    min-height: auto;
+    margin-top: 3px;
+}
+.citizens .user-content .voste-stat .my-score{float: left;   display: block;
+    color: var(--main-color);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-align: left;
+    line-height: 1.2;
+    opacity: 0.8;}
+.citizens .user-content .voste-stat .my-score span{display: block;    display: block;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    font-size: 10px;
+    color: var(--font-color);
+  }
+    .citizens .user-content .voste-stat .my-score span i{  font-size: 14px;
+        position: relative;
+        top: 2px;
+        margin-right: 3px;
+    }
+    .citizens .user-content .voste-stat  h6 {
+        color: var(--green-color);
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .citizens .user-content   .voste-stat span.my-rank {
+        display: block;
+        text-transform: uppercase;
+        opacity: 0.5;
+        letter-spacing: 1px;
+        font-size: 10px;
+        line-height: 1.2;
+    }
+    .citizens .user-content .voste-stat h6 span.my-rank-val {
+        font-size: 22px;
+        color: var(--main-color);
+        opacity: 1;
+        margin: 0;
+    }
+    .citizens .user-content  .voste-stat h6 span.up-icons {
+        color: var(--green-color);
+    }
+    .citizens .profile-block{margin-bottom: 15px}
+    .citizens .profile-block.mrbtm0{margin-bottom: 0px}
+    .be-citi  .user-img.pull-right {
+        float: right;
+        width: 90px;
+        height: auto;
+    }
+    .be-citi .profile-block-body .user-content {
+        float: left;
+        width: calc(100% - 90px);
+    }
+    .be-citi .profile-block-body .user-content h4 {
+        color: var(--main-color);
+        font-size: 16px;
+    }
+    .be-citi  .profile-block-body .user-content p{width: 100%; font-size: 13px}
+    span.my-rank i {
+        font-size: 14px;
+        position: relative;
+        top: 2px;
+        margin-right: 2px;
+    }
+    .category-block:hover{border-color: var(--main-color)}
+    .location-detctor {
+        float: left;
+        width: 150px;
+        margin-top: 15px;
+    }
+    .location-detctor .selectize-input{padding: 5px 8px;
+        border-radius: 5px;
+        box-shadow: none;
+        border-color: #fff;}
+        .location-detctor    .selectize-input.dropdown-active{border-radius: 5px 5px 0px 0px;box-shadow: none}
+        .location-detctor    .selectize-input.focus{box-shadow: none}
+        .location-detctor    .selectize-input .item{color: var(--main-color)}
+
+
+
