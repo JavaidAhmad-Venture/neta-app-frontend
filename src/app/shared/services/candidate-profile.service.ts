@@ -35,12 +35,14 @@ private con_id="";
       .map(res => JSON.parse(JSON.stringify(res)));
   }
 
-  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,label=null) {
+  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,name="auqib") {
     this.paramsService.createCookie("c_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
-    this.paramsService.createCookie("label", label, null, null);
-    
-    this.router.navigate(['/profile'],{skipLocationChange: true});
+    //this.paramsService.createCookie("label", label, null, null);
+    console.log("shivam",CANDIDATE_ID);
+    //let name;
+    this.router.navigate(['profile/',name]);
+    window.location.reload();
   }
  
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {

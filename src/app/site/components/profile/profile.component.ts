@@ -35,16 +35,27 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
     private leaderProfile: CandidateProfileService,
     private router: Router,
+    private route:ActivatedRoute,
     private cloudnaryService: CloudnaryService,
     private cookie: CookieService) {
 
     this.cloudNaryUrl = cloudnaryService.cloudnaryUrl;
     this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
     this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
-  }
 
 
-  ngOnInit() {
+  this.route.params.subscribe(params => {
+   // (+) converts string 'id' to a number
+this.start();
+    // In a real app: dispatch action to load the details here.
+ });
+}
+ngOnInit(){
+
+}
+
+  start() {
+    console.log("hello")
     this.loading=true;
     this.subs = this.leaderProfile.getCanditateProfile(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(resp => {
