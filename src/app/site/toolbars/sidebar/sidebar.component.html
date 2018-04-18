@@ -1,168 +1,50 @@
-<aside role="slidebar">
-    <div class="profile-block">
-        <span class="cross">
-            <i class="material-icons">clear</i>
+<div class="candidate-block popular-candidate">
+  <h3>Popular Candidates</h3>
+
+
+  <ul class="candidate-list">
+    <li *ngFor="let pc of p_candidates">
+      <span class="candidate-pic">
+        <span class="candidate-party">
+          <img src="{{ cUrl + pc.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
         </span>
-        <div class="profile-block-body">
-            <div class="user-img">
-                <img src="assets/images/user.png" alt="user" />
-            </div>
-            <div class="user-content">
-                <h4>Hey Joan!</h4>
-                <p>Complete your Profile</p>
-                <span class="progress-report">20%</span>
-                <div class="progress-bar">
-                    <span class="progress"></span>
-                </div>
-            </div>
-        </div>
-        <div class="profile-block-footer">
-            <a href="javascript:void(0)" class="more-det"> GO TO PROFILE
-                <i class="fas fa-chevron-right"></i>
-            </a>
+        <img src="{{ cUrl + pc.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+      </span>
+      <div class="candidate-info">
+        <h6 class="candidate-party-name">{{pc.party_abbreviation}}</h6>
+        <h4 (click)="onProfileView(pc.candidate_id)" class="emptyAnchor">{{pc.candidate_name}}</h4>
+      </div>
+      <button class="btn vote-btn">Vote Now</button>
+    </li>
 
-        </div>
+  </ul>
+  <div class="more-news">
+    <a href="javascript:void(0)" class="more-det">See ALL
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+</div>
+<div class="candidate-block Influencers-candidate">
+  <h3>Popular Influencers</h3>
+  <ul class="candidate-list">
+    <li *ngFor="let pi of topSixInfluencers; let i = index" >
 
-    </div>
-    <div class="candidate-block popular-candidate">
-            <h3>Popular Candidates</h3>
-
-          
-            <ul class="candidate-list">
-                <li *ngFor="let candidate of candidates">
-                    <span class="candidate-pic">
-                        <span class="candidate-party">
-                          <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
-                        </span>
-                        <img src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
-                      </span>
-                    <div class="candidate-info">
-                        <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                        <h4 (click)="onProfileView(candidate.candidate_id)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
-                    </div>
-                    <button class="btn vote-btn">Vote Now</button>
-                </li>
-            
-            </ul>
-            <div class="more-news">
-                <a href="javascript:void(0)" class="more-det">See ALL
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-        <div class="candidate-block Influencers-candidate">
-            <h3>Popular Influencers</h3>
-            <ul class="candidate-list">
-                <li *ngFor="let influencer of popularInfluencers">
-                    <span class="candidate-pic">
-                        <span class="candidate-party">
-                            <img src="assets/images/congress.png" alt="congress.png" />
-                        </span>
-                        <img src="{{ cUrl + influencer.influencer_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
-                    </span>
-                    <div class="candidate-info">
-                        <h6 class="candidate-party-name">INC</h6>
-                        <h4 (click)="onProfileView(candidate.candidate_id)" class="emptyAnchor">{{influencer.influencer_name}}</h4>
-                    </div>
-                    <button class="btn vote-btn slected">Vote Now</button>
-                </li>
-            </ul>
-            <div class="more-news">
-                <a href="javascript:void(0)" class="more-det">See ALL
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-    <!-- <div class="news-aside-section candidate-block">
-
-        <h3>News</h3>
-        <div class="news-aside-block">
-            <h4>Under Election Commission lens, Punjab to delete 20,000 proclaimed offenders from voter list</h4>
-            <p>Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet
-                sodales nisi, quis iaculis nulla iaculis vitae. </p>
-            <span class="news-date">20 January, 2017</span>
-        </div>
-        <div class="vertical-view news-aside-block">
-            <div class="news-img">
-                <img src="assets/images/neta.png" alt="neta.png">
-            </div>
-            <div class="news-content">
-                <h4>Will turn Punjab into revenue surplus state by 4th budget: Manpreet Badal</h4>
-
-                <span class="news-date">20 January, 2017</span>
-            </div>
-        </div>
-        <div class="news-aside-block horizontal-view">
-            <div class="news-img">
-                <img src="assets/images/neta1.png" alt="neta.png">
-            </div>
-            <div class="news-content">
-                <h4>Will turn Punjab into revenue surplus state by 4th budget: Manpreet Badal</h4>
-                <p>Forecasting about state's grim financial health, state finance minister …</p>
-                <span class="news-date">20 January, 2017</span>
-            </div>
-        </div>
-        <div class="more-news more-tweets">
-            <a href="javascript:void(0)" class="more-det">See All
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-    </div>
-    <div class="new-aside-section candidate-block">
-        <h3>Popular Tweets</h3>
-        <div class="tweets-aside-block tweets-block">
-            <p> A chaos at the jalandhar cantt. Station. Passengers stranded for lack of facilities.</p>
-            <p> We looking for bullet trains right? What about the bullets fired upon the passenger with
-                such a great hospitality </p>
-            <span class="has-tags">
-                <a href="javascript:void(0)">#patheticjourneybymalwa</a>
-            </span>
-            <div class="tweets-footer">
-                <span class="tweets-img">
-                    <img src="assets/images/tweets.png" alt="tweets.png">
-                </span>
-                <div class="tweets-info">
-                    <h5>Devashish Maini</h5>
-                    <ul>
-                        <li>@DevashishMaini</li>
-                        <li>2 days ago</li>
-                    </ul>
-                </div>
-                <span class="twitter-icons">
-                    <i class="fab fa-twitter"></i>
-                </span>
-            </div>
-
-        </div>
-        <div class="tweets-aside-block tweets-block">
-            <p> A chaos at the jalandhar cantt. Station. Passengers stranded for lack of facilities.</p>
-            <p> We looking for bullet trains right? What about the bullets fired upon the passenger with
-                such a great hospitality </p>
-            <span class="has-tags">
-                <a href="javascript:void(0)">#patheticjourneybymalwa</a>
-            </span>
-            <div class="tweets-footer">
-                <span class="tweets-img">
-                    <img src="assets/images/tweets.png" alt="tweets.png">
-                </span>
-                <div class="tweets-info">
-                    <h5>Devashish Maini</h5>
-                    <ul>
-                        <li>@DevashishMaini</li>
-                        <li>2 days ago</li>
-                    </ul>
-                </div>
-                <span class="twitter-icons">
-                    <i class="fab fa-twitter"></i>
-                </span>
-            </div>
-
-        </div>
-        <div class="more-news">
-            <a href="javascript:void(0)" class="more-det">See All
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-    </div> -->
-
-</aside>
+      <span class="candidate-pic" >
+        <span class="candidate-party">
+          <img src="assets/images/congress.png" alt="congress.png" />
+        </span>
+        <img src="{{ cUrl + pi.influencer_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+      </span>
+      <div class="candidate-info" >
+        <h6 class="candidate-party-name">INC</h6>
+        <h4 (click)="onProfileViewInfluencer()" class="emptyAnchor">{{pi.influencer_name}}</h4>
+      </div>
+      <button class="btn vote-btn slected">Vote Now</button>
+    </li>
+  </ul>
+  <div class="more-news">
+    <a href="javascript:void(0)" class="more-det">See ALL
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+</div>

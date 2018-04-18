@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   contact_info: ContactInfo;
   party_info: PartySupportInfo;
   leader_history: LeaderHistroy[];
-  loading = true; //renders loader;
+  loading = false; //renders loader;
   subs: Subscription;
   constructor(
     private leaderProfile: CandidateProfileService,
@@ -45,6 +45,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    this.loading=true;
     this.subs = this.leaderProfile.getCanditateProfile(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(resp => {
         // console.log("Profile", resp);
