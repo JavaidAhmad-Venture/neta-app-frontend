@@ -37,7 +37,7 @@
                 <div class="left-sidebar">
                     <div class="info-side-block">
                         <h3>{{ party_info.candidature.candidate_name }}
-                            <span  class="new-badges" >{{'new'}}</span>
+                            <span *ngIf="info.label" class="new-badges" >{{info.label.name}}</span>
                         </h3>
                         <ul>
                             <li>
@@ -66,10 +66,10 @@
                                    
                                    
                             </div>
-                            <div class="voste-stat rank">
-                                    <span>Rank</span>
+                            <!-- <div class="voste-stat rank">
+                                    <span>Rank</span>//not used yet may be in future
                                         <h6>#2 </h6>  
-                                </div>
+                                </div> -->
                         </div>
                         <button type="button" class="btn issue-btn">Vote Now</button>
                     </div>
@@ -253,34 +253,7 @@
                                 <td>{{lh.party_abbreviation}}</td>
                                 <td>{{lh.result}}</td>
                             </tr>
-                            <tr *ngFor="let lh of leader_history">
-                                    <td>{{lh.year}}</td>
-                                    <td>{{lh.constituency}}</td>
-                                    <td>{{lh.election}}</td>
-                                    <td>{{lh.party_abbreviation}}</td>
-                                    <td>{{lh.result}}</td>
-                                </tr>
-                                <tr *ngFor="let lh of leader_history">
-                                        <td>{{lh.year}}</td>
-                                        <td>{{lh.constituency}}</td>
-                                        <td>{{lh.election}}</td>
-                                        <td>{{lh.party_abbreviation}}</td>
-                                        <td>{{lh.result}}</td>
-                                    </tr>
-                                    <tr *ngFor="let lh of leader_history">
-                                            <td>{{lh.year}}</td>
-                                            <td>{{lh.constituency}}</td>
-                                            <td>{{lh.election}}</td>
-                                            <td>{{lh.party_abbreviation}}</td>
-                                            <td>{{lh.result}}</td>
-                                        </tr>
-                                        <tr *ngFor="let lh of leader_history">
-                                                <td>{{lh.year}}</td>
-                                                <td>{{lh.constituency}}</td>
-                                                <td>{{lh.election}}</td>
-                                                <td>{{lh.party_abbreviation}}</td>
-                                                <td>{{lh.result}}</td>
-                                            </tr>
+                             
                         </tbody>
                         </table>
 

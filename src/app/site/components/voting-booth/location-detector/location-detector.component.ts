@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { element } from 'protractor';
 
 import { LocationService } from '../../../../shared/services/location.service';
@@ -13,11 +13,11 @@ export class LocationDetectorComponent implements OnInit {
   parliaments: any[] = [];
   assemblies: any[] = [];
   selectedState: string = '';
+  @Input("selectedLocation") selectedLocation;
   selectedCons: string = '';
   selectedDistrict: string = '';
   parliamentId: string = '';
   assemblyId: string = '';
-
   //for two binding
   state:any;
   parliament:any;
@@ -59,7 +59,11 @@ export class LocationDetectorComponent implements OnInit {
     return null;
   }
   onNext() {
-    this.C_ID.emit({ c_id: this.parliamentId, a_id: this.assemblyId });//send cons and assembly id to parent component;
+    this.C_ID.emit({ 
+                    d_id: this.parliamentId,
+                    d_name:this.selectedDistrict,
+                    a_id: this.assemblyId,
+                    a_name:this.selectedCons, });//send cons and assembly id to parent component;
   }
 
 

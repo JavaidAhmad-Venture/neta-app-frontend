@@ -39,7 +39,8 @@ private con_id="";
     this.paramsService.createCookie("c_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
     this.paramsService.createCookie("label", label, null, null);
-    this.router.navigate(['/profile']);
+    
+    this.router.navigate(['/profile'],{skipLocationChange: true});
   }
  
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {
@@ -47,8 +48,8 @@ private con_id="";
       //.map(res => res);
   }
 
-  getCandidatesManifesto(CANDIDATE_ID,CONSTITUENCY_ID){
-  //  return this.http.get();
+  getCandidatesManifesto(CANDIDATURE_ID,CONSTITUENCY_ID){
+   return this._http.get(this._url+"/candidatures/"+CANDIDATURE_ID+"/manifesto?constituency_id"+CONSTITUENCY_ID);
 
   }
 

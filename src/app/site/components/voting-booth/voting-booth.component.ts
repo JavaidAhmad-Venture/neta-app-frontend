@@ -18,7 +18,8 @@ export class VotingBoothComponent implements OnInit {
 		mla_candidates: true,
 		mp_candidates: false,
 		local_bodies: false,
-	}
+  }
+  currentLocation={dname:"Select Location",aname:"Select Location"}//auqib
   loading:boolean = false;
   candidates:Candidate[];
   cUrl: string = '';
@@ -29,6 +30,7 @@ export class VotingBoothComponent implements OnInit {
   
 
   constructor(
+
     private candidateService: CondidatesService,
     private cloudnaryService: CloudnaryService,
     private profileService: CandidateProfileService,
@@ -59,6 +61,9 @@ export class VotingBoothComponent implements OnInit {
   selectedId(ids){
     console.log('District id in voting booth:',ids.c_id);
     console.log('Assembly id in voting booth:',ids.a_id);
+    this.currentLocation.dname=ids.d_name;
+    this.currentLocation.aname=ids.a_name;
+
  
   }
 

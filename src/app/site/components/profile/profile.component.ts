@@ -13,9 +13,16 @@ declare var jQuery: any;
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
+  tab: any = {
+		About: true,
+		Manifesto: false,
+    History: false,
+    Feed: false,
+  };
 
   c_profile: Profile
   CANDIDATE_ID = "ce9d1130-b765-4e1b-a65b-f3cc23283db0";
+  CANDIDATURE_ID ="";
   CONSTITUENCY_ID = "52d40fe8-1490-421e-9dbe-08b2c13fb251";
 
   cloudNaryUrl: string = '';
@@ -49,6 +56,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
         // console.log("Contact_info", this.party_info);
+        this.CANDIDATURE_ID=this.party_info.candidature.candidature_id;
         this.loading = false;
         // console.log("THIS IS data ",this.c_profile);
       });
@@ -82,6 +90,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
   filterRupees(rupee) {
     let r = rupee.split(" ");
     return +r[1];
+  }
+
+  switchTab(type) {
+		for (const key in this.tab) {
+			if (this.tab.hasOwnProperty(key))  
+				this.tab[key] = false;
+  
+      }
+      this.tab[type] = true;
   }
 
   ngOnDestroy() {

@@ -25,7 +25,7 @@
             role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector (ids)="selectedId($event)"></location-detector>
+                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.aname"></location-detector>
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>
@@ -75,8 +75,8 @@
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div class="progress-bar">
-                  <div class="progress"></div>
+                <div  *ngIf="isVoted" class="progress-bar">
+                  <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
                 </div>
 
               </li>
@@ -87,7 +87,7 @@
           <div *ngIf="tab.mp_candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector></location-detector>              
+                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>              
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>
@@ -146,7 +146,7 @@
           <div *ngIf="tab.local_bodies" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector></location-detector>
+                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>

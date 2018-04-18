@@ -34,6 +34,10 @@ export interface Info{
             },
         },
         religion:string,
+        label: {
+            name: string,     //mla/mp
+            color: string     //badge color
+        }
     
 };
 
