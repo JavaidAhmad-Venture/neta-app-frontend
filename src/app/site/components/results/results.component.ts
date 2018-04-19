@@ -11,10 +11,10 @@ export class ResultsComponent implements OnInit {
   constructor(private candidateService:CondidatesService) { }
 
   ngOnInit() {
-    this.candidateService.getAllCandidates().subscribe(data=>{
-        this.candidates = data.json().data; 
-        console.log(this.candidates);
-    })
+    // this.candidateService.getAllCandidates().subscribe(data=>{
+    //     this.candidates = data.json().data; 
+    //     console.log(this.candidates);
+    // })
   }
 
 }
