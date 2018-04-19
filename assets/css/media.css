@@ -50,7 +50,8 @@
     button.search-btn {position: relative;left: 0;background: rgba(0,0,0,0.05);border: 0px;color: #fff;top: 0;font-size: 16px;bottom: 0;display: flex;align-items: center;width: 40px;justify-content: center;padding: 0;height: 40px;border-radius: 50%;}
    .open  nav {margin-right: 0px;transition: margin 0.5s;}
     body.open {position: relative;transform:translate3d(230px , 0,0);transition: transform 0.5s; overflow: hidden;}
-    body{ transform:translate3d(0px , 0,0);transition: transform 0.5s;}
+    /* transform:translate3d(0px , 0,0); */
+    body{ transition: transform 0.5s;} 
     body.open nav {transition: transform 0.5s;}
     ul.navigation li a:after {content: '';width: 2px;background: #fff;position: absolute;bottom: 0;left: 0;right: auto;        transition: transform 0.5s;transform: scale(1,0);top: 0;        height: 100%;}
     nav::after{display: none}
