@@ -40,7 +40,7 @@ private con_id="";
     this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
     this.paramsService.createCookie("label", label, null, null);
     
-    this.router.navigate(['/profile'],{skipLocationChange: true});
+    this.router.navigate(['/profile']);
   }
  
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {

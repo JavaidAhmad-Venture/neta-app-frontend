@@ -105,7 +105,7 @@
               </div>
             </div>
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
-              <li *ngFor="let candidate of candidates ">
+              <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
                 <span class="candidate-pic">
                   <span class="candidate-party">
                     <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
@@ -133,9 +133,9 @@
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div class="progress-bar">
-                  <div class="progress"></div>
-                </div>
+                <div  *ngIf="isVoted" class="progress-bar">
+                    <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
+                  </div>
               </li>
 
 
@@ -164,7 +164,7 @@
               </div>
             </div>
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
-              <li *ngFor="let candidate of candidates ">
+              <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
                 <span class="candidate-pic">
                   <span class="candidate-party">
                     <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
@@ -192,9 +192,9 @@
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div class="progress-bar">
-                  <div class="progress"></div>
-                </div>
+                <div  *ngIf="isVoted" class="progress-bar">
+                    <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
+                  </div>
               </li>
 
 
@@ -231,7 +231,6 @@
               </div>
              <sidebar></sidebar>
           </aside>
-
       </div>
       <!--/.Panel 3-->
     </div>

@@ -12,7 +12,7 @@
       </span>
       <div class="candidate-info">
         <h6 class="candidate-party-name">{{pc.party_abbreviation}}</h6>
-        <h4 (click)="onProfileView(pc.candidate_id)" class="emptyAnchor">{{pc.candidate_name}}</h4>
+        <h4 (click)="onProfileView(pc.candidate_id,pc.candidate_name)" class="emptyAnchor">{{pc.candidate_name}}</h4>
       </div>
       <button class="btn vote-btn">Vote Now</button>
     </li>

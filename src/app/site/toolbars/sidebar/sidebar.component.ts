@@ -33,9 +33,9 @@ export class SidebarComponent implements OnInit{
     this.fetchPopularPeople();
   }
 
-  onProfileView(id) {
-    console.log('hello:' + id);
-    this.profileService.navigateCandidate(id, this.constituency_id);
+  onProfileView(candidate_id,candidate_name) {
+    console.log('Loading :' + candidate_name);
+    this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);
   }
 
   fetchPopularPeople(){
