@@ -14,9 +14,6 @@ import { VotingBoothComponent } from './components/voting-booth/voting-booth.com
 import { SiteComponent } from './site.component';
 import { AppHeaderComponent } from './toolbars/app-header/app-header.component';
 import { SidebarComponent } from './toolbars/sidebar/sidebar.component';
-import { ActivityComponent } from './components/profile/activity/activity.component';
-import { MyIssuesComponent } from './components/profile/my-issues/my-issues.component';
-import { ScoreLogComponent } from './components/profile/score-log/score-log.component';
 import { AboutComponent } from './components/profile/about/about.component';
 
 
@@ -38,9 +35,6 @@ import { AboutComponent } from './components/profile/about/about.component';
     StarCitizensComponent,
     LocationDetectorComponent,
     ContactInfoComponent,
-    ActivityComponent,
-    MyIssuesComponent,
-    ScoreLogComponent,
     AboutComponent,
   ]
 })

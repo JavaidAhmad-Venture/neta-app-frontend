@@ -16,13 +16,13 @@
                             <a class="nav-link" [class.active]="tab.about" data-toggle="tab" role="tab"  href="" (click)="switchTab('about')">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [class.active]="tab.activity" data-toggle="tab" role="tab"  href=""(click)="switchTab('activity')">Activity</a>
+                            <a class="nav-link" [class.active]="tab.activity" data-toggle="tab" role="tab"  href=""(click)="switchTab('activity')">Feed</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [class.active]="tab.my_issues" data-toggle="tab" role="tab"  href="" (click)="switchTab('my_issues')">My Issues</a>
+                            <a class="nav-link" [class.active]="tab.my_issues" data-toggle="tab" role="tab"  href="" (click)="switchTab('my_issues')">History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [class.active]="tab.score_log" data-toggle="tab" role="tab" href="" (click)="switchTab('score_log')">Score Log</a>
+                            <a class="nav-link" [class.active]="tab.score_log" data-toggle="tab" role="tab" href="" (click)="switchTab('score_log')">Manifesto</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +55,7 @@
                                 </span>Finance Minister of Punjab</li>
                         </ul>
                         <div class="stat-data" >
-                            <div class="voste-stat" *ngIf="!isVoted">
+                            <div class="voste-stat" >
                                 <span>
                                     <img src="assets/images/vote1.png">VOTES</span>
                                     <h6>{{party_info.candidate_vote_count}}
@@ -67,21 +67,7 @@
                                    
                             </div>
                             <div class="after-vote" *ngIf="isVoted">
-                                <div class="stat-data">
-                                        <div class="voste-stat">
-                                            <span> <i class="material-icons">star</i>Score</span>
-                                            <h6>{{party_info.candidate_vote_count}}</h6>
-        
-        
-                                        </div>
-                                        <div class="voste-stat rank">
-                                            <span><i class="material-icons">equalizer</i> Rank</span>
-                                            <h6><span>4</span>
-                                                <span class="up-icons">
-                                                    <i class="fas fa-arrow-up"></i>
-                                                </span>#2 </h6>
-                                        </div>
-                                    </div>
+                               
                         </div>
                         </div>
                         <button type="button" *ngIf="!isVoted" class="btn issue-btn" (click)="onVoted()">Vote Now</button>
@@ -95,7 +81,34 @@
                 
 
                 <div class="tab-content card tab-content-section">
-                   
+                    <!--.Panel 1-->
+
+                    <!-- card -->
+                    <!--<div class="profile-block mrbtm0 be-citi">
+                        <span class="cross">
+                            <i class="material-icons">clear</i>
+                        </span>
+                        <div class="profile-block-body">
+                         
+                            <div class="user-content">
+                                <h4>Become a Star Citizen Today</h4>
+                                <p>I have hinted that I would often jerk poor Queequeg from bet</p>
+                                
+                            </div>
+                            <div class="user-img pull-right">
+                                    <img src="images/citi2.png" alt="user">
+                                </div>
+                        </div>
+                        <div class="profile-block-footer">
+                            <a href="javascript:void(0)" class="more-det"> LEARN MORE
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>-->
+
+                    <!-- <<<<<< -->
                     <loader *ngIf="loading"></loader>
                     <div class="tab-pane fade in show active" *ngIf="tab.about && info" [class.active]="tab.about" role="tabpanel">
                       <about [Info]="info"></about>
@@ -105,7 +118,8 @@
                     <div class="tab-pane fade in show active" *ngIf="tab.activity" [class.active]="tab.activity" role="tabpanel">
                                 
                         
-                                <activity style="margin: 0%"></activity>
+                        <h6>The leader has not joined the Neta app yet.You can contact him to join by contacting the leader </h6>
+
 
 
 
@@ -113,12 +127,34 @@
                     <!-- panel 2 -->
                     <!-- panel 3 -->
                     <div class="tab-pane fade in show active" *ngIf="tab.my_issues" [class.active]="tab.my_issues" role="tabpanel">
-                        <my-issues></my-issues>
+                        <table class="table table-hover table-striped table-sm">
+                            <thead>
+                            <tr><th>YEAR</th><th>CONSTITUENCY</th><th>ELECTION</th><th>PARTY</th><th>RANK</th></tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let lh of leader_history">
+                                <td>{{lh.year}}</td>
+                                <td>{{lh.constituency}}</td>
+                                <td>{{lh.election}}</td>
+                                <td>{{lh.party_abbreviation}}</td>
+                                <td>{{lh.result}}</td>
+                            </tr>
+                             
+                        </tbody>
+                        </table>
+
                     </div>
                     <!--/.Panel 3-->
                     <!--Panel 4-->
                     <div class="tab-pane fade in show active" *ngIf="tab.score_log" [class.active]="tab.score_log" role="tabpanel">
-                        <score-log></score-log>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                            to make a type specimen book. It has survived not only five centuries, but also the leap
+                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                            desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
                     </div>
                     <!-- panel -->
                 </div>
