@@ -151,6 +151,62 @@ ul.leader-info-list li{width: 100%; margin: 10px 0}
 }
 
 .poll-cont{font-size: 12px; padding-right: 40px;padding-left: 25px; text-align: left}
+
+.citizen-rank{ width: 28px; font-size: 14px;}
+ul.candidate-list.candidate-block li span.candidate-pic { width: 40px;  height: 40px; margin-top: 12px;}
+ul.candidate-list.candidate-block li .candidate-info{ width:60%; padding:7px 10px;}
+.citizens .done-vote.other-vote{ max-width: 11%;}
+.citizens .voste-stat { position: absolute; top: 20px; right: 10%;}
+.citizens ul.candidate-list.candidate-block li .candidate-info h6 { font-size: 10px;  margin-bottom: 5px;}
+.citizens ul.candidate-list.candidate-block li .candidate-info p {font-size: 10px; margin-top: 5px;}
+.citizens ul.candidate-list.candidate-block li .candidate-info p i {font-size: 11px; top: 2px;}
+.location-detctor { position: absolute; left: 56px;}
+.citizens .user-content .voste-stat{ margin-top: 20px; width:65%; padding-left:6px;}
+.citizens .user-content .voste-stat .my-score{ width: 50%; font-size: 17px;}
+.citizens .user-content .voste-stat h6{width:36%;}
+.citizens .user-content .voste-stat h6 span.my-rank-val{ font-size: 17px;}
+.citizens .user-content .voste-stat span.my-rank{width: 100%;}
+.citizens .user-content .voste-stat h6 span.up-icons{ float: left; margin-left:0;}
+.be-citi .user-img.pull-right {width: 70px;}
+.be-citi .profile-block-body .user-content{ width:68%; padding-left: 0;}
+.be-citi .profile-block-body .user-content h4{ font-size: 12px;}
+.be-citi .profile-block-body .user-content p{ font-size: 12px;}
+.citizens.citizens1 .voste-stat.v1 {display:none;}
+.citizens .voste-stat.v1 h6 {font-size: 12px;}
+.citizens.citizens1 .voste-stat.v1 p{font-size: 10px;}
+.citizens.citizens1 .voste-stat.v1 p i{font-size: 12px;}
+.citizens.citizens1 .myself .voste-stat.you{ width:50%;}
+.citizens.citizens1 .myself .voste-stat.you .my-score{ font-size: 17px;}
+.citizens.citizens1 .myself .voste-stat.you h6 span.my-rank-val {font-size: 17px; line-height: 29px;}
+.voste-stat.you h6 span { margin-top: 8px;}
+.voste-stat.you h6 span.my-rank { margin-top: 3px;}
+.citizens.citizens1 .voste-stat.v2 {display: block;float: left; width: 55%; position: relative; top: initial; right: initial;margin-top: -2px; min-height:20px;}
+.citizens.citizens1 .voste-stat.v2 .my-score{ font-size: 12px; text-align: left;}
+.citizens.citizens1 .voste-stat.v2 .my-score span{ display: inline;}
+.citizens.citizens1 ul.candidate-list.candidate-block li .candidate-info.v2{ margin-top:0;}
+.citizens .done-vote.other-vote.v2 { position: absolute; right: 5px;}
+section.citizens.citizens1.citizens2 .candidate-info.v2 .up-icons i{top:-1px;}
+section.citizens.citizens1.citizens2 .candidate-info.v2 .up-icons{position:absolute; right: 50px;}
+.tab-content .profile-block-body{ min-height: 90px; padding:12px;}
+.tab-content .be-citi .profile-block-body .user-content{ width: 90%;}
+.tab-content .be-citi .profile-block-body .user-content h4{ font-size: 11px;}
+.tab-content .be-citi .profile-block-body .user-content p{ font-size: 10px;}
+.feeder-info {width: calc(100% - 110px); padding-left: 9px; position: relative; padding-right: 5px;}
+.feeder-info h4{ font-size: 12px;}
+span.feed-date{ font-size: 11px;}
+.my-feed-body .issue-block-info h3{ font-size: 11px;}
+span.points{ font-size: 12px;}
+.my-feed-body .issue-block-info{ padding:11px;}
+.feed-vote button.btn.vote-btn{ padding: 9px 19px;}
+.vote-box{ font-size: 12px;}
+.timline-date {width: 42px; font-size: 12px;}
+.timline-date span { font-size: 20px;}
+.timeline-header h4{ font-size: 12px;}
+.timeline-body h6{ font-size: 12px; line-height: 18px;}
+.timeline-body{padding: 12px;}
+.timeline-body.commented h6{ font-size: 11px;}
+.after-vote .voste-stat h6 span.up-icons i{ margin-left:8px!important; font-size: 11px; }
+.after-vote .voste-stat h6 span{font-size: 13px;}
 }
 @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}

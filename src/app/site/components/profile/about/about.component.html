@@ -1,0 +1,148 @@
+<div class="leader-profile-block">
+  <h2>Info</h2>
+  <div class="panel cust-panel extra-padding">
+      <div class="panel-body ">
+          <ul class="leader-info-list">
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info1.png" alt="info" />
+                  </span>
+                  <label>Age</label>
+                  <span class="info-det">{{info.age}}YRS</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info2.png" alt="info" />
+                  </span>
+                  <label>Gender</label>
+                  <span class="info-det">{{info.gender||"not given"}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <!-- <img src="assets/images/info3.png" alt="info" /> -->
+                      <svg version="1.1" id="Capa_1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve">
+                 <path style="fill:#745df1" d="M148.5,0C66.617,0,0,66.617,0,148.5S66.617,297,148.5,297c0.008,0,0.016,0,0.02,0c0.002,0,0.004,0,0.007,0
+                     C230.397,296.984,297,230.374,297,148.5C297,66.617,230.383,0,148.5,0z M148.501,51.766c15.281,0,27.713,12.432,27.713,27.713
+                     c0,15.281-12.432,27.713-27.713,27.713c-15.281,0-27.713-12.432-27.713-27.713C120.788,64.197,133.22,51.766,148.501,51.766z
+                      M148.5,276.084c-32.292,0-58.563-26.271-58.563-58.563c0-32.293,26.271-58.564,58.563-58.564c43.824,0,79.479-35.654,79.479-79.479
+                     c0-13.588-3.434-26.386-9.469-37.583c34.654,22.834,57.575,62.09,57.575,106.604C276.085,218.851,218.851,276.084,148.5,276.084z"/>
+                 <g>
+                     <path  style="fill:#745df1" d="M148.5,241c-14.612,0-26.5-11.888-26.5-26.5s11.888-26.5,26.5-26.5c14.612,0,26.5,11.888,26.5,26.5S163.112,241,148.5,241z
+                         "/>
+                 </g>
+                 
+                 </svg>
+                  </span>
+                  <label>RELIGION</label>
+                  <span class="info-det">
+                      
+                      {{info.religion}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info4.png" alt="info" />
+                  </span>
+                  <label>CASTE</label>
+                  <span class="info-det">{{info.caste}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info5.png" alt="info" />
+                  </span>
+                  <label>EDUCATION</label>
+                  <span class="info-det">{{info.education.name}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info6.png" alt="info" />
+                  </span>
+                  <label>PROFESSION</label>
+                  <span class="info-det">{{info.profession}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info7.png" alt="info" />
+                  </span>
+                  <label>INCOME</label>
+                  <span class="info-det">
+                      {{filterRupees(info.income)|currency:"INR":'symbol':'4.0-0'}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info8.png" alt="info" />
+                  </span>
+                  <label>ASSETS</label>
+                  <span class="info-det">
+                     <!-- <i class="fas fa-rupee-sign"></i>-->{{filterRupees(info.assets)|currency:"INR":'symbol':'4.0-0'}}Cr</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info9.png" alt="info" />
+                  </span>
+                  <label>LIABILITIES</label>
+                  <span class="info-det">
+                     <!-- <i class="fas fa-rupee-sign"></i>-->{{filterRupees(info.liabilities)|currency:"INR":'symbol':'4.0-0'}}</span>
+              </li>
+              <li>
+                  <span class="info-list-icon">
+                      <img src="assets/images/info10.png" alt="info" />
+                  </span>
+                  <label>CRIMINAL CASES</label>
+                  <span class="info-det">{{info.criminal_cases}}</span>
+              </li>
+          </ul>
+      </div>
+      <div class="panel-footer">
+          <a href="javascript:void(0)" class="more-det">VIEW MORE
+              <i class="fas fa-chevron-right"></i>
+          </a>
+      </div>
+
+  </div>
+</div>
+<div class="leader-profile-block">
+  <h2>Popularity Trend</h2>
+  <div class="panel cust-panel">
+      <div class="panel-body">
+          <img src="assets/images/graph1.png" class="graph" alt="graph">
+         
+      </div>
+
+  </div>
+</div>
+<div class="leader-profile-block">
+  <h2>Info</h2>
+  <div class="panel cust-panel extra-padding">
+      <div class="panel-body ">
+          <div class="video-panel video">
+              <div class="video-part">
+                  <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
+                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+              <div class="video-part-info">
+                  <h5>Video</h5>
+                  <p>In the tumultuous business of cutting-in and attending to a whale</p>
+                  <span class="news-date">20 January, 2017</span>
+              </div>
+          </div>
+          <div class="video-panel audio">
+              <div class="video-part">
+                  <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
+                      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+              <div class="video-part-info">
+                  <h5>Audio</h5>
+                  <p>In the tumultuous business of cutting-in and attending to a whale</p>
+                  <span class="news-date">20 January, 2017</span>
+              </div>
+          </div>
+      </div>
+      <div class="panel-footer">
+          <a href="javascript:void(0)" class="more-det">VIEW MORE
+              <i class="fas fa-chevron-right"></i>
+          </a>
+      </div>
+
+  </div>
+</div>

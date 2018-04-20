@@ -14,11 +14,12 @@ declare var jQuery: any;
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   tab: any = {
-    About: true,
-    Manifesto: false,
-    History: false,
-    Feed: false,
+    about: true,
+    activity: false,
+    my_issues: false,
+    score_log: false,
   };
+  isVoted=false;
 
   c_profile: Profile
   CANDIDATE_ID = "ce9d1130-b765-4e1b-a65b-f3cc23283db0";
@@ -38,13 +39,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private cloudnaryService: CloudnaryService,
-    private cookie: CookieService) {
-}
+    private cookie: CookieService) { 
+      this.cloudNaryUrl = this.cloudnaryService.cloudnaryUrl;
+    }
 
 
   ngOnInit() {
 
-    this.cloudNaryUrl = this.cloudnaryService.cloudnaryUrl;
+    
     this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
     this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
     // this.start();
@@ -53,13 +55,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
   start() {
-   // console.log("hello==========>>>");
+    // console.log("hello==========>>>");
     this.loading = true;
     this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
     this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
     this.subs = this.leaderProfile.getCanditateProfile(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(resp => {
-     //   console.log('===>>', resp);
+        //   console.log('===>>', resp);
         this.c_profile = resp.data;
         this.contact_info = this.c_profile.contact_info;
         this.party_info = this.c_profile.party_and_support_info;
@@ -73,6 +75,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.leader_history = [...res['data']];
       });
+
+
 
 
     jQuery('.my-toggle ').click(function () {
@@ -91,6 +95,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
 
+  onVoted(){
+    this.c_profile.party_and_support_info.candidate_vote_count+=1;
+    this.c_profile.party_and_support_info.vote_percentage+=1;
+    
+    this.isVoted=true;
+
+  }
 
 
   filterRupees(rupee) {
@@ -102,9 +113,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
     for (const key in this.tab) {
       if (this.tab.hasOwnProperty(key))
         this.tab[key] = false;
-
     }
     this.tab[type] = true;
+    console.log("this is my tab",this.tab)
   }
 
   ngOnDestroy() {

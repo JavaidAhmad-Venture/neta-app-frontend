@@ -1,5 +1,5 @@
 
-<section class="cover-pic" style="background-image:url('assets/images/bg.png')"></section>
+<section class="cover-pic" style="background-image:url('assets/images/bg.png')"></section>  
 <section>
     <div class="upper-tab-section inner-tab">
         <div class="container main-container">
@@ -13,16 +13,16 @@
                 <div class="col-md-9 col-sm-9 col-lg-9">
                     <ul class="nav nav-tabs nav-justified profile-tab">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#About" role="tab">About</a>
+                            <a class="nav-link" [class.active]="tab.about" data-toggle="tab" role="tab"  href="" (click)="switchTab('about')">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab"  href="#Feed" role="tab">Feed</a>
+                            <a class="nav-link" [class.active]="tab.activity" data-toggle="tab" role="tab"  href=""(click)="switchTab('activity')">Activity</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#History" role="tab">History</a>
+                            <a class="nav-link" [class.active]="tab.my_issues" data-toggle="tab" role="tab"  href="" (click)="switchTab('my_issues')">My Issues</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#Manifesto" role="tab">Manifesto</a>
+                            <a class="nav-link" [class.active]="tab.score_log" data-toggle="tab" role="tab" href="" (click)="switchTab('score_log')">Score Log</a>
                         </li>
                     </ul>
                 </div>
@@ -54,11 +54,11 @@
                                     <i class="fas fa-briefcase"></i>
                                 </span>Finance Minister of Punjab</li>
                         </ul>
-                        <div class="stat-data">
-                            <div class="voste-stat">
+                        <div class="stat-data" >
+                            <div class="voste-stat" *ngIf="!isVoted">
                                 <span>
                                     <img src="assets/images/vote1.png">VOTES</span>
-                                    <h6>{{party_info.candidate_vote_count}},
+                                    <h6>{{party_info.candidate_vote_count}}
                                         <span>({{party_info.vote_percentage|number:'1.2-2'}}%)</span>
                                         <span class="up-icons">
                                                 <i class="fas fa-arrow-up"></i>
@@ -66,12 +66,25 @@
                                    
                                    
                             </div>
-                            <!-- <div class="voste-stat rank">
-                                    <span>Rank</span>//not used yet may be in future
-                                        <h6>#2 </h6>  
-                                </div> -->
+                            <div class="after-vote" *ngIf="isVoted">
+                                <div class="stat-data">
+                                        <div class="voste-stat">
+                                            <span> <i class="material-icons">star</i>Score</span>
+                                            <h6>{{party_info.candidate_vote_count}}</h6>
+        
+        
+                                        </div>
+                                        <div class="voste-stat rank">
+                                            <span><i class="material-icons">equalizer</i> Rank</span>
+                                            <h6><span>4</span>
+                                                <span class="up-icons">
+                                                    <i class="fas fa-arrow-up"></i>
+                                                </span>#2 </h6>
+                                        </div>
+                                    </div>
                         </div>
-                        <button type="button" class="btn issue-btn">Vote Now</button>
+                        </div>
+                        <button type="button" *ngIf="!isVoted" class="btn issue-btn" (click)="onVoted()">Vote Now</button>
                     </div>
 
                     <contact-info [ContactInfo]="contact_info"></contact-info> <!--passed contact info to contact-info component -->
@@ -83,193 +96,56 @@
 
                 <div class="tab-content card tab-content-section">
                     <!--.Panel 1-->
+
+                    <!-- card -->
+                    <!--<div class="profile-block mrbtm0 be-citi">
+                        <span class="cross">
+                            <i class="material-icons">clear</i>
+                        </span>
+                        <div class="profile-block-body">
+                         
+                            <div class="user-content">
+                                <h4>Become a Star Citizen Today</h4>
+                                <p>I have hinted that I would often jerk poor Queequeg from bet</p>
+                                
+                            </div>
+                            <div class="user-img pull-right">
+                                    <img src="images/citi2.png" alt="user">
+                                </div>
+                        </div>
+                        <div class="profile-block-footer">
+                            <a href="javascript:void(0)" class="more-det"> LEARN MORE
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>-->
+
+                    <!-- <<<<<< -->
                     <loader *ngIf="loading"></loader>
-                    <div class="tab-pane fade in show active" id="About" role="tabpanel">
-                        <div class="leader-profile-block" *ngIf="info">
-                            <h2>Info</h2>
-                            <div class="panel cust-panel extra-padding">
-                                <div class="panel-body ">
-                                    <ul class="leader-info-list">
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info1.png" alt="info" />
-                                            </span>
-                                            <label>Age</label>
-                                            <span class="info-det">{{info.age}}YRS</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info2.png" alt="info" />
-                                            </span>
-                                            <label>Gender</label>
-                                            <span class="info-det">{{info.gender||"Male"}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <!-- <img src="assets/images/info3.png" alt="info" /> -->
-                                                <svg version="1.1" id="Capa_1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve">
-                                           <path style="fill:#745df1" d="M148.5,0C66.617,0,0,66.617,0,148.5S66.617,297,148.5,297c0.008,0,0.016,0,0.02,0c0.002,0,0.004,0,0.007,0
-                                               C230.397,296.984,297,230.374,297,148.5C297,66.617,230.383,0,148.5,0z M148.501,51.766c15.281,0,27.713,12.432,27.713,27.713
-                                               c0,15.281-12.432,27.713-27.713,27.713c-15.281,0-27.713-12.432-27.713-27.713C120.788,64.197,133.22,51.766,148.501,51.766z
-                                                M148.5,276.084c-32.292,0-58.563-26.271-58.563-58.563c0-32.293,26.271-58.564,58.563-58.564c43.824,0,79.479-35.654,79.479-79.479
-                                               c0-13.588-3.434-26.386-9.469-37.583c34.654,22.834,57.575,62.09,57.575,106.604C276.085,218.851,218.851,276.084,148.5,276.084z"/>
-                                           <g>
-                                               <path  style="fill:#745df1" d="M148.5,241c-14.612,0-26.5-11.888-26.5-26.5s11.888-26.5,26.5-26.5c14.612,0,26.5,11.888,26.5,26.5S163.112,241,148.5,241z
-                                                   "/>
-                                           </g>
-                                           
-                                           </svg>
-                                            </span>
-                                            <label>RELIGION</label>
-                                            <span class="info-det">
-                                                
-                                                {{info.religion}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info4.png" alt="info" />
-                                            </span>
-                                            <label>CASTE</label>
-                                            <span class="info-det">{{info.caste}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info5.png" alt="info" />
-                                            </span>
-                                            <label>EDUCATION</label>
-                                            <span class="info-det">{{info.education.name}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info6.png" alt="info" />
-                                            </span>
-                                            <label>PROFESSION</label>
-                                            <span class="info-det">{{info.profession}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info7.png" alt="info" />
-                                            </span>
-                                            <label>INCOME</label>
-                                            <span class="info-det">
-                                                {{filterRupees(info.income)|currency:"INR":'symbol':'4.0-0'}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info8.png" alt="info" />
-                                            </span>
-                                            <label>ASSETS</label>
-                                            <span class="info-det">
-                                               <!-- <i class="fas fa-rupee-sign"></i>-->{{filterRupees(info.assets)|currency:"INR":'symbol':'4.0-0'}}Cr</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info9.png" alt="info" />
-                                            </span>
-                                            <label>LIABILITIES</label>
-                                            <span class="info-det">
-                                               <!-- <i class="fas fa-rupee-sign"></i>-->{{filterRupees(info.liabilities)|currency:"INR":'symbol':'4.0-0'}}</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info10.png" alt="info" />
-                                            </span>
-                                            <label>CRIMINAL CASES</label>
-                                            <span class="info-det">{{info.criminal_cases}}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="javascript:void(0)" class="more-det">VIEW MORE
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="leader-profile-block">
-                            <h2>Popularity Trend</h2>
-                            <div class="panel cust-panel">
-                                <div class="panel-body">
-                                    <img src="assets/images/graph1.png" class="graph" alt="graph">
-                                   
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="leader-profile-block">
-                            <h2>Info</h2>
-                            <div class="panel cust-panel extra-padding">
-                                <div class="panel-body ">
-                                    <div class="video-panel video">
-                                        <div class="video-part">
-                                            <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
-                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                        </div>
-                                        <div class="video-part-info">
-                                            <h5>Video</h5>
-                                            <p>In the tumultuous business of cutting-in and attending to a whale</p>
-                                            <span class="news-date">20 January, 2017</span>
-                                        </div>
-                                    </div>
-                                    <div class="video-panel audio">
-                                        <div class="video-part">
-                                            <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
-                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                        </div>
-                                        <div class="video-part-info">
-                                            <h5>Audio</h5>
-                                            <p>In the tumultuous business of cutting-in and attending to a whale</p>
-                                            <span class="news-date">20 January, 2017</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="javascript:void(0)" class="more-det">VIEW MORE
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-
+                    <div class="tab-pane fade in show active" *ngIf="tab.about && info" [class.active]="tab.about" role="tabpanel">
+                      <about [Info]="info"></about>
                     </div>
                     <!--/.Panel 1-->
                     <!--.Panel 2-->
-                    <div class="tab-pane fade" id="Feed" role="tabpanel">
-                                <h6>The leader has not joined the Neta app yet.You can contact him to join by contacting the leader </h6>
-                    </div>
-                    <div class="tab-pane fade" id="History" role="tabpanel">
-                        <table class="table table-hover table-striped table-sm">
-                            <thead>
-                            <tr><th>YEAR</th><th>CONSTITUENCY</th><th>ELECTION</th><th>PARTY</th><th>RANK</th></tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let lh of leader_history">
-                                <td>{{lh.year}}</td>
-                                <td>{{lh.constituency}}</td>
-                                <td>{{lh.election}}</td>
-                                <td>{{lh.party_abbreviation}}</td>
-                                <td>{{lh.result}}</td>
-                            </tr>
-                             
-                        </tbody>
-                        </table>
+                    <div class="tab-pane fade in show active" *ngIf="tab.activity" [class.active]="tab.activity" role="tabpanel">
+                                
+                        <activity></activity>
 
                     </div>
-                    <!--/.Panel 2-->
-                    <!--Panel 3-->
-                    <div class="tab-pane fade" id="Manifesto" role="tabpanel">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                            to make a type specimen book. It has survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                            desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
+                    <!-- panel 2 -->
+                    <!-- panel 3 -->
+                    <div class="tab-pane fade in show active" *ngIf="tab.my_issues" [class.active]="tab.my_issues" role="tabpanel">
+                      <my-issues></my-issues>
+
                     </div>
+                    <!--/.Panel 3-->
+                    <!--Panel 4-->
+                    <div class="tab-pane fade" *ngIf="tab.score_log" [class.active]="tab.score_log" role="tabpanel">
+                        <score-log></score-log>
+                    </div>
+                    <!-- panel -->
                 </div>
             </div>
             <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">

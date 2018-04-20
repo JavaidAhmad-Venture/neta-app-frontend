@@ -31,35 +31,23 @@ private con_id="";
   }
 
   getCanditateProfile(CANDIDATE_ID, CONSTITUENCY_ID){
-  
-    return this._http.get(this._url + "/candidates/" + CANDIDATE_ID + "/?constituency_id=" + CONSTITUENCY_ID,this.httpOptions)
+      return this._http.get(this._url + "/candidates/" + CANDIDATE_ID + "/?constituency_id=" + CONSTITUENCY_ID,this.httpOptions)
       .map(res => JSON.parse(JSON.stringify(res)));
   }
 
   navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,name="auqib") {
     this.paramsService.createCookie("c_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
-    //this.paramsService.createCookie("label", label, null, null);
-    console.log("shivam",CANDIDATE_ID);
-    //const url: string = this.route.snapshot.url.join('');
-    //console.log("shivam",url);
-    //////////////////
-   // if(this.route.snapshot.params['name']!==name){
-  //  window.location.reload(true);/////////////////////
-    //////////
-  //}
     this.router.navigate(['profile',name])
     
   }
  
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {
     return this._http.get(this._url + "/candidates/" + CANDIDATE_ID + "/candidatures?constituency_id=" + CONSTITUENCY_ID,this.httpOptions)
-      //.map(res => res);
   }
 
   getCandidatesManifesto(CANDIDATURE_ID,CONSTITUENCY_ID){
    return this._http.get(this._url+"/candidatures/"+CANDIDATURE_ID+"/manifesto?constituency_id"+CONSTITUENCY_ID);
-
   }
 
 }

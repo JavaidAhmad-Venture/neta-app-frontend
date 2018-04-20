@@ -14,6 +14,10 @@ import { SidebarComponent } from './toolbars/sidebar/sidebar.component';
 import { LocationDetectorComponent } from './components/voting-booth/location-detector/location-detector.component';
 import { ContactInfoComponent } from './components/profile/contact-info/contact-info.component';
 import {FormsModule}from '@angular/forms';
+import { ActivityComponent } from './components/profile/activity/activity.component';
+import { MyIssuesComponent } from './components/profile/my-issues/my-issues.component';
+import { ScoreLogComponent } from './components/profile/score-log/score-log.component';
+import { AboutComponent } from './components/profile/about/about.component';
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import {FormsModule}from '@angular/forms';
     StarCitizensComponent,
     LocationDetectorComponent,
     ContactInfoComponent,
+    ActivityComponent,
+    MyIssuesComponent,
+    ScoreLogComponent,
+    AboutComponent,
   ]
 })
 export class SiteModule { }
