@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   contact_info: ContactInfo;
   party_info: PartySupportInfo;
   leader_history: LeaderHistroy[];
-  loading = false; //renders loader;
+  loading = true; //renders loader;
   subs: Subscription;
   subs1: Subscription;
   constructor(
@@ -67,8 +67,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
         this.CANDIDATURE_ID = this.party_info.candidature.candidature_id;
-        this.loading = false;
-      });
+        if(this.c_profile){
+          this.loading = false;
+        }
+      })
+    
 
 
     this.leaderProfile.getCandidatesCandidatures(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
@@ -77,22 +80,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       });
 
 
-
-
-    jQuery('.my-toggle ').click(function () {
-      jQuery(this).toggleClass('open');
-      jQuery('body').toggleClass('open');
-    });
-    jQuery('button.search-btn').click(function () {
-      jQuery('header').toggleClass('open');
-    });
-    jQuery(window).scroll(function () {
-      if (jQuery(window).scrollTop() >= 30) {
-        jQuery('header').addClass('fixed');
-      } else {
-        jQuery('header').removeClass('fixed');
-      }
-    });
+   
   }
 
   onVoted(){

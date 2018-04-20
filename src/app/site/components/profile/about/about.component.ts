@@ -11,5 +11,9 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
   }
+  filterRupees(rupee) {
+    let r = rupee.split(" ");
+    return +r[1];
+  }
 
 }

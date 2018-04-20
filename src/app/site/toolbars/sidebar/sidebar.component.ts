@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit{
   response:any={};
   cUrl: string = '';
   constituency_id: string = '875189f9-3bba-4667-9109-dff1dd4a23ae';
+  loading: boolean = true;
 
 
   constructor(
@@ -33,10 +34,9 @@ export class SidebarComponent implements OnInit{
     this.fetchPopularPeople();
   }
 
-  onProfileView(id) {
-    console.log('hello:',id);
-    console.log('hello:',this.constituency_id);
-    this.profileService.navigateCandidate(id, this.constituency_id,'shivam');
+  onProfileView(candidate_id,candidate_name) {
+    console.log('Loading :' + candidate_name);
+    this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);
   }
 
   fetchPopularPeople(){
@@ -52,6 +52,7 @@ export class SidebarComponent implements OnInit{
           this.topSixInfluencers.push(influencer);
           count++;
         }
+        if(this.response) this.loading = false;
       })
       console.log('top 6:',this.topSixInfluencers);
     })

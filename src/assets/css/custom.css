@@ -939,6 +939,136 @@ span.img-icon img{  width: 100%;
 .video-sec img{width: 100%;}
 .video-sec iframe{width: 100% !important;}
 .leader-profile-pic img{width: 100%}
+
+/* Developers style  */
+.imageStyle{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.emptyAnchor{
+    cursor: pointer;
+    color: #f07b42;
+}
+.btn-primary1{
+    background: transparent;
+    color: white;
+    border: 0;
+    padding: 0;
+}
+
+/* loader */
+.loader-voting{
+    margin-top: 15%;
+}
+.loader-sidebar{
+    margin-top: 9%;
+}
+.loader-profile{
+    margin-top: 10%;
+}
+.loader{
+   
+    position: relative;
+    float: left;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.loader-circle {
+    position: fixed;
+    background: #fff;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+span.info-list-icon svg {
+    height: 20px;
+}
+@keyframes lds-double-ring {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes lds-double-ring {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes lds-double-ring_reverse {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+  }
+  @-webkit-keyframes lds-double-ring_reverse {
+    0% {
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+  }
+  .lds-double-ring {
+    position: relative;
+  }
+  .lds-double-ring div {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    border: 8px solid #000;
+    border-color: #007bff transparent #007bff transparent;
+    -webkit-animation: lds-double-ring 2s linear infinite;
+    animation: lds-double-ring 2s linear infinite;
+  }
+  .lds-double-ring div:nth-child(2) {
+    width: 140px;
+    height: 140px;
+    top: 30px;
+    left: 30px;
+    border-color: transparent #cccccc transparent #cccccc;
+    -webkit-animation: lds-double-ring_reverse 2s linear infinite;
+    animation: lds-double-ring_reverse 2s linear infinite;
+  }
+  .lds-double-ring {
+    width: 101px !important;
+    height: 101px !important;
+    -webkit-transform: translate(-50.5px, -50.5px) scale(0.505) translate(50.5px, 50.5px);
+    transform: translate(-50.5px, -50.5px) scale(0.505) translate(50.5px, 50.5px);
+  }
+.small-loader{
+    position: absolute;
+    margin-left: 189px;
+}
+
+
+/* start citizins page */
+
 section.citizens {
     float: left;
     width: 100%;

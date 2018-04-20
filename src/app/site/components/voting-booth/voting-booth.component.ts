@@ -52,10 +52,10 @@ export class VotingBoothComponent implements OnInit {
     })
   }
 
-  onProfileView(id) {
-    console.log('hello:' + id);
+  onProfileView(candidate_id,candidate_name) {
+    console.log('Loading:' + candidate_name);
 
-    this.profileService.navigateCandidate(id, this.constituency_id);
+    this.profileService.navigateCandidate(candidate_id, this.constituency_id,candidate_name);
   }
   //added by auqib
   selectedId(ids){

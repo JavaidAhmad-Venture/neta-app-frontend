@@ -18,7 +18,7 @@
     <div class="row custom-row">
       <div class="co-md-9 col-lg-9 col-xs-12 col-sm-12">
         <div class="tab-content card tab-content-section">
-          <loader *ngIf="loading"></loader>
+          <div class="loader-voting" *ngIf="loading" ><loader ></loader></div>
          
           <!--.Panel 1-->
           <div *ngIf="tab.mla_candidates && candidates" [class.active]="tab.mla_candidates" class="tab-pane fade in show active" id="Categories"
@@ -47,13 +47,13 @@
               <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
                 <span class="candidate-pic">
                   <span class="candidate-party">
-                    <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                   </span>
-                  <img src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
+                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
 
 
@@ -105,16 +105,16 @@
               </div>
             </div>
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
-              <li *ngFor="let candidate of candidates ">
+              <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
                 <span class="candidate-pic">
                   <span class="candidate-party">
-                    <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                   </span>
-                  <img src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
+                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
                 <div class="voste-stat">
                   <span>
@@ -133,9 +133,9 @@
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div class="progress-bar">
-                  <div class="progress"></div>
-                </div>
+                <div  *ngIf="isVoted" class="progress-bar">
+                    <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
+                  </div>
               </li>
 
 
@@ -164,16 +164,16 @@
               </div>
             </div>
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
-              <li *ngFor="let candidate of candidates ">
+              <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
                 <span class="candidate-pic">
                   <span class="candidate-party">
-                    <img src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                   </span>
-                  <img src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
+                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
                 <div class="voste-stat">
                   <span>
@@ -192,9 +192,9 @@
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div class="progress-bar">
-                  <div class="progress"></div>
-                </div>
+                <div  *ngIf="isVoted" class="progress-bar">
+                    <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
+                  </div>
               </li>
 
 
@@ -231,7 +231,6 @@
               </div>
              <sidebar></sidebar>
           </aside>
-
       </div>
       <!--/.Panel 3-->
     </div>
