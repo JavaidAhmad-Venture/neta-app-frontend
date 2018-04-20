@@ -14,15 +14,15 @@ declare var jQuery: any;
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   tab: any = {
-		About: true,
-		Manifesto: false,
+    About: true,
+    Manifesto: false,
     History: false,
     Feed: false,
   };
 
   c_profile: Profile
   CANDIDATE_ID = "ce9d1130-b765-4e1b-a65b-f3cc23283db0";
-  CANDIDATURE_ID ="";
+  CANDIDATURE_ID = "";
   CONSTITUENCY_ID = "52d40fe8-1490-421e-9dbe-08b2c13fb251";
 
   cloudNaryUrl: string = '';
@@ -32,58 +32,53 @@ export class ProfileComponent implements OnInit, OnDestroy {
   leader_history: LeaderHistroy[];
   loading = true; //renders loader;
   subs: Subscription;
+  subs1: Subscription;
   constructor(
     private leaderProfile: CandidateProfileService,
     private router: Router,
+    private route: ActivatedRoute,
     private cloudnaryService: CloudnaryService,
     private cookie: CookieService) {
-
-    this.cloudNaryUrl = cloudnaryService.cloudnaryUrl;
-    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
-    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
   }
 
 
   ngOnInit() {
-    
+
+    this.cloudNaryUrl = this.cloudnaryService.cloudnaryUrl;
+    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
+    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
+    // this.start();
+    this.subs1 = this.route.params.subscribe(params => {
+      this.start();
+    });
+  }
+  start() {
+    // console.log("hello==========>>>");
+    this.loading = true;
+    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
+    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
     this.subs = this.leaderProfile.getCanditateProfile(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(resp => {
-        // console.log("Profile", resp);
-
+        //   console.log('===>>', resp);
         this.c_profile = resp.data;
-
-        // console.log("THIS IS HTTP CLIENT TEST",this.c_profile.contact_info);
         this.contact_info = this.c_profile.contact_info;
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
-        // console.log("Contact_info", this.party_info);
-        this.CANDIDATURE_ID=this.party_info.candidature.candidature_id;
-        this.loading = false;
-        // console.log("THIS IS data ",this.c_profile);
-      });
+        this.CANDIDATURE_ID = this.party_info.candidature.candidature_id;
+        if(this.c_profile){
+          this.loading = false;
+        }
+      })
+    
 
 
     this.leaderProfile.getCandidatesCandidatures(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(res => {
-        // console.log("Auqib this is what 0", {...res});
         this.leader_history = [...res['data']];
       });
 
 
-    jQuery('.my-toggle ').click(function () {
-      jQuery(this).toggleClass('open');
-      jQuery('body').toggleClass('open');
-    });
-    jQuery('button.search-btn').click(function () {
-      jQuery('header').toggleClass('open');
-    });
-    jQuery(window).scroll(function () {
-      if (jQuery(window).scrollTop() >= 30) {
-        jQuery('header').addClass('fixed');
-      } else {
-        jQuery('header').removeClass('fixed');
-      }
-    });
+   
   }
 
 
@@ -94,15 +89,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   switchTab(type) {
-		for (const key in this.tab) {
-			if (this.tab.hasOwnProperty(key))  
-				this.tab[key] = false;
-  
-      }
-      this.tab[type] = true;
+    for (const key in this.tab) {
+      if (this.tab.hasOwnProperty(key))
+        this.tab[key] = false;
+
+    }
+    this.tab[type] = true;
   }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+    this.subs1.unsubscribe();
   }
 }

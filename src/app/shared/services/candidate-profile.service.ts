@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { BaseService } from './base.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from './cookie.service';
 import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
 import { Profile } from '../models/profilemodel';
@@ -24,7 +24,8 @@ private con_id="";
   constructor(
     private _http:HttpClient,
     private router: Router,
-    private paramsService: CookieService
+    private paramsService: CookieService,
+    private route:ActivatedRoute
   ) {
     super();
   }
@@ -35,12 +36,20 @@ private con_id="";
       .map(res => JSON.parse(JSON.stringify(res)));
   }
 
-  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,label=null) {
+  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,name="auqib") {
     this.paramsService.createCookie("c_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
-    this.paramsService.createCookie("label", label, null, null);
+    //this.paramsService.createCookie("label", label, null, null);
+    console.log("shivam",CANDIDATE_ID);
+    //const url: string = this.route.snapshot.url.join('');
+    //console.log("shivam",url);
+    //////////////////
+   // if(this.route.snapshot.params['name']!==name){
+  //  window.location.reload(true);/////////////////////
+    //////////
+  //}
+    this.router.navigate(['profile',name])
     
-    this.router.navigate(['/profile']);
   }
  
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {

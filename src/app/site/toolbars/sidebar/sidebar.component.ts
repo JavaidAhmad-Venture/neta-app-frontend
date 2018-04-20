@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit{
   response:any={};
   cUrl: string = '';
   constituency_id: string = '875189f9-3bba-4667-9109-dff1dd4a23ae';
+  loading: boolean = true;
 
 
   constructor(
@@ -51,6 +52,7 @@ export class SidebarComponent implements OnInit{
           this.topSixInfluencers.push(influencer);
           count++;
         }
+        if(this.response) this.loading = false;
       })
       console.log('top 6:',this.topSixInfluencers);
     })

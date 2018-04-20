@@ -10,7 +10,7 @@
 
 
         <!-- The Modal -->
-        <div class="modal fade neta-modal" id="welcome-back">
+        <div class="modal fade neta-modal visible-sm-block hidden-sm" id="welcome-back">
           <div class="modal-dialog">
             <div class="modal-content">
 
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col">
                       <div class="field-title">Constituency</div>
-                      <select class="demo-default select-beast"  [(ngModel)]="assembly" name="asmbly">
+                      <select class="demo-default select-beast"  [(ngModel)]="assembly" (ngModelChange)=" onChangeAssembly($event)" name="asmbly">
               
                         <option *ngFor="let a of assemblies" [ngValue]="a" [selected]="a.name === selectedCons">{{a.name}}</option>
 
