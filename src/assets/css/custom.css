@@ -569,6 +569,8 @@ span.lead-info-icons {
     width: 30px;
     height: 30px;
     position: absolute;
+    overflow: hidden;
+    /* //auqib */
     left: 0;
     border: 1px solid var(--main-color);
     display: flex;

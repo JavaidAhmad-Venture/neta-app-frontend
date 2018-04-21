@@ -36,9 +36,9 @@ private con_id="";
   }
 
   navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID,name="auqib") {
-    this.paramsService.createCookie("c_id", CANDIDATE_ID, null, null);
-    this.paramsService.createCookie("con_id", CONSTITUENCY_ID, null, null);
-    this.router.navigate(['profile',name])
+    this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
+    this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
+    this.router.navigate(['candidate',name])
     
   }
  
