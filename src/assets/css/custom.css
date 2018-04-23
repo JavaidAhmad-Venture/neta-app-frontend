@@ -228,10 +228,10 @@ ul.profile-menu li a:focus,ul.profile-menu li a:hover{background-color:rgba(0,0,
 ul.profile-menu li a span.badges{position:absolute;background:#FF3125;width:16px;height:16px;border-radius:50%;display:flex;line-height:1;font-size:9px;align-items:center;justify-content:center;right:-7px;top:0}
 ul.profile-menu li.profile a{border:1px solid #fff;overflow:hidden}
 ul.profile-menu li.profile a img{width:100%;height:100%}
-.navbar-toggle{position:relative;float:left;padding:9px 0px;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:11px 10px 0 0px}
+.navbar-toggle{position:relative;float:left;padding:0px 0px;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:11px 10px 0 0px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.navbar-toggle .icon-bar{display:block;width:25px;height:3px;border-radius:50px;transition:all .5s ease 0s}
-.navbar-toggle .icon-bar+.icon-bar{margin-top:5px}
+.navbar-toggle .icon-bar{display:block;width:20px;height:2px;border-radius:50px;transition:all .5s ease 0s}
+.navbar-toggle .icon-bar+.icon-bar{margin-top:4px}
 .icon-bar{background-color:#fff!important;display:block!important}
 .navbar-toggle.open .icon-bar.lin1{position:relative;top:8px;transform:rotate(45deg);transition:all .5s ease 0s}
 .navbar-toggle.open .icon-bar.lin2{display:none!important;transition:all .5s ease 0s}
@@ -1326,3 +1326,57 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
 
 
 .hide{ display: none!important;}
+ul.mobiie-navigation {
+    float: left;
+    padding: 15px 0;
+    margin: 0;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 250px;
+    display: none;
+    margin-left: -250px;
+    z-index: 110;
+    transition: margin 0.5s;
+}
+
+ul.mobiie-navigation li {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+ul.mobiie-navigation li a {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+
+
+ul.mobiie-navigation li a {
+    float: left;
+    width: 100%;
+    list-style: none;
+    /* position: relative; */
+    font-size: 12px;
+    padding: 8px 20px;
+    overflow: hidden;
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+
+ul.mobiie-navigation li a span {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: var(--main-color);
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 10px;
+}
