@@ -40,7 +40,7 @@ export class LocationDetectorComponent implements OnInit {
 
     let curParliament = this.findObjectByKey(address.parliament, 'id', address.selected.parliamentary_id);
     let curConstituency = this.findObjectByKey(curParliament.assembly, 'id', address.selected.assembly_id);
-    console.log(curParliament);
+    console.log("helllo",curParliament);
 
 
     this.selectedState = address.name;

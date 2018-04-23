@@ -8,9 +8,9 @@
         <li class="nav-item">
           <a class="nav-link" [class.active]="tab.mp_candidates" data-toggle="tab" role="tab" (click)="switchTab('mp_candidates')">MP Candidates</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" [class.active]="tab.local_bodies" data-toggle="tab" role="tab" (click)="switchTab('local_bodies')">Local Bodies</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -82,9 +82,12 @@
               </li>
             </ul>
           </div>
-
+          <div *ngIf="tab.mla_candidate && !candidates" [class.active]="tab.mla_candidates" class="tab-pane fade in show active" id="Categories"
+          role="tabpanel">
+          No candidates to show
+          </div>
           <!--.Panel 2-->
-          <div *ngIf="tab.mp_candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
+          <div *ngIf="tab.mp_candidates && candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
                 <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>              
@@ -141,9 +144,13 @@
 
             </ul>
           </div>
+          <div *ngIf="tab.mp_candidates && !candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
+          no Candidate to show 
+          </div>
 
-          <!--.Panel 3-->
-          <div *ngIf="tab.local_bodies" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
+          <!--.Panel 3    hidden-->
+        
+          <div *ngIf="false" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
                 <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>
