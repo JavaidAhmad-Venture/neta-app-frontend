@@ -22,7 +22,7 @@
     .panel.cust-panel .panel-footer a.more-det{ font-size:12px; font-weight:500;}
     img.graph{ height: auto;}
     .statistics-block.custom-block{ margin: 0;}
-    .leader-profile-pic{width: 120px;height: 120px;}
+ 
     ul.nav.nav-tabs.nav-justified.profile-tab {
     text-align: center;
     }
@@ -40,7 +40,7 @@
     .poll-option input[type="radio"] +label {min-height: 60px;font-size: 14px;line-height: 16px;}
     
     button.signup.btn{margin-left: 15px}
-    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 14px;padding: 0 8px;}
+    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 13px;padding: 0 11px; font-weight: 500;}
     .panel.cust-panel {height: auto;margin-bottom: 20px;}
     button.search-btn i {font-size: 24px;}
     header{    transition:  0.5s;}
@@ -153,6 +153,21 @@
    }
    
    .poll-cont{font-size: 12px; padding-right: 40px;padding-left: 25px; text-align: left}
+
+   /* profile responsive */
+   .rs-np{ padding:0 !important}
+   .rs-show{ display: block !important;}
+   .rs-hide{ display: none !important;}
+   .rs-statdata-outer{ float: left; width:100%; background: #fff; padding:0 5px;}
+   .upper-tab-section{height: auto;}
+   .stat-data { margin: 10px 0; margin-bottom: 0;}
+   section.cover-pic{background: none !important; background-color:#e2e2e2 !important; height: 160px; }
+   .leader-profile-pic{width: 80px;height: 80px; margin-top:-91px;}
+   .stat-data .voste-stat i{font-size: 13px;
+    line-height: 15px;
+    vertical-align: bottom;
+    padding-right: 2px;}
+
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
