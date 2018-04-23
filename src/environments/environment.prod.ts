@@ -9,5 +9,7 @@ export const environment = {
   QB_AUTH_KEY: "sM7EW2rPwr7Ynkd",
   QB_AUTH_SECRET: "5cNb26pXXe5pyh9",
   QB_ADMIN_ID: 33320220,
-  ADMIN_ID: "59e0597aab932609407eaf14"
+  ADMIN_ID: "59e0597aab932609407eaf14",
+  DEFAULT_DISTRICT_ID:"",
+  DEFAULT_ASSEMLY_ID:"",
 };
