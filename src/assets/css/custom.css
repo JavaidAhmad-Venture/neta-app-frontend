@@ -1065,7 +1065,7 @@ span.info-list-icon svg {
   }
 .small-loader{
     position: absolute;
-    margin-left: 189px;
+    margin-left: 42%;
 }
 
 
@@ -1323,6 +1323,5 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
         .location-detctor    .selectize-input.dropdown-active{border-radius: 5px 5px 0px 0px;box-shadow: none}
         .location-detctor    .selectize-input.focus{box-shadow: none}
         .location-detctor    .selectize-input .item{color: var(--main-color)}
-
 
 
