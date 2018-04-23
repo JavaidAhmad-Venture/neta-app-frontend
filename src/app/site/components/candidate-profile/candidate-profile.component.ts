@@ -55,18 +55,20 @@ export class CandidateProfileComponent implements OnInit {
     });
   }
   start() {
-    // console.log("hello==========>>>");
+     console.log("hello==========>>>");
     this.loading = true;
-    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("c_id"));
-    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("con_id"));
+    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
+    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
+    console.log("candidate_id",this.CANDIDATE_ID)
     this.subs = this.leaderProfile.getCanditateProfile(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(resp => {
-        //   console.log('===>>', resp);
+        console.log('===>>', resp);
         this.c_profile = resp.data;
         this.contact_info = this.c_profile.contact_info;
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
         this.CANDIDATURE_ID = this.party_info.candidature.candidature_id;
+        console.log("profile",this.c_profile);
         if(this.c_profile){
           this.loading = false;
         }

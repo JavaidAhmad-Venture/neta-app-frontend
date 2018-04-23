@@ -28,7 +28,7 @@ export const SITE_ROUTES: Routes = [
 				path: 'star-citizens', component:StarCitizensComponent
 			},
 			{
-				path: 'candidate/:name', component:CandidateProfileComponent
+				path: 'candidate/:candidate', component:CandidateProfileComponent
 			},
 			{
 				path: 'profile',component:UserProfileComponent
