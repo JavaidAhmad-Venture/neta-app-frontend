@@ -22,7 +22,7 @@
     .panel.cust-panel .panel-footer a.more-det{ font-size:12px; font-weight:500;}
     img.graph{ height: auto;}
     .statistics-block.custom-block{ margin: 0;}
-    .leader-profile-pic{width: 120px;height: 120px;}
+ 
     ul.nav.nav-tabs.nav-justified.profile-tab {
     text-align: center;
     }
@@ -30,8 +30,7 @@
     .tab-content.card.tab-content-section{padding: 10px 0}
     .custom-card{padding: 20px}
     .custom-card h3{font-size: 20px}
-    ul.navigation li{width: 100%}
-    ul.navigation li a{min-height: 48px ; font-size: 14px; color: var(--font-color)}
+
     .navbar-toggle {display: block;}
     header.open input.search-input{opacity: 1; visibility: visible;}
     input.search-input {opacity: 0; visibility: hidden;padding: 5px 20px;position: absolute;width: calc(100% - 20px);left: 10px;right: 10px;top: 60px;z-index: 10;border-radius: 50px;}
@@ -40,25 +39,24 @@
     .poll-option input[type="radio"] +label {min-height: 60px;font-size: 14px;line-height: 16px;}
     
     button.signup.btn{margin-left: 15px}
-    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 14px;padding: 0 8px;}
+    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 13px;padding: 0 11px; font-weight: 500;}
     .panel.cust-panel {height: auto;margin-bottom: 20px;}
     button.search-btn i {font-size: 24px;}
     header{    transition:  0.5s;}
     header.open {height: 110px;        transition: height 0.5s;}
     body.open header{left: 230px; transition: 0.5s}
-    nav {padding: 0;position: fixed;top: 0;bottom: 0;background: #fff;width: 230px;left: 0;height: 100vh;z-index: 10;margin-left:-230px;transition: margin 0.5s;}
     .search-section{margin: 0; position: static}
     button.search-btn {position: relative;left: 0;background: rgba(0,0,0,0.05);border: 0px;color: #fff;top: 0;font-size: 16px;bottom: 0;display: flex;align-items: center;width: 40px;justify-content: center;padding: 0;height: 40px;border-radius: 50%;}
    .open  nav {margin-right: 0px;transition: margin 0.5s;}
     /* body.open {position: relative;transform:translate3d(230px , 0,0);transition: transform 0.5s; overflow: hidden;} */
     /* transform:translate3d(0px , 0,0); */
     /* body{ transition: transform 0.5s;}  */
-    body.open nav {transition: margin 0.5s; margin-left: 0px;}
+    /* body.open nav {transition: margin 0.5s; margin-left: 0px;} */
     ul.navigation li a:after {content: '';width: 2px;background: #fff;position: absolute;bottom: 0;left: 0;right: auto;        transition: transform 0.5s;transform: scale(1,0);top: 0;        height: 100%;}
     nav::after{display: none}
     .toogle-btn {display: block}
     .overlay {background: rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;bottom: 0;right: 0;z-index: 10;float: left;height: 100vh;opacity: 0;display: none;}
-    body.open .overlay {opacity: 1;display: block}
+    /* body.open .overlay {opacity: 1;display: block} */
     .panel.cust-panel.extra-padding .panel-body {
     padding: 15px 20px;
    }
@@ -153,6 +151,38 @@
    }
    
    .poll-cont{font-size: 12px; padding-right: 40px;padding-left: 25px; text-align: left}
+
+
+   /* profile responsive */
+   .rs-np{ padding:0 !important}
+   .rs-show{ display: block !important;}
+   .rs-hide{ display: none !important;}
+   .rs-statdata-outer{ float: left; width:100%; background: #fff; padding:0 5px;}
+   .upper-tab-section{height: auto;}
+   .stat-data { margin: 10px 0; margin-bottom: 0;}
+   section.cover-pic{background: none !important; background-color:#e2e2e2 !important; height: 160px; }
+   .leader-profile-pic{width: 80px;height: 80px; margin-top:-91px;}
+   .stat-data .voste-stat i{font-size: 13px;
+    line-height: 15px;
+    vertical-align: bottom;
+    padding-right: 2px;}
+
+
+
+
+   nav {padding: 0;position: fixed;bottom: 0;background: #fff;width: 100%;left: 0;height: auto;z-index: 10;transition: margin 0.5s;box-shadow: 0px -5px 20px rgba(0,0,0,0.1)}
+   ul.navigation{width: 100%; display: flex;}
+   ul.navigation li{flex: 1}
+   ul.navigation li a{min-height: auto;display: block; font-size: 14px; color: var(--font-color); padding:10px; text-align: center}
+   ul.navigation li a span{display: block;font-size: 12px}
+   ul.navigation li a i{margin-right: 0}
+   ul.navigation li a.active, ul.navigation li a:hover {
+    opacity: 1;
+    transition: opacity .5s;
+    color: var(--main-color);
+}
+
+
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
