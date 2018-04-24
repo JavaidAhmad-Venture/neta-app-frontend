@@ -187,11 +187,16 @@ ul.mobiie-navigation {display: block}
     transition: margin 0.5s;
 }
 .upper-tab-section ul.nav.nav-tabs.nav-justified li a{min-height: 40px; justify-content: center}
-.upper-tab-section ul.nav.nav-tabs.nav-justified{display: flex; margin: 0 -15px}
+.upper-tab-section ul.nav.nav-tabs.nav-justified{display: flex; margin: 0 -15px;   }
 section.citizens{margin-top: 40px}
 header{height: 40px;}
 .right-part{display: none}
 body{float: left; width: 100%; padding-bottom: 60px;}
+ul.nav.nav-tabs.nav-justified.profile-tab {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
 
    }
    @media(max-width:400px){
