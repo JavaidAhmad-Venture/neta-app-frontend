@@ -90,12 +90,12 @@ body{background:var(--body-color) !important}
 header{width:100%;background:var(--main-color);height:60px; position: fixed; left: 0;right: 0;top: 0;z-index: 11}
 .container.main-container{max-width:1310px}
 .logo-section{float:left;margin:0;display:flex;min-height:60px;width:70px;align-items:center;padding:10px 0}
-ul.navigation li a{display:flex;min-height:60px;align-items:center;padding:0 20px;color:#fff;font-size:16px;opacity:.6;text-decoration:none;position:relative;transition:opacity .5s}
+ul.navigation li a{display:flex;min-height:60px;align-items:center;padding:0 20px;color:#fff !important;font-size:16px;opacity:.6;text-decoration:none;position:relative;transition:opacity .5s}
 ul.navigation li a:after{content:'';height:2px;background:#fff;position:absolute;bottom:0;left:0;right:0;transition:transform .5s;transform:scale(0,1)}
 ul.navigation li a.active,ul.navigation li a:hover{opacity:1;transition:opacity .5s}
 ul.navigation li a.active:after,ul.navigation li a:hover:after{text-decoration:none;transition:transform .5s;transform:scale(1,1)}
 nav{width:auto;padding-left:30px;position:relative}
-nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0}
+nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0; margin-left: 15px}
 .custom-card,.custom-card h3,.upper-tab-section,h6.today-heading,section{width:100%;float:left}
 ul.navigation{float:left;margin:0;padding:0}
 ul.navigation li{list-style:none;float:left}
@@ -1313,8 +1313,8 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
     .category-block:hover{border-color: var(--main-color)}
     .location-detctor {
         float: left;
-        width: 150px;
-        margin-top: 15px;
+        width: 120px;
+        margin-top: 10px;
     }
     .location-detctor .selectize-input{padding: 5px 8px;
         border-radius: 5px;
@@ -1326,7 +1326,7 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
 
 
 .hide{ display: none!important;}
-ul.mobiie-navigation {
+.mobiie-navigation {
     float: left;
     padding: 15px 0;
     margin: 0;
@@ -1341,21 +1341,23 @@ ul.mobiie-navigation {
     margin-left: -250px;
     z-index: 110;
     transition: margin 0.5s;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-ul.mobiie-navigation li {
+.mobiie-navigation li {
     float: left;
     width: 100%;
     list-style: none;
 }
-ul.mobiie-navigation li a {
+.mobiie-navigation li a {
     float: left;
     width: 100%;
     list-style: none;
 }
 
 
-ul.mobiie-navigation li a {
+.mobiie-navigation li a {
     float: left;
     width: 100%;
     list-style: none;
@@ -1368,15 +1370,193 @@ ul.mobiie-navigation li a {
 }
 
 
-ul.mobiie-navigation li a span {
+.mobiie-navigation ul li a span {
     float: left;
     width: 20px;
     height: 20px;
-    background: var(--main-color);
+    background: #544f70;
     border-radius: 50%;
     justify-content: center;
     display: flex;
     align-items: center;
     color: #fff;
     margin-right: 10px;
+}
+.mobiie-navigation ul{padding: 0;width: 100%;float: left; margin: 0}
+.fixed-action-btn {
+    position: fixed;
+    z-index: 99;
+    right: 25px;
+    bottom: 65px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    display: none;
+}
+.fixed-action-btn li .btn-floating {width: 40px;height: 40px; transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px);
+    opacity: 0;}
+.fixed-action-btn li .btn-floating i{color: #fff; font-size: 16px}
+.fixed-action-btn  .btn-floating {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    /* overflow: hidden; */
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 0px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    background: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.fixed-action-btn > .btn-floating i{
+    color: #fff;
+    transition: 0.5s;
+}
+.fixed-action-btn ul {
+    position: absolute;
+    bottom: 50px;
+    left: 5px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+.fixed-action-btn ul li {
+    margin-bottom: 15px;
+}
+.fixed-action-btn.active li .btn-floating {
+transform: scaleY(1) scaleX(1) translateY(0px) translateX(0px);
+    opacity: 1;
+}
+.fixed-action-btn.active li .btn-floating::after {
+    content: attr(data-content);
+    background: black;
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    left: -80px;
+    float: right;
+    text-align: center;
+    width: 68px;
+}
+.fixed-action-btn.active > .btn-floating i {
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+.mobiie-navigation ul li a span i {
+    font-size: 12px;
+}
+.mobiie-navigation h5 {
+    float: left;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    font-size: 12px;
+    padding: 0 20px;
+    padding-top: 10px;
+    margin-top: 10px;
+    color: var(--font-color);
+    opacity: 0.5;
+}
+.mobiie-navigation li a::before {
+    content: 'keyboard_arrow_right';
+    position: absolute;
+    right: 15px;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    z-index: 0;
+    color: var(--font-color);
+    font-family: "Material Icons";
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+    font-size: 17px;
+    line-height: 1;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+.mobiie-navigation ul li a span.cs {
+    float: none;
+    width: auto;
+    border-radius: 50px;
+    background-color: var(--main-color);
+    height: auto;
+    display: inline-block;
+    font-size: 9px;
+    padding: 4px 6px 5px;
+    line-height: 1;
+    margin-left: 5px;
+    margin-right: 0;
+}
+a.ripple-dark.disbled::before {
+    display: none;
+}
+a.ripple-dark.disbled {
+    cursor: not-allowed;
+    color: #7a7f86;
+}
+button.btn.logout-btn {
+    float: left;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: red;
+    background: #f6f7f8;
+    border-top: 1px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 0px;
+}
+button.btn.logout-btn i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+button.btn.logout-btn:focus{outline: none !important; box-shadow: none !important;}
+.location-detctor span.state {
+    font-size: 12px;
+    color: #fff;
+    display: block;
+
+}
+
+
+span.caret {
+    position: absolute;
+    line-height: 1;
+    right: 5px;
+    bottom: 1px;
+}
+.location {
+    float: left;
+    width: 100%;
+    color: #fff;
+    position: relative;
+    padding-right: 25px;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.4;
+}
+span.caret i {
+    font-size: 16px;
 }

@@ -1,28 +1,48 @@
-<ul class="mobiie-navigation">
-    <li><a routerLink="/profile" class="ripple-dark"><span>1</span>Your Profile</a></li>
-    <li><a href="javascript:void(0)" class="ripple-dark"><span>2</span>Register to Vote</a></li>
-   
-    <li><a href="javascript:void(0)" class="ripple-dark"><span>3</span>Your Voter Slip</a></li>
-   
-    <li><a href="javascript:void(0)" class="ripple-dark"><span>4</span>Become A Star Citizen</a></li>
-   
-    <li><a href="javascript:void(0)" class="ripple-dark"><span>5</span>For Leaders</a></li>
-   
-</ul>
+<div class="fixed-action-btn" >
+        <a class="btn-floating ripple-dark"><i class="material-icons">add</i></a>
+        <ul class="list-unstyled">
+            <li><a class="btn-floating " data-content="Add Poll"> <i class="material-icons">add</i></a></li>
+            <li><a class="btn-floating "  data-content="Add Issue"> <i class="material-icons">queue</i></a></li>
+        </ul>
+    </div>
+<div class="mobiie-navigation">
+    <ul>
+        <li><a routerLink="/profile" class="ripple-dark"><span>1</span>Your Profile</a></li>
+        <li><a href="javascript:void(0)" class="ripple-dark disbled"><span>2</span>Register to Vote<span class="cs"> Coming soon</span></a></li>
+        <li><a href="javascript:void(0)" class="ripple-dark disbled"><span>3</span>Your Voter Slip<span class="cs">Coming soon</span></a></li>
+        <li><a href="javascript:void(0)" class="ripple-dark"><span>4</span>Become A Star Citizen</a></li>
+        <li><a href="javascript:void(0)" class="ripple-dark"><span>5</span>For Leaders</a></li>
+    </ul>
+    <h5>Application</h5>
+    <ul>
+            <li><a routerLink="/profile" class="ripple-dark"><span><i class="material-icons">language</i></span>Language</a></li>
+            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Help & Support</a></li>
+            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="material-icons">lock</i></span>Terms and  Conditions</a></li>
+            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="fas fa-info"></i></span>About</a></li>
+            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Tutorial</a></li>
+        </ul>
+        <button class="btn logout-btn ripple-dark"><i class="material-icons">reply</i>Logout</button>
+</div>
 <header>
+        
     <div class="container main-container">
+         
         <div class="logo-section">
             <a routerLink="/">
                 <img src="assets/images/logo.png" alt="logo" />
             </a>
         </div>
-
+      
         <button type="button" data-toggle="collapse" class="navbar-toggle my-toggle " >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar lin1"></span>
             <span class="icon-bar lin2"></span>
             <span class="icon-bar lin3"></span>
         </button>
+        <div class="location-detctor">
+                <span class="state">Punjab</span>
+                <div class="location">Phagwara <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          </div>
         <nav role="navigation">
                 <ul class="navigation">
                         <li  class="ripple-dark">

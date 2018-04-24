@@ -11,11 +11,38 @@
                      <!-- mobile view -->
                     <div class="hide rs-show rs-profile-view">
                         <h3 >{{ party_info.candidature.candidate_name }}</h3>
+                        <div class="rs-can-outer">
+                            <span class="lead-info-icons noborder rs-view">
+                                <!-- <img src=" alt="" /> -->
+                            <img src="{{cloudNaryUrl + party_info.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
+                            </span>{{party_info.party_name}}
+                        </div>
                         <span><i class="material-icons">place</i> {{party_info.candidature.constituency_name}}</span>
+
                     </div>        
                          <!-- mobile view end-->
                 </div>
                 <div class="col-md-9 col-sm-9 col-lg-9 rs-np">
+                    <div  class="rs-show rs-statdata-outer hide">
+                            <div class="stat-data" >
+                                    <div class="voste-stat" >
+                                        <span>
+                                            <img src="assets/images/vote1.png">VOTES</span>
+                                            <h6>{{party_info.candidate_vote_count}}
+                                                <span>({{party_info.vote_percentage|number:'1.2-2'}}%)</span>
+                                                <span class="up-icons">
+                                                        <i class="fas fa-arrow-up"></i>
+                                                    </span></h6>
+                                           
+                                           
+                                    </div>
+                                    <div class="after-vote" *ngIf="isVoted">
+                                       
+                                </div>
+                                <button type="button" *ngIf="!isVoted" class="btn issue-btn rs-btn" (click)="onVoted()">Vote Now</button>
+                                </div>
+                                
+                    </div>
                     <ul class="nav nav-tabs nav-justified profile-tab">
                         <li class="nav-item">
                             <a class="nav-link" [class.active]="tab.about" data-toggle="tab" role="tab"  href="" (click)="switchTab('about')">About</a>
@@ -117,6 +144,9 @@
                     <!-- <loader *ngIf="loading"></loader> -->
                     <div class="tab-pane fade in show active" *ngIf="tab.about && info" [class.active]="tab.about" role="tabpanel">
                       <about [Info]="info"></about>
+                      <div class="tab-inner-info">
+                      <contact-info [ContactInfo]="contact_info"></contact-info>
+                      </div>
                     </div>
                     <!--/.Panel 1-->
                     <!--.Panel 2-->
@@ -124,6 +154,9 @@
                                 
                         
                         <h6>The leader not joined the Neta app yet.You can contact him to join by contacting the leader </h6>
+                        <div class="tab-inner-info">
+                                <contact-info [ContactInfo]="contact_info"></contact-info>
+                                </div>
 
 
 
@@ -134,19 +167,27 @@
                     <div class="tab-pane fade in show active" *ngIf="tab.my_issues" [class.active]="tab.my_issues" role="tabpanel">
                         <table class="table table-hover table-striped table-sm">
                             <thead>
-                            <tr><th>YEAR</th><th>CONSTITUENCY</th><th>ELECTION</th><th>PARTY</th><th>RANK</th></tr>
+                                <tr>
+                                    <th>YEAR</th>
+                                    <th>CONSTITUENCY</th>
+                                    <th>ELECTION</th>
+                                    <th>PARTY</th>
+                                    <th>RANK</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let lh of leader_history">
-                                <td>{{lh.year}}</td>
-                                <td>{{lh.constituency}}</td>
-                                <td>{{lh.election}}</td>
-                                <td>{{lh.party_abbreviation}}</td>
-                                <td>{{lh.result}}</td>
-                            </tr>
-                             
+                                <tr *ngFor="let lh of leader_history">
+                                    <td>{{lh.year}}</td>
+                                    <td>{{lh.constituency}}</td>
+                                    <td>{{lh.election}}</td>
+                                    <td>{{lh.party_abbreviation}}</td>
+                                    <td>{{lh.result}}</td>
+                                </tr>
                         </tbody>
                         </table>
+                        <div class="tab-inner-info">
+                                <contact-info [ContactInfo]="contact_info"></contact-info>
+                                </div>
 
                     </div>
                     <!--/.Panel 3-->
@@ -160,6 +201,9 @@
                             with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
                             desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                         </p>
+                        <div class="tab-inner-info">
+                                <contact-info [ContactInfo]="contact_info"></contact-info>
+                                </div>
                     </div>
                     <!-- panel -->
                 </div>
