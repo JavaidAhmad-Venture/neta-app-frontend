@@ -5,7 +5,7 @@ import { PopularCandidate } from './../../../shared/models/popularCandidate';
 import { PopularInfluencer } from './../../../shared/models/popularInfluencer';
 import { CandidateProfileService } from './../../../shared/services/candidate-profile.service';
 import { CloudnaryService } from './../../../shared/services/cloudnary.service';
-
+declare var jQuery:any;
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
@@ -32,6 +32,7 @@ export class SidebarComponent implements OnInit{
 
   ngOnInit() {
     this.fetchPopularPeople();
+   jQuery('.carousel').carousel();
   }
 
   onProfileView(candidate_id,candidate_name) {
@@ -39,7 +40,7 @@ export class SidebarComponent implements OnInit{
     this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);
   }
 
-  fetchPopularPeople(){
+  fetchPopularPeople(){ 
     this.popularPeople.getPopularPeople()
     .subscribe(res=>{
       this.response = res.data;

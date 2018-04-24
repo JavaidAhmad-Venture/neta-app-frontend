@@ -1,7 +1,25 @@
 <div class="candidate-block popular-candidate">
   <h3>Popular Candidates</h3>
 
-
+  <!-- <div id="demo" class="carousel slide my-slider" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        
+        <div *ngFor="let pc of p_candidates ; let i =index" class="carousel-item" >
+            <span class="candidate-pic">
+              <span class="candidate-party">
+                <img src="{{ cUrl + pc.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+              </span>
+              <img (click)="onProfileView(pc.candidate_id,pc.candidate_name)"  class="emptyAnchor" src="{{ cUrl + pc.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+            </span>
+            <div class="candidate-info">
+              <h6 class="candidate-party-name">{{pc.party_abbreviation}}</h6>
+              <h4 (click)="onProfileView(pc.candidate_id,pc.candidate_name)" class="emptyAnchor">{{pc.candidate_name}}i</h4>
+            </div>
+            <button class="btn vote-btn">Vote Now</button>
+          </div>
+      </div>
+   
+    </div> -->
   <ul class="candidate-list">
     <div class="loader-sidebar"  *ngIf="loading"><loader></loader></div>
     <li *ngFor="let pc of p_candidates">
