@@ -39,7 +39,8 @@ export class CandidateProfileComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private cloudnaryService: CloudnaryService,
-    private cookie: CookieService) { 
+    private cookie: CookieService,
+  ) { 
       this.cloudNaryUrl = this.cloudnaryService.cloudnaryUrl;
     }
 
@@ -52,6 +53,7 @@ export class CandidateProfileComponent implements OnInit {
     // this.start();
     this.subs1 = this.route.params.subscribe(params => {
       this.start();
+  
 
     });
   }
@@ -113,5 +115,6 @@ export class CandidateProfileComponent implements OnInit {
     this.cookie.eraseCookie(['candidate_id','assembly_id']);
   //  this.subs.unsubscribe();
    // this.subs1.unsubscribe();
+
   }
 }
