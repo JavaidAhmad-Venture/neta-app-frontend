@@ -14,7 +14,7 @@
         </button>
         <nav role="navigation">
                 <ul class="navigation">
-                        <li>
+                        <li *ngIf="false">
                             <a routerLink="/discussion" routerLinkActive="active">
                                 <i class="material-icons">chat</i>Discussion</a>
                         </li>
@@ -22,11 +22,11 @@
                             <a routerLink="/voting-booth" routerLinkActive="active">
                                 <i class="material-icons">person</i>Voting Booth</a>
                         </li>
-                        <li>
+                        <li *ngIf="false">
                             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                                 <i class="material-icons">home</i>Results</a>
                         </li>
-                        <li>
+                        <li *ngIf="false">
                             <a routerLink="/star-citizens" routerLinkActive="active">
                                 <i class="material-icons">group</i>Star Citizens</a>
                         </li>

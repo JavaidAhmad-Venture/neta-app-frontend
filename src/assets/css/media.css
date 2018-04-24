@@ -40,7 +40,7 @@
     .poll-option input[type="radio"] +label {min-height: 60px;font-size: 14px;line-height: 16px;}
     
     button.signup.btn{margin-left: 15px}
-    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 14px;padding: 0 8px;}
+    .upper-tab-section ul.nav.nav-tabs.nav-justified li a {font-size: 11px;padding: 0 8px;}
     .panel.cust-panel {height: auto;margin-bottom: 20px;}
     button.search-btn i {font-size: 24px;}
     header{    transition:  0.5s;}

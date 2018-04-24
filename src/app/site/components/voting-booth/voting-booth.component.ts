@@ -7,6 +7,7 @@ import { CondidatesService } from './../../../shared/services/condidates.service
 import * as _ from 'lodash';
 
 
+
 @Component({
   selector: 'app-voting-booth',
   templateUrl: './voting-booth.component.html',
@@ -96,5 +97,6 @@ export class VotingBoothComponent implements OnInit {
 		}
 		this.tab[type] = true;
   }
+
  
 }
