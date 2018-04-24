@@ -14,13 +14,20 @@ export class AppHeaderComponent implements OnInit {
   ngOnInit() {
   
       jQuery('.my-toggle ').click(function () {
-          jQuery(this).toggleClass('open');
-          jQuery('body').toggleClass('open');
+        //   jQuery(this).addClass('open');
+          jQuery('body').addClass('open');
+      });
+      jQuery('.overlay').click(function () {
+        //   jQuery(this).addClass('open');
+          jQuery('body').removeClass('open');
       });
       jQuery('button.search-btn').click(function () {
           jQuery('header').toggleClass('open');
       });
-
+      jQuery('.fixed-action-btn > a').click(function () {
+        //   jQuery(this).addClass('open');
+          jQuery('.fixed-action-btn').toggleClass('active');
+      });
 
 
       if (jQuery(window).scrollTop() >= 30) {
