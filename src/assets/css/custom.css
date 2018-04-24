@@ -90,12 +90,12 @@ body{background:var(--body-color) !important}
 header{width:100%;background:var(--main-color);height:60px; position: fixed; left: 0;right: 0;top: 0;z-index: 11}
 .container.main-container{max-width:1310px}
 .logo-section{float:left;margin:0;display:flex;min-height:60px;width:70px;align-items:center;padding:10px 0}
-ul.navigation li a{display:flex;min-height:60px;align-items:center;padding:0 20px;color:#fff;font-size:16px;opacity:.6;text-decoration:none;position:relative;transition:opacity .5s}
+ul.navigation li a{display:flex;min-height:60px;align-items:center;padding:0 20px;color:#fff !important;font-size:16px;opacity:.6;text-decoration:none;position:relative;transition:opacity .5s}
 ul.navigation li a:after{content:'';height:2px;background:#fff;position:absolute;bottom:0;left:0;right:0;transition:transform .5s;transform:scale(0,1)}
 ul.navigation li a.active,ul.navigation li a:hover{opacity:1;transition:opacity .5s}
 ul.navigation li a.active:after,ul.navigation li a:hover:after{text-decoration:none;transition:transform .5s;transform:scale(1,1)}
 nav{width:auto;padding-left:30px;position:relative}
-nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0}
+nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0; margin-left: 15px}
 .custom-card,.custom-card h3,.upper-tab-section,h6.today-heading,section{width:100%;float:left}
 ul.navigation{float:left;margin:0;padding:0}
 ul.navigation li{list-style:none;float:left}
@@ -1313,8 +1313,8 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
     .category-block:hover{border-color: var(--main-color)}
     .location-detctor {
         float: left;
-        width: 150px;
-        margin-top: 15px;
+        width: 120px;
+        margin-top: 10px;
     }
     .location-detctor .selectize-input{padding: 5px 8px;
         border-radius: 5px;
@@ -1531,3 +1531,32 @@ button.btn.logout-btn i {
     margin-right: 5px;
 }
 button.btn.logout-btn:focus{outline: none !important; box-shadow: none !important;}
+.location-detctor span.state {
+    font-size: 12px;
+    color: #fff;
+    display: block;
+
+}
+
+
+span.caret {
+    position: absolute;
+    line-height: 1;
+    right: 5px;
+    bottom: 1px;
+}
+.location {
+    float: left;
+    width: 100%;
+    color: #fff;
+    position: relative;
+    padding-right: 25px;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.4;
+}
+span.caret i {
+    font-size: 16px;
+}
