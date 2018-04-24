@@ -12,7 +12,7 @@ export class AppHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  
+ 
       jQuery('.my-toggle ').click(function () {
         //   jQuery(this).addClass('open');
           jQuery('body').addClass('open');

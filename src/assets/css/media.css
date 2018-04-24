@@ -166,10 +166,10 @@
    nav {padding: 0;position: fixed;bottom: 0;background: #fff;width: 100%;left: 0;height: auto;z-index: 10;transition: margin 0.5s;box-shadow: 0px -5px 20px rgba(0,0,0,0.1)}
    ul.navigation{width: 100%; display: flex;}
    ul.navigation li{flex: 1}
-   ul.navigation li a{min-height: auto;display: block; font-size: 14px; color: var(--font-color); padding:10px 5px; text-align: center}
+   ul.navigation li a{min-height: auto;display: block; font-size: 14px; color: var(--font-color) !important; padding:10px 5px; text-align: center}
    ul.navigation li a span{display: block;font-size: 12px}
    ul.navigation li a i{margin-right: 0}
-   ul.navigation li a.active, ul.navigation li a:hover {opacity: 1;transition: opacity .5s;color: var(--main-color);}
+   ul.navigation li a.active, ul.navigation li a:hover {opacity: 1;transition: opacity .5s;color: var(--main-color) !important;}
     .mobiie-navigation {display: block}
     .open .mobiie-navigation {margin: 0;transition: margin 0.5s;}
     .upper-tab-section ul.nav.nav-tabs.nav-justified li a{min-height: 40px; justify-content: center}
@@ -186,7 +186,27 @@
     button.btn.issue-btn.hidden-xs + .candidate-block {
         margin-top: 0 !important;
     }
-
+    .location-detctor span.state{font-size: 9px;}
+    .location {font-size: 13px;font-weight: 500;}
+    .location-detctor {
+        float: left;
+        width: 90px;
+        margin-top: 7px;
+        display: inline-block;
+        line-height: 1.1;
+        position: relative;
+        top: 0;
+        margin-left: 10px;
+    }
+    span.caret i {
+        font-size: 14px;
+    }
+    span.caret {
+        position: absolute;
+        line-height: 0;
+        right: 5px;
+        bottom: -2px;
+    }
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
