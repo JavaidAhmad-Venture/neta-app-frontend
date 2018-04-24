@@ -228,10 +228,10 @@ ul.profile-menu li a:focus,ul.profile-menu li a:hover{background-color:rgba(0,0,
 ul.profile-menu li a span.badges{position:absolute;background:#FF3125;width:16px;height:16px;border-radius:50%;display:flex;line-height:1;font-size:9px;align-items:center;justify-content:center;right:-7px;top:0}
 ul.profile-menu li.profile a{border:1px solid #fff;overflow:hidden}
 ul.profile-menu li.profile a img{width:100%;height:100%}
-.navbar-toggle{position:relative;float:left;padding:9px 0px;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:11px 10px 0 0px}
+.navbar-toggle{position:relative;float:left;padding:0px 0px;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:11px 10px 0 0px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.navbar-toggle .icon-bar{display:block;width:25px;height:3px;border-radius:50px;transition:all .5s ease 0s}
-.navbar-toggle .icon-bar+.icon-bar{margin-top:5px}
+.navbar-toggle .icon-bar{display:block;width:20px;height:2px;border-radius:50px;transition:all .5s ease 0s}
+.navbar-toggle .icon-bar+.icon-bar{margin-top:4px}
 .icon-bar{background-color:#fff!important;display:block!important}
 .navbar-toggle.open .icon-bar.lin1{position:relative;top:8px;transform:rotate(45deg);transition:all .5s ease 0s}
 .navbar-toggle.open .icon-bar.lin2{display:none!important;transition:all .5s ease 0s}
@@ -1326,3 +1326,208 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
 
 
 .hide{ display: none!important;}
+.mobiie-navigation {
+    float: left;
+    padding: 15px 0;
+    margin: 0;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 250px;
+    display: none;
+    margin-left: -250px;
+    z-index: 110;
+    transition: margin 0.5s;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mobiie-navigation li {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+.mobiie-navigation li a {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+
+
+.mobiie-navigation li a {
+    float: left;
+    width: 100%;
+    list-style: none;
+    /* position: relative; */
+    font-size: 12px;
+    padding: 8px 20px;
+    overflow: hidden;
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+
+.mobiie-navigation ul li a span {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #544f70;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-right: 10px;
+}
+.mobiie-navigation ul{padding: 0;width: 100%;float: left; margin: 0}
+.fixed-action-btn {
+    position: fixed;
+    z-index: 99;
+    right: 25px;
+    bottom: 65px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    display: none;
+}
+.fixed-action-btn li .btn-floating {width: 40px;height: 40px; transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px);
+    opacity: 0;}
+.fixed-action-btn li .btn-floating i{color: #fff; font-size: 16px}
+.fixed-action-btn  .btn-floating {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    /* overflow: hidden; */
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 0px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    background: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.fixed-action-btn > .btn-floating i{
+    color: #fff;
+    transition: 0.5s;
+}
+.fixed-action-btn ul {
+    position: absolute;
+    bottom: 50px;
+    left: 5px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+.fixed-action-btn ul li {
+    margin-bottom: 15px;
+}
+.fixed-action-btn.active li .btn-floating {
+transform: scaleY(1) scaleX(1) translateY(0px) translateX(0px);
+    opacity: 1;
+}
+.fixed-action-btn.active li .btn-floating::after {
+    content: attr(data-content);
+    background: black;
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    left: -80px;
+    float: right;
+    text-align: center;
+    width: 68px;
+}
+.fixed-action-btn.active > .btn-floating i {
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+.mobiie-navigation ul li a span i {
+    font-size: 12px;
+}
+.mobiie-navigation h5 {
+    float: left;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    font-size: 12px;
+    padding: 0 20px;
+    padding-top: 10px;
+    margin-top: 10px;
+    color: var(--font-color);
+    opacity: 0.5;
+}
+.mobiie-navigation li a::before {
+    content: 'keyboard_arrow_right';
+    position: absolute;
+    right: 15px;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    z-index: 0;
+    color: var(--font-color);
+    font-family: "Material Icons";
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+    font-size: 17px;
+    line-height: 1;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+.mobiie-navigation ul li a span.cs {
+    float: none;
+    width: auto;
+    border-radius: 50px;
+    background-color: var(--main-color);
+    height: auto;
+    display: inline-block;
+    font-size: 9px;
+    padding: 4px 6px 5px;
+    line-height: 1;
+    margin-left: 5px;
+    margin-right: 0;
+}
+a.ripple-dark.disbled::before {
+    display: none;
+}
+a.ripple-dark.disbled {
+    cursor: not-allowed;
+    color: #7a7f86;
+}
+button.btn.logout-btn {
+    float: left;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: red;
+    background: #f6f7f8;
+    border-top: 1px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 0px;
+}
+button.btn.logout-btn i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+button.btn.logout-btn:focus{outline: none !important; box-shadow: none !important;}
