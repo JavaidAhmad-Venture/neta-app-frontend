@@ -528,3 +528,30 @@
     .grecaptcha-badge {
         display: none;
     }
+    .loader-outer{position:absolute; height: 100%; width:100%; text-align: center; background: #745df1;    top: 0; left: 0;   padding: 5px 45%; -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;    border-radius: 5px;}
+
+    .btn-loader {
+        border: 3px solid #fff;
+        border-radius: 50%;
+        border-top: 3px solid #745df1;
+        width: 25px;
+        height: 25px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .btn:focus{ box-shadow: none !important}
+      .neta-modal h5 span{float: left; width: 100%; font-size: 12px; font-weight: normal;}
+      .mb20{ margin-bottom: 20px !important; }

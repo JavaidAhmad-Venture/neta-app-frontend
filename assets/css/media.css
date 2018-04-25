@@ -245,6 +245,12 @@
     .timeline{padding-left:70px}  
     .timline-date{left:-70px}  
     .timeline::after{left:45px}  
+    .neta-modal.if-not-login .left-sec input, .neta-modal.if-not-login .right-sec input{ font-size: 14px;}
+    .neta-modal.if-not-login h5{ font-size: 14px !important;}
+    .pop-head{ font-size: 16px !important;}
+    .neta-modal.if-not-login h6 { font-size: 12px !important;  margin-top: 0px !important;    }
+    .modal#if-not-login .modal-content { margin-top:70px;}
+    .neta-modal.if-not-login .left-sec img {top: 11px !important; left: -5px !important; width: 20px; }
  }  
  @media(max-width:400px){
      .news-img{float:left;width:100%;height:auto;margin-bottom:20px}  
