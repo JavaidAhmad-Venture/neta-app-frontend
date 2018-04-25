@@ -58,7 +58,7 @@
     .overlay {background: rgba(0,0,0,0.5);position: fixed;left: 0;top: 0;bottom: 0;right: 0;z-index: 100;float: left;height: 100vh;opacity: 0;display: none;}
     body.open .overlay {opacity: 1;display: block}
     .panel.cust-panel.extra-padding .panel-body {
-    padding: 10px   }
+    padding: 10px 20px   }
    .video-part {
     float: left;
     width: 100PX;
@@ -160,7 +160,7 @@
    .upper-tab-section{height: auto; margin-top: 40px}
    .stat-data { margin: 10px 0; margin-bottom: 0;}
 
-   section.cover-pic{background: none !important; background-color:#f2f2f2 !important; height: 150px; }
+   section.cover-pic{background: none !important; background-color:#f6f7f8 !important; height: 150px; }
    .leader-profile-pic{width: 80px;height: 80px; margin-top:-101px;}
    .stat-data .voste-stat i{font-size: 13px; line-height: 15px; vertical-align: bottom; padding-right: 2px;}
    .rs-profile-view{position: absolute;  right: 0;  top: -97px; left: 110px;; width: 64%;}
@@ -173,8 +173,7 @@
    ul.leader-info-list li{ padding-left:35px; min-height: auto;}
    ul.leader-info-list li label{ font-weight: bold; font-size: 9px; letter-spacing: 0; }
    ul.leader-info-list li span.info-det{ font-weight: 500; font-size: 11px; }
-   .tab-pane h6{float: left;width: 100%;font-size: 12px; line-height: 15px; padding-top: 13px; color: #979fb0;}
-   .tab-pane p{float: left;width: 100%;font-size: 12px; line-height: 17px; padding-top: 13px;  color: #979fb0;}
+   .tab-pane p{float: left;width: 100%;font-size: 12px; line-height: 17px; padding-top: 13px;  color: var(--font-color);}
    .table{ margin-bottom: 0; }
    .table thead th{ font-size: 10px; color: #979fb0; background: #dee2e6; opacity: 0.5; text-align: center;}
    .table.table-sm td {font-size: 12px; text-align: center;}
@@ -187,7 +186,7 @@
 
 
 
-   section.cover-pic{background: none !important; background-color:#e2e2e2 !important; height: 160px; }
+   section.cover-pic{background: none !important; background-color:#f6f7f8 !important; height: 160px; }
    .leader-profile-pic{width: 80px;height: 80px; margin-top:-101px;}
    .stat-data .voste-stat i{font-size: 13px;line-height: 15px;vertical-align: bottom;padding-right: 2px;}
 
@@ -286,7 +285,7 @@ span.points{ font-size: 12px;}
     .right-part{display: none}
     .fixed-action-btn {display: block}
     body{float: left; width: 100%; padding-bottom: 60px;}
-    ul.nav.nav-tabs.nav-justified.profile-tab {display: flex;width: 100%;margin: 0;}
+    ul.nav.nav-tabs.nav-justified.profile-tab {display: flex;width: 100%;margin: 0; background: #fff;}
     .hidden-xs {
         display: none !important;
     }
@@ -318,9 +317,15 @@ span.points{ font-size: 12px;}
 
     .rs-can-outer{float: left; width: 100%; font-size: 11px; padding-left: 19px; margin: 4px 0;}
     .lead-info-icons.noborder.rs-view{ height: 15px; width:15px; left:0}
-    .tab-inner-info .info-side-block ul.leader-info-list{float: left;  width: 100%;  margin-bottom: 50px;  background: #fff;  padding: 9px;  border-radius: 10px;  border: 1px solid var(--border-color);}
+    .tab-inner-info{ display: block !important}
+    .tab-inner-info .info-side-block{ margin-top:15px; margin-bottom: 0;}
+    .tab-inner-info .info-side-block ul.leader-info-list{float: left;  width: 100%;  margin-bottom: 10px;  background: #fff;  padding: 10px 20px;  border-radius: 10px;  border: 1px solid var(--border-color);}
     .leader-profile-block{ margin-bottom: 10px;}
     .rs-width{ flex: initial !important; float: left; max-width: 100% !important;}
+    .upper-tab-section.inner-tab{box-shadow: 4px 1px 3px rgba(0,0,0,0.1);}
+    span.info-list-icon i{font-size: 11px; }
+    .info-side-block ul.leader-info-list li{padding-left:40px;}
+
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
