@@ -1484,6 +1484,8 @@ span.caret {
 span.caret i {
     font-size: 16px;
 }
+
+.tab-inner-info{ display: none;}
 .scrollbar {
     float: left;
     width: 100%;
