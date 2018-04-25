@@ -135,7 +135,7 @@
     ul.comment-action-list li a i{ font-size: 10px;}
     ul.comment-action-list li a i.material-icons{ font-size: 16px;}
     .comment-reply{ padding-left:43px;}
-    .candidate-block h3 {font-size: 12px; margin-bottom: 15px;}
+    .candidate-block h3 {font-size: 14px; margin-bottom: 15px;}
     section.comment-section1 .news-aside-block p{ font-size: 11px;}
     span.news-date { font-size: 11px;}
     .poll-block ul.list-group.img-poll{display: block;text-align: center}
@@ -320,6 +320,75 @@ span.points{ font-size: 12px;}
     .lead-info-icons.noborder.rs-view{ height: 15px; width:15px; left:0}
     .tab-inner-info .info-side-block ul.leader-info-list{float: left;  width: 100%;  margin-bottom: 50px;  background: #fff;  padding: 9px;  border-radius: 10px;  border: 1px solid var(--border-color);}
     .leader-profile-block{ margin-bottom: 10px;}
+    .candidate-block ul.candidate-list li {
+        float: left;
+        width: 150px;
+        margin: 0;
+        padding: 10px;
+        list-style: none;
+        background: #fff;
+        margin-right: 10px;
+        display: flex;
+        min-height: 150px;
+        flex-direction: column;
+        
+        min-width: 130px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        box-shadow:0px 1px 10px rgba(0,0,0,0.1);
+        position: relative;
+        padding-bottom: 30px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .candidate-block ul.candidate-list li  .candidate-info {
+        float: left;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        margin: 10px 0 0;
+    }
+    .candidate-block ul.candidate-list li span.candidate-pic {
+        display: inline-block;
+        float: none;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    .candidate-block ul.candidate-list li .candidate-info h6{font-size: 10px;}
+    .candidate-block ul.candidate-list li .candidate-info h4{font-size: 12px;}
+    .candidate-block  ul.candidate-list{overflow-y: auto;
+        display: flex;}
+        
+        .candidate-block ul.candidate-list li button.btn.vote-btn {
+    position: absolute;
+    background: #fbfbfb;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    right: 0;
+    width: 100%;
+    border: 0px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid var(--border-color);
+    border-bottom-left-radius: 5px;
+    color: var(--main-color);
+}
+.candidate-block .more-news {
+
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    top: -2px;
+    line-height: 1;
+}
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}

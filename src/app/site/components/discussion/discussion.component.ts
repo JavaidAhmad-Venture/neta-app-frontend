@@ -12,7 +12,10 @@ export class DiscussionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    jQuery('.fixed-action-btn > a').click(function () {
+      //   jQuery(this).addClass('open');
+        jQuery('.fixed-action-btn').toggleClass('active');
+    });
   }
 
 }
