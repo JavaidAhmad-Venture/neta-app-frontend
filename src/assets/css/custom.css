@@ -1341,8 +1341,7 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
     margin-left: -250px;
     z-index: 110;
     transition: margin 0.5s;
-    overflow-y: auto;
-    overflow-x: hidden;
+ 
 }
 
 .mobiie-navigation li {
@@ -1562,3 +1561,9 @@ span.caret i {
 }
 
 .tab-inner-info{ display: none;}
+.scrollbar {
+    float: left;
+    width: 100%;
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+}
