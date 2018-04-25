@@ -10,7 +10,7 @@ export const environment = {
   PROTOCOL: 'https://',
   CLIENT_ID: 'netawebapp',
   CLIENT_SECRET: '$2a$10$0.dfDGl.8Es9cAm3ZJyvdO7ElHwBG.pnJjJxUP/LUtacIqk6eUmCa',
-  APP_EXTENSION: 'unirely.local',
+  APP_EXTENSION: '',
   QB_APP_ID: 60280,
   QB_AUTH_KEY: "sM7EW2rPwr7Ynkd",
   QB_AUTH_SECRET: "5cNb26pXXe5pyh9",
@@ -24,5 +24,7 @@ export const environment = {
     projectId: "neta-phone-login",
     storageBucket: "neta-phone-login.appspot.com",
     messagingSenderId: "667265232752"
-  }
+  },
+  DEFAULT_DISTRICT_ID:"",
+  DEFAULT_ASSEMLY_ID:"",
 };

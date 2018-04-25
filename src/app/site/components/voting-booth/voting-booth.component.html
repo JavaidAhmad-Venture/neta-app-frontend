@@ -8,18 +8,19 @@
         <li class="nav-item">
           <a class="nav-link" [class.active]="tab.mp_candidates" data-toggle="tab" role="tab" (click)="switchTab('mp_candidates')">MP Candidates</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" [class.active]="tab.local_bodies" data-toggle="tab" role="tab" (click)="switchTab('local_bodies')">Local Bodies</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
+
   <div class="container main-container">
     <div class="row custom-row">
       <div class="co-md-9 col-lg-9 col-xs-12 col-sm-12">
         <div class="tab-content card tab-content-section">
           <div class="loader-voting" *ngIf="loading" ><loader ></loader></div>
-         
+      
           <!--.Panel 1-->
           <div *ngIf="tab.mla_candidates && candidates" [class.active]="tab.mla_candidates" class="tab-pane fade in show active" id="Categories"
             role="tabpanel">
@@ -67,7 +68,7 @@
                     </span>
                     <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
                 </div>
-                <button class="btn vote-btn ripple" (click)="onVote(candidate)">
+                <button class="btn vote-btn ripple" (click)="onVote(candidate)" data-toggle="modal" data-target="#if-not-login" style="font-family:'pingFang-sc';">
                   <img src="assets/images/vote.png" />Vote Now</button>
                 <div class="done-vote" *ngIf="isVoted && candidate.is_voted_by_me">
                   <i class="material-icons">done</i>
@@ -82,9 +83,9 @@
               </li>
             </ul>
           </div>
-
+          
           <!--.Panel 2-->
-          <div *ngIf="tab.mp_candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
+          <div *ngIf="tab.mp_candidates && candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
                 <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>              
@@ -141,9 +142,10 @@
 
             </ul>
           </div>
-
-          <!--.Panel 3-->
-          <div *ngIf="tab.local_bodies" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
+       
+          <!--.Panel 3    hidden-->
+        
+          <div *ngIf="false" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
                 <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>
@@ -237,5 +239,8 @@
   </div>
 </section>
 <div class="overlay"></div>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register" style="font-family:'pingFang-sc';">
+  register
+</button> -->
 
-
+<phone-login [cName]="candidateName" [cPic]="candidatePic" [pImage]="partyImage" [cUrl]="cUrl" *ngIf="registerToVote"></phone-login>
