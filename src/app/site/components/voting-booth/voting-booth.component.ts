@@ -49,9 +49,11 @@ export class VotingBoothComponent implements OnInit {
       
       if(res.type=="location"){
           // this.state=res.data.state;
-          // this.assembly=res.data.a_name;
+          this.currentLocation.aname=res.data.a_name;
+          this.currentLocation.dname=res.data.d_name;
           this.ID.d_id=res.data.d_id;
           this.ID.a_id=res.data.a_id;
+          this.showCandidates(this.ID.a_id);
       }
   })
  

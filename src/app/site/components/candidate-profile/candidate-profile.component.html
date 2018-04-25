@@ -3,7 +3,7 @@
     <div class="upper-tab-section inner-tab">
         <div class="container main-container">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-lg-3">
+                <div class="col-md-3 col-sm-3 col-lg-3 rs-width">
                     <div class="leader-profile-pic">
                         <!-- <img src="assets/images/leader.png" alt="leader" /> -->
                         <img src="{{cloudNaryUrl+info.profile_pic.cloudinary.public_id}}.jpg"  alt="leader"/>                         
@@ -22,7 +22,7 @@
                     </div>        
                          <!-- mobile view end-->
                 </div>
-                <div class="col-md-9 col-sm-9 col-lg-9 rs-np">
+                <div class="col-md-9 col-sm-9 col-lg-9 rs-np rs-width">
                     <div  class="rs-show rs-statdata-outer hide">
                             <div class="stat-data" >
                                     <div class="voste-stat" >
@@ -153,7 +153,7 @@
                     <div class="tab-pane fade in show active" *ngIf="tab.activity" [class.active]="tab.activity" role="tabpanel">
                                 
                         
-                        <h6>The leader not joined the Neta app yet.You can contact him to join by contacting the leader </h6>
+                        <p>The leader not joined the Neta app yet.You can contact him to join by contacting the leader </p>
                         <div class="tab-inner-info">
                                 <contact-info [ContactInfo]="contact_info"></contact-info>
                                 </div>
