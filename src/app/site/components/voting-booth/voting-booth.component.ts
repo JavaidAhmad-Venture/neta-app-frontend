@@ -5,7 +5,8 @@ import { CloudnaryService } from './../../../shared/services/cloudnary.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
-import *  as firebase from 'firebase';
+// import *  as firebase from 'firebase';
+declare var firebase;
 
 @Component({
   selector: 'app-voting-booth',
@@ -45,7 +46,7 @@ export class VotingBoothComponent implements OnInit {
 
   ngOnInit() {
     this.showCandidates(this.constituency_id);
-  
+  console.log('firebase',firebase);
   }
 
   showCandidates(id){

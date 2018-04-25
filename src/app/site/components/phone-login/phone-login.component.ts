@@ -1,7 +1,7 @@
 import { environment } from './../../../../environments/environment.dev';
 import { WindowService } from './../../../shared/services/window.service';
 import { Component, OnInit, Input } from '@angular/core';
-import * as firebase from 'firebase'
+// import * as firebase from 'firebase';
 
 //import * as firebase from 'firebase';
 // declare var firebase: any;
@@ -36,20 +36,20 @@ export class PhoneLoginComponent implements OnInit {
   verificationCode: string;
   user: any;
   constructor(private win: WindowService) {
-    console.log('firebase', firebase)
+    // console.log('firebase', firebase)
   }
 
   ngOnInit() {
  
-    console.log('Firabse id: ', firebase);
+    // console.log('Firabse id: ', firebase);
 
-    this.windowRef = this.win.windowRef;
-    console.log('Window is: ', this.windowRef);
+    // this.windowRef = this.win.windowRef;
+    // console.log('Window is: ', this.windowRef);
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
     // this.windowRef.recaptchaVerifier.render()
-    firebase.initializeApp(environment.firebase)
-    this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    this.windowRef.recaptchaVerifier.render();
+  //  firebase.initializeApp(environment.firebase)
+    // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    // this.windowRef.recaptchaVerifier.render();
 
     // var recaptchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
 
@@ -64,12 +64,12 @@ export class PhoneLoginComponent implements OnInit {
     const num = this.phoneNumber.e164;
     console.log("In method number is:", num);
 
-    console.log("firebase  is:", firebase);
-    firebase.auth().signInWithPhoneNumber(num, appVerifier)
-      .then(result => {
-        this.windowRef.confirmationResult = result;
-      })
-      .catch(error => console.log(error));
+    // console.log("firebase  is:", firebase);
+    // firebase.auth().signInWithPhoneNumber(num, appVerifier)
+      // .then(result => {
+        // this.windowRef.confirmationResult = result;
+      // })
+      // .catch(error => console.log(error));
 
   }
   verifyLoginCode() {
@@ -80,7 +80,7 @@ export class PhoneLoginComponent implements OnInit {
         this.user = result.user;
         if (this.user) {
           alert('user registered successfully!');
-          localStorage.setItem('userId', firebase.auth().currentUser.uid)
+          // localStorage.setItem('userId', firebase.auth().currentUser.uid)
         }
         this.phoneNumber.country = '';
         this.phoneNumber.line = '';

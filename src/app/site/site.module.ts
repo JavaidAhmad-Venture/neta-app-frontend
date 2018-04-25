@@ -16,6 +16,7 @@ import { SiteComponent } from './site.component';
 import { AppHeaderComponent } from './toolbars/app-header/app-header.component';
 import { SidebarComponent } from './toolbars/sidebar/sidebar.component';
 import { PhoneLoginComponent } from './components/phone-login/phone-login.component';
+import { CitizenProfileComponent } from './components/citizen-profile/citizen-profile.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -37,6 +38,7 @@ import { PhoneLoginComponent } from './components/phone-login/phone-login.compon
     UserProfileComponent,
     CandidateProfileComponent,
     PhoneLoginComponent,
+    CitizenProfileComponent,
   ]
 })
 export class SiteModule { }
