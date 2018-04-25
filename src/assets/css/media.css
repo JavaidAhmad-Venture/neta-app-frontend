@@ -439,7 +439,10 @@ span.points{ font-size: 12px;}
     .upper-tab-section.inner-tab{box-shadow: 4px 1px 3px rgba(0,0,0,0.1);}
     span.info-list-icon i{font-size: 11px; }
     .info-side-block ul.leader-info-list li{padding-left:40px;}
-
+    .candidate-block ul.candidate-list li button.btn.vote-btn:hover , .candidate-block ul.candidate-list li button.btn.vote-btn:focus{
+        color: #fff;
+        background: var(--main-color);
+    }
 
 
    }
