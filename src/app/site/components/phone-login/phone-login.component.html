@@ -55,11 +55,16 @@
                 <div class="row">
                         <div class="col " >
                                 <div class="left-sec">
-                                  <select class="demo-default select-beast"  [(ngModel)]="phoneNumber.country"  placeholder="Select...">
+                                  <!-- <select class="demo-default select-beast"  [(ngModel)]="phoneNumber.country"  placeholder="Select...">
                                     <option [ngValue]="91">+91</option>
                                     <option [ngValue]="90">+90</option>
                                     <option [ngValue]="72">+72</option>
-                                </select>
+                                </select> -->
+                                        <div class="form-group" >
+                                           <input type="text" placeholder="91"  [(ngModel)]="phoneNumber.country"   class="form-control" id="title">
+                                           <label> + </label>
+                                           <img src="assets/images/flag.png" >
+                                        </div>
                                 </div>
                                 <div class="right-sec">
                                     <div class="form-group">
