@@ -5,7 +5,7 @@ import { CloudnaryService } from './../../../shared/services/cloudnary.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
-
+import *  as firebase from 'firebase';
 
 @Component({
   selector: 'app-voting-booth',
@@ -28,7 +28,10 @@ export class VotingBoothComponent implements OnInit {
   isActiveName:boolean = false;
   isActiveVotes:boolean = true;
   isVoted:boolean = false;
-  
+  registerToVote:boolean=false;
+  candidateName:string='';
+  candidatePic:string='';
+  partyImage:string='';
 
   constructor(
 
@@ -42,6 +45,7 @@ export class VotingBoothComponent implements OnInit {
 
   ngOnInit() {
     this.showCandidates(this.constituency_id);
+  
   }
 
   showCandidates(id){
@@ -93,13 +97,23 @@ export class VotingBoothComponent implements OnInit {
   }
 
   onVote(candidate){
-    console.log(candidate);
+    this.candidateName=candidate.candidate_name;
+    this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
+    this.partyImage = candidate.party_image.cloudinary.public_id; 
+    const getUserId = localStorage.getItem('userId');
     
-    candidate.votes++;
-    candidate.percentage += 4.5; 
-    this.isVoted = true;
-     candidate.is_voted_by_me = true;
-    console.log(this.isVoted);
+    if(!getUserId)
+    this.registerToVote = true;
+    else {
+      this.registerToVote = false;    
+      candidate.votes++;
+      candidate.percentage += 4.5; 
+      this.isVoted = true;
+       candidate.is_voted_by_me = true;
+      console.log(this.isVoted);
+
+    }
+   
     
   }
 
@@ -121,5 +135,6 @@ export class VotingBoothComponent implements OnInit {
       this.showCandidates(this.ID.d_id);
     }
   }
+
  
 }

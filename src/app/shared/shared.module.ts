@@ -16,6 +16,7 @@ import { CookieService } from './services/cookie.service';
 import { InfluencersService } from './services/influencers.service';
 import { LocationService } from './services/location.service';
 import { SmallLoaderComponent } from './components/small-loader/small-loader.component';
+import { WindowService } from './services/window.service';
 
 
 
@@ -29,7 +30,7 @@ import { SmallLoaderComponent } from './components/small-loader/small-loader.com
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
   ],
   declarations: [NotFoundComponent, LoaderComponent, SmallLoaderComponent],
-  providers:[CondidatesService,CandidateProfileService,CloudnaryService,CookieService,LocationService,InfluencersService,PopularPeopleService],
+  providers:[CondidatesService,CandidateProfileService,CloudnaryService,CookieService,LocationService,InfluencersService,PopularPeopleService,WindowService],
   exports:[CommonModule,LoaderComponent,SmallLoaderComponent]
 })
 export class SharedModule { }

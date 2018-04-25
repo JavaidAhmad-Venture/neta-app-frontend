@@ -8,7 +8,7 @@ declare var jQuery:any;
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
-
+location=false;
   constructor() { }
 
   ngOnInit() {
@@ -31,8 +31,12 @@ export class AppHeaderComponent implements OnInit {
       } else {
           jQuery('header').removeClass('fixed');
       }
-  
-  
   }
+showLocation()
+{
+
+this.location = !this.location;
+
+}
 
 }

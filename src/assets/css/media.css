@@ -163,7 +163,7 @@
    section.cover-pic{background: none !important; background-color:#f2f2f2 !important; height: 150px; }
    .leader-profile-pic{width: 80px;height: 80px; margin-top:-101px;}
    .stat-data .voste-stat i{font-size: 13px; line-height: 15px; vertical-align: bottom; padding-right: 2px;}
-   .rs-profile-view{position: absolute;  right: 0;  top: -97px; left: 33%; width: 64%;}
+   .rs-profile-view{position: absolute;  right: 0;  top: -97px; left: 110px;; width: 64%;}
    .rs-profile-view h3 {float: left; width: 100%; font-size: 18px; color: var(--font-color); margin: 0 0 3px 0;}
    .rs-profile-view span{float: left; width: 100%; font-size: 12px; color: #979fb0 }
    .rs-profile-view span i {font-size: 10px; border-radius: 25px; border: 1px solid #e2e2e2; background: #fff; padding: 2px; color: #804fee;}
@@ -320,6 +320,7 @@ span.points{ font-size: 12px;}
     .lead-info-icons.noborder.rs-view{ height: 15px; width:15px; left:0}
     .tab-inner-info .info-side-block ul.leader-info-list{float: left;  width: 100%;  margin-bottom: 50px;  background: #fff;  padding: 9px;  border-radius: 10px;  border: 1px solid var(--border-color);}
     .leader-profile-block{ margin-bottom: 10px;}
+
     .candidate-block ul.candidate-list li {
         float: left;
         width: 150px;
@@ -389,6 +390,9 @@ span.points{ font-size: 12px;}
     top: -2px;
     line-height: 1;
 }
+
+    .rs-width{ flex: initial !important; float: left; max-width: 100% !important;}
+
    }
    @media(max-width:400px){
     .news-img {float: left;width: 100%;height: auto;margin-bottom: 20px;}
