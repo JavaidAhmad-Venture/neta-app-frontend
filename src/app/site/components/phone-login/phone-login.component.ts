@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as firebase from 'firebase'
 
 //import * as firebase from 'firebase';
-// declare var firebase: any;
+declare var $: any;
 //  import * as auth from 'firebase/auth';
 
 export class PhoneNumber {
@@ -38,9 +38,9 @@ export class PhoneLoginComponent implements OnInit {
   constructor(private win: WindowService) {
     console.log('firebase', firebase)
   }
-
+  incorrectCode: boolean = false;
   ngOnInit() {
- 
+
     console.log('Firabse id: ', firebase);
 
     this.windowRef = this.win.windowRef;
@@ -48,11 +48,27 @@ export class PhoneLoginComponent implements OnInit {
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
     // this.windowRef.recaptchaVerifier.render()
     firebase.initializeApp(environment.firebase)
-    this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    this.windowRef.recaptchaVerifier.render();
+    // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    // this.windowRef.recaptchaVerifier.render();
 
-    // var recaptchaResponse = grecaptcha.getResponse(window.recaptchaWidgetId);
 
+    this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+      
+     
+      'size': 'invisible',
+      'lang':'en',
+      'callback': (response)=> {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        console.log("REsponse is:",response);
+        this.sendLoginCode()
+      }
+    })
+    // this.windowRef.recaptchaVerifier.render().then(function(widgetId) {
+    //   this.windowRef.recaptchaWidgetId = widgetId;
+    // });
+   
+ 
+   
   }
 
 
@@ -68,16 +84,21 @@ export class PhoneLoginComponent implements OnInit {
     firebase.auth().signInWithPhoneNumber(num, appVerifier)
       .then(result => {
         this.windowRef.confirmationResult = result;
+       
+      }).then(()=>{
+        $('#if-not-login').modal('hide');
+        $('#verify-otp').modal('show');
       })
       .catch(error => console.log(error));
-
+     
   }
   verifyLoginCode() {
     this.windowRef.confirmationResult
       .confirm(this.verificationCode)
       .then(result => {
-
+        this.incorrectCode = false;
         this.user = result.user;
+        console.log('Response from firebase:'+this.user.refreshToken);
         if (this.user) {
           alert('user registered successfully!');
           localStorage.setItem('userId', firebase.auth().currentUser.uid)
@@ -85,10 +106,12 @@ export class PhoneLoginComponent implements OnInit {
         this.phoneNumber.country = '';
         this.phoneNumber.line = '';
         this.verificationCode = '';
-
-
+        $('#verify-otp').modal('toggle');
       })
-      .catch(error => console.log(error, "Incorrect code entered?"));
+      .catch(error => {
+        this.incorrectCode = true;
+        console.log(error, "Incorrect code entered?")
+      });
   }
 
 

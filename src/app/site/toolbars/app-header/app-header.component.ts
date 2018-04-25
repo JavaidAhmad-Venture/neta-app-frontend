@@ -1,3 +1,4 @@
+import { HelperService } from './../../../shared/services/helper.service';
 import { Component, OnInit } from '@angular/core';
 
 declare var jQuery:any;
@@ -9,7 +10,19 @@ declare var jQuery:any;
 })
 export class AppHeaderComponent implements OnInit {
 location=false;
-  constructor() { }
+state="Punjab";
+assembly="Phagwara";
+  constructor(private helperService:HelperService) {
+
+    this.helperService.getEmitter().subscribe((res)=>{
+        console.log("respn",res);
+        
+        if(res.type=="location"){
+            this.state=res.data.state;
+            this.assembly=res.data.a_name;
+        }
+    })
+   }
 
   ngOnInit() {
  

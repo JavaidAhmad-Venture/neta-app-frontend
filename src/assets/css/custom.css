@@ -1560,3 +1560,8 @@ span.caret {
 span.caret i {
     font-size: 16px;
 }
+
+
+.grecaptcha-badge {
+    display: none;
+}

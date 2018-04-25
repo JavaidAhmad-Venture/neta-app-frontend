@@ -1,3 +1,6 @@
+import { HelperService } from './services/helper.service';
+import { FormsModule } from '@angular/forms';
+import { LocationDetectorComponent } from './components/location-detector/location-detector.component';
 import { PopularPeopleService } from './services/popular-people.service';
 import { Candidate } from './models/candidate';
 import { CloudnaryService } from './services/cloudnary.service';
@@ -26,11 +29,15 @@ import { WindowService } from './services/window.service';
     CommonModule,
     HttpModule,
     HttpClientModule,
-  
+    FormsModule,
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
   ],
-  declarations: [NotFoundComponent, LoaderComponent, SmallLoaderComponent],
-  providers:[CondidatesService,CandidateProfileService,CloudnaryService,CookieService,LocationService,InfluencersService,PopularPeopleService,WindowService],
-  exports:[CommonModule,LoaderComponent,SmallLoaderComponent]
+  declarations: [NotFoundComponent, LoaderComponent, SmallLoaderComponent,LocationDetectorComponent],
+  providers:[CondidatesService,CandidateProfileService,CloudnaryService,
+    CookieService,LocationService,InfluencersService,
+    PopularPeopleService,WindowService,
+    HelperService
+  ],
+  exports:[CommonModule,LoaderComponent,SmallLoaderComponent,LocationDetectorComponent]
 })
 export class SharedModule { }

@@ -68,11 +68,11 @@
                                 </div>
                         </div>
                 </div> 
-                 <div id="recaptcha-container"></div>
+                 <!-- <div id="recaptcha-container"></div> -->
                 <div class="row">
                     <div class="col">
                       
-                        <button type="button" class="btn green-btn " data-toggle="modal" data-target="#verify-otp" (click)="sendLoginCode()" data-dismiss="modal">Post it!</button>
+                        <button type="button" class="btn green-btn g-recaptcha" method="POST" id="sign-in-button" (click)="sendLoginCode()" data-toggle="modal" data-target="#verify-otp"  data-dismiss="modal">Post it!</button>
                     </div>
                 </div>
         </div>
@@ -83,7 +83,7 @@
   
 
 
-  <div class="modal fade neta-modal register" id="verify-otp">
+  <div class="modal fade neta-modal register" id="verify-otp" >
     <div class="modal-dialog ">
       <div class="modal-content">
   
@@ -108,14 +108,17 @@
                         </div>
                     </div>
                 </div> 
-                <div class="row">
+                <div class="row" *ngIf="incorrectCode">
                   <div class="col pb20" >
-                        <div class="redo-text">Did not get the OTP? <a href="javascript:void(0)"><i class="material-icons">replay</i> RESEND</a></div>
+                        <!-- <div class="redo-text">Did not get the OTP? 
+                            <a (click)="sendLoginCode()" class="emptyAnchor"><i class="material-icons">replay</i> RESEND</a>
+                        </div> -->
+                        <p class="redo-text text-danger" >Incorrect OTP, wait for new one!</p>
                   </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="btn green-btn active" data-dismiss="modal" (click)="verifyLoginCode()">Next</button>
+                        <button type="button" class="btn green-btn active" (click)="verifyLoginCode()">Next</button>
                     </div>
                 </div>
         </div>
