@@ -95,7 +95,7 @@ ul.navigation li a:after{content:'';height:2px;background:#fff;position:absolute
 ul.navigation li a.active,ul.navigation li a:hover{opacity:1;transition:opacity .5s}
 ul.navigation li a.active:after,ul.navigation li a:hover:after{text-decoration:none;transition:transform .5s;transform:scale(1,1)}
 nav{width:auto;padding-left:30px;position:relative}
-nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0; margin-left: 15px}
+/* nav::after{content:"";width:1px;background:rgba(0,0,0,.1);top:10px;position:absolute;bottom:10px;left:0; margin-left: 15px} */
 .custom-card,.custom-card h3,.upper-tab-section,h6.today-heading,section{width:100%;float:left}
 ul.navigation{float:left;margin:0;padding:0}
 ul.navigation li{list-style:none;float:left}
@@ -1240,6 +1240,7 @@ section.citizens.citizens1.citizens2 .candidate-info .up-icons i {margin-right: 
         float: left;
         width: 120px;
         margin-top: 10px;
+        cursor: pointer;
     }
     .location-detctor .selectize-input{padding: 5px 8px;
         border-radius: 5px;
