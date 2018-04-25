@@ -1,59 +1,57 @@
 import { HelperService } from './../../../shared/services/helper.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit,ElementRef} from '@angular/core';
 
-declare var jQuery:any;
+declare var jQuery: any;
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './app-header.component.html',
-  styleUrls: ['./app-header.component.css']
+    selector: 'app-header',
+    templateUrl: './app-header.component.html',
+    styleUrls: ['./app-header.component.css']
 })
-export class AppHeaderComponent implements OnInit {
-location=false;
-state="Punjab";
-assembly="Phagwara";
-  constructor(private helperService:HelperService) {
+export class AppHeaderComponent implements OnInit, AfterViewInit {
+    location = false;
+    state = "Punjab";
+    assembly = "Phagwara";
+    constructor(private helperService: HelperService,private eleRf:ElementRef) {
 
-    this.helperService.getEmitter().subscribe((res)=>{
-        console.log("respn",res);
-        
-        if(res.type=="location"){
-            this.state=res.data.state;
-            this.assembly=res.data.a_name;
+        this.helperService.getEmitter().subscribe((res) => {
+            console.log("respn", res);
+
+            if (res.type == "location") {
+                this.state = res.data.state;
+                this.assembly = res.data.a_name;
+            }
+        })
+    }
+    ngAfterViewInit() {
+        jQuery('.overlay').click(function () {
+            jQuery('body').removeClass('open'); 
+        });
+        jQuery('.my-toggle').click(function () {
+            jQuery('body').addClass('open');
+        });
+        jQuery('button.search-btn').click(function () {
+            jQuery('header').toggleClass('open');
+        });
+        if (jQuery(window).scrollTop() >= 30) {
+            jQuery('header').addClass('fixed');
+        } else {
+            jQuery('header').removeClass('fixed');
         }
-    })
-   }
+    }
+    ngOnInit() {
 
-  ngOnInit() {
-    jQuery('.overlay').click(function () {
-        jQuery('body').removeClass('open');
-    });
-      jQuery('.my-toggle ').click(function () {
-        //   jQuery(this).addClass('open');
-          jQuery('body').addClass('open');
-      });
-   
-      jQuery('button.search-btn').click(function () {
-          jQuery('header').toggleClass('open');
-      });
-    
+    }
+    showLocation() {
 
+        this.location = !this.location;
 
-      if (jQuery(window).scrollTop() >= 30) {
-          jQuery('header').addClass('fixed');
-      } else {
-          jQuery('header').removeClass('fixed');
-      }
-  }
-showLocation()
-{
-
-this.location = !this.location;
-
-}
-onLogout(){
-    localStorage.removeItem('userId')
-    alert('User successfully Logged out!')
-}
+    }
+    onLogout() {
+        if (localStorage.getItem('userId')) {
+            localStorage.removeItem('userId')
+            alert('User successfully Logged out!')
+        }
+    }
 
 }
