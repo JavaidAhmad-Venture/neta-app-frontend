@@ -1744,3 +1744,5 @@ span.timeline-time {
 }
 .timeline-body.commented  h6{font-size: 14px; margin-bottom: 3px}
 .timeline-body.commented  .cmnt-info{width: calc(100% - 40px)}
+.mt10{ margin-top: 10px !important;}
+.mt0{ margin-top: 0 !important;}

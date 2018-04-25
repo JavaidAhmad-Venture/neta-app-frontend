@@ -197,7 +197,7 @@
    ul.leader-info-list li{ padding-left:35px; min-height: auto;}
    ul.leader-info-list li label{ font-weight: bold; font-size: 9px; letter-spacing: 0; }
    ul.leader-info-list li span.info-det{ font-weight: 500; font-size: 11px; }
-   .tab-pane p{float: left;width: 100%;font-size: 12px; line-height: 17px; padding-top: 13px;  color: var(--font-color);}
+   .tab-pane p{float: left;width: 100%;font-size: 12px; line-height: 17px; padding-top: 5px;  color: var(--font-color);}
    .table{ margin-bottom: 0; }
    .table thead th{ font-size: 10px; color: #979fb0; background: #dee2e6; opacity: 0.5; text-align: center;}
    .table.table-sm td {font-size: 12px; text-align: center;}
@@ -299,7 +299,7 @@ section.citizens.citizens1.citizens2 .candidate-info.v2 .up-icons{position: rela
 .feeder-info {width: calc(100% - 110px); padding-left: 9px; position: relative; padding-right: 5px;}
 .feeder-info h4{ font-size: 12px;}
 span.feed-date{ font-size: 11px;}
-.my-feed-body .issue-block-info h3{ font-size: 11px;}
+.my-feed-body .issue-block-info h3{ font-size: 14px; line-height: 18px;}
 span.points{ font-size: 12px;}
 .my-feed-body .issue-block-info{ padding:11px;}
 .feed-vote button.btn.vote-btn{ padding: 9px 19px;}
@@ -439,7 +439,10 @@ span.points{ font-size: 12px;}
     .upper-tab-section.inner-tab{box-shadow: 4px 1px 3px rgba(0,0,0,0.1);}
     span.info-list-icon i{font-size: 11px; }
     .info-side-block ul.leader-info-list li{padding-left:40px;}
-
+    .timeline{ padding-left:70px;}
+    .timline-date { left: -70px;}
+    .timeline::after { left: 45px;}
+    
 
 
    }
