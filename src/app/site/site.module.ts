@@ -10,7 +10,7 @@ import { DiscussionComponent } from './components/discussion/discussion.componen
 import { ResultsComponent } from './components/results/results.component';
 import { StarCitizensComponent } from './components/star-citizens/star-citizens.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { LocationDetectorComponent } from './components/voting-booth/location-detector/location-detector.component';
+import { LocationDetectorComponent } from '../shared/components/location-detector/location-detector.component';
 import { VotingBoothComponent } from './components/voting-booth/voting-booth.component';
 import { SiteComponent } from './site.component';
 import { AppHeaderComponent } from './toolbars/app-header/app-header.component';
@@ -32,7 +32,6 @@ import { CitizenProfileComponent } from './components/citizen-profile/citizen-pr
     VotingBoothComponent,
     ResultsComponent,
     StarCitizensComponent,
-    LocationDetectorComponent,
     ContactInfoComponent,
     AboutComponent,
     UserProfileComponent,

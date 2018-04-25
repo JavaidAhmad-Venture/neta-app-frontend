@@ -17,7 +17,7 @@
             <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Tutorial</a></li>
         </ul>
     </div>
-        <button class="btn logout-btn ripple-dark"><i class="material-icons">reply</i>Logout</button>
+        <button class="btn logout-btn ripple-dark" (click)="onLogout()"><i class="material-icons">reply</i>Logout</button>
 </div>
 <header>
         
@@ -35,9 +35,9 @@
             <span class="icon-bar lin2"></span>
             <span class="icon-bar lin3"></span>
         </button>
-        <div class="location-detctor">
-                <span class="state">Punjab</span>
-                <div class="location">Phagwara <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
+        <div class="location-detctor emptyAnchor" data-toggle="modal" data-target="#welcome-back">
+                <span class="state">{{state | titlecase}}</span>
+                <div class="location">{{assembly | titlecase}} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
           </div>
         <nav role="navigation">
                 <ul class="navigation">

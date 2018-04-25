@@ -1,3 +1,4 @@
+import { HelperService } from './../../../shared/services/helper.service';
 import { Candidate } from './../../../shared/models/candidate';
 
 import { CandidateProfileService } from './../../../shared/services/candidate-profile.service';
@@ -39,9 +40,24 @@ export class VotingBoothComponent implements OnInit {
     private candidateService: CondidatesService,
     private cloudnaryService: CloudnaryService,
     private profileService: CandidateProfileService,
+    private helperService:HelperService
   
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
+
+    this.helperService.getEmitter().subscribe((res)=>{
+      console.log("respn",res);
+      
+      if(res.type=="location"){
+          // this.state=res.data.state;
+          this.currentLocation.aname=res.data.a_name;
+          this.currentLocation.dname=res.data.d_name;
+          this.ID.d_id=res.data.d_id;
+          this.ID.a_id=res.data.a_id;
+          this.showCandidates(this.ID.a_id);
+      }
+  })
+ 
   }
 
   ngOnInit() {
@@ -102,6 +118,7 @@ export class VotingBoothComponent implements OnInit {
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     const getUserId = localStorage.getItem('userId');
+    console.log('get user id:',getUserId);
     
     if(!getUserId)
     this.registerToVote = true;
