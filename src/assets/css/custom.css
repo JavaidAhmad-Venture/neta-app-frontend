@@ -128,7 +128,7 @@
     ul.candidate-list li{float:left;width:100%;margin:0;padding:10px 0;list-style:none}  
     .candidate-party img{width:100%;margin:0;float:left;height:100%}  
     span.candidate-party{position:absolute;width:20px;height:20px;border:2px solid #fff;border-radius:50%;margin:0;right:-5px;top:-5px}  
-    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%}  
+    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%;overflow: hidden}  
     span.candidate-pic img{width:100%;height:100%}  
     .candidate-info{float:left;width:calc(100% - 125px);padding:0 15px}  
     .candidate-info h4,.candidate-info h6{float:left;width:100%;margin-bottom:0;color:var(--font-color)}  

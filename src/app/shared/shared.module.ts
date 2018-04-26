@@ -37,7 +37,8 @@ import { CitizenProfileService } from './services/citizen-profile.service';
   providers:[CondidatesService,CandidateProfileService,CloudnaryService,
     CookieService,LocationService,InfluencersService,
     PopularPeopleService,WindowService,
-    HelperService,CitizenProfileService
+    HelperService,CitizenProfileService,
+    CitizenProfileService
   ],
   exports:[CommonModule,LoaderComponent,SmallLoaderComponent,LocationDetectorComponent]
 })

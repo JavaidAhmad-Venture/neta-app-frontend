@@ -6,8 +6,8 @@ import { CloudnaryService } from './../../../shared/services/cloudnary.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
-// import *  as firebase from 'firebase';
-declare var firebase;
+import *  as firebase from 'firebase';
+//declare var firebase;
 
 @Component({
   selector: 'app-voting-booth',
