@@ -10,18 +10,15 @@ import { WindowService } from './../../services/window.service';
 //import * as firebase from 'firebase';
 declare var $: any;
 //  import * as auth from 'firebase/auth';
-
 export class PhoneNumber {
   country: string;
   line: string;
-
   // format phone numbers as E.164
   get e164() {
     const num = this.country + this.line;
     console.log("Number is :", num);
     return `+${num}`
   }
-
 }
 @Component({
   selector: 'phone-login',
@@ -45,9 +42,7 @@ export class PhoneLoginComponent implements OnInit {
   }
   incorrectCode: boolean = false;
   ngOnInit() {
-
     console.log('Firabse id: ', firebase);
-
     this.windowRef = this.win.windowRef;
     console.log('Window is: ', this.windowRef);
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
@@ -58,8 +53,6 @@ export class PhoneLoginComponent implements OnInit {
     
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
     // this.windowRef.recaptchaVerifier.render();
-
-
     this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
       
      
@@ -88,16 +81,11 @@ export class PhoneLoginComponent implements OnInit {
  
    
   }
-
-
-
   sendLoginCode() {
-
     var appVerifier = this.windowRef.recaptchaVerifier;
     //console.log("App verifier is:",appVerifier);
     const num = this.phoneNumber.e164;
     console.log("In method number is:", num);
-
     console.log("firebase  is:", firebase);
     firebase.auth().signInWithPhoneNumber(num, appVerifier)
       .then(result => {
@@ -134,6 +122,4 @@ export class PhoneLoginComponent implements OnInit {
         console.log(error, "Incorrect code entered?")
       });
   }
-
-
 }

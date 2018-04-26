@@ -8,6 +8,7 @@ import { SiteComponent } from '../../site/site.component';
 import { DiscussionComponent } from './../../site/components/discussion/discussion.component';
 import { ResultsComponent } from './../../site/components/results/results.component';
 import { VotingBoothComponent } from './../../site/components/voting-booth/voting-booth.component';
+import { CitizenProfileComponent } from '../../site/components/citizen-profile/citizen-profile.component';
 
 
 
@@ -33,6 +34,9 @@ export const SITE_ROUTES: Routes = [
 			},
 			{
 				path: 'profile',component:UserProfileComponent,canActivate: [AuthGuard]
+			},
+			{
+				path: 'citizen/:citizen',component:CitizenProfileComponent
 			},
 			{
 				path: '**',	component: NotFoundComponent,

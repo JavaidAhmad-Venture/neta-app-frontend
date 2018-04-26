@@ -1,0 +1,777 @@
+<section class="cover-pic" style="background-image:url('assets/images/bg.png')"></section>
+<section>
+    <div class="upper-tab-section inner-tab">
+        <div class="container main-container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="leader-profile-pic">
+                        <img src="assets/images/user.png" alt="leader" />
+                    </div>
+                    <!-- mobile view -->
+                    <div class="hide rs-show rs-profile-view">
+                        <h3 class="mt10" >Sandeep Anand</h3>
+                        <span><i class="material-icons">place</i> Phagwara</span>
+                    </div>        
+                     <!-- mobile view end-->
+                </div>
+                <div class="col-md-9 col-sm-9 col-lg-9 rs-np">
+                     <!-- mobile view -->
+                    <div class="rs-show rs-statdata-outer hide">
+                            <div class="after-vote">
+                                <div class="stat-data">
+                                        <div class="voste-stat">
+                                            <span> <i class="material-icons">star</i>Score</span>
+                                            <h6>42,0001</h6>
+                                        </div>
+                                        <div class="voste-stat rank">
+                                            <span><i class="material-icons">equalizer</i> Rank</span>
+                                            <h6><span>4</span>
+                                                <span class="up-icons">
+                                                    <i class="fas fa-arrow-up"></i>
+                                                </span>#2 </h6>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                     <!-- mobile view end-->
+                    <ul class="nav nav-tabs nav-justified profile-tab">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#About" role="tab">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#Feed" role="tab">Activity</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#History" role="tab">My Issues</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#Manifesto" role="tab">Score Log</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container main-container">
+        <div class="row custom-row">
+            <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12 rs-hide">
+                <div class="left-sidebar">
+                    <div class="info-side-block">
+                        <h3 >ABCDEF</h3>
+                        <div class="stat-data ">
+                            <div class="voste-stat">
+                                <span>
+                                    <img src="assets/images/vote1.png">VOTES</span>
+                                <h6>01,011,
+                                    <span>(45%)</span>
+                                    <span class="up-icons">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </span>
+                                </h6>
+
+
+                            </div>
+                            <div class="voste-stat rank">
+                                <span>Rank</span>
+                                <h6>#2 </h6>
+                            </div>
+                        </div>
+                        <button type="button" class="btn issue-btn hide">Vote Now</button>
+                        <div class="after-vote rs-hide">
+                                <div class="stat-data">
+                                        <div class="voste-stat">
+                                            <span> <i class="material-icons">star</i>Score</span>
+                                            <h6>42,0001</h6>
+        
+        
+                                        </div>
+                                        <div class="voste-stat rank">
+                                            <span><i class="material-icons">equalizer</i> Rank</span>
+                                            <h6><span>4</span>
+                                                <span class="up-icons">
+                                                    <i class="fas fa-arrow-up"></i>
+                                                </span>#2 </h6>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="info-side-block">
+                       
+
+                        <contact-info [ContactInfo]="contact_info"></contact-info>
+                        <!-- auqib -->
+                    </div>
+                </div>
+            </div>
+            <div class="co-md-6 col-lg-6 col-xs-12 col-sm-12">
+                <div class="tab-content card tab-content-section">
+                    <!--.Panel 1-->
+                    <div class="tab-pane fade in show active" id="About" role="tabpanel">
+                          
+                        <div class="leader-profile-block">
+                          
+
+                            <!-- auqib -->
+                            <about [Info]="info"></about>
+                        </div>
+                        <div class="leader-profile-block">
+                            <h2>Popularity Trend</h2>
+                            <div class="panel cust-panel">
+                                <div class="panel-body">
+                                    <img src="assets/images/graph1.png" class="graph" alt="graph">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="leader-profile-block">
+                            <h2>Info</h2>
+                            <div class="panel cust-panel extra-padding">
+                                <div class="panel-body ">
+                                    <div class="video-panel video">
+                                        <div class="video-part">
+                                            <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
+                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-part-info">
+                                            <h5>Video</h5>
+                                            <p>In the tumultuous business of cutting-in and attending to a whale</p>
+                                            <span class="news-date">20 January, 2017</span>
+                                        </div>
+                                    </div>
+                                    <div class="video-panel audio">
+                                        <div class="video-part">
+                                            <iframe width="160" height="90" src="https://www.youtube-nocookie.com/embed/W8YsBaGW0_E?rel=0&amp;showinfo=0" frameborder="0"
+                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-part-info">
+                                            <h5>Audio</h5>
+                                            <p>In the tumultuous business of cutting-in and attending to a whale</p>
+                                            <span class="news-date">20 January, 2017</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <a href="javascript:void(0)" class="more-det">VIEW MORE
+                                        <i class="fas fa-chevron-right"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/.Panel 1-->
+                    <!--.Panel 2-->
+        
+        
+                    <div class="tab-pane fade" id="Feed" role="tabpanel">
+                        <div class="my-feed">
+                            <div class="my-feed-header">
+                                <div class="feeder-img">
+                                    <img src="assets/images/user.png" alt="user" />
+                                </div>
+                                <div class="feeder-info">
+                                    <h4>Alejendro Ballard
+                                        <span>commented on this issue</span>
+                                    </h4>
+                                    <span class="feed-date">05 January 2018 </span>
+
+
+                                </div>
+
+                                <div class="dropdown ">
+                                    <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                                <span class="points">+5 pts</span>
+                            </div>
+                            <div class="my-feed-body">
+                                <div class="issue-block-info">
+                                    <p class="issue">ISSUE
+                                        <span class="hashtag">#infrastructure</span>
+                                    </p>
+                                    <h3>Repair of Durga Mata Mandir Road</h3>
+                                    <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tous led, Portland keffiyeh
+                                        aesthetic food truck sriracha corn hole single-origin coffee church-key roof
+                                        party.
+                                    </p>
+                                    <div class="issue-block-pic">
+                                        <img src="assets/images/poll-pic.png" alt="issue">
+                                    </div>
+                                    <div class="all-cmnt">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier</h6>
+                                            <p>05 January, 2018</p>
+                                        </div>
+                                        <span class="total-reply">
+                                            <i class="material-icons">reply</i> 10
+                                            <span>REPLIES</span>
+                                        </span>
+                                    </div>
+                                    <div class="feed-vote">
+                                        <div class="vote-box">
+                                            <span>
+                                                <i class="material-icons">thumb_up</i>Vote</span>
+                                            43
+                                        </div>
+                                        <button class="btn vote-btn">
+                                            <i class="material-icons">thumb_up</i> Support this issue</button>
+                                    </div>
+                                </div>
+                                <div class="comment-block">
+                                    <div class="comment-block-list">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier
+                                                <span>, Mayor, Jalandhar City</span>
+                                            </h6>
+                                            <p>So that for better or for worse, we two, for the time, were wedded; and should
+                                                poor Queequeg sink to rise no more, then both usage and honour demanded,
+                                                that instead of cutting the cord, it should drag me down in his wake.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-feed">
+                            <div class="my-feed-header">
+                                <div class="feeder-img">
+                                    <img src="assets/images/user.png" alt="user" />
+                                </div>
+                                <div class="feeder-info">
+                                    <h4>Alejendro Ballard
+                                        <span>started a Poll</span>
+                                    </h4>
+                                    <span class="feed-date">05 January 2018 </span>
+
+
+                                </div>
+
+                                <div class="dropdown ">
+                                    <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                                <span class="points">+5 pts</span>
+                            </div>
+                            <div class="my-feed-body">
+                                <div class="issue-block-info poll-block">
+                                    <p class="issue">ISSUE
+                                        <span class="hashtag">#infrastructure</span>
+                                    </p>
+                                    <h3>Repair of Durga Mata Mandir Road</h3>
+                                    <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tous led, Portland keffiyeh
+                                        aesthetic food truck sriracha corn hole single-origin coffee church-key roof
+                                        party.
+                                    </p>
+                                    <div class="issue-block-pic">
+                                        <img src="assets/images/poll-pic.png" alt="issue">
+                                    </div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio1">
+                                            <label for="radio1"> KHAM (Kshatriya, Harijan, Adivasi, Muslim) alliance
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio2">
+                                            <label for="radio2"> Patidars, shifting allegiance from Congress to BJP
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio3">
+                                            <label for="radio3"> Consolidation of Hindu votes after Ram Janm Bhoomi
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio4">
+                                            <label for="radio4"> Further polarisation after Godhra riots
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                    <div class="all-cmnt">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier</h6>
+                                            <p>05 January, 2018</p>
+                                        </div>
+                                        <span class="total-reply">
+                                            <i class="material-icons">reply</i> 10
+                                            <span>REPLIES</span>
+                                        </span>
+                                    </div>
+                                    <div class="feed-vote">
+                                        <div class="vote-box">
+                                            <span>
+                                                <i class="material-icons">thumb_up</i>Vote</span>
+                                            43
+                                        </div>
+                                        <button class="btn vote-btn">
+                                            <i class="material-icons">thumb_up</i> Support this issue</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- <div class="issue-block">
+                            <div class="issue-block-info">
+                                <p class="issue">ISSUE
+                                    <span class="hashtag">#infrastructure</span>
+                                </p>
+                                <h3>Repair of Durga Mata Mandir Road</h3>
+                                <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tous led, Portland keffiyeh
+                                    aesthetic food truck sriracha corn hole single-origin coffee church-key roof
+                                    party.</p>
+                                    <div class="issue-block-pic">
+                                            <img src="assets/images/poll-pic.png" alt="issue">
+                                        </div>
+                                <div class="all-cmnt">
+                                    <div class="cmnt-user">
+                                        <img src="assets/images/candidate.png" alt="candidate.png">
+                                    </div>
+                                    <div class="cmnt-info">
+                                        <h6>Charles Frazier</h6>
+                                        <p>05 January, 2018</p>
+                                    </div>
+                                    <span class="total-reply">
+                                        <i class="material-icons">reply</i> 10
+                                        <span>REPLIES</span>
+                                    </span>
+                                </div>
+                            </div>
+                         
+                            <div class="comment-block">
+                                <div class="comment-block-list">
+                                    <div class="cmnt-user">
+                                        <img src="assets/images/candidate.png" alt="candidate.png">
+                                    </div>
+                                    <div class="cmnt-info">
+                                        <h6>Charles Frazier
+                                            <span>, Mayor, Jalandhar City</span>
+                                        </h6>
+                                        <p>So that for better or for worse, we two, for the time, were wedded; and
+                                            should poor Queequeg sink to rise no more, then both usage and honour
+                                            demanded, that instead of cutting the cord, it should drag me down
+                                            in his wake.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                   
+         <div class="tab-pane fade" id="History" role="tabpanel">
+                        <div class="my-feed history">
+                            <div class="my-feed-body mt0">
+                                <div class="issue-block-info">
+                                    <p class="issue">ISSUE
+                                        <span class="hashtag">#infrastructure</span>
+                                    </p>
+                                    <h3>Repair of Durga Mata Mandir Road</h3>
+                                    <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tous led, Portland keffiyeh
+                                        aesthetic food truck sriracha corn hole single-origin coffee church-key roof
+                                        party.
+                                    </p>
+                                    <div class="issue-block-pic">
+                                        <img src="assets/images/poll-pic.png" alt="issue">
+                                    </div>
+                                    <div class="all-cmnt">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier</h6>
+                                            <p>05 January, 2018</p>
+                                        </div>
+                                        <span class="total-reply">
+                                            <i class="material-icons">reply</i> 10
+                                            <span>REPLIES</span>
+                                        </span>
+                                    </div>
+                                    <div class="feed-vote">
+                                        <div class="vote-box">
+                                            <span>
+                                                <i class="material-icons">thumb_up</i>Vote</span>
+                                            43
+                                        </div>
+                                        <button class="btn vote-btn">
+                                            <i class="material-icons">thumb_up</i> Support this issue</button>
+                                    </div>
+                                </div>
+                                <div class="comment-block">
+                                    <div class="comment-block-list">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier
+                                                <span>, Mayor, Jalandhar City</span>
+                                            </h6>
+                                            <p>So that for better or for worse, we two, for the time, were wedded; and should
+                                                poor Queequeg sink to rise no more, then both usage and honour demanded,
+                                                that instead of cutting the cord, it should drag me down in his wake.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-feed history">
+
+                            <div class="my-feed-body mt0">
+                                <div class="issue-block-info poll-block">
+                                    <p class="issue">ISSUE
+                                        <span class="hashtag">#infrastructure</span>
+                                    </p>
+                                    <h3>Repair of Durga Mata Mandir Road</h3>
+                                    <p>Synth polaroid bitters chillwave pickled. Vegan disrupt tous led, Portland keffiyeh
+                                        aesthetic food truck sriracha corn hole single-origin coffee church-key roof
+                                        party.
+                                    </p>
+                                    <div class="issue-block-pic">
+                                        <img src="assets/images/poll-pic.png" alt="issue">
+                                    </div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio1">
+                                            <label for="radio1"> KHAM (Kshatriya, Harijan, Adivasi, Muslim) alliance
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio2">
+                                            <label for="radio2"> Patidars, shifting allegiance from Congress to BJP
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio3">
+                                            <label for="radio3"> Consolidation of Hindu votes after Ram Janm Bhoomi
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input type="radio" name="radio" id="radio4">
+                                            <label for="radio4"> Further polarisation after Godhra riots
+                                                <div class="poll-animate">
+                                                    <span class="dark-color"></span>
+                                                    <span class="poll-value">
+                                                        <span>10% votes</span>864</span>
+                                                </div>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                    <div class="all-cmnt">
+                                        <div class="cmnt-user">
+                                            <img src="assets/images/candidate.png" alt="candidate.png">
+                                        </div>
+                                        <div class="cmnt-info">
+                                            <h6>Charles Frazier</h6>
+                                            <p>05 January, 2018</p>
+                                        </div>
+                                        <span class="total-reply">
+                                            <i class="material-icons">reply</i> 10
+                                            <span>REPLIES</span>
+                                        </span>
+                                    </div>
+                                    <div class="feed-vote">
+                                        <div class="vote-box">
+                                            <span>
+                                                <i class="material-icons">thumb_up</i>Vote</span>
+                                            43
+                                        </div>
+                                        <button class="btn vote-btn">
+                                            <i class="material-icons">thumb_up</i> Support this issue</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Panel 2-->
+                    <!--Panel 3-->
+                    <div class="tab-pane fade" id="Manifesto" role="tabpanel">
+                       <div class="leader-profile-block">
+                           <h2>Score Log</h2>
+                           <div class="timeline">
+                               <div class="timeline-block">
+                                   <div class="timline-date">Apr<span>16</span></div>
+                                   <div class="timline-content">
+                                       <div class="timeline-header">
+                                           <span class="timeline-time">12:30 PM</span>
+                                           <h4><a href="javascript:void(0)">You Create Poll</a><span class="points">+8 pts</span></h4>
+                                       </div>
+                                       <div class="timeline-body">
+                                           <h6>Who should be the next Chief Minister of India?</h6>
+                                       </div>
+                                   </div>
+                                   <div class="timline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-time">12:30 PM</span>
+                                            <h4><a href="javascript:void(0)">You liked a comment</a><span class="points">+1 pts</span></h4>
+                                        </div>
+                                        <div class="timeline-body commented">
+                                      
+                                                        <div class="comment-block-list">
+                                                            <div class="cmnt-user">
+                                                                    <span class="candidate-party">
+                                                                            <img src="assets/images/congress.png" alt="congress.png">
+                                                                        </span>
+                                                                <img src="assets/images/candidate.png" alt="candidate.png">
+                                                            </div>
+                                                            <div class="cmnt-info">
+                                                                <h6>Charles Frazier<span>Leader</span>
+                                                                </h6>
+                                                                <p>So that for better or for worse, we two, for the time, were wedded; and should
+                                                                    poor Queequeg sink to rise no more, then both usage and honour demanded,
+                                                                    that instead of cutting the cord, it should drag me down in his wake.</p>
+                                                            </div>
+                                                        </div>
+                                                    
+                                        </div>
+                                    </div>
+                               </div>
+                               <div class="timeline-block">
+                                    <div class="timline-date">Apr<span>16</span></div>
+                                    <div class="timline-content">
+                                        <div class="timeline-header">
+                                            <span class="timeline-time">12:30 PM</span>
+                                            <h4><a href="javascript:void(0)">You Create Poll</a><span class="points">+8 pts</span></h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <h6>Who should be the next Chief Minister of India?</h6>
+                                        </div>
+                                    </div>
+                                    <div class="timline-content">
+                                         <div class="timeline-header">
+                                             <span class="timeline-time">12:30 PM</span>
+                                             <h4><a href="javascript:void(0)">You donated money to BJP</a><span class="points">+1 pts</span></h4>
+                                         </div>
+                                         <div class="timeline-body commented">
+                                       
+                                                         <div class="comment-block-list">
+                                                             <div class="cmnt-user">
+                                                                     
+                                                                 <img src="assets/images/congress.png" alt="candidate.png">
+                                                             </div>
+                                                             <div class="cmnt-info">
+                                                                 <span class="donated">Donated</span>
+                                                                 <p class="money-amount"><i class="fas fa-rupee-sign"></i> 10,000</p>
+                                                             </div>
+                                                         </div>
+                                                     
+                                         </div>
+                                     </div>
+                                </div>
+                           </div>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">
+                <aside role="slidebar">
+                    <div class="profile-block  be-citi">
+                        <span class="cross">
+                            <i class="material-icons">clear</i>
+                        </span>
+                        <div class="profile-block-body">
+                            <div class="user-img pull-right">
+                                <img src="assets/images/citi.png" alt="user" />
+                            </div>
+                            <div class="user-content">
+                                <h4>Become a Star Citizen Today</h4>
+                                <p>I have hinted that I would often jerk poor Queequeg from bet</p>
+
+                            </div>
+                        </div>
+                        <div class="profile-block-footer">
+                            <a href="javascript:void(0)" class="more-det"> LEARN MORE
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="candidate-block popular-candidate ">
+                        <h3>Popular Candidates</h3>
+                        <ul class="candidate-list">
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                        </ul>
+                        <div class="more-news">
+                            <a href="javascript:void(0)" class="more-det">See ALL
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="candidate-block Influencers-candidate">
+                        <h3>Popular Influencers</h3>
+                        <ul class="candidate-list">
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                            <li>
+                                <span class="candidate-pic">
+                                    <span class="candidate-party">
+                                        <img src="assets/images/congress.png" alt="congress.png" />
+                                    </span>
+                                    <img src="assets/images/candidate.png" alt="candidate.png" />
+                                </span>
+                                <div class="candidate-info">
+                                    <h6 class="candidate-party-name">INC</h6>
+                                    <h4>Rahul Gandhi</h4>
+                                </div>
+                                <button class="btn vote-btn">Vote Now</button>
+                            </li>
+                        </ul>
+                        <div class="more-news">
+                            <a href="javascript:void(0)" class="more-det">See ALL
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--/.Panel 3-->
+    </div>
+</section>
