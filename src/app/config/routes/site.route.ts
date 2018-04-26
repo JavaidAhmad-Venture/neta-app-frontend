@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../shared/guards/auth-guard.service';
 import { Routes } from '@angular/router';
 import { NotFoundComponent } from '../../shared/components/not-found/not-found.component';
 import { CandidateProfileComponent } from '../../site/components/candidate-profile/candidate-profile.component';
@@ -32,7 +33,7 @@ export const SITE_ROUTES: Routes = [
 				path: 'candidate/:candidate', component:CandidateProfileComponent
 			},
 			{
-				path: 'profile',component:UserProfileComponent
+				path: 'profile',component:UserProfileComponent,canActivate: [AuthGuard]
 			},
 			{
 				path: 'citizen/:citizen',component:CitizenProfileComponent

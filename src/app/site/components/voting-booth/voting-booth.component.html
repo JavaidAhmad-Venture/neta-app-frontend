@@ -83,9 +83,9 @@
                     </span>
                     <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
                 </div>
-                <button class="btn vote-btn ripple" (click)="onVote(candidate)" data-toggle="modal" data-target="#if-not-login" >
+                <button class="btn vote-btn ripple" (click)="onVote(candidate)" *ngIf="!isVoted">
                   <img src="assets/images/vote.png" />Vote Now</button>
-                <div class="done-vote" *ngIf="isVoted && candidate.is_voted_by_me">
+                <div [class.done-vote]="isVoted" *ngIf="isVoted && candidate.is_voted_by_me">
                   <i class="material-icons">done</i>
                 </div>
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
