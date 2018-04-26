@@ -136,7 +136,7 @@
     ul.leader-info-list li span.info-det{font-weight:500;font-size:11px}  
     .tab-pane p{float:left;width:100%;font-size:12px;line-height:17px;padding-top:5px;color:var(--font-color)}  
     .table{margin-bottom:0}  
-    .table thead th{font-size:10px;color:#979fb0;background:#dee2e6;opacity:.5;text-align:center}  
+    .table thead th{font-size:10px;color:#979fb0;background:#eeeeee;opacity:.5;text-align:center}  
     .table.table-sm td{font-size:12px;text-align:center}  
     .table-striped tbody tr:nth-of-type(odd){background-color:#fff!important}  
     button.btn.issue-btn.rs-btn{width:25%;float:right;margin-right:10px;min-height:32px}  
