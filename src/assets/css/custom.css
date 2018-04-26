@@ -565,3 +565,8 @@
       .table-striped tbody tr:nth-of-type(odd){ background-color: #fff !important; font-size: 14px;  text-align: center;}
       .table td {  font-size: 14px;  text-align: center; border-bottom: 1px solid rgba(204,204,204,0.3) !important;}
       .table-sm td, .table-sm th{ padding:10px !important;}
+
+      .register-modal .left-sec input{width: 66%;  float: right;}
+      .register-modal .left-sec label{float: right; padding: 1px; font-size: 20px !important;}
+      .register-modal .left-sec img{float: right; padding-right: 6px; padding-top: 8px;}
+      .neta-modal.register .register-modal .right-sec { width: 50% !important; }
