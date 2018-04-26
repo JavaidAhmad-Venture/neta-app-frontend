@@ -1,3 +1,4 @@
+import { CookieService } from './../../../shared/services/cookie.service';
 import { HelperService } from './../../../shared/services/helper.service';
 import { Candidate } from './../../../shared/models/candidate';
 
@@ -7,11 +8,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
 import *  as firebase from 'firebase';
-<<<<<<< HEAD
 //declare var firebase;
-=======
-import { CookieService } from '../../../shared/services/cookie.service';
->>>>>>> dfa97fb097ba3b4fcdb9dc2652b6723a096d1832
 
 declare var $:any;
 @Component({
