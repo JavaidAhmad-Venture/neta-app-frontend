@@ -1,5 +1,8 @@
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+
+import { AuthService } from './../../../shared/guards/auth.service';
+import { CookieService } from './../../../shared/services/cookie.service';
 import { HelperService } from './../../../shared/services/helper.service';
-import { Component, OnInit, AfterViewInit,ElementRef} from '@angular/core';
 
 declare var jQuery: any;
 
@@ -12,20 +15,13 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
     location = false;
     state = "Punjab";
     assembly = "Phagwara";
-    constructor(private helperService: HelperService,private eleRf:ElementRef) {
+    userId: any;
+    constructor(private helperService: HelperService, private eleRf: ElementRef, private cookieService: CookieService, private auth: AuthService) {
 
-        this.helperService.getEmitter().subscribe((res) => {
-            console.log("respn", res);
-
-            if (res.type == "location") {
-                this.state = res.data.state;
-                this.assembly = res.data.a_name;
-            }
-        })
     }
     ngAfterViewInit() {
         jQuery('.overlay').click(function () {
-            jQuery('body').removeClass('open'); 
+            jQuery('body').removeClass('open');
         });
         jQuery('.my-toggle').click(function () {
             jQuery('body').addClass('open');
@@ -41,6 +37,15 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
     }
     ngOnInit() {
 
+        this.helperService.getEmitter().subscribe((res) => {
+            console.log("respn", res);
+
+            if (res.type == "location") {
+                this.state = res.data.state;
+                this.assembly = res.data.a_name;
+            }
+        });
+        this.userId = this.cookieService.readCookie('userId');
     }
     showLocation() {
 
@@ -48,10 +53,9 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
 
     }
     onLogout() {
-        if (localStorage.getItem('userId')) {
-            localStorage.removeItem('userId')
-            alert('User successfully Logged out!')
-        }
+        const userId = this.cookieService.readCookie('userId');
+        if(userId)
+        this.auth.logout();
     }
 
 }

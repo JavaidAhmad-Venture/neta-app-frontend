@@ -7,7 +7,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
 import *  as firebase from 'firebase';
+import { CookieService } from '../../../shared/services/cookie.service';
 
+declare var $:any;
 @Component({
   selector: 'app-voting-booth',
   templateUrl: './voting-booth.component.html',
@@ -39,7 +41,8 @@ export class VotingBoothComponent implements OnInit {
     private candidateService: CondidatesService,
     private cloudnaryService: CloudnaryService,
     private profileService: CandidateProfileService,
-    private helperService:HelperService
+    private helperService:HelperService,
+    private cookieService:CookieService
   
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
@@ -116,11 +119,28 @@ export class VotingBoothComponent implements OnInit {
     this.candidateName=candidate.candidate_name;
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
-    const getUserId = localStorage.getItem('userId');
-    console.log('get user id:',getUserId);
     
-    if(!getUserId)
-    this.registerToVote = true;
+    const userId=this.cookieService.readCookie('userId');
+
+    console.log('get user id:',userId);
+    
+    if(!userId){
+      this.registerToVote = true;
+      this.helperService.setEmitter({
+        type: 'voteLoginPopup',
+        data: {
+          name: this.candidateName,
+          public_id:this.candidatePic,
+          party_image:this.partyImage
+          
+        }
+      })
+      $('#if-not-login').modal('show',()=>{
+        this.isVoted = true;
+      });
+      
+    }
+   
     else {
       this.registerToVote = false;    
       candidate.votes++;

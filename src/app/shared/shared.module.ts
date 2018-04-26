@@ -1,24 +1,26 @@
-import { HelperService } from './services/helper.service';
-import { FormsModule } from '@angular/forms';
-import { LocationDetectorComponent } from './components/location-detector/location-detector.component';
-import { PopularPeopleService } from './services/popular-people.service';
-import { Candidate } from './models/candidate';
-import { CloudnaryService } from './services/cloudnary.service';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
 
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CondidatesService } from './services/condidates.service';
-import { HttpClientModule } from '@angular/common/http';
-import { CandidateProfileService } from './services';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LocationDetectorComponent } from './components/location-detector/location-detector.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PhoneLoginComponent } from './components/phone-login/phone-login.component';
+import { SmallLoaderComponent } from './components/small-loader/small-loader.component';
+import { AuthGuard } from './guards/auth-guard.service';
+import { AuthService } from './guards/auth.service';
+import { CandidateProfileService } from './services';
+import { CloudnaryService } from './services/cloudnary.service';
+import { CondidatesService } from './services/condidates.service';
 import { CookieService } from './services/cookie.service';
+import { HelperService } from './services/helper.service';
 import { InfluencersService } from './services/influencers.service';
 import { LocationService } from './services/location.service';
-import { SmallLoaderComponent } from './components/small-loader/small-loader.component';
+import { PopularPeopleService } from './services/popular-people.service';
 import { WindowService } from './services/window.service';
 
 
@@ -32,12 +34,29 @@ import { WindowService } from './services/window.service';
     FormsModule,
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
   ],
-  declarations: [NotFoundComponent, LoaderComponent, SmallLoaderComponent,LocationDetectorComponent],
-  providers:[CondidatesService,CandidateProfileService,CloudnaryService,
-    CookieService,LocationService,InfluencersService,
-    PopularPeopleService,WindowService,
-    HelperService
+  declarations: [NotFoundComponent, 
+    LoaderComponent,
+    SmallLoaderComponent,
+    LocationDetectorComponent,
+    PhoneLoginComponent
   ],
-  exports:[CommonModule,LoaderComponent,SmallLoaderComponent,LocationDetectorComponent]
+  providers:[CondidatesService,
+    CandidateProfileService,
+    CloudnaryService,
+    CookieService,
+    LocationService,
+    InfluencersService,
+    PopularPeopleService,
+    WindowService,
+    HelperService,
+    AuthService,
+    AuthGuard
+  ],
+  exports:[CommonModule,
+    LoaderComponent,
+    SmallLoaderComponent,
+    LocationDetectorComponent,
+    PhoneLoginComponent,
+  ]
 })
 export class SharedModule { }

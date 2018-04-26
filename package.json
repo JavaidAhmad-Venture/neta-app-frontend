@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "@cloudinary/angular-5.x": "^1.0.1",
     "angular4-fusioncharts": "^1.0.0",
+    "angularfire2": "^5.0.0-rc.6.0",
     "bootstrap": "^4.0.0",
     "cloudinary-core": "^2.5.0",
     "core-js": "^2.4.1",

@@ -1,7 +1,11 @@
-import { environment } from './../../../../environments/environment.dev';
-import { WindowService } from './../../../shared/services/window.service';
-import { Component, OnInit, Input } from '@angular/core';
-import * as firebase from 'firebase'
+import { CloudnaryService } from './../../services/cloudnary.service';
+import { HelperService } from './../../services/helper.service';
+import { Component, Input, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
+
+import { CookieService } from '../../services/cookie.service';
+import { environment } from './../../../../environments/environment.prod';
+import { WindowService } from './../../services/window.service';
 
 //import * as firebase from 'firebase';
 declare var $: any;
@@ -26,17 +30,18 @@ export class PhoneNumber {
 })
 export class PhoneLoginComponent implements OnInit {
 
-  @Input('cName') cName;
-  @Input('cPic') cPic;
-  @Input('pImage') pImage;
-  @Input('cUrl') cUrl;
+   cName:string;
+   cPic:string;
+   pImage:string;
+   cUrl:any;
 
   windowRef: any;
   phoneNumber = new PhoneNumber()
   verificationCode: string;
   user: any;
-  constructor(private win: WindowService) {
+  constructor(private win: WindowService,private cookieService:CookieService,private helperService:HelperService,private cloudService:CloudnaryService) {
     console.log('firebase', firebase)
+    this.cUrl=cloudService.cloudnaryUrl;
   }
   incorrectCode: boolean = false;
   ngOnInit() {
@@ -47,7 +52,10 @@ export class PhoneLoginComponent implements OnInit {
     console.log('Window is: ', this.windowRef);
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
     // this.windowRef.recaptchaVerifier.render()
-    firebase.initializeApp(environment.firebase)
+    if (!firebase.apps.length) {
+      firebase.initializeApp(environment.firebase)
+   }
+    
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
     // this.windowRef.recaptchaVerifier.render();
 
@@ -66,6 +74,16 @@ export class PhoneLoginComponent implements OnInit {
     // this.windowRef.recaptchaVerifier.render().then(function(widgetId) {
     //   this.windowRef.recaptchaWidgetId = widgetId;
     // });
+    this.helperService.getEmitter().subscribe((res)=>{
+      console.log("Helper in phone popup",res);
+      
+      if(res.type=="voteLoginPopup"){
+          // this.state=res.data.state;
+          this.cName=res.data.name;
+          this.cPic=res.data.public_id;
+          this.pImage=res.data.party_image;
+      }
+  })
    
  
    
@@ -85,9 +103,6 @@ export class PhoneLoginComponent implements OnInit {
       .then(result => {
         this.windowRef.confirmationResult = result;
        
-      }).then(()=>{
-        $('#if-not-login').modal('hide');
-        $('#verify-otp').modal('show');
       })
       .catch(error => console.log(error));
      
@@ -98,9 +113,12 @@ export class PhoneLoginComponent implements OnInit {
       .then(result => {
         this.incorrectCode = false;
         this.user = result.user;
+        console.log('firebase user:',this.user);
+        this.cookieService.createCookie('userId',this.user.uid,null,null);
         console.log('Response from firebase:'+this.user.refreshToken);
         if (this.user) {
           alert('user registered successfully!');
+
           localStorage.setItem('userId', firebase.auth().currentUser.uid)
         }
         this.phoneNumber.country = '';

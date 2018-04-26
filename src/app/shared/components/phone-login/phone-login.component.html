@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="right-sec">
                                     <div class="form-group">
-                                      <input type="text" placeholder="Phone Number" [(ngModel)]="phoneNumber.line"  class="form-control" id="title">
+                                      <input type="text" placeholder="Phone Number" [(ngModel)]="phoneNumber.line"  class="form-control" id="title" max="10" min="10">
                                     </div>    
                                 </div>
                         </div>
@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col pb20" >
                         <div class="form-group">
-                            <input type="text" placeholder="- - - - " [(ngModel)]="verificationCode" class="form-control" id="title">
+                            <input type="text" placeholder="- - - - - -" [(ngModel)]="verificationCode" min="6" max="6" class="form-control" id="title">
                         </div>
                     </div>
                 </div> 
@@ -124,6 +124,50 @@
                 <div class="row">
                     <div class="col">
                         <button type="button" class="btn green-btn active" (click)="verifyLoginCode()">Next</button>
+                    </div>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade neta-modal register" id="register">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bb0">
+            <h2>Neta</h2>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+                   <div class="row">
+                        <div class="col mid-outer" >
+                            <h5 >To register please verify <br/> phone number</h5>
+                            <h6>We will send an OTP to verify your number </h6>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col pb20" >
+                                <div class="left-sec">
+                                    <div class="form-group" >
+                                        <input type="text" placeholder="91"  [(ngModel)]="phoneNumber.country"   class="form-control" id="title">
+                                        <label> + </label>
+                                        <img src="assets/images/flag.png" >
+                                     </div>
+                                </div>
+                                <div class="right-sec">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Phone Number" [(ngModel)]="phoneNumber.line"  class="form-control" id="title" max="10" min="10">
+                                    </div>    
+                                </div>
+                        </div>
+                </div> 
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn green-btn g-recaptcha" method="POST" id="sign-in-button" (click)="sendLoginCode()" data-toggle="modal" data-target="#verify-otp"  data-dismiss="modal">Next</button>
                     </div>
                 </div>
         </div>

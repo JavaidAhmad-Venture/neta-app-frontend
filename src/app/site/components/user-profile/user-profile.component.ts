@@ -1,3 +1,4 @@
+import { CookieService } from './../../../shared/services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-
-  constructor() { }
+  userId:any;
+  constructor(private cookieService:CookieService) { }
 
   ngOnInit() {
+    this.userId = this.cookieService.readCookie('userId');
   }
 
 }

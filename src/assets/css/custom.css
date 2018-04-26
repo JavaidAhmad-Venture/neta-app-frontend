@@ -474,6 +474,10 @@
     button.btn.logout-btn{position:absolute;left:0;right:0;bottom:0;color:red;background:#f6f7f8;border-top:1px solid var(--border-color);text-transform:uppercase;font-size:12px;display:flex;align-items:center;justify-content:center;padding:10px;border-radius:0}  
     button.btn.logout-btn i{font-size:20px;margin-right:5px}  
     button.btn.logout-btn:focus{outline:0!important;box-shadow:none!important}  
+
+    button.btn.login-btn{color:#fff;background:var(--main-color);border-top:1px solid var(--main-color);}  
+ 
+
     .location-detctor span.state{font-size:12px;color:#fff;display:block}  
     .my-feed-header .dropdown a::after,.tab-inner-info{display:none}  
     span.caret{position:absolute;line-height:1;right:5px;bottom:1px}  
