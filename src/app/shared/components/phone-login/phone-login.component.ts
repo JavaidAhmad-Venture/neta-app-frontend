@@ -126,7 +126,7 @@ export class PhoneLoginComponent implements OnInit {
           data: {
             u_id:'abc'
           }
-        })
+        });
 
       })
       .catch(error => {

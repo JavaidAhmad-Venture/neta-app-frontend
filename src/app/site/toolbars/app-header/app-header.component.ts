@@ -13,8 +13,8 @@ declare var jQuery: any;
 })
 export class AppHeaderComponent implements OnInit, AfterViewInit {
     location = false;
-    state = "Punjab";
-    assembly = "Phagwara";
+    state = "State";
+    assembly = "Assembly";
     userId: any;
     constructor(private helperService: HelperService, private eleRf: ElementRef, private cookieService: CookieService, private auth: AuthService) {
 
@@ -47,8 +47,11 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
             if(res.type=="signIn"){
                 this.userId = this.cookieService.readCookie('userId');
             }
+            if(res.type=="logout"){
+                this.cookieService.eraseCookie(['userId'])
+             }
         });
-       
+        this.userId = this.cookieService.readCookie('userId');
     }
     showLocation() {
 
@@ -56,8 +59,13 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
 
     }
     onLogout() {
-        const userId = this.cookieService.readCookie('userId');
-        if(userId)
+        this.helperService.setEmitter({
+            type: 'logout',
+            data: {
+              u_id:'logout'
+            }
+          })
+        this.userId = '';
         this.auth.logout();
     }
 
