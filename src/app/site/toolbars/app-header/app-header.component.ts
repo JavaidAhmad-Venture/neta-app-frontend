@@ -44,8 +44,11 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
                 this.state = res.data.state;
                 this.assembly = res.data.a_name;
             }
+            if(res.type=="signIn"){
+                this.userId = this.cookieService.readCookie('userId');
+            }
         });
-        this.userId = this.cookieService.readCookie('userId');
+       
     }
     showLocation() {
 
