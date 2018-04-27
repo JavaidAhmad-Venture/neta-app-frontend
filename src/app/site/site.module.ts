@@ -7,6 +7,7 @@ import { routes } from './../config/routes';
 import { AboutComponent } from './components/candidate-profile/about/about.component';
 import { CandidateProfileComponent } from './components/candidate-profile/candidate-profile.component';
 import { ContactInfoComponent } from './components/candidate-profile/contact-info/contact-info.component';
+import { CitizenProfileComponent } from './components/citizen-profile/citizen-profile.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ResultsComponent } from './components/results/results.component';
 import { StarCitizensComponent } from './components/star-citizens/star-citizens.component';
@@ -16,8 +17,6 @@ import { SiteComponent } from './site.component';
 import { AppHeaderComponent } from './toolbars/app-header/app-header.component';
 import { SidebarComponent } from './toolbars/sidebar/sidebar.component';
 
-import { CitizenProfileComponent } from './components/citizen-profile/citizen-profile.component';
-import { PhoneLoginComponent } from '../shared/components/phone-login/phone-login.component';
 @NgModule({
   imports: [
     CommonModule,

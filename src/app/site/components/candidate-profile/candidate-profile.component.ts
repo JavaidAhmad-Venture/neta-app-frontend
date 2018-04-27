@@ -50,10 +50,15 @@ export class CandidateProfileComponent implements OnInit {
   ngOnInit() {
     this.start();
     this.helperServices.getEmitter()
-    .subscribe(()=>{
-      this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
-      this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
-      this.start();
+    .subscribe((res)=>{
+      if(res.type=="navigateCandidate"){
+        this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
+        this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
+      this.loading=true;
+        this.start();
+     }
+      
+      
     })
    // this.start();
 
@@ -65,6 +70,7 @@ export class CandidateProfileComponent implements OnInit {
   }
   start() {
      console.log("hello==========>>>");
+     this.c_profile=null;
     this.loading = true;
     this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
     this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));

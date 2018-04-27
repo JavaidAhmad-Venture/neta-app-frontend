@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ import { LocationService } from './services/location.service';
 import { PopularPeopleService } from './services/popular-people.service';
 import { WindowService } from './services/window.service';
 import { CitizenProfileService } from './services/citizen-profile.service';
+import { ResultsService } from './services/results.service';
 
 
 
@@ -51,8 +53,10 @@ import { CitizenProfileService } from './services/citizen-profile.service';
     WindowService,
     HelperService,
     AuthService,
-    CitizenProfileService,
     AuthGuard,
+    CitizenProfileService,
+    UserService,
+    ResultsService
   ],
   exports:[CommonModule,
     LoaderComponent,

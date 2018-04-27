@@ -10,17 +10,17 @@ export class LocationService extends BaseService {
   }
 
   getCurrentAddress(lat,lng){
-    return this.http.get(this._url+'/constituencies/latlng?lat='+lat+'&lng='+lng)
+    return this.http.get(this._url+'/api/v1/constituencies/latlng?lat='+lat+'&lng='+lng)
     .map(res=>JSON.parse(JSON.stringify(res)))
   }
 
   getStates(){
-    return this.http.get(this._url+'/country_states/states')
+    return this.http.get(this._url+'/api/v1/country_states/states')
     .map(res=>JSON.parse(JSON.stringify(res)))
   }
 
   getParliament(s_id){
-    return this.http.get(this._url+'/constituencies/parliament?state_id='+s_id)
+    return this.http.get(this._url+'/api/v1/constituencies/parliament?state_id='+s_id)
     .map(res=>JSON.parse(JSON.stringify(res)))
 
   }

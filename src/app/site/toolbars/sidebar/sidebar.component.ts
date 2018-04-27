@@ -40,13 +40,7 @@ export class SidebarComponent implements OnInit{
   onProfileView(candidate_id,candidate_name) {
 
 
-    this.helperService.setEmitter({
-      type: 'navigateCandidate',
-      data: {
-      dd:"candidateEvent"
-      }
-    })
-  
+   
     //console.log('Loading :' + candidate_name);
    
     this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);

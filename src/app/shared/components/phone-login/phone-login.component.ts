@@ -36,7 +36,10 @@ export class PhoneLoginComponent implements OnInit {
   phoneNumber = new PhoneNumber()
   verificationCode: string;
   user: any;
-  constructor(private win: WindowService,private cookieService:CookieService,private helperService:HelperService,private cloudService:CloudnaryService) {
+  constructor(private win: WindowService,
+    private cookieService:CookieService,
+    private helperService:HelperService,
+    private cloudService:CloudnaryService) {
     console.log('firebase', firebase)
     this.cUrl=cloudService.cloudnaryUrl;
   }
@@ -104,15 +107,18 @@ export class PhoneLoginComponent implements OnInit {
         console.log('firebase user:',this.user);
         this.cookieService.createCookie('userId',this.user.uid,null,null);
         console.log('Response from firebase:'+this.user.refreshToken);
-        if (this.user) {
-          alert('user registered successfully!');
-
-          localStorage.setItem('userId', firebase.auth().currentUser.uid)
-        }
         this.phoneNumber.country = '';
         this.phoneNumber.line = '';
         this.verificationCode = '';
         $('#verify-otp').modal('toggle');
+
+        this.helperService.setEmitter({
+          type: 'signIn',
+          data: {
+            u_id:'abc'
+          }
+        });
+
       })
       .catch(error => {
         this.incorrectCode = true;

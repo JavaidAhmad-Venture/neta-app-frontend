@@ -30,7 +30,7 @@ interface Influencer {
 })
 
 export class StarCitizensComponent implements OnInit,OnDestroy {
- 
+loading:boolean=true;
 citizens:Influencer[]=[];
 cloudNaryUrl="http://res.cloudinary.com/neta-dev/image/upload/";
 id="44443cf7-51ad-422d-a9c6-11a322d5797a"
@@ -52,6 +52,7 @@ isActiveName = false;
     .subscribe(res=>{
       this.citizens = [...res['data']];
       console.log("citizens",this.citizens)
+      this.loading = false;
     })
   } 
 

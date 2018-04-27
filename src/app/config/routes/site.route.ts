@@ -18,7 +18,7 @@ export const SITE_ROUTES: Routes = [
 		component: SiteComponent,
 		children:[
 			{
-				path:'',component:ResultsComponent,pathMatch:'full'
+				path:'',component:ResultsComponent,
 			},
 			{ 
 				path: 'discussion', component:DiscussionComponent

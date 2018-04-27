@@ -11,7 +11,7 @@ export class InfluencersService extends BaseService {
     super();
   }
   getAllInfluencers(){
-    return this.http.get(this._url+'/influencers?constituency_id=44443cf7-51ad-422d-a9c6-11a322d5797a',this.httpOptions)
+    return this.http.get(this._url+'/api/v1/influencers?constituency_id=44443cf7-51ad-422d-a9c6-11a322d5797a',this.httpOptions)
     .map(res=>JSON.parse(JSON.stringify(res)));
   }
 }

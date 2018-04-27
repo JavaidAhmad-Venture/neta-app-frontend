@@ -1,3 +1,4 @@
+import { CookieService } from './../../../shared/services/cookie.service';
 import { HelperService } from './../../../shared/services/helper.service';
 import { Candidate } from './../../../shared/models/candidate';
 
@@ -7,7 +8,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
 import *  as firebase from 'firebase';
-import { CookieService } from '../../../shared/services/cookie.service';
+//declare var firebase;
 
 declare var $:any;
 @Component({
@@ -120,6 +121,7 @@ export class VotingBoothComponent implements OnInit {
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     
+   
     const userId=this.cookieService.readCookie('userId');
 
     console.log('get user id:',userId);

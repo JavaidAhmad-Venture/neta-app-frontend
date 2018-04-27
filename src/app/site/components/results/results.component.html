@@ -8,7 +8,7 @@
                     </a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#India" role="tab">India</a>
+                    <a class="nav-link active" data-toggle="tab"  href="#India" role="tab">India</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#Punjab" role="tab">Punjab</a>
@@ -21,8 +21,10 @@
         <div class="row custom-row">
             <div class="co-md-9 col-lg-9 col-xs-12 col-sm-12">
                 <div class="tab-content card tab-content-section">
+                       
                     <!--.Panel 1-->
                     <div class="tab-pane fade in show active" id="India" role="tabpanel">
+                            <div class="loader-profile" *ngIf="loading" ><loader ></loader></div>
                         <!-- <div class="custom-card">
                             <h6 class="today-heading">TODAY’S POLL</h6>
                             <h3>Which party do you approve of?</h3>
@@ -86,75 +88,29 @@
                                         </div>
                                         <div class="panel-body">
                                             <ul class="vote-data-list">
-                                                <li>
+                                                <li *ngFor="let party of partiesInfo;index as i">
                                                     <span class="poll-img">
-                                                        <img src="assets/images/poll-img.png" alt="poll-img" />
+                                                        <img src="{{curl+party.image.cloudinary.public_id}}.jpg" alt="poll-img" />
                                                     </span>
                                                     <div class="vote-break-data">
-                                                        <label>Indian National Congress
-                                                            <span>(INC)</span>
+                                                        <label>{{party.party_name}}
+                                                            <span>{{party.party_abbreviation}}</span>
                                                         </label>
-                                                        <div class="progress-bar">
-                                                            <span class="progress poll1"></span>
+                                                        <div class="progress-bar" >
+                                                            <span class="progress poll1"
+                                                        
+                                                            [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"
+                                            
+                                                        
+                                                             ></span>
                                                         </div>
                                                     </div>
                                                     <div class="vote-result">
-                                                        <h5>52</h5>
-                                                        <span>44% votes</span>
+                                                        <h5>{{TopPartiesCons[i].constituencies_won}}</h5>
+                                                        <span>{{party.percentage|number:'1.2-2'}}% votes</span>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <span class="poll-img">
-                                                        <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                    </span>
-                                                    <div class="vote-break-data">
-                                                        <label>Indian National Congress
-                                                            <span>(INC)</span>
-                                                        </label>
-                                                        <div class="progress-bar">
-                                                            <span class="progress poll2"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vote-result">
-                                                        <h5>52</h5>
-                                                        <span>44% votes</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <span class="poll-img">
-                                                        <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                    </span>
-                                                    <div class="vote-break-data">
-                                                        <label>Indian National Congress
-                                                            <span>(INC)</span>
-                                                        </label>
-                                                        <div class="progress-bar">
-                                                            <span class="progress poll3"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vote-result">
-                                                        <h5>52</h5>
-                                                        <span>44% votes</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <span class="poll-img">
-                                                        <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                    </span>
-                                                    <div class="vote-break-data">
-                                                        <label>Indian National Congress
-                                                            <span>(INC)</span>
-                                                        </label>
-                                                        <div class="progress-bar">
-                                                            <span class="progress poll4"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vote-result">
-                                                        <h5>52</h5>
-                                                        <span>44% votes</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                             </ul>
                                         </div>
                                         <div class="panel-footer">
                                             <a href="javascript:void(0)" class="more-det">SEE DETAILS
@@ -173,7 +129,7 @@
                                             </select>
                                         </div>
                                         <div class="panel-body">
-                                            <img src="assets/images/map.png" class="graph" alt="graph" />
+                                            <img src="{{curl+imgMap}}.jpg" class="graph" alt="graph" />
                                         </div>
                                         <div class="panel-footer">
                                             <a href="javascript:void(0)" class="more-det">SEE DETAILS
@@ -375,7 +331,9 @@
 
                     <!--Panel 3-->
                     <div class="tab-pane fade" id="Punjab" role="tabpanel">
+                           
                             <div class="statistics-block custom-block mrtop0">
+                                    <div class="loader-profile" *ngIf="loading" ><loader ></loader></div>
                                     <h2>Statistics</h2>
                                     <div class="row custom-row">
                                         <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
@@ -388,75 +346,29 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <ul class="vote-data-list">
-                                                        <li>
-                                                            <span class="poll-img">
-                                                                <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                            </span>
-                                                            <div class="vote-break-data">
-                                                                <label>Indian National Congress
-                                                                    <span>(INC)</span>
-                                                                </label>
-                                                                <div class="progress-bar">
-                                                                    <span class="progress poll1"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="vote-result">
-                                                                <h5>52</h5>
-                                                                <span>44% votes</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <span class="poll-img">
-                                                                <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                            </span>
-                                                            <div class="vote-break-data">
-                                                                <label>Indian National Congress
-                                                                    <span>(INC)</span>
-                                                                </label>
-                                                                <div class="progress-bar">
-                                                                    <span class="progress poll2"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="vote-result">
-                                                                <h5>52</h5>
-                                                                <span>44% votes</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <span class="poll-img">
-                                                                <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                            </span>
-                                                            <div class="vote-break-data">
-                                                                <label>Indian National Congress
-                                                                    <span>(INC)</span>
-                                                                </label>
-                                                                <div class="progress-bar">
-                                                                    <span class="progress poll3"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="vote-result">
-                                                                <h5>52</h5>
-                                                                <span>44% votes</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <span class="poll-img">
-                                                                <img src="assets/images/poll-img.png" alt="poll-img" />
-                                                            </span>
-                                                            <div class="vote-break-data">
-                                                                <label>Indian National Congress
-                                                                    <span>(INC)</span>
-                                                                </label>
-                                                                <div class="progress-bar">
-                                                                    <span class="progress poll4"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="vote-result">
-                                                                <h5>52</h5>
-                                                                <span>44% votes</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                            <li *ngFor="let party of partiesInfo_cons;index as i">
+                                                                    <span class="poll-img">
+                                                                        <img src="{{curl+party.image.cloudinary.public_id}}.jpg" alt="poll-img" />
+                                                                    </span>
+                                                                    <div class="vote-break-data">
+                                                                        <label>{{party.party_name}}
+                                                                            <span>{{party.party_abbreviation}}</span>
+                                                                        </label>
+                                                                        <div class="progress-bar" >
+                                                                            <span class="progress poll1"
+                                                                        
+                                                                            [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"
+                                                            
+                                                                        
+                                                                             ></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vote-result">
+                                                                        <h5>{{TopPartiesCons_cons[i].constituencies_won}}</h5>
+                                                                        <span>{{party.percentage|number:'1.2-2'}}% votes</span>
+                                                                    </div>
+                                                                </li>
+                                                     </ul>
                                                 </div>
                                                 <div class="panel-footer">
                                                     <a href="javascript:void(0)" class="more-det">SEE DETAILS
@@ -475,7 +387,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="panel-body">
-                                                    <img src="http://res.cloudinary.com/neta-dev/image/upload/national-statistics-43311443.jpg" class="graph" alt="graph" />
+                                                    <img src="{{curl+imgMapC}}.jpg" class="graph" alt="graph" />
                                                 </div>
                                                 <div class="panel-footer">
                                                     <a href="javascript:void(0)" class="more-det">SEE DETAILS
