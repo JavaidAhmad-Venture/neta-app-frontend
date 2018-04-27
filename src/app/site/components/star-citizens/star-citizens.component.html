@@ -26,8 +26,11 @@
                     </div>
                     <ul class="candidate-list candidate-block">
 
+
+                      
                         <li *ngFor="let citizen of citizens;index as i">
                             <div class="citizen-rank">#{{i+1}}</div>
+
                             <span class="candidate-pic">
                                 <img src="{{cloudNaryUrl+citizen.influencer_profile_pic.cloudinary.public_id}}.jpg" alt="candidate.png">
                             </span>
@@ -47,7 +50,9 @@
                             </div>
                         </li>
 
-                        <!-- <li>
+
+                        <li >
+
                             <div class="citizen-rank">#2</div>
                             <span class="candidate-pic">
                                 <img src="assets/images/candidate1.png" alt="candidate.png">
@@ -69,7 +74,7 @@
                             </div>
                         </li>
 
-                        <li class="ripple-dark">
+                        <li >
                             <div class="citizen-rank">#3</div>
                             <span class="candidate-pic">
                                 <img src="assets/images/candidate1.png" alt="candidate.png">
@@ -91,7 +96,7 @@
                             </div>
                         </li>
 
-                        <li class="ripple-dark">
+                        <li >
                             <div class="citizen-rank">#4</div>
                             <span class="candidate-pic">
                                 <img src="assets/images/candidate1.png" alt="candidate.png">
@@ -114,7 +119,7 @@
                         </li>
 
 
-                        <li class="ripple-dark">
+                        <li >
                             <div class="citizen-rank">#5</div>
                             <span class="candidate-pic">
                                 <img src="assets/images/candidate1.png" alt="candidate.png">
