@@ -14,7 +14,7 @@ export class CondidatesService extends BaseService {
     super();
   }
   getAllCandidates(id){
-    return this.http.get(this._url+'/candidatures?constituency_id='+id,this.httpOptions)
+    return this.http.get(this._url+'/api/v1/candidatures?constituency_id='+id,this.httpOptions)
     .map(res => JSON.parse(JSON.stringify(res)));  
   }
 

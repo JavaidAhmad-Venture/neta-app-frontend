@@ -36,7 +36,10 @@ export class PhoneLoginComponent implements OnInit {
   phoneNumber = new PhoneNumber()
   verificationCode: string;
   user: any;
-  constructor(private win: WindowService,private cookieService:CookieService,private helperService:HelperService,private cloudService:CloudnaryService) {
+  constructor(private win: WindowService,
+    private cookieService:CookieService,
+    private helperService:HelperService,
+    private cloudService:CloudnaryService) {
     console.log('firebase', firebase)
     this.cUrl=cloudService.cloudnaryUrl;
   }

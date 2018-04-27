@@ -15,7 +15,7 @@ export class PopularPeopleService extends BaseService {
     super();
   }
   getPopularPeople(): Observable<PopularPeople>{
-    return this.http.get<PopularPeople>(this._url+'/dashboard-data?constituency_id='+this.cons_id,this.httpOptions)
+    return this.http.get<PopularPeople>(this._url+'/api/v1/dashboard-data?constituency_id='+this.cons_id,this.httpOptions)
     // .map(res => JSON.parse(JSON.stringify(res)));  
   }
 
