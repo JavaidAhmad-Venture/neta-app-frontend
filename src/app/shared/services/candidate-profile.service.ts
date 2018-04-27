@@ -6,7 +6,7 @@ import { CookieService } from './cookie.service';
 import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
 import { Profile } from '../models/profilemodel';
 import { Observable } from 'rxjs/Observable';
-import {Location} from "@angular/common";
+import {PlatformLocation } from "@angular/common";
 
 @Injectable()
 export class CandidateProfileService extends BaseService {
@@ -26,9 +26,17 @@ constructor(
     private paramsService: CookieService,
     private route:ActivatedRoute,
     private _cookie:CookieService,
+    private location:PlatformLocation 
   ) {
     super();
-  }
+ // }
+  location.onPopState((res) => {
+
+    console.log('pressed back!',res);
+    alert("pressed back button"+res);
+
+});
+}
 //   ngOnInit() {
 //     this.location.onPopState(() => console.log("event happens"));
 // }
@@ -49,7 +57,7 @@ constructor(
    
    /// this.addTostack(CANDIDATE_ID,CONSTITUENCY_ID)
 
-   this.router.navigate(['candidate',this.spaceRemove(name)]) 
+   this.router.navigate(['candidate']); 
   }
   }
  

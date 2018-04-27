@@ -37,7 +37,6 @@ import { PhoneLoginComponent } from '../shared/components/phone-login/phone-logi
     AboutComponent,
     UserProfileComponent,
     CandidateProfileComponent,
-    PhoneLoginComponent,
     CitizenProfileComponent,
   ]
 })

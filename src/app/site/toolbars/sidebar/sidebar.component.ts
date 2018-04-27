@@ -5,6 +5,7 @@ import { PopularCandidate } from './../../../shared/models/popularCandidate';
 import { PopularInfluencer } from './../../../shared/models/popularInfluencer';
 import { CandidateProfileService } from './../../../shared/services/candidate-profile.service';
 import { CloudnaryService } from './../../../shared/services/cloudnary.service';
+import { HelperService } from '../../../shared/services/helper.service';
 declare var jQuery:any;
 @Component({
   selector: 'sidebar',
@@ -26,6 +27,7 @@ export class SidebarComponent implements OnInit{
     private profileService:CandidateProfileService,
     private cloudnaryService: CloudnaryService,
     private popularPeople:PopularPeopleService,
+    private helperService:HelperService
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
   }
@@ -36,8 +38,19 @@ export class SidebarComponent implements OnInit{
   }
 
   onProfileView(candidate_id,candidate_name) {
-    console.log('Loading :' + candidate_name);
+
+
+    this.helperService.setEmitter({
+      type: 'navigateCandidate',
+      data: {
+      dd:"candidateEvent"
+      }
+    })
+  
+    //console.log('Loading :' + candidate_name);
+   
     this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);
+  
   }
 
   fetchPopularPeople(){ 

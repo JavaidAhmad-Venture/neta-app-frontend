@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from '../../../shared/services/cookie.service';
 import { PartySupportInfo, Info, ContactInfo, Profile, LeaderHistroy } from '../../../shared/models/profilemodel';
 import { Subscription } from 'rxjs/Subscription';
+import { HelperService } from '../../../shared/services/helper.service';
 
 @Component({
   selector: 'app-candidate-profile',
@@ -40,22 +41,27 @@ export class CandidateProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private cloudnaryService: CloudnaryService,
     private cookie: CookieService,
+    private helperServices:HelperService
   ) { 
       this.cloudNaryUrl = this.cloudnaryService.cloudnaryUrl;
     }
 
 
   ngOnInit() {
-
-    
-    this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
-    this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
-    // this.start();
-    this.subs1 = this.route.params.subscribe(params => {
+    this.start();
+    this.helperServices.getEmitter()
+    .subscribe(()=>{
+      this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
+      this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
       this.start();
+    })
+   // this.start();
+
+    // this.subs1 = this.route.params.subscribe(params => {
+      
   
 
-    });
+    // });
   }
   start() {
      console.log("hello==========>>>");
