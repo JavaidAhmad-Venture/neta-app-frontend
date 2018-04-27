@@ -10,6 +10,8 @@ export class UserService extends BaseService{
   }
 
   getAccessToken(credentials){
-    this._http.post(this._url+'/login',credentials);
+    console.log('my credentials',credentials);
+    
+    return this._http.post(this._url+'/login',credentials);
   }
 }

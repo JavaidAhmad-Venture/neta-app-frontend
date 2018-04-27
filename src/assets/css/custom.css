@@ -128,8 +128,8 @@
     ul.candidate-list li{float:left;width:100%;margin:0;padding:10px 0;list-style:none}  
     .candidate-party img{width:100%;margin:0;float:left;height:100%}  
     span.candidate-party{position:absolute;width:20px;height:20px;border:2px solid #fff;border-radius:50%;margin:0;right:-5px;top:-5px}  
-    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%;overflow: hidden}  
-    span.candidate-pic img{width:100%;height:100%}  
+    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%;}  
+    span.candidate-pic img{width:100%;height:100%; object-fit: cover}  
     .candidate-info{float:left;width:calc(100% - 125px);padding:0 15px}  
     .candidate-info h4,.candidate-info h6{float:left;width:100%;margin-bottom:0;color:var(--font-color)}  
     .candidate-info h4{font-size:14px}  
@@ -156,7 +156,7 @@
     ul.profile-menu li a span.badges{position:absolute;background:#FF3125;width:16px;height:16px;border-radius:50%;display:flex;line-height:1;font-size:9px;align-items:center;justify-content:center;right:-7px;top:0}  
     ul.profile-menu li.profile a{border:1px solid #fff;overflow:hidden}  
     ul.profile-menu li.profile a img{width:100%;height:100%}  
-    .navbar-toggle{position:relative;float:left;padding:0;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:11px 10px 0 0}  
+    .navbar-toggle{position:relative;float:left;padding:0;background-color:transparent;border:1px solid transparent;border-radius:4px;display:none;margin:9px 10px 0 0; color: #fff;cursor: pointer;}  
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}  
     .navbar-toggle .icon-bar{display:block;width:20px;height:2px;border-radius:50px;transition:all .5s ease 0s}  
     .navbar-toggle .icon-bar+.icon-bar{margin-top:4px}  
@@ -242,7 +242,7 @@
     .poll-block .issue-block-info{width:100%;padding:0}  
     .poll-block .issue-block-pic{width:100%;BORDER-RADIUS:5PX;overflow:hidden;MARGIN:10PX 0 0PX 0}  
     .poll-block li.list-group-item{font-size:14px;float:left;width:100%;padding:0;color:var(--font-color);border:0;border-radius:0;background:0 0}  
-    .poll-block li.list-group-item input[type=radio]+label{font-size:14px;background:#fff;position:relative;padding:12px 80px 12px 45px;min-height:50px;color:var(--font-color);border:1px solid var(--border-color);margin:0;float:left;width:100%;cursor:pointer}  
+    .poll-block li.list-group-item input[type=radio]+label{font-size:14px;background:#fff;position:relative;padding:12px 80px 12px 45px;min-height:50px;color:var(--font-color);border:1px solid var(--border-color);margin:0;float:left;width:100%;cursor:pointer; display: flex; align-items: center;}  
     .poll-block span.issue-date{background:var(--main-color);color:#fff}  
     .poll-block li.list-group-item:first-child input[type=radio]+label{border-top-left-radius:3px;border-top-right-radius:3px}  
     .poll-block li.list-group-item:last-child input[type=radio]+label{border-bottom-left-radius:3px;border-bottom-right-radius:3px}  
@@ -256,7 +256,7 @@
     ul.candidate-list.candidate-block li .candidate-info h4{font-size:20px}  
     ul.candidate-list.candidate-block li .candidate-info h6{font-size:14px}  
     ul.candidate-list.candidate-block li .candidate-info{float:left;width:calc(100% - 330px);padding:0 20px;margin-top:10px}  
-    ul.candidate-list.candidate-block li button.btn.vote-btn{background:var(--main-color);color:#fff;min-width:110px;min-height:40px;margin-top:10px}  
+    ul.candidate-list.candidate-block li button.btn.vote-btn{background:var(--main-color);color:#fff;min-width:110px;min-height:40px;margin-top:10px; position: relative; z-index: 10;}  
     ul.candidate-list.candidate-block li button.btn.vote-btn img{margin-right:5px;position:relative;top:-1px}  
     .voste-stat{float:left;text-align:right;width:140px;margin-top:7px}  
     .voste-stat>span{font-size:14px;color:var(--font-color);opacity:.7;display:block}  
@@ -318,7 +318,7 @@
     .voste-stat.rank{text-align:right;width:auto;float:right}  
     .stat-data .voste-stat h6{margin:0}  
     .mrtop0{margin-top:0!important}  
-    .poll-block li.list-group-item input[type=radio]+label::after{content:'';width:15px;background:#ddd;height:15px;float:left;border-radius:50%;top:16px;position:absolute;left:20px}  
+    .poll-block li.list-group-item input[type=radio]+label::after{content:'';width:15px;background:#ddd;height:15px;float:left;border-radius:50%;top:50%;position:absolute;left:20px; transform: translateY(-50%)}  
     .poll-block li.list-group-item input[type=radio]:checked+label .poll-animate{display:block}  
     .poll-block li.list-group-item input[type=radio]:checked+label .poll-animate span.poll-value span{color:var(--main-color);opacity:1}  
     .poll-block li.list-group-item input[type=radio]:checked+label .poll-animate span.dark-color{transition:width 1s;width:50%}  
@@ -375,9 +375,9 @@
     .voted .poll-animate span.dark-color{width:60%}  
     ul.list-group.img-poll li{width:24%}  
     .media-section,.poll-block ul.list-group,.poll-cont,.poll-option-pic,.poll-option-pic img{float:left;width:100%}  
-    ul.list-group.img-poll li.list-group-item input[type=radio]+label{padding:0;height:100%;border-top-right-radius:5px;border-top-left-radius:5px}  
+    ul.list-group.img-poll li.list-group-item input[type=radio]+label{padding:0;height:100%;border-top-right-radius:5px;border-top-left-radius:5px; display: block}  
     .poll-block ul.list-group{margin-top:15px;margin-bottom:0;display:block}  
-    .poll-cont{padding:10px 50px 10px 35px;border-top:1px solid var(--border-color);font-size:13px;line-height:18px;position:relative}  
+    .poll-cont{padding:10px 8px 10px 35px;border-top:1px solid var(--border-color);font-size:13px;line-height:18px;position:relative}  
     .poll-block ul.list-group.img-poll{float:left;width:100%;margin-top:15px;margin-bottom:0;display:flex;flex-direction:row;justify-content:space-around}  
     .poll-option-pic{height:100px}  
     .poll-option-pic img{height:100%;object-fit:cover}  
@@ -570,3 +570,66 @@
       .register-modal .left-sec label{float: right; padding: 1px; font-size: 20px !important;}
       .register-modal .left-sec img{float: right; padding-right: 6px; padding-top: 8px;}
       .neta-modal.register .register-modal .right-sec { width: 50% !important; }
+
+
+      /***************** 27th April 2018 **************/
+      a.clickable-anchor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 9;
+        
+    }
+    .citizens  ul.candidate-list.candidate-block li span.candidate-pic{overflow: hidden;}
+    .login-messgae-box {
+        background: #fff;
+        max-width: 420px;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        box-shadow: 0px 1px 11px rgba(0,0,0,0.1);
+        display: inline-block;
+        text-align: left;
+    }
+   
+
+.login-messgae-box h4 {
+    float: left;
+    width: 100%;
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.login-messgae-box p {
+    float: left;
+    width: 100%;
+    color: var(--font-color);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+button.signup-btn.btn {
+    float: left;
+    width: 100%;
+    background: var(--main-color);
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-color: var(--main-color);
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+.poll-block li.list-group-item input[type=radio]:checked + label .poll-cont {
+    padding-right: 40px;
+}
+
+
+     #if-not-login input[type=number]::-webkit-inner-spin-button, 
+     #if-not-login input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          /* appearance: none; */
+          margin: 0; 
+      }
