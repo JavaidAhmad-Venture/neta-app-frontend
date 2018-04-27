@@ -33,6 +33,7 @@ export class PhoneLoginComponent implements OnInit {
   cPic: string;
   pImage: string;
   cUrl: any;
+  loading:boolean;
   // credentials: FirebaseUser;
   windowRef: any;
   phoneNumber = new PhoneNumber()
@@ -88,6 +89,7 @@ export class PhoneLoginComponent implements OnInit {
 
   }
   sendLoginCode() {
+    
     var appVerifier = this.windowRef.recaptchaVerifier;
     //console.log("App verifier is:",appVerifier);
     const num = this.phoneNumber.e164;
@@ -96,19 +98,21 @@ export class PhoneLoginComponent implements OnInit {
     firebase.auth().signInWithPhoneNumber(num, appVerifier)
       .then(result => {
         this.windowRef.confirmationResult = result;
+        
 
       })
       .catch(error => console.log(error));
 
   }
   verifyLoginCode() {
+    this.loading = true;
     this.windowRef.confirmationResult
       .confirm(this.verificationCode)
       .then(result => {
         this.incorrectCode = false;
         this.user = result.user;
         //fetching access token
-
+        this.loading = false;
         console.log('firebase user:', this.user);
        
         this.phoneNumber.country = '';
@@ -125,6 +129,7 @@ export class PhoneLoginComponent implements OnInit {
         this.setAccessToken(this.user);
       })
       .catch(error => {
+        this.loading = false;
         this.incorrectCode = true;
         console.log(error, "Incorrect code entered?")
       });

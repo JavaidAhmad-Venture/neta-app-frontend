@@ -7,13 +7,8 @@ import { CookieService } from './cookie.service';
 import { HttpHeaders } from '@angular/common/http';
 
 export class BaseService {
-  
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      Accept: "application/json"
-    })
-  };
+
+
 
   token: any;
   protected _url = environment.BASE_URL;
@@ -22,31 +17,50 @@ export class BaseService {
   protected options: any;
   // private loggedOutService : LoggedOutService = new LoggedOutService();
   private _cookieService = new CookieService();
-  protected cookie:any; 
+  protected cookie: any;
+  access_token: any;
+  client: any;
+  uid: any;
   constructor() {
+    this.access_token = JSON.parse(this._cookieService.readCookie('access_token'));
+    this.client = JSON.parse(this._cookieService.readCookie('_client'));
+    this.uid = JSON.parse(this._cookieService.readCookie('_uid'));
     this.setHeaders();
   }
 
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: "application/json"
+    })
+  };
+
+  // headersVote = {
+  //   headers: new HttpHeaders({"Content-Type": "application/json",'Authorization': 'Bearer',"access-token": this.access_token,'client': this.client,'uid': this.uid})
+  // }
+
   private setHeaders() {
-	this.cookie = JSON.parse(this._cookieService.readCookie('storage'));
+    this.cookie = this.access_token;
     this.token = this.cookie ? this.cookie.token : null;
-    if (this.token != null) {
-      this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token });
+    console.log('Token is:'+this.access_token);
+    if (this.access_token != null) {
+      this.headers = new Headers({ 'Content-Type': 'application/json',   'access-token':  this.access_token, 'client': this.client,'uid': this.uid  });
     } else {
       this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json" });
     }
   }
 
   protected post_options(type = null) {
-	  this.setHeaders();
+    this.setHeaders();
     // if (type == 'auth') {
     //   this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Basic ' + this.bae64EncodeToken });
     // }
     return new RequestOptions({ headers: this.headers, method: 'post' });
   }
 
-  protected get_options(type=null){
-	  this.setHeaders();
+  protected get_options(type = null) {
+    this.setHeaders();
     if (this.token && !type) {
       this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token });
     }
@@ -57,7 +71,7 @@ export class BaseService {
   }
 
   protected put_options(type = null) {
-	  this.setHeaders();
+    this.setHeaders();
     if (this.token && !type) {
       this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token });
     }
@@ -67,7 +81,7 @@ export class BaseService {
   }
 
   protected patch_options() {
-	  this.setHeaders();
+    this.setHeaders();
     return new RequestOptions({ headers: this.headers, method: 'patch' });
   }
 
@@ -116,9 +130,9 @@ export class BaseService {
     return body.data || {};
   }
 
-   protected handleErrorPromise(error: Response) {
-	let body = error.json();
-	console.log(body,'Erorrrrrrrrrrrrr')
+  protected handleErrorPromise(error: Response) {
+    let body = error.json();
+    console.log(body, 'Erorrrrrrrrrrrrr')
     if (body.error && body.error.code === 'TokenExpiredError') {
       let expires = "";
       // let domain  = environment.APP_EXTENSION;
@@ -132,7 +146,7 @@ export class BaseService {
       // document.cookie = "storage="+value+expires+"; domain="+domain+"; path=/";
       // window.location.href = environment.APP_DOMAIN;
     }
-	return body;
+    return body;
   }
 }
 

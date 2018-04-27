@@ -122,11 +122,11 @@ export class VotingBoothComponent implements OnInit {
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     
    
-    const userId=this.cookieService.readCookie('access_token');
+    const access_token=this.cookieService.readCookie('access_token');
 
-    console.log('get user id:',userId);
+    console.log('get user id:',access_token);
     
-    if(!userId){
+    if(!access_token){
       this.registerToVote = true;
       this.helperService.setEmitter({
         type: 'voteLoginPopup',
@@ -145,10 +145,14 @@ export class VotingBoothComponent implements OnInit {
    
     else {
       this.registerToVote = false;    
-      candidate.votes++;
-      candidate.percentage += 4.5; 
+      console.log('on vote candidate:',candidate);
+      this.candidateService.onVote(candidate.candidature_id,candidate.candidature_constituency_id).subscribe(res=>{
+        console.log('on vote response:',res);
+      })
+      // candidate.votes++;
+      // candidate.percentage += 4.5; 
+      // candidate.is_voted_by_me = true;
       this.isVoted = true;
-       candidate.is_voted_by_me = true;
       console.log(this.isVoted);
 
     }

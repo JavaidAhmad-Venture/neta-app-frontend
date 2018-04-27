@@ -131,7 +131,8 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button type="button" class="btn green-btn active" (click)="verifyLoginCode()"  [disabled]="!f2.valid">Next</button>
+                            <div class="btn-loader" *ngIf="loading"></div>
+                            <button type="button" class="btn green-btn active" (click)="verifyLoginCode()"  [disabled]="!f2.valid"> Next</button>
                         </div>
                     </div>
                 </form>
@@ -177,6 +178,7 @@
                     </div> 
                     <div class="row">
                         <div class="col">
+                                
                             <button type="button" class="btn green-btn g-recaptcha" method="POST" id="sign-in-button" (click)="sendLoginCode()" data-toggle="modal" data-target="#verify-otp"  data-dismiss="modal" [disabled]="!f3.valid">Next</button>
                         </div>
                     </div>

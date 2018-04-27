@@ -20,9 +20,13 @@ export class AuthService {
 
       if(res.type=="logout"){
         this.cookieService.eraseCookie(['access-token'])
+        this.cookieService.eraseCookie(['_uid'])
+        this.cookieService.eraseCookie(['_client'])
       }
   });
-    this.cookieService.eraseCookie(['access-token'])
+  this.cookieService.eraseCookie(['access-token'])
+  this.cookieService.eraseCookie(['_uid'])
+  this.cookieService.eraseCookie(['_client'])
   }
 
 }
