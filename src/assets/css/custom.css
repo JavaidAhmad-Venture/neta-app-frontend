@@ -571,6 +571,7 @@
       .register-modal .left-sec img{float: right; padding-right: 6px; padding-top: 8px;}
       .neta-modal.register .register-modal .right-sec { width: 50% !important; }
 
+
       /***************** 27th April 2018 **************/
       a.clickable-anchor {
         position: absolute;
@@ -623,3 +624,12 @@ button.signup-btn.btn {
 .poll-block li.list-group-item input[type=radio]:checked + label .poll-cont {
     padding-right: 40px;
 }
+
+
+     #if-not-login input[type=number]::-webkit-inner-spin-button, 
+     #if-not-login input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          /* appearance: none; */
+          margin: 0; 
+      }

@@ -19,10 +19,10 @@ export class AuthService {
       console.log("respn", res);
 
       if(res.type=="logout"){
-        this.cookieService.eraseCookie(['userId'])
+        this.cookieService.eraseCookie(['access-token'])
       }
   });
-    this.cookieService.eraseCookie(['userId'])
+    this.cookieService.eraseCookie(['access-token'])
   }
 
 }

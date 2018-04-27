@@ -56,13 +56,13 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
                 this.assembly = res.data.a_name;
             }
             if(res.type=="signIn"){
-                this.userId = this.cookieService.readCookie('userId');
+                this.userId = this.cookieService.readCookie('access_token');
             }
             if(res.type=="logout"){
-                this.cookieService.eraseCookie(['userId'])
+                this.cookieService.eraseCookie(['access_token'])
              }
         });
-        this.userId = this.cookieService.readCookie('userId');
+        this.userId = this.cookieService.readCookie('access_token');
     }
     showLocation() {
 
