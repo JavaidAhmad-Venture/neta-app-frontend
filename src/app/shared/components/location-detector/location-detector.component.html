@@ -1,0 +1,86 @@
+
+
+<div class="modal fade neta-modal visible-sm-block hidden-sm" id="welcome-back">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header bb0 pb0 pt30">
+          <h5 class="modal-title font-reg mb20">Your Constituency
+              <span >Select your constituency</span>
+
+          </h5>
+         
+
+          <!-- <a class="close" data-dismiss="modal">&times;</a> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col">
+                <!-- <div class="cir-img-outer ">
+                  <img src="assets/images/amit-shah.jpg" />
+                </div> -->
+                <!-- <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" placeholder="Name" class="form-control" id="name">
+                </div> -->
+
+                <div class="form-group">
+                  <label for="name">Your Location</label>
+                  <button type="button" class="btn light-btn " (click)="getLocation()">
+                    <!-- <small-loader *ngIf="loading"></small-loader> -->
+                    <div class="loader-outer" *ngIf="loading">
+                    <div class="btn-loader"></div>
+                    </div>
+                    <i class="material-icons">location_searching</i> Detect my Location</button>
+
+                </div>
+                <div class="border-outer">
+                  <hr>
+                  <span>Or</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col pb10">
+                <div class="field-title">State</div>
+                <select class="form-control demo-default select-beast" placeholder="State" [(ngModel)]="state" name="state" (ngModelChange)="onChangeState($event)">
+                  <!-- <option  [value]="s_state.id" *ngIf="s_state">{{s_state.name}}</option> -->
+                  <!-- <option *ngFor="let state of states" #s="state.name" ngModel name="state">{{state.name}}</option> -->
+                  <option *ngFor="let s of states" [ngValue]="s" [selected]="s.name == selectedState">{{s.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pt5">
+              <div class="col">
+                <div class="field-title">District</div>
+
+                <select class="form-control demo-default select-beast" [(ngModel)]="parliament" (ngModelChange)="onChangeParliament($event)"
+                  name="par" placeholder="Select ">
+                  <option *ngFor=" let p of parliaments" [ngValue]="p" [selected]="p.name == selectedDistrict">{{p.name}}</option>
+                </select>
+              </div>
+              <div class="col">
+                <div class="field-title">Constituency</div>
+                <select class="demo-default select-beast"  [(ngModel)]="assembly" (ngModelChange)=" onChangeAssembly($event)" name="asmbly">
+        
+                  <option *ngFor="let a of assemblies" [ngValue]="a" [selected]="a.name === selectedCons">{{a.name}}</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn green-btn active" data-dismiss="modal" (click)="onNext()">Next</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>

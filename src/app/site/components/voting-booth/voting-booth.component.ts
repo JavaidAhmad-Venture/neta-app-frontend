@@ -1,3 +1,5 @@
+import { CookieService } from './../../../shared/services/cookie.service';
+import { HelperService } from './../../../shared/services/helper.service';
 import { Candidate } from './../../../shared/models/candidate';
 
 import { CandidateProfileService } from './../../../shared/services/candidate-profile.service';
@@ -6,7 +8,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CondidatesService } from './../../../shared/services/condidates.service';
 import * as _ from 'lodash';
 import *  as firebase from 'firebase';
+//declare var firebase;
 
+declare var $:any;
 @Component({
   selector: 'app-voting-booth',
   templateUrl: './voting-booth.component.html',
@@ -38,14 +42,30 @@ export class VotingBoothComponent implements OnInit {
     private candidateService: CondidatesService,
     private cloudnaryService: CloudnaryService,
     private profileService: CandidateProfileService,
+    private helperService:HelperService,
+    private cookieService:CookieService
   
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
+
+    this.helperService.getEmitter().subscribe((res)=>{
+      console.log("respn",res);
+      
+      if(res.type=="location"){
+          // this.state=res.data.state;
+          this.currentLocation.aname=res.data.a_name;
+          this.currentLocation.dname=res.data.d_name;
+          this.ID.d_id=res.data.d_id;
+          this.ID.a_id=res.data.a_id;
+          this.showCandidates(this.ID.a_id);
+      }
+  })
+ 
   }
 
   ngOnInit() {
     this.showCandidates(this.constituency_id);
-  
+  console.log('firebase',firebase);
   }
 
   showCandidates(id){
@@ -100,10 +120,29 @@ export class VotingBoothComponent implements OnInit {
     this.candidateName=candidate.candidate_name;
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
-    const getUserId = localStorage.getItem('userId');
     
-    if(!getUserId)
-    this.registerToVote = true;
+   
+    const userId=this.cookieService.readCookie('userId');
+
+    console.log('get user id:',userId);
+    
+    if(!userId){
+      this.registerToVote = true;
+      this.helperService.setEmitter({
+        type: 'voteLoginPopup',
+        data: {
+          name: this.candidateName,
+          public_id:this.candidatePic,
+          party_image:this.partyImage
+          
+        }
+      })
+      $('#if-not-login').modal('show',()=>{
+        this.isVoted = true;
+      });
+      
+    }
+   
     else {
       this.registerToVote = false;    
       candidate.votes++;

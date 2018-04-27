@@ -128,7 +128,7 @@
     ul.candidate-list li{float:left;width:100%;margin:0;padding:10px 0;list-style:none}  
     .candidate-party img{width:100%;margin:0;float:left;height:100%}  
     span.candidate-party{position:absolute;width:20px;height:20px;border:2px solid #fff;border-radius:50%;margin:0;right:-5px;top:-5px}  
-    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%}  
+    span.candidate-pic{float:left;width:40px;height:40px;position:relative;border-radius:50%;overflow: hidden}  
     span.candidate-pic img{width:100%;height:100%}  
     .candidate-info{float:left;width:calc(100% - 125px);padding:0 15px}  
     .candidate-info h4,.candidate-info h6{float:left;width:100%;margin-bottom:0;color:var(--font-color)}  
@@ -474,6 +474,10 @@
     button.btn.logout-btn{position:absolute;left:0;right:0;bottom:0;color:red;background:#f6f7f8;border-top:1px solid var(--border-color);text-transform:uppercase;font-size:12px;display:flex;align-items:center;justify-content:center;padding:10px;border-radius:0}  
     button.btn.logout-btn i{font-size:20px;margin-right:5px}  
     button.btn.logout-btn:focus{outline:0!important;box-shadow:none!important}  
+
+    button.btn.login-btn{color:#fff;background:var(--main-color);border-top:1px solid var(--main-color);}  
+ 
+
     .location-detctor span.state{font-size:12px;color:#fff;display:block}  
     .my-feed-header .dropdown a::after,.tab-inner-info{display:none}  
     span.caret{position:absolute;line-height:1;right:5px;bottom:1px}  
@@ -525,3 +529,44 @@
     .mt10{margin-top:10px!important}  
     .mt0{margin-top:0!important}  
     
+    .grecaptcha-badge {
+        display: none;
+    }
+    .loader-outer{position:absolute; height: 100%; width:100%; text-align: center; background: #745df1;    top: 0; left: 0;   padding: 5px 45%; -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;    border-radius: 5px;}
+
+    .btn-loader {
+        border: 3px solid #fff;
+        border-radius: 50%;
+        border-top: 3px solid #745df1;
+        width: 25px;
+        height: 25px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .btn:focus{ box-shadow: none !important}
+      .neta-modal h5 span{float: left; width: 100%; font-size: 12px; font-weight: normal;}
+      .mb20{ margin-bottom: 20px !important; }
+
+      .table thead th { color: #b2b2b2; font-weight: 500; font-size: 12px;  text-align: center; border: none; border-bottom: 1px solid rgba(204,204,204,0.3) !important;}
+      .table-striped tbody tr{ background-color: #fff !important; font-size: 14px;  text-align: center;}
+      .table-striped tbody tr:nth-of-type(odd){ background-color: #fff !important; font-size: 14px;  text-align: center;}
+      .table td {  font-size: 14px;  text-align: center; border-bottom: 1px solid rgba(204,204,204,0.3) !important;}
+      .table-sm td, .table-sm th{ padding:10px !important;}
+
+      .register-modal .left-sec input{width: 66%;  float: right;}
+      .register-modal .left-sec label{float: right; padding: 1px; font-size: 20px !important;}
+      .register-modal .left-sec img{float: right; padding-right: 6px; padding-top: 8px;}
+      .neta-modal.register .register-modal .right-sec { width: 50% !important; }

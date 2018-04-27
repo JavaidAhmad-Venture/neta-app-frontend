@@ -26,7 +26,22 @@
             role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.aname"></location-detector>
+
+                  <div class="assembly">
+                      <h5>Assembly Constituency</h5>
+                      <ul class="chips">
+                        <li>{{currentLocation.aname || 'Choose Location' | titlecase}}
+                          <span>
+                            <!-- changes  -->
+                            <button type="button" class="btn btn-primary1" data-toggle="modal" data-target="#welcome-back">
+                              <i class="material-icons">mode_edit</i>
+                            </button>
+                    
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+               
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>
@@ -68,9 +83,9 @@
                     </span>
                     <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
                 </div>
-                <button class="btn vote-btn ripple" (click)="onVote(candidate)" data-toggle="modal" data-target="#if-not-login" >
+                <button class="btn vote-btn ripple" (click)="onVote(candidate)" *ngIf="!isVoted">
                   <img src="assets/images/vote.png" />Vote Now</button>
-                <div class="done-vote" *ngIf="isVoted && candidate.is_voted_by_me">
+                <div [class.done-vote]="isVoted" *ngIf="isVoted && candidate.is_voted_by_me">
                   <i class="material-icons">done</i>
                 </div>
                 <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
@@ -88,7 +103,22 @@
           <div *ngIf="tab.mp_candidates && candidates" [class.active]="tab.mp_candidates" class="tab-pane fade in show active" id="Trending" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>              
+              
+                  <div class="assembly">
+                      <h5>Assembly Constituency</h5>
+                      <ul class="chips">
+                        <li>{{currentLocation.dname || 'Choose Location' | titlecase}}
+                          <span>
+                            <!-- changes  -->
+                            <button type="button" class="btn btn-primary1" data-toggle="modal" data-target="#welcome-back">
+                              <i class="material-icons">mode_edit</i>
+                            </button>
+                    
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>
@@ -148,7 +178,7 @@
           <div *ngIf="false" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
             <div class="row">
               <div class="col-md-12">
-                <location-detector (ids)="selectedId($event)" [selectedLocation]="currentLocation.dname" ></location-detector>
+            
                 <h1 class="main-heading">Candidates
                   <div class="sort-option">
                     <ul>
@@ -238,9 +268,9 @@
     </div>
   </div>
 </section>
-<div class="overlay"></div>
+
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register" style="font-family:'pingFang-sc';">
   register
 </button> -->
 
-<phone-login [cName]="candidateName" [cPic]="candidatePic" [pImage]="partyImage" [cUrl]="cUrl" *ngIf="registerToVote"></phone-login>
+<!-- <phone-login [cName]="candidateName" [cPic]="candidatePic" [pImage]="partyImage" [cUrl]="cUrl" *ngIf="registerToVote"></phone-login> -->

@@ -59,11 +59,6 @@
                 <div class="left-sidebar">
                     <div class="info-side-block">
                         <h3 >ABCDEF</h3>
-
-                        <!-- Developer's test  -->
-                        <!-- <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#register" *ngIf="!userId">Login</button>
-                        <p *ngIf="userId">You are already regitered</p> -->
-
                         <div class="stat-data ">
                             <div class="voste-stat">
                                 <span>
@@ -102,47 +97,10 @@
                         </div>
                     </div>
                     <div class="info-side-block">
-                        <h5>Contact info</h5>
-                        <ul class="leader-info-list">
-                            <li>
-                                <span class="info-list-icon">
-                                    <i class="material-icons">call</i>
-                                </span>
-                                <label>Phone</label>
-                                <span class="info-det">9876543210</span>
-                            </li>
-                            <li>
-                                <span class="info-list-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                                <label>email</label>
-                                <span class="info-det">manpreetsinghbadal@gmail.com</span>
-                            </li>
-                            <li>
-                                <span class="info-list-icon">
-                                    <i class="fas fa-globe"></i>
-                                </span>
-                                <label>Website</label>
-                                <span class="info-det">www.msbadal.com</span>
-                            </li>
-                            <li>
-                                <span class="info-list-icon">
-                                    <i class="fab fa-facebook-f"></i>
-                                </span>
-                                <label>FACEBOOK</label>
-                                <span class="info-det">fb.com/badalmanpreetsingh</span>
-                            </li>
-                            <li>
-                                <span class="info-list-icon">
-                                    <i class="fab fa-twitter"></i>
-                                </span>
-                                <label>Twitter</label>
-                                <span class="info-det">@manpreetsbadal</span>
-                            </li>
+                       
 
-
-
-                        </ul>
+                        <contact-info [ContactInfo]="contact_info"></contact-info>
+                        <!-- auqib -->
                     </div>
                 </div>
             </div>
@@ -152,92 +110,10 @@
                     <div class="tab-pane fade in show active" id="About" role="tabpanel">
                           
                         <div class="leader-profile-block">
-                            <h2>Info</h2>
-                            <div class="panel cust-panel extra-padding">
-                                <div class="panel-body ">
-                                    <ul class="leader-info-list">
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info1.png" alt="info" />
-                                            </span>
-                                            <label>Age</label>
-                                            <span class="info-det">47yrs</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info2.png" alt="info" />
-                                            </span>
-                                            <label>Gender</label>
-                                            <span class="info-det">Male</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info3.png" alt="info" />
-                                            </span>
-                                            <label>RELIGION</label>
-                                            <span class="info-det">Sikh</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info4.png" alt="info" />
-                                            </span>
-                                            <label>CASTE</label>
-                                            <span class="info-det">Jatt</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info5.png" alt="info" />
-                                            </span>
-                                            <label>EDUCATION</label>
-                                            <span class="info-det">Graduate</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info6.png" alt="info" />
-                                            </span>
-                                            <label>PROFESSION</label>
-                                            <span class="info-det">Private</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info7.png" alt="info" />
-                                            </span>
-                                            <label>INCOME</label>
-                                            <span class="info-det">
-                                                <i class="fas fa-rupee-sign"></i>80000</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info8.png" alt="info" />
-                                            </span>
-                                            <label>ASSETS</label>
-                                            <span class="info-det">
-                                                <i class="fas fa-rupee-sign"></i>42.20Cr</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info9.png" alt="info" />
-                                            </span>
-                                            <label>LIABILITIES</label>
-                                            <span class="info-det">
-                                                <i class="fas fa-rupee-sign"></i>0</span>
-                                        </li>
-                                        <li>
-                                            <span class="info-list-icon">
-                                                <img src="assets/images/info10.png" alt="info" />
-                                            </span>
-                                            <label>CRIMINAL CASES</label>
-                                            <span class="info-det">0</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="javascript:void(0)" class="more-det">VIEW MORE
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
+                          
 
-                            </div>
+                            <!-- auqib -->
+                            <about [Info]="info"></about>
                         </div>
                         <div class="leader-profile-block">
                             <h2>Popularity Trend</h2>

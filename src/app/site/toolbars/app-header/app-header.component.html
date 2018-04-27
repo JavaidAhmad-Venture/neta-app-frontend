@@ -17,7 +17,10 @@
             <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Tutorial</a></li>
         </ul>
     </div>
-        <button class="btn logout-btn ripple-dark"><i class="material-icons">reply</i>Logout</button>
+        <button class="btn logout-btn ripple-dark" (click)="onLogout()" *ngIf="userId"><i class="material-icons" >reply</i>Logout</button>
+        <button class="btn logout-btn login-btn ripple-dark"  data-toggle="modal" data-target="#register" *ngIf="!userId"><i class="material-icons" >reply</i>Login</button>
+
+
 </div>
 <header>
         
@@ -35,9 +38,9 @@
             <span class="icon-bar lin2"></span>
             <span class="icon-bar lin3"></span>
         </button>
-        <div class="location-detctor">
-                <span class="state">Punjab</span>
-                <div class="location">Phagwara <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
+        <div class="location-detctor emptyAnchor" data-toggle="modal" data-target="#welcome-back">
+                <span class="state">{{state | titlecase}}</span>
+                <div class="location">{{assembly | titlecase}} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
           </div>
         <nav role="navigation">
                 <ul class="navigation">
@@ -69,13 +72,8 @@
                     <ss="material-icons">sear           </button>
             </div> -->
             <ul class="profile-menu">
-                <!-- <li class="notification">
-                    <a routerLink="/javascript( routerLinkActive="active"0)">
-                        <i class="material-icons">notifications</i>
-                        <span class="badges">10</span>
-                    </a>"
-                </li> -->              
-                 <li class="profile">
+                <button class="signup btn" data-toggle="modal" data-target="#register" *ngIf="!userId">Sign in</button>             
+                 <li class="profile" *ngIf="userId">
                     <a routerLink="/profile" routerLinkActive="active">
                         <img src="assets/images/user.png" alt="user" />
                     </a>
