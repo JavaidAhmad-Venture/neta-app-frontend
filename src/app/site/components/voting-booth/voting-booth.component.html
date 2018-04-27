@@ -27,12 +27,12 @@
             <div class="row">
               <div class="col-md-12">
 
-                  <div class="assembly">
+                  <!-- <div class="assembly">
                       <h5>Assembly Constituency</h5>
                       <ul class="chips">
                         <li>{{currentLocation.aname || 'Choose Location' | titlecase}}
                           <span>
-                            <!-- changes  -->
+                          
                             <button type="button" class="btn btn-primary1" data-toggle="modal" data-target="#welcome-back">
                               <i class="material-icons">mode_edit</i>
                             </button>
@@ -40,10 +40,10 @@
                           </span>
                         </li>
                       </ul>
-                    </div>
+                    </div> -->
                
-                <h1 class="main-heading">Candidates
-                  <div class="sort-option">
+                <h1 class="main-heading hidden-xs">Candidates
+                  <!-- <div class="sort-option">
                     <ul>
                       <li>
                         <a class="emptyAnchor" onclick="return false" [class.active]="isActiveVotes" (click)="sortByVotes()">By Votes</a>
@@ -54,13 +54,14 @@
                     </ul>
                     <span class="sort">
                       <i class="material-icons">sort</i>Sort -</span>
-                  </div>
+                  </div> -->
                 </h1>
               </div>
             </div>
 
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
               <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
+                <a href="javascript:void(0)" (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="clickable-anchor"></a>
                 <span class="candidate-pic">
                   <span class="candidate-party">
                     <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
@@ -69,7 +70,7 @@
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
+                  <h4  class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
 
 
@@ -78,10 +79,10 @@
                   <span>
                     <img src="assets/images/vote1.png" />VOTES</span>
                   <h6>
-                    <span class="up-icons">
+                    <!-- <span class="up-icons">
                       <i class="fas fa-arrow-up"></i>
-                    </span>
-                    <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
+                    </span> -->
+                    <span>({{candidate.percentage | number : '1.2-2'}})</span>{{candidate.votes}}</h6>
                 </div>
                 <button class="btn vote-btn ripple" (click)="onVote(candidate)" *ngIf="!isVoted">
                   <img src="assets/images/vote.png" />Vote Now</button>
@@ -104,12 +105,12 @@
             <div class="row">
               <div class="col-md-12">
               
-                  <div class="assembly">
+                  <!-- <div class="assembly">
                       <h5>Assembly Constituency</h5>
                       <ul class="chips">
                         <li>{{currentLocation.dname || 'Choose Location' | titlecase}}
                           <span>
-                            <!-- changes  -->
+                        
                             <button type="button" class="btn btn-primary1" data-toggle="modal" data-target="#welcome-back">
                               <i class="material-icons">mode_edit</i>
                             </button>
@@ -117,10 +118,10 @@
                           </span>
                         </li>
                       </ul>
-                    </div>
+                    </div> -->
 
-                <h1 class="main-heading">Candidates
-                  <div class="sort-option">
+                <h1 class="main-heading hidden-xs">Candidates
+                  <!-- <div class="sort-option">
                     <ul>
                       <li>
                         <a class="emptyAnchor" onclick="return false" [class.active]="isActiveVotes" (click)="sortByVotes()">By Votes</a>
@@ -131,12 +132,13 @@
                     </ul>
                     <span class="sort">
                       <i class="material-icons">sort</i>Sort -</span>
-                  </div>
+                  </div> -->
                 </h1>
               </div>
             </div>
             <ul class="candidate-list candidate-block" [class.voted]="isVoted">
               <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
+                  <a href="javascript:void(0)" (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)"  class="clickable-anchor"></a>
                 <span class="candidate-pic">
                   <span class="candidate-party">
                     <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
@@ -145,16 +147,16 @@
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
+                  <h4 class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
                 <div class="voste-stat">
                   <span>
                     <img src="assets/images/vote1.png" />VOTES</span>
                   <h6>
-                    <span class="up-icons">
+                    <!-- <span class="up-icons">
                       <i class="fas fa-arrow-up"></i>
-                    </span>
-                    <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
+                    </span> -->
+                    <span>({{candidate.percentage | number : '1.2-2'}})</span>{{candidate.votes}}</h6>
                 </div>
                 <button class="btn vote-btn ripple" (click)="onVote(candidate)">
                   <img src="assets/images/vote.png" />Vote Now</button>
@@ -175,63 +177,7 @@
        
           <!--.Panel 3    hidden-->
         
-          <div *ngIf="false" [class.active]="tab.local_bodies" class="tab-pane fade in show active" id="Issues" role="tabpanel">
-            <div class="row">
-              <div class="col-md-12">
-            
-                <h1 class="main-heading">Candidates
-                  <div class="sort-option">
-                    <ul>
-                      <li>
-                        <a class="emptyAnchor" onclick="return false" [class.active]="isActiveVotes" (click)="sortByVotes()">By Votes</a>
-                      </li>
-                      <li>
-                        <a class="emptyAnchor" onclick="return false" [class.active]="isActiveName" (click)="sortByName()">By Name</a>
-                      </li>
-                    </ul>
-                    <span class="sort">
-                      <i class="material-icons">sort</i>Sort -</span>
-                  </div>
-                </h1>
-              </div>
-            </div>
-            <ul class="candidate-list candidate-block" [class.voted]="isVoted">
-              <li *ngFor="let candidate of candidates " [class.selected]="candidate.is_voted_by_me">
-                <span class="candidate-pic">
-                  <span class="candidate-party">
-                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
-                  </span>
-                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
-                </span>
-                <div class="candidate-info">
-                  <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
-                  <h4 (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor">{{candidate.candidate_name}}</h4>
-                </div>
-                <div class="voste-stat">
-                  <span>
-                    <img src="assets/images/vote1.png" />VOTES</span>
-                  <h6>
-                    <span class="up-icons">
-                      <i class="fas fa-arrow-up"></i>
-                    </span>
-                    <span>{{candidate.percentage | number : '1.2-2'}}</span>{{candidate.votes}}</h6>
-                </div>
-                <button class="btn vote-btn ripple" (click)="onVote(candidate)">
-                  <img src="assets/images/vote.png" />Vote Now</button>
-                <div class="done-vote" *ngIf="isVoted && candidate.is_voted_by_me">
-                  <i class="material-icons">done</i>
-                </div>
-                <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
-                  <i class="material-icons" >keyboard_arrow_right</i>
-                </div>
-                <div  *ngIf="isVoted" class="progress-bar">
-                    <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
-                  </div>
-              </li>
-
-
-            </ul>
-          </div>
+        
         </div>
       </div>
       <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">

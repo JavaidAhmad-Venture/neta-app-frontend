@@ -65,7 +65,7 @@ export class VotingBoothComponent implements OnInit {
 
   ngOnInit() {
     this.showCandidates(this.constituency_id);
-  console.log('firebase',firebase);
+    console.log('firebase',firebase);
   }
 
   showCandidates(id){
