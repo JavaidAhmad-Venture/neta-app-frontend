@@ -122,7 +122,7 @@ export class VotingBoothComponent implements OnInit {
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     
    
-    const userId=this.cookieService.readCookie('userId');
+    const userId=this.cookieService.readCookie('access_token');
 
     console.log('get user id:',userId);
     
