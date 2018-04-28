@@ -15,7 +15,17 @@ export class AuthService {
   }
 
   logout() { 
-    this.helperService.getEmitter().subscribe((res) => {
+    let res:any= { type: '',
+data: {
+  state: "",
+  d_id: "",
+  d_name: "",
+  a_id: "",
+  a_name: "",
+}
+}
+    this.helperService.getEmitter().subscribe((resp) => {
+      res=resp;
       console.log("respn", res);
 
       if(res.type=="logout"){

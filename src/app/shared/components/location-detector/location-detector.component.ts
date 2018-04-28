@@ -20,6 +20,7 @@ export class LocationDetectorComponent implements OnInit {
   parliamentId: string = '';
   assemblyId: string = '';
   //for two binding
+  stateId:any;
   state: any;
   parliament: any;
   assembly: any;
@@ -39,12 +40,12 @@ export class LocationDetectorComponent implements OnInit {
   showData(res) {
     this.loading = false;
     let address = res.data;
-
+    console.log("Auqibresponse",res);
     let curParliament = this.findObjectByKey(address.parliament, 'id', address.selected.parliamentary_id);
     let curConstituency = this.findObjectByKey(curParliament.assembly, 'id', address.selected.assembly_id);
     console.log("helllo", curParliament);
 
-
+    this.stateId=address.id;
     this.selectedState = address.name;
     this.selectedDistrict = curParliament.name;
     this.selectedCons = curConstituency.name;
@@ -63,14 +64,17 @@ export class LocationDetectorComponent implements OnInit {
   }
   onNext() {
     this.C_ID.emit({
+      id:this.stateId,
       d_id: this.parliamentId,
       d_name: this.selectedDistrict,
       a_id: this.assemblyId,
       a_name: this.selectedCons,
     });//send cons and assembly id to parent component;
+    // this.helperService.setObservable("Apple");
     this.helperService.setEmitter({
       type: 'location',
       data: {
+        id:this.stateId,
         state: this.selectedState,
         d_id: this.parliamentId,
         d_name: this.selectedDistrict,
@@ -149,7 +153,9 @@ export class LocationDetectorComponent implements OnInit {
     };
   }
   onChangeState(e) {
-    this.parliamentId = e.id;
+    //this.parliamentId = e.id;
+    this.stateId=e.id;
+    console.log("stateId",e.id);
     this.assemblies = [];
     this.getParliament(e.id);
     this.selectedState=e.name;

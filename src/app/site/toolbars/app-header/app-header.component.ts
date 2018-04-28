@@ -47,10 +47,18 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
           });
     }
     ngOnInit() {
-
-        this.helperService.getEmitter().subscribe((res) => {
+let res:any= { type: '',
+data: {
+  state: "",
+  d_id: "",
+  d_name: "",
+  a_id: "",
+  a_name: "",
+}
+}
+        this.helperService.getEmitter().subscribe((resp) => {
             console.log("respn", res);
-
+            res=resp;
             if (res.type == "location") {
                 this.state = res.data.state;
                 this.assembly = res.data.a_name;

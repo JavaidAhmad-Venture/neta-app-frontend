@@ -73,7 +73,17 @@ export class PhoneLoginComponent implements OnInit {
     // this.windowRef.recaptchaVerifier.render().then(function(widgetId) {
     //   this.windowRef.recaptchaWidgetId = widgetId;
     // });
-    this.helperService.getEmitter().subscribe((res) => {
+    let res:any= { type: '',
+data: {
+  state: "",
+  d_id: "",
+  d_name: "",
+  a_id: "",
+  a_name: "",
+}
+}
+    this.helperService.getEmitter().subscribe((resp) => {
+      res=resp;
       console.log("Helper in phone popup", res);
 
       if (res.type == "voteLoginPopup") {

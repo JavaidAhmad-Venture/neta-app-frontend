@@ -48,9 +48,19 @@ export class CandidateProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    let res:any= { type: '',
+data: {
+  state: "",
+  d_id: "",
+  d_name: "",
+  a_id: "",
+  a_name: "",
+}
+}
     this.start();
     this.helperServices.getEmitter()
-    .subscribe((res)=>{
+    .subscribe((resp)=>{
+      res=resp;
       if(res.type=="navigateCandidate"){
         this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
         this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
