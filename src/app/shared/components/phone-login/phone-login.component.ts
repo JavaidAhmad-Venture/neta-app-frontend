@@ -163,7 +163,7 @@ export class PhoneLoginComponent implements OnInit {
 
     
     console.log('selected  file:',this.selectedFile);
-    this.calculateAge(new Date(startDate);
+    this.calculateAge(new Date(startDate));
   }
   onFileSelected(event){
     this.selectedFile = event.target.files[0];
