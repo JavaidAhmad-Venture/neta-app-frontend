@@ -29,11 +29,22 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         jQuery('button.search-btn').click(function () {
             jQuery('header').toggleClass('open');
         });
-        if (jQuery(window).scrollTop() >= 30) {
-            jQuery('header').addClass('fixed');
-        } else {
-            jQuery('header').removeClass('fixed');
-        }
+        jQuery(window).scroll(function() {
+            if (jQuery(this).scrollTop() > 45){
+              jQuery('.upper-tab-section').addClass('sticky');
+            }
+            else{
+              jQuery('.upper-tab-section').removeClass('sticky');
+            }
+          });
+          jQuery(window).scroll(function() {
+            if (jQuery(this).scrollTop() > 200){
+              jQuery('.profile-tab').addClass('sticky');
+            }
+            else{
+              jQuery('.profile-tab').removeClass('sticky');
+            }
+          });
     }
     ngOnInit() {
 

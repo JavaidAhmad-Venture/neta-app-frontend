@@ -22,11 +22,13 @@ export class AuthService {
         this.cookieService.eraseCookie(['access-token'])
         this.cookieService.eraseCookie(['_uid'])
         this.cookieService.eraseCookie(['_client'])
+        this.cookieService.eraseCookie(['phoneNumber'])
       }
   });
   this.cookieService.eraseCookie(['access-token'])
   this.cookieService.eraseCookie(['_uid'])
   this.cookieService.eraseCookie(['_client'])
+  this.cookieService.eraseCookie(['phoneNumber'])
   }
 
 }

@@ -1,3 +1,5 @@
+import { UserProfileUpdate } from './../../models/userProfileUpdate';
+import { PhoneNumber } from './../../models/phoneNumber';
 import { FirebaseUser } from './../../models/firebase-user';
 import { UserService } from './../../services/user.service';
 import { CloudnaryService } from './../../services/cloudnary.service';
@@ -12,16 +14,7 @@ import { WindowService } from './../../services/window.service';
 //import * as firebase from 'firebase';
 declare var $: any;
 //  import * as auth from 'firebase/auth';
-export class PhoneNumber {
-  country: string;
-  line: string;
-  // format phone numbers as E.164
-  get e164() {
-    const num = this.country + this.line;
-    console.log("Number is :", num);
-    return `+${num}`
-  }
-}
+
 @Component({
   selector: 'phone-login',
   templateUrl: './phone-login.component.html'
@@ -34,11 +27,20 @@ export class PhoneLoginComponent implements OnInit {
   pImage: string;
   cUrl: any;
   loading:boolean;
-  // credentials: FirebaseUser;
+  selectedFile:File = null;
   windowRef: any;
   phoneNumber = new PhoneNumber()
   verificationCode: string;
   user: any;
+  professions:any[];
+  educations:any[];
+  castes:any[];
+  religions:any[];
+  userObject=new UserProfileUpdate();
+  years:any[]= this.userObject.getYears();
+  days:any[]= ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+  months:any[]= ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+  genders:any[]= ['MALE', 'FEMALE', 'TRIGENDER'];
   constructor(private win: WindowService,
     private cookieService: CookieService,
     private helperService: HelperService,
@@ -46,20 +48,16 @@ export class PhoneLoginComponent implements OnInit {
     private userService: UserService) {
     console.log('firebase', firebase)
     this.cUrl = cloudService.cloudnaryUrl;
-  }
+    }
   incorrectCode: boolean = false;
   ngOnInit() {
     console.log('Firabse id: ', firebase);
     this.windowRef = this.win.windowRef;
     console.log('Window is: ', this.windowRef);
-    // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
-    // this.windowRef.recaptchaVerifier.render()
+    
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebase)
     }
-
-    // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    // this.windowRef.recaptchaVerifier.render();
     this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
 
 
@@ -71,10 +69,7 @@ export class PhoneLoginComponent implements OnInit {
         this.sendLoginCode()
       }
     })
-    // this.windowRef.recaptchaVerifier.render().then(function(widgetId) {
-    //   this.windowRef.recaptchaWidgetId = widgetId;
-    // });
-    this.helperService.getEmitter().subscribe((res) => {
+     this.helperService.getEmitter().subscribe((res) => {
       console.log("Helper in phone popup", res);
 
       if (res.type == "voteLoginPopup") {
@@ -84,7 +79,7 @@ export class PhoneLoginComponent implements OnInit {
         this.pImage = res.data.party_image;
       }
     })
-
+    this.getMasterData();
 
 
   }
@@ -140,7 +135,7 @@ export class PhoneLoginComponent implements OnInit {
       uid: user.uid
     }
 
-
+    this.cookieService.createCookie('phoneNumber',user.phoneNumber,null)
     this.userService.getAccessToken(credentials)
       .subscribe(res => {
         console.log('Response from login api:', res);
@@ -159,4 +154,34 @@ export class PhoneLoginComponent implements OnInit {
       event.preventDefault();
     }
   }
+  onSubmit(user){
+    const fd=new FormData();
+    fd.append('image',this.selectedFile,this.selectedFile.name);
+    console.log('Updated User:',user.value);
+    let startDate = user.value.year+'-'+user.value.month+'-'+user.value.date;
+    console.log('date format:',new Date(startDate).toISOString());
+
+    
+    console.log('selected  file:',this.selectedFile);
+    this.calculateAge(new Date(startDate);
+  }
+  onFileSelected(event){
+    this.selectedFile = event.target.files[0];
+  }
+  getMasterData(){
+    this.userService.getMasterData()
+    .subscribe(res=>{
+      let data:any=res['data'];
+      this.educations=data.educations;
+      this.professions = data.professions;
+      this.religions = data.religions;
+      this.castes = data.castes;
+    })
+  }
+  calculateAge(birthday) { // birthday is a date
+    let ageDifMs = Date.now() - birthday.getTime();
+    let ageDate = new Date(ageDifMs); // miliseconds from epoch
+    console.log('total age is:'+Math.abs(ageDate.getUTCFullYear() - 1970));
+    
+}
 }

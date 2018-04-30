@@ -18,7 +18,7 @@ export const SITE_ROUTES: Routes = [
 		component: SiteComponent,
 		children:[
 			{
-				path:'',component:ResultsComponent,pathMatch:'full'
+				path:'',component:ResultsComponent,
 			},
 			{ 
 				path: 'discussion', component:DiscussionComponent
@@ -30,7 +30,7 @@ export const SITE_ROUTES: Routes = [
 				path: 'star-citizens', component:StarCitizensComponent
 			},
 			{
-				path: 'candidate/:candidate', component:CandidateProfileComponent
+				path: 'candidate', component:CandidateProfileComponent
 			},
 			{
 				path: 'profile',component:UserProfileComponent

@@ -6,7 +6,8 @@ import { CookieService } from './cookie.service';
 import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
 import { Profile } from '../models/profilemodel';
 import { Observable } from 'rxjs/Observable';
-import { Location } from "@angular/common";
+import { PlatformLocation } from "@angular/common";
+import { HelperService } from './helper.service';
 
 @Injectable()
 export class CandidateProfileService extends BaseService {
@@ -26,6 +27,7 @@ export class CandidateProfileService extends BaseService {
     private paramsService: CookieService,
     private route: ActivatedRoute,
     private _cookie: CookieService,
+    private helperService: HelperService
   ) {
     super();
   }
@@ -39,18 +41,19 @@ export class CandidateProfileService extends BaseService {
   }
 
   navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID, name) {
-    if (CANDIDATE_ID == this._cookie.readCookie("candidate_id") || CONSTITUENCY_ID == this._cookie.readCookie("assembly_id")) {
-      this.router.navigate(["voting-booth"])
-    } else {
-      this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
-      this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
-      // name=name.replaceAll("\\s", "");
-      //console.log('space removed',this.spaceRemove(name));
 
-      /// this.addTostack(CANDIDATE_ID,CONSTITUENCY_ID)
+    this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
+    this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
+    // alert("i am here")
+    this.helperService.setEmitter({
+      type: 'navigateCandidate',
+      data: {
+        dd: "candidateEvent"
+      }
+    });
 
-      this.router.navigate(['candidate', this.spaceRemove(name)])
-    }
+    this.router.navigate(['candidate'])
+
   }
 
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {

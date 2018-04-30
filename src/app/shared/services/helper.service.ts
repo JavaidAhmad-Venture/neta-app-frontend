@@ -11,7 +11,8 @@ export class HelperService {
     return this.emit;
   }
   setEmitter(d) {
- this.cookie.createCookie("a_id",d.data.a_id,null,null);
+    this.cookie.createCookie("a_id",d.data.a_id,null,null);
     this.emit.emit(d);
   }
+  
 }

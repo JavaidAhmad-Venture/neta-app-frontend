@@ -24,6 +24,7 @@ import { LocationService } from './services/location.service';
 import { PopularPeopleService } from './services/popular-people.service';
 import { WindowService } from './services/window.service';
 import { CitizenProfileService } from './services/citizen-profile.service';
+import { ResultsService } from './services/results.service';
 
 
 
@@ -36,7 +37,6 @@ import { CitizenProfileService } from './services/citizen-profile.service';
     FormsModule,
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
   ],
-
   declarations: [NotFoundComponent, 
     LoaderComponent,
     SmallLoaderComponent,
@@ -55,7 +55,8 @@ import { CitizenProfileService } from './services/citizen-profile.service';
     AuthService,
     AuthGuard,
     CitizenProfileService,
-    UserService
+    UserService,
+    ResultsService
   ],
   exports:[CommonModule,
     LoaderComponent,

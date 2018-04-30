@@ -14,4 +14,8 @@ export class UserService extends BaseService{
     
     return this._http.post(this._url+'/login',credentials);
   }
+
+  getMasterData(){
+    return this._http.get(this._url+'/api/v1/master-data',this.httpOptions);
+  }
 }
