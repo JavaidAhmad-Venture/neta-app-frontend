@@ -47,10 +47,18 @@ export class VotingBoothComponent implements OnInit {
   
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
-
-    this.helperService.getEmitter().subscribe((res)=>{
+    let res:any= { type: '',
+    data: {
+      state: "",
+      d_id: "",
+      d_name: "",
+      a_id: "",
+      a_name: "",
+    }
+    }
+    this.helperService.getEmitter().subscribe((resp)=>{
       console.log("respn",res);
-      
+      res=resp;
       if(res.type=="location"){
           // this.state=res.data.state;
           this.currentLocation.aname=res.data.a_name;

@@ -69,7 +69,20 @@ export class PhoneLoginComponent implements OnInit {
         this.sendLoginCode()
       }
     })
-     this.helperService.getEmitter().subscribe((res) => {
+    // this.windowRef.recaptchaVerifier.render().then(function(widgetId) {
+    //   this.windowRef.recaptchaWidgetId = widgetId;
+    // });
+    let res:any= { type: '',
+data: {
+  state: "",
+  d_id: "",
+  d_name: "",
+  a_id: "",
+  a_name: "",
+}
+}
+    this.helperService.getEmitter().subscribe((resp) => {
+      res=resp;
       console.log("Helper in phone popup", res);
 
       if (res.type == "voteLoginPopup") {
@@ -114,14 +127,9 @@ export class PhoneLoginComponent implements OnInit {
         this.phoneNumber.line = '';
         this.verificationCode = '';
         $('#verify-otp').modal('toggle');
-
-        this.helperService.setEmitter({
-          type: 'signIn',
-          data: {
-            u_id: 'abc'
-          }
-        });
         this.setAccessToken(this.user);
+        
+        
       })
       .catch(error => {
         this.loading = false;
@@ -143,6 +151,12 @@ export class PhoneLoginComponent implements OnInit {
         this.cookieService.createCookie('access_token',data['access-token'],data['expiry'],null);
         this.cookieService.createCookie('_client',data['client'],data['expiry'],null);
         this.cookieService.createCookie('_uid',data['uid'],data['expiry'],null);
+        this.helperService.setEmitter({
+          type: 'signIn',
+          data: {
+            u_id: 'abc'
+          }
+        });
       })
   }
   

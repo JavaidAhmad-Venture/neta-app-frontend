@@ -47,22 +47,33 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
           });
     }
     ngOnInit() {
-
-        this.helperService.getEmitter().subscribe((res) => {
+        let res:any= { type: '',
+        data: {
+            state: "",
+            d_id: "",
+            d_name: "",
+            a_id: "",
+            a_name: "",
+         }
+        }
+        this.helperService.getEmitter().subscribe((resp) => {
+            
+            res=resp;
             console.log("respn", res);
-
             if (res.type == "location") {
                 this.state = res.data.state;
                 this.assembly = res.data.a_name;
             }
             if(res.type=="signIn"){
                 this.userId = this.cookieService.readCookie('access_token');
+                console.log('check',this.userId);
             }
             if(res.type=="logout"){
                 this.cookieService.eraseCookie(['access_token'])
              }
         });
         this.userId = this.cookieService.readCookie('access_token');
+    
     }
     showLocation() {
 
@@ -78,6 +89,9 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
           })
         this.userId = '';
         this.auth.logout();
+    }
+    onLogin(){
+
     }
 
 }
