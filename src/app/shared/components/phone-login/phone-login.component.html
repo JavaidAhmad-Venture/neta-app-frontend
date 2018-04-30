@@ -110,6 +110,9 @@
 
       <!-- Modal body -->
       <div class="modal-body">
+        <div class="white-overlay"  *ngIf="loading">
+            <div class="btn-loader" ></div>
+        </div>
         <div class="row">
           <div class="col mid-outer">
             <h5>Verify +{{phoneNumber.country +' '+ phoneNumber.line}}</h5>
@@ -137,7 +140,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="btn-loader" *ngIf="loading"></div>
+              
               <button type="button" class="btn green-btn active" (click)="verifyLoginCode()" [disabled]="!f2.valid"> Next</button>
             </div>
           </div>
