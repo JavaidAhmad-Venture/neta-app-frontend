@@ -39,9 +39,12 @@
             <span class="icon-bar lin3"></span> -->
             <i class="material-icons">menu</i>
         </button>
+        <!-- edit profile mobile icon  -->
+        <a href="javascript void(0)" class="profile-edit-icon hide rs-show" data-target="#update-profile" data-toggle="modal"><i class="material-icons">mode_edit</i> </a>
+         <!-- edit profile mobile icon end -->
         <div class="location-detctor emptyAnchor" data-toggle="modal" data-target="#welcome-back">
-                <span class="state">{{state | titlecase}}</span>
-                <div class="location">{{assembly | titlecase}} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
+                <span class="state">{{state || 'State' | titlecase }}</span>
+                <div class="location">{{assembly || 'Assembly' | titlecase }} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
           </div>
         <nav role="navigation">
                 <ul class="navigation">
