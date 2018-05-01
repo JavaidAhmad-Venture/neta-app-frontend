@@ -1,3 +1,4 @@
+import { CookieService } from './cookie.service';
 import { Http } from '@angular/http';
 import { BaseService } from './base.service';
 // import { HttpClient } from '@angular/common/http';
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserService extends BaseService{
 
-  constructor(private _http:Http) {
+  constructor(private _http:Http, private cookieService:CookieService) {
     super();
   }
 
@@ -27,9 +28,13 @@ export class UserService extends BaseService{
 
     let data={
       name:name,
-      constituency_id:'80a7f44b-ca96-4ea8-94ea-b89e18342a8c'
+      constituency_id:JSON.parse(this.cookieService.readCookie("assembly_id"))
     }
     return this._http.patch(this._url+'/api/v1/influencers/influencer/update',data,this.patch_options()) 
+  }
+  fetchExistingUsers(ass_id){
+    return this._http.get(this._url+'/api/v1/influencers/influencer/?constituency_id='+ass_id,this.get_options())
+    .map(res=>res.json())
   }
 }
 

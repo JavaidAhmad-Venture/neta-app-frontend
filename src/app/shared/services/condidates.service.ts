@@ -15,8 +15,8 @@ export class CondidatesService extends BaseService {
     super();
   }
   getAllCandidates(id){
-    return this.http.get(this._url+'/api/v1/candidatures?constituency_id='+id+'&sort_by=votes_desc',this.httpOptions)
-    .map(res => JSON.parse(JSON.stringify(res)));  
+    return this._http.get(this._url+'/api/v1/candidatures?constituency_id='+id+'&sort_by=votes_desc',this.get_options())
+    .map(res => res.json());  
   }
   
   onVote(candidature_id,id){
@@ -25,7 +25,7 @@ export class CondidatesService extends BaseService {
   }
   getAllCandidatesAfterVote(id){
     return this._http.get(this._url+'/api/v1/candidatures?constituency_id='+id+'&sort_by=votes_desc',this.get_options())
-    .map(res => JSON.parse(JSON.stringify(res)));  
+    .map(res => res.json());  
   }
 
 }

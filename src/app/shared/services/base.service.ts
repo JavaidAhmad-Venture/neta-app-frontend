@@ -60,9 +60,9 @@ export class BaseService {
 
   protected get_options(type = null) {
     this.setHeaders();
-    if (this.access_token && !type) {
-      this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json", 'Authorization': 'Bearer ' + this.access_token });
-    }
+    // if (this.access_token && !type) {
+    //   this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json", 'Authorization': 'Bearer ' + this.access_token });
+    // }
     // else if (type == 'auth') {
     //   this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Basic ' + this.bae64EncodeToken });
     // }
