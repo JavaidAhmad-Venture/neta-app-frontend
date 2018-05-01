@@ -31,7 +31,7 @@ export class ResultsComponent implements OnInit {
   Statistics: any;
   imgMap: string;
   imgMapC: string;
-  state="Tunjab";
+  state="State";
   totalSeats: number;
   partiesInfo: party[] = [];
   TopPartiesCons: any[] = [];
@@ -115,5 +115,6 @@ export class ResultsComponent implements OnInit {
       });
 
   }
+
 
 }

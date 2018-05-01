@@ -33,7 +33,7 @@ export const SITE_ROUTES: Routes = [
 				path: 'candidate', component:CandidateProfileComponent
 			},
 			{
-				path: 'profile',component:UserProfileComponent,canActivate: [AuthGuard]
+				path: 'profile',component:UserProfileComponent
 			},
 			{
 				path: 'citizen/:citizen',component:CitizenProfileComponent

@@ -84,31 +84,33 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
    
 
     ngOnInit() {
-        // this.windowRef = this.win.windowRef;
-let res:any= { type: '',
-data: {
-  state: "",
-  d_id: "",
-  d_name: "",
-  a_id: "",
-  a_name: "",
-}
-}
+        let res:any= { type: '',
+        data: {
+            state: "",
+            d_id: "",
+            d_name: "",
+            a_id: "",
+            a_name: "",
+         }
+        }
         this.helperService.getEmitter().subscribe((resp) => {
-            console.log("respn", res);
+            
             res=resp;
+            console.log("respn", res);
             if (res.type == "location") {
                 this.state = res.data.state;
                 this.assembly = res.data.a_name;
             }
             if(res.type=="signIn"){
                 this.userId = this.cookieService.readCookie('access_token');
+                console.log('check',this.userId);
             }
             if(res.type=="logout"){
                 this.cookieService.eraseCookie(['access_token'])
              }
         });
         this.userId = this.cookieService.readCookie('access_token');
+    
     }
    
 
@@ -116,6 +118,12 @@ data: {
         this.location = !this.location;
     }
     onLogout() {
+        this.cookieService.eraseCookie(['access-token'])
+        this.cookieService.eraseCookie(['_uid'])
+        this.cookieService.eraseCookie(['_client'])
+        this.cookieService.eraseCookie(['phoneNumber'])
+        console.log('After erasing token is:', this.cookieService.readCookie('access-token'));
+        
         this.helperService.setEmitter({
             type: 'logout',
             data: {
@@ -124,6 +132,9 @@ data: {
           })
         this.userId = '';
         this.auth.logout();
+    }
+    onLogin(){
+
     }
 
 }

@@ -11,7 +11,7 @@
                     <a class="nav-link active" data-toggle="tab"  href="#India" role="tab">India</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#Punjab" role="tab">{{state}}</a>
+                    <a class="nav-link" data-toggle="tab" href="#Punjab" role="tab">{{state | titlecase}}</a>
                 </li>
 
             </ul>
@@ -607,7 +607,7 @@
                                     </div>
                                 </div>
                                 <div class="profile-block-footer">
-                                    <a href="javascript:void(0)" class="more-det"> GO TO PROFILE
+                                    <a routerLink="/profile" class="more-det emptyAnchor"> GO TO PROFILE
                                         <i class="fas fa-chevron-right"></i>
                                     </a>
                         

@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
   userId:any;
+  phoneNumber:string;
   constructor(private cookieService:CookieService) { }
 
   ngOnInit() {
     this.userId = this.cookieService.readCookie('userId');
+    this.phoneNumber=JSON.parse(this.cookieService.readCookie('phoneNumber'));
   }
 
 }

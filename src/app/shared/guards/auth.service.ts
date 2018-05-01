@@ -6,33 +6,40 @@ import { CookieService } from '../services/cookie.service';
 
 @Injectable()
 export class AuthService {
-  
-  constructor( 
+
+  constructor(
     private route: ActivatedRoute,
-    private cookieService:CookieService,
-    private helperService:HelperService
-    ) {   
+    private cookieService: CookieService,
+    private helperService: HelperService
+  ) {
   }
 
-  logout() { 
-    let res:any= { type: '',
-data: {
-  state: "",
-  d_id: "",
-  d_name: "",
-  a_id: "",
-  a_name: "",
-}
-}
+  logout() {
+    let res: any = {
+      type: '',
+      data: {
+        state: "",
+        d_id: "",
+        d_name: "",
+        a_id: "",
+        a_name: "",
+      }
+    }
     this.helperService.getEmitter().subscribe((resp) => {
-      res=resp;
+      res = resp;
       console.log("respn", res);
 
-      if(res.type=="logout"){
+      if (res.type == "logout") {
         this.cookieService.eraseCookie(['access-token'])
+        this.cookieService.eraseCookie(['_uid'])
+        this.cookieService.eraseCookie(['_client'])
+        this.cookieService.eraseCookie(['phoneNumber'])
       }
-  });
+    });
     this.cookieService.eraseCookie(['access-token'])
+    this.cookieService.eraseCookie(['_uid'])
+    this.cookieService.eraseCookie(['_client'])
+    this.cookieService.eraseCookie(['phoneNumber'])
   }
 
 }
