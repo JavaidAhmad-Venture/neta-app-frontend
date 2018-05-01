@@ -44,7 +44,7 @@ export class BaseService {
     this.uid = JSON.parse(this._cookieService.readCookie('_uid'));
     if (this.access_token != null) {
       console.log('Token is:'+this.access_token);
-      this.headers = new Headers({ 'Content-Type': 'application/json',   'access-token':  this.access_token, 'client': this.client,'uid': this.uid  });
+      this.headers = new Headers({ 'Content-Type': 'application/json',   'access-token':  this.access_token, 'client': this.client,'uid': this.uid,Accept: "application/json"});
     } else {
       this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json" });
     }
@@ -81,7 +81,7 @@ export class BaseService {
 
   protected patch_options() {
     this.setHeaders();
-    return new RequestOptions({ headers: this.headers, method: 'patch' });
+    return new RequestOptions({ headers: this.headers });
   }
 
   protected extractData(res: Response) {
