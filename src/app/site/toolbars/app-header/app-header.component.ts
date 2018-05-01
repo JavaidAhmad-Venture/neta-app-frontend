@@ -81,6 +81,12 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
 
     }
     onLogout() {
+        this.cookieService.eraseCookie(['access-token'])
+        this.cookieService.eraseCookie(['_uid'])
+        this.cookieService.eraseCookie(['_client'])
+        this.cookieService.eraseCookie(['phoneNumber'])
+        console.log('After erasing token is:', this.cookieService.readCookie('access-token'));
+        
         this.helperService.setEmitter({
             type: 'logout',
             data: {

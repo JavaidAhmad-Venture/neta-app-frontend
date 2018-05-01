@@ -19,8 +19,9 @@ export class CondidatesService extends BaseService {
     .map(res => JSON.parse(JSON.stringify(res)));  
   }
   
-  onVote(candidature_id,constituency_id){
-    return this._http.post(this._url+'/api/v1/candidatures/'+candidature_id+'/vote', {constituency_id:constituency_id}, this.post_options());
+  onVote(candidature_id,id){
+    let data={constituency_id:id};
+    return this._http.post(this._url+'/api/v1/candidatures/'+candidature_id+'/vote', data, this.post_options());
   }
 
 }

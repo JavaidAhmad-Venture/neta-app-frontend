@@ -22,9 +22,7 @@ export class BaseService {
   client: any;
   uid: any;
   constructor() {
-    this.access_token = JSON.parse(this._cookieService.readCookie('access_token'));
-    this.client = JSON.parse(this._cookieService.readCookie('_client'));
-    this.uid = JSON.parse(this._cookieService.readCookie('_uid'));
+    
     this.setHeaders();
   }
 
@@ -41,10 +39,11 @@ export class BaseService {
   // }
 
   private setHeaders() {
-    this.cookie = this.access_token;
-    this.token = this.cookie ? this.cookie.token : null;
-    console.log('Token is:'+this.access_token);
+    this.access_token = JSON.parse(this._cookieService.readCookie('access_token'));
+    this.client = JSON.parse(this._cookieService.readCookie('_client'));
+    this.uid = JSON.parse(this._cookieService.readCookie('_uid'));
     if (this.access_token != null) {
+      console.log('Token is:'+this.access_token);
       this.headers = new Headers({ 'Content-Type': 'application/json',   'access-token':  this.access_token, 'client': this.client,'uid': this.uid  });
     } else {
       this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json" });
@@ -61,8 +60,8 @@ export class BaseService {
 
   protected get_options(type = null) {
     this.setHeaders();
-    if (this.token && !type) {
-      this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.token });
+    if (this.access_token && !type) {
+      this.headers = new Headers({ 'Content-Type': 'application/json', Accept: "application/json", 'Authorization': 'Bearer ' + this.access_token });
     }
     // else if (type == 'auth') {
     //   this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Basic ' + this.bae64EncodeToken });

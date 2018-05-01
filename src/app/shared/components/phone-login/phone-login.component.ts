@@ -157,6 +157,7 @@ data: {
             u_id: 'abc'
           }
         });
+        $('#register-profile').modal('show');
       })
   }
   
@@ -186,6 +187,7 @@ data: {
     this.userService.getMasterData()
     .subscribe(res=>{
       let data:any=res['data'];
+      console.log('Master Data:',res);
       this.educations=data.educations;
       this.professions = data.professions;
       this.religions = data.religions;
@@ -197,5 +199,16 @@ data: {
     let ageDate = new Date(ageDifMs); // miliseconds from epoch
     console.log('total age is:'+Math.abs(ageDate.getUTCFullYear() - 1970));
     
-}
-}
+  }
+  onFirstTimeReg(user){
+    console.log('User in patch:',user.value.name)
+    let name = user.value.name
+    // const fd=new FormData();
+    // fd.append('image',this.selectedFile,this.selectedFile.name);
+    this.userService.updateUserFirstTime(name)
+    .subscribe(res=>{
+      console.log('patch response:'+res);
+      
+    });
+  }
+} 

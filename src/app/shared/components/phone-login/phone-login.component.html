@@ -336,3 +336,48 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- register user profile1 -->
+<div class="modal fade neta-modal" id="register-profile">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bb0 pb0 pt30">
+        <h5 class="modal-title font-reg">Your Details</h5>
+
+        <!-- <a class="close" data-dismiss="modal">&times;</a> -->
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form #regUserProfile="ngForm">
+          <div class="row">
+            <div class="col">
+
+              <input type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInputUser  />
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Name" ngModel name="name" class="form-control" #name>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn green-btn active form-control" data-dismiss="modal" (click)="onFirstTimeReg(regUserProfile)">Next</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
