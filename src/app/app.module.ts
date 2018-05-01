@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { routes } from './config/routes';
 import { SharedModule } from './shared/shared.module';
 import { SiteModule } from './site/site.module';
+import { WINDOW_PROVIDERS } from './shared/services/window-service-for-scroll.service';
 
 
 
@@ -13,7 +14,7 @@ import { SiteModule } from './site/site.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,7 @@ import { SiteModule } from './site/site.module';
     routes,
   
   ],
-  providers: [],
+  providers: [WINDOW_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

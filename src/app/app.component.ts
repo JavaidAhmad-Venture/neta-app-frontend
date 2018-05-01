@@ -1,16 +1,23 @@
 import { HelperService } from './shared/services/helper.service';
-import { Component } from '@angular/core';
+import { Directive,Component,ViewChild,ElementRef,Renderer2, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'app';
 
-  constructor(private helperService:HelperService){
+@ViewChild('ele') inp2;
+  constructor(private helperService:HelperService,private ele: ElementRef,private renderer: Renderer2){
   }
-
+  ngAfterViewInit() {
+    this.renderer.listen(this.inp2.nativeElement, 'click' ,()=>{
+      this.renderer.removeClass(document.body, 'open');
+    });
+   
+  }
 
 }

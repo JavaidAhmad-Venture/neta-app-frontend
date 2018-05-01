@@ -25,6 +25,7 @@ import { PopularPeopleService } from './services/popular-people.service';
 import { WindowService } from './services/window.service';
 import { CitizenProfileService } from './services/citizen-profile.service';
 import { ResultsService } from './services/results.service';
+import { CustomDirectiveDirective } from './directive/custom-directive.directive';
 
 
 
@@ -41,7 +42,8 @@ import { ResultsService } from './services/results.service';
     LoaderComponent,
     SmallLoaderComponent,
     LocationDetectorComponent,
-    PhoneLoginComponent
+    PhoneLoginComponent,
+    CustomDirectiveDirective
   ],
   providers:[CondidatesService,
     CandidateProfileService,
