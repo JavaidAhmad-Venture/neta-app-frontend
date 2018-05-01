@@ -8,7 +8,7 @@
                     </a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab"  href="#India" role="tab">India</a>
+                    <a class="nav-link active" data-toggle="tab" href="#India" role="tab">India</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#Punjab" role="tab">{{state | titlecase}}</a>
@@ -18,13 +18,15 @@
         </div>
     </div>
     <div class="container main-container">
-        <div class="row custom-row">
+            <div class="loader-profile" *ngIf="loading">
+                    <loader></loader>
+                </div>
+        <div class="row custom-row" *ngIf="!loading">
             <div class="co-md-9 col-lg-9 col-xs-12 col-sm-12">
                 <div class="tab-content card tab-content-section">
-                       
+
                     <!--.Panel 1-->
                     <div class="tab-pane fade in show active" id="India" role="tabpanel">
-                            <div class="loader-profile" *ngIf="loading" ><loader ></loader></div>
                         <!-- <div class="custom-card">
                             <h6 class="today-heading">TODAY’S POLL</h6>
                             <h3>Which party do you approve of?</h3>
@@ -96,21 +98,37 @@
                                                         <label>{{party.party_name}}
                                                             <span>{{party.party_abbreviation}}</span>
                                                         </label>
-                                                        <div class="progress-bar" >
-                                                            <span class="progress poll1"
-                                                        
-                                                            [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"
-                                            
-                                                        
-                                                             ></span>
+                                                        <div class="progress-bar">
+                                                            <span class="progress poll1" [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"></span>
                                                         </div>
                                                     </div>
                                                     <div class="vote-result">
-                                                        <h5>{{TopPartiesCons[i].constituencies_won}}</h5>
+                                                        <h5 *ngIf="i<2">{{TopPartiesCons[i].constituencies_won}}</h5>
                                                         <span>{{party.percentage|number:'1.2-2'}}% votes</span>
                                                     </div>
                                                 </li>
-                                             </ul>
+
+
+                                                <li>
+                                                    <span class="poll-img">
+                                                        <img src="assets/images/dummy-icon.png" alt="poll-img" />
+                                                    </span>
+                                                    <div class="vote-break-data">
+                                                        <label>Others
+                                                            <span>(Others)</span>
+                                                        </label>
+                                                        <div class="progress-bar">
+                                                            <span class="progress poll1" [ngStyle]="{'background-color': 'grey','width': b+'%'}"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vote-result">
+                                                        <h5>{{a}}</h5>
+                                                        <span>{{b|number:'1.2-2'}}% votes</span>
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
                                         </div>
                                         <div class="panel-footer">
                                             <a href="javascript:void(0)" class="more-det">SEE DETAILS
@@ -331,74 +349,93 @@
 
                     <!--Panel 3-->
                     <div class="tab-pane fade" id="Punjab" role="tabpanel">
-                           
-                            <div class="statistics-block custom-block mrtop0">
-                                    <div class="loader-profile" *ngIf="loading" ><loader ></loader></div>
-                                    <h2>Statistics</h2>
-                                    <div class="row custom-row">
-                                        <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
-                                            <div class="panel cust-panel">
-                                                <div class="panel-head">
-                                                    <h6>Vote Breakdown</h6>
-                                                    <select>
-                                                        <option>last 24 hours</option>
-                                                    </select>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <ul class="vote-data-list">
-                                                            <li *ngFor="let party of partiesInfo_cons;index as i">
-                                                                    <span class="poll-img">
-                                                                        <img src="{{curl+party.image.cloudinary.public_id}}.jpg" alt="poll-img" />
-                                                                    </span>
-                                                                    <div class="vote-break-data">
-                                                                        <label>{{party.party_name}}
-                                                                            <span>{{party.party_abbreviation}}</span>
-                                                                        </label>
-                                                                        <div class="progress-bar" >
-                                                                            <span class="progress poll1"
-                                                                        
-                                                                            [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"
-                                                            
-                                                                        
-                                                                             ></span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="vote-result">
-                                                                        <h5>{{TopPartiesCons_cons[i].constituencies_won}}</h5>
-                                                                        <span>{{party.percentage|number:'1.2-2'}}% votes</span>
-                                                                    </div>
-                                                                </li>
-                                                     </ul>
-                                                </div>
-                                                <div class="panel-footer">
-                                                    <a href="javascript:void(0)" class="more-det">SEE DETAILS
-                                                        <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+
+                        <div class="statistics-block custom-block mrtop0">
+                            <div class="loader-profile" *ngIf="loading">
+                                <loader></loader>
+                            </div>
+                            <h2>Statistics</h2>
+                            <div class="row custom-row">
+                                <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
+                                    <div class="panel cust-panel">
+                                        <div class="panel-head">
+                                            <h6>Vote Breakdown</h6>
+                                            <select>
+                                                <option>last 24 hours</option>
+                                            </select>
                                         </div>
-    
-                                        <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
-                                            <div class="panel cust-panel">
-                                                <div class="panel-head">
-                                                    <h6>Vote Breakdown</h6>
-                                                    <select>
-                                                        <option>last 24 hours</option>
-                                                    </select>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <img src="{{curl+imgMapC}}.jpg" class="graph" alt="graph" />
-                                                </div>
-                                                <div class="panel-footer">
-                                                    <a href="javascript:void(0)" class="more-det">SEE DETAILS
-                                                        <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                        <div class="panel-body">
+                                            <ul class="vote-data-list">
+                                                <li *ngFor="let party of partiesInfo_cons;index as i">
+                                                    <span class="poll-img">
+                                                        <img src="{{curl+party.image.cloudinary.public_id}}.jpg" alt="poll-img" />
+                                                    </span>
+                                                    <div class="vote-break-data">
+                                                        <label>{{party.party_name}}
+                                                            <span>{{party.party_abbreviation}}</span>
+                                                        </label>
+                                                        <div class="progress-bar">
+                                                            <span class="progress poll1" [ngStyle]="{'background-color': party.party_color,'width':party.percentage+'%'}"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vote-result">
+                                                        <h5 *ngIf="i<2">{{TopPartiesCons_cons[i].constituencies_won}}</h5>
+                                                        <span>{{party.percentage|number:'1.2-2'}}% votes</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span class="poll-img">
+                                                        <img src="assets/images/dummy-icon.png" alt="poll-img" />
+                                                    </span>
+                                                    <div class="vote-break-data">
+                                                        <label>Others
+                                                            <span>(Others)</span>
+                                                        </label>
+                                                        <div class="progress-bar" >
+                                                            <span class="progress poll1"
+                                                        
+                                                            [ngStyle]="{'background-color': 'grey','width': d+'%'}"
+                                            
+                                                        
+                                                             ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vote-result">
+                                                        <h5 >{{c}}</h5>
+                                                        <span>{{d|number:'1.2-2'}}% votes</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                                <i class="fas fa-chevron-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="statistics-block custom-block news-section ">
+
+                                <div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
+                                    <div class="panel cust-panel">
+                                        <div class="panel-head">
+                                            <h6>Vote Breakdown</h6>
+                                            <select>
+                                                <option>last 24 hours</option>
+                                            </select>
+                                        </div>
+                                        <div class="panel-body">
+                                            <img src="{{curl+imgMapC}}.jpg" class="graph" alt="graph" />
+                                        </div>
+                                        <div class="panel-footer">
+                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                                <i class="fas fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="statistics-block custom-block news-section ">
                                     <h2>News</h2>
                                     <div class="row custom-row">
                                         <div class="col-md-6 col-lg-6 col-xs-12 mrbtm20">
@@ -472,7 +509,7 @@
                                         </a>
                                     </div>
                                 </div> -->
-                                <!-- <div class="statistics-block custom-block news-section">
+                        <!-- <div class="statistics-block custom-block news-section">
                                     <h2>Popular Tweets</h2>
                                     <div class="row custom-row">
                                         <div class="col-md-6 col-lg-6 col-xs-12 mrbtm20">
@@ -588,34 +625,34 @@
                 </div>
             </div>
             <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">
-                    <aside role="slidebar">
-                            <div class="profile-block">
-                                <span class="cross">
-                                    <i class="material-icons">clear</i>
-                                </span>
-                                <div class="profile-block-body">
-                                    <div class="user-img">
-                                        <img src="assets/images/user.png" alt="user" />
-                                    </div>
-                                    <div class="user-content">
-                                        <h4>Hey Joan!</h4>
-                                        <p>Complete your Profile</p>
-                                        <span class="progress-report">20%</span>
-                                        <div class="progress-bar">
-                                            <span class="progress"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="profile-block-footer">
-                                    <a routerLink="/profile" class="more-det emptyAnchor"> GO TO PROFILE
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                        
-                                </div>
-                        
+                <aside role="slidebar">
+                    <div class="profile-block">
+                        <span class="cross">
+                            <i class="material-icons">clear</i>
+                        </span>
+                        <div class="profile-block-body">
+                            <div class="user-img">
+                                <img src="assets/images/user.png" alt="user" />
                             </div>
-                           <sidebar></sidebar>
-                        </aside>
+                            <div class="user-content">
+                                <h4>Hey Joan!</h4>
+                                <p>Complete your Profile</p>
+                                <span class="progress-report">20%</span>
+                                <div class="progress-bar">
+                                    <span class="progress"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-block-footer">
+                            <a routerLink="/profile" class="more-det emptyAnchor"> GO TO PROFILE
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <sidebar></sidebar>
+                </aside>
             </div>
         </div>
         <!--/.Panel 3-->

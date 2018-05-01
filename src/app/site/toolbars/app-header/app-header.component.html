@@ -35,6 +35,7 @@
          <button type="button" data-toggle="collapse" class="navbar-toggle my-toggle " #ele>
            
             <i class="material-icons">menu</i>
+<<<<<<< HEAD
         </button> 
 
         <!-- <button type="button" data-toggle="collapse" class="navbar-toggle my-toggle" #eleRf >
@@ -45,13 +46,19 @@
 
 
 
+=======
+        </button>
+        <!-- edit profile mobile icon  -->
+        <a href="javascript void(0)" class="profile-edit-icon hide rs-show" data-target="#update-profile" data-toggle="modal"><i class="material-icons">mode_edit</i> </a>
+         <!-- edit profile mobile icon end -->
+>>>>>>> 8caff93c565c736f938c8283e5a17ab9a0a5a95c
         <div class="location-detctor emptyAnchor" data-toggle="modal" data-target="#welcome-back">
-                <span class="state">{{state | titlecase}}</span>
-                <div class="location">{{assembly | titlecase}} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
+                <span class="state">{{state || 'State' | titlecase }}</span>
+                <div class="location">{{assembly || 'Assembly' | titlecase }} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
           </div>
         <nav role="navigation">
                 <ul class="navigation">
-                        <li  class="ripple-dark">
+                        <li *ngIf="false" class="ripple-dark">
                             <a routerLink="/discussion" routerLinkActive="active">
                                 <i class="material-icons">chat</i><span>Discussion</span></a>
                         </li>
@@ -89,13 +96,13 @@
                             <div class="icon-outer">
                                     <i class="material-icons">person</i>
                             </div>
-                            <a href="#" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                            <a routerLink="/profile" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
                         </div>
                         <div class="outer">
                                 <div class="icon-outer">
                                        <i class="material-icons">mode_edit</i>
                                 </div>
-                                <a href="#" class="text-outer">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                                <a href="javascript:void(0)" class="text-outer" data-toggle="modal" data-target="#update-profile">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
     
     
                             </div>

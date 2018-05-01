@@ -22,11 +22,12 @@ export class UserService extends BaseService{
     })
   }
 
-  updateUserFirstTime(name:any){
-   
-    
+  updateUserFirstTime(name:any){  
     console.log('name in update patch service:',name);
-    return this._http.patch(this._url+'/api/v1/influencers/influencer/update',{name:name},this.patch_options()) 
+    let data={
+      name:name
+    }
+    return this._http.patch(this._url+'/api/v1/influencers/influencer/update',data,this.patch_options()) 
   }
 }
 
