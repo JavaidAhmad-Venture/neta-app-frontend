@@ -653,4 +653,6 @@ button.signup-btn.btn {
 .profile-dropdown .outer a.text-outer span i{ font-size: 20px; padding-top:2px; color: #dbdcea; }
 .profile-dropdown  .link-button{ background:#f6f7f8; float: left; width: 100%; height:auto; border-radius: 0;   padding:12px; font-size: 0.9rem; border: none; -webkit-border-bottom-right-radius: 5px;
     -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; color:#ca2325; text-transform: uppercase; font-size: 12px; font-weight:500; }
-.profile-dropdown  .link-button i{ font-size: 20px; padding-right:5px;}    
+.profile-dropdown  .link-button i{ font-size: 20px; padding-right:5px;}  
+.profile-edit-icon{ float:right; margin-top: 13px; }  
+.profile-edit-icon i{ color: #fff; font-size: 18px;}

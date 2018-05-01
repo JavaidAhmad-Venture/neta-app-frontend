@@ -65,6 +65,8 @@ export class VotingBoothComponent implements OnInit {
           this.currentLocation.dname=res.data.d_name;
           this.ID.d_id=res.data.d_id;
           this.ID.a_id=res.data.a_id;
+          this.cookieService.createCookie("id_dis",res.data.d_id,null,null);
+          this.cookieService.createCookie("id_ass",res.data.a_id,null,null);
           this.showCandidates(this.ID.a_id);
       }
   })
@@ -72,20 +74,24 @@ export class VotingBoothComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showCandidates(this.constituency_id);
+    let id= JSON.parse(this.cookieService.readCookie('id_dis'))
+    if(!id)id=this.constituency_id;
+    //console.log("javid",id);
+    console.log(id,'.....................................');
+    this.showCandidates(id);
     console.log('firebase',firebase);
   }
 
   showCandidates(id){
     this.loading = true;
-    let i_d =id||this.constituency_id;
-    
+    this.candidates=[];
+    let i_d =id || this.constituency_id;
     console.log("my iddddddddddddddd",i_d);
     this.candidateService.getAllCandidates(i_d).subscribe(data => {
       this.loading = false;
-      this.candidates=[];
+      
       this.candidates = data.data;
-      console.log(this.candidates);
+      console.log(data,'Dattttaa');
     })
   }
 
@@ -181,11 +187,15 @@ export class VotingBoothComponent implements OnInit {
     this.tab[type] = true;
     if(this.tab.mla_candidates){
       console.log("i am mla",);
-     this.showCandidates(this.ID.a_id);
+      let id= JSON.parse(this.cookieService.readCookie('id_ass'))
+      if(!id)id=this.constituency_id;
+     this.showCandidates(id);
     }
     if(this.tab.mp_candidates){
       console.log("iam Mp")
-      this.showCandidates(this.ID.d_id);
+      let id= JSON.parse(this.cookieService.readCookie('id_dis'))
+      if(!id)id=this.constituency_id;
+      this.showCandidates(id);
     }
   }
 
