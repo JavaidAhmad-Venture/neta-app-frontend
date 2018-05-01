@@ -110,6 +110,9 @@
 
       <!-- Modal body -->
       <div class="modal-body">
+        <div class="white-overlay"  *ngIf="loading">
+            <div class="btn-loader" ></div>
+        </div>
         <div class="row">
           <div class="col mid-outer">
             <h5>Verify +{{phoneNumber.country +' '+ phoneNumber.line}}</h5>
@@ -137,7 +140,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="btn-loader" *ngIf="loading"></div>
+              
               <button type="button" class="btn green-btn active" (click)="verifyLoginCode()" [disabled]="!f2.valid"> Next</button>
             </div>
           </div>
@@ -253,19 +256,32 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header bb0 pb0 pt30">
-        <h5 class="modal-title font-reg">Update Profle</h5>
+      <div class="modal-header bb0 header-c">
+        <div class="cover-outer">
+            <div class="text-inner">
+                <label class="myLabel">
+                    <input type="file" required/>
+                    <span><i class="material-icons">add</i> <br/>Cover Photo</span>
+                </label>
+              <!-- <a href="" type="file"></a> -->
+            </div>
+
+        </div>
 
         <!-- <a class="close" data-dismiss="modal">&times;</a> -->
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body ">
         <form #regUser="ngForm">
-          <div class="row">
-            <div class="col">
+          <div class="row pt25">
+            <div class="col align-center">
 
-              <input type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  />
+              <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
+              <label class="myLabel circle-outer">
+                  <input type="file" required/>
+                  <span class=""><i class="material-icons">add</i> <br/>Cover Photo</span>
+              </label>
 
             </div>
           </div>
@@ -287,10 +303,14 @@
               </select>
             </div>
           </div>
-          <div class="row pt5">
-            <div class="field-title">Date of Birth</div>
+          <div class="row">
+            <div class="col">
+                <div class="field-title mt10">Date of Birth</div>
+            </div>
+          </div>
+          <div class="row ">
+            
             <div class="col ">
-
               <select class="demo-default select-beast" ngModel name="date" #date >
                 <option *ngFor="let day of days"[ngValue]="day">{{day}}</option>
               </select>
@@ -310,7 +330,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="field-title">Education</div>
+              <div class="field-title mt10">Education</div>
               <select class="demo-default select-beast" ngModel name="edu" #edu>
                 <option *ngFor="let education of educations"[ngValue]="education.name">{{education.name}}</option>
               </select>
@@ -318,7 +338,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="field-title">Profession</div>
+              <div class="field-title mt10">Profession</div>
               <select class="demo-default select-beast" ngModel name="prop" #prop >
                 <option *ngFor="let profession of professions"[ngValue]="profession.name">{{profession.name}}</option>
               </select>
