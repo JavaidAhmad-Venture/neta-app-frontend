@@ -274,83 +274,100 @@
       <!-- Modal body -->
       <div class="modal-body ">
         <form #regUser="ngForm">
-          <div class="row pt25">
+          <div class="row pt25 pb25 before-tab-border">
             <div class="col align-center">
 
               <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
               <label class="myLabel circle-outer">
                   <input type="file" (change)="onFileSelected($event)" required/>
-                  <span class=""><i class="material-icons">add</i> <br/>Cover Photo</span>
+                  <span class=""><i class="material-icons">add</i> <br/>Profile Photo</span>
               </label>
-
             </div>
           </div>
 
-          <div class="row">
-            <div class="col">
-
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" placeholder="Name" ngModel name="name" class="form-control" #name>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="field-title">Gender</div>
-              <select class="demo-default select-beast" ngModel name="gender" #gender >
-                <option *ngFor="let gender of genders"[ngValue]="gender">{{gender}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-                <div class="field-title mt10">Date of Birth</div>
-            </div>
-          </div>
-          <div class="row ">
+          <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" href="#info" role="tab" data-toggle="tab">Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact" role="tab" data-toggle="tab">Contact</a>
+              </li>
             
-            <div class="col ">
-              <select class="demo-default select-beast" ngModel name="date" #date >
-                <option *ngFor="let day of days"[ngValue]="day">{{day}}</option>
-              </select>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="info">
+                  <div class="row">
+                      <div class="col">
+          
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" placeholder="Name" ngModel name="name" class="form-control" #name>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="field-title">Gender</div>
+                        <select class="demo-default select-beast" ngModel name="gender" #gender >
+                          <option *ngFor="let gender of genders"[ngValue]="gender">{{gender}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <div class="field-title mt10">Date of Birth</div>
+                      </div>
+                    </div>
+                    <div class="row ">
+                      
+                      <div class="col ">
+                        <select class="demo-default select-beast" ngModel name="date" #date >
+                          <option *ngFor="let day of days"[ngValue]="day">{{day}}</option>
+                        </select>
+                      </div>
+                      <div class="col">
+          
+                        <select class="demo-default select-beast" ngModel name="month" #month >
+                          <option *ngFor="let month of months"[ngValue]="month">{{month}}</option>
+                        </select>
+                      </div>
+                      <div class="col">
+          
+                        <select class="demo-default select-beast" ngModel name="year" #year>
+                          <option *ngFor="let year of years"[ngValue]="year">{{year}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="field-title mt10">Education</div>
+                        <select class="demo-default select-beast" ngModel name="edu" #edu>
+                          <option *ngFor="let education of educations"[ngValue]="education.name">{{education.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="field-title mt10">Profession</div>
+                        <select class="demo-default select-beast" ngModel name="prop" #prop >
+                          <option *ngFor="let profession of professions"[ngValue]="profession.name">{{profession.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <button type="submit" class="btn green-btn active form-control" data-dismiss="modal" (click)="onSubmit(regUser)">Save</button>
+                      </div>
+                    </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="contact">bbb</div>
             </div>
-            <div class="col">
 
-              <select class="demo-default select-beast" ngModel name="month" #month >
-                <option *ngFor="let month of months"[ngValue]="month">{{month}}</option>
-              </select>
-            </div>
-            <div class="col">
-
-              <select class="demo-default select-beast" ngModel name="year" #year>
-                <option *ngFor="let year of years"[ngValue]="year">{{year}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="field-title mt10">Education</div>
-              <select class="demo-default select-beast" ngModel name="edu" #edu>
-                <option *ngFor="let education of educations"[ngValue]="education.name">{{education.name}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="field-title mt10">Profession</div>
-              <select class="demo-default select-beast" ngModel name="prop" #prop >
-                <option *ngFor="let profession of professions"[ngValue]="profession.name">{{profession.name}}</option>
-              </select>
-            </div>
-          </div>
+         
 
 
-          <div class="row">
-            <div class="col">
-              <button type="submit" class="btn green-btn active form-control" data-dismiss="modal" (click)="onSubmit(regUser)">Save</button>
-            </div>
-          </div>
         </form>
       </div>
     </div>
@@ -374,7 +391,7 @@
       <!-- Modal body -->
       <div class="modal-body">
         <form #regUserProfile="ngForm">
-          <div class="row pt25">
+          <div class="row pt25 ">
             <div class="col align-center">
 
               <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
