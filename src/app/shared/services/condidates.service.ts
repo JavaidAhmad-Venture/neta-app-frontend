@@ -15,13 +15,17 @@ export class CondidatesService extends BaseService {
     super();
   }
   getAllCandidates(id){
-    return this.http.get(this._url+'/api/v1/candidatures?constituency_id='+id,this.httpOptions)
+    return this.http.get(this._url+'/api/v1/candidatures?constituency_id='+id+'&sort_by=votes_desc',this.httpOptions)
     .map(res => JSON.parse(JSON.stringify(res)));  
   }
   
   onVote(candidature_id,id){
     let data={constituency_id:id};
     return this._http.post(this._url+'/api/v1/candidatures/'+candidature_id+'/vote', data, this.post_options());
+  }
+  getAllCandidatesAfterVote(id){
+    return this._http.get(this._url+'/api/v1/candidatures?constituency_id='+id+'&sort_by=votes_desc',this.get_options())
+    .map(res => JSON.parse(JSON.stringify(res)));  
   }
 
 }

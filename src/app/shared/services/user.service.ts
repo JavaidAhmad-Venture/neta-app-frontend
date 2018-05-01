@@ -24,8 +24,10 @@ export class UserService extends BaseService{
 
   updateUserFirstTime(name:any){  
     console.log('name in update patch service:',name);
+
     let data={
-      name:name
+      name:name,
+      constituency_id:'80a7f44b-ca96-4ea8-94ea-b89e18342a8c'
     }
     return this._http.patch(this._url+'/api/v1/influencers/influencer/update',data,this.patch_options()) 
   }

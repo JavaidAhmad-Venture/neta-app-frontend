@@ -157,6 +157,7 @@ export class VotingBoothComponent implements OnInit {
       // let dataCons={constituency_id:candidate.candidature_constituency_id};
       this.candidateService.onVote(candidate.candidature_id,candidate.candidature_constituency_id).subscribe(res=>{
         console.log('on vote response:',res);
+        
       })
       // candidate.votes++;
       // candidate.percentage += 4.5; 
