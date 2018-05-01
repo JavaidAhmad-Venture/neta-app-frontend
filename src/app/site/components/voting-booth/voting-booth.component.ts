@@ -31,12 +31,12 @@ export class VotingBoothComponent implements OnInit {
   constituency_id: string = '44443cf7-51ad-422d-a9c6-11a322d5797a';
   isActiveName:boolean = false;
   isActiveVotes:boolean = true;
-  isVoted:boolean = false;
+  isVoted:boolean = true;
   registerToVote:boolean=false;
   candidateName:string='';
   candidatePic:string='';
   partyImage:string='';
-  is_voted_by_me:boolean;
+  loggedName:string='';
   constructor(
 
     private candidateService: CondidatesService,
@@ -75,6 +75,7 @@ export class VotingBoothComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loggedName = JSON.parse(this.cookieService.readCookie('name'));
     let id= JSON.parse(this.cookieService.readCookie('id_ass'))
     if(!id)id=this.constituency_id;
     //console.log("javid",id);
@@ -152,9 +153,7 @@ export class VotingBoothComponent implements OnInit {
           
         }
       })
-      $('#if-not-login').modal('show',()=>{
-        this.isVoted = true;
-      });
+      $('#if-not-login').modal('show');
       
     }
    
