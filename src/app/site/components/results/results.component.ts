@@ -8,7 +8,7 @@ interface party {
   id: string,
   party_name: string,
   votes: string,
-  percentage: string,
+  percentage: number,
   party_abbreviation: string,
   party_color: string,
   image: {
@@ -18,8 +18,18 @@ interface party {
   },
   constituencies_won: number,
 
-
 }
+
+// interface Other{
+//   country:{
+//     seats:number,
+//     vote_percentage:number,
+//   },
+//   state:{
+//     seats:number,
+//     vote_percentage:number,
+//   }
+// }
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -37,6 +47,12 @@ export class ResultsComponent implements OnInit {
   TopPartiesCons: any[] = [];
   partiesInfo_cons: party[] = [];
   TopPartiesCons_cons: any[] = [];
+
+//countryOther:Other;
+//stateOther:Other;
+
+ a=0;b=100;//other states seats and vote percentage for country
+ c=0;d=100;//other states seats and vote percentage for state
   constructor(private resultService: ResultsService,
     private cUrl: CloudnaryService,
     private helperService: HelperService) {
@@ -79,14 +95,20 @@ export class ResultsComponent implements OnInit {
         console.log("Map is", this.imgMap);
         this.totalSeats = data.parties_data.seat_count;
         console.log("data", data);
-        this.TopPartiesCons = data.parties_data.top_parties_by_constituencies
-        let i = 0;
+        this.TopPartiesCons = data.parties_data.top_parties_by_constituencies;
+
+        for(let i=0;i<2;i++){
+          this.a+=this.TopPartiesCons[i].constituencies_won;
+          this.b-= data.parties_data.top_parties_by_votes[i].percentage;
+        }
+//        console.log("checkResult",this.countryOther);
+        let j = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
-          if (i == 2) {
+          if (j == 2) {
             break;
           }
           this.partiesInfo.push(p);
-          i++;
+          j++;
         }
         this.loading = false;
       });
@@ -103,7 +125,14 @@ export class ResultsComponent implements OnInit {
         console.log("Map state is", this.imgMap);
         this.totalSeats = data.parties_data.seat_count;
         console.log("data", data);
-        this.TopPartiesCons_cons = data.parties_data.top_parties_by_constituencies
+        this.TopPartiesCons_cons = data.parties_data.top_parties_by_constituencies;
+
+        
+        for(let j=0;j<2;j++){
+          this.c+=this.TopPartiesCons[j].constituencies_won;
+          this.d-= data.parties_data.top_parties_by_votes[j].percentage;
+        }
+
         let i = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
           if (i == 4) {

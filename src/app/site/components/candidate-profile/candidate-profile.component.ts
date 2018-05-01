@@ -33,6 +33,7 @@ export class CandidateProfileComponent implements OnInit {
   party_info: PartySupportInfo;
   leader_history: LeaderHistroy[];
   loading = true; //renders loader;
+  label=false;
   subs: Subscription;
   subs1: Subscription;
   constructor(
@@ -58,7 +59,7 @@ data: {
 }
 }
     this.start();
-    this.helperServices.getEmitter()
+    this.subs1=this.helperServices.getEmitter()
     .subscribe((resp)=>{
       res=resp;
       if(res.type=="navigateCandidate"){
@@ -70,13 +71,6 @@ data: {
       
       
     })
-   // this.start();
-
-    // this.subs1 = this.route.params.subscribe(params => {
-      
-  
-
-    // });
   }
   start() {
      console.log("hello==========>>>");
@@ -92,16 +86,14 @@ data: {
         this.contact_info = this.c_profile.contact_info;
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
+        this.label=this.info.label.name?true:false;
         this.CANDIDATURE_ID = this.party_info.candidature.candidature_id;
         console.log("profile",this.c_profile);
         if(this.c_profile){
           this.loading = false;
         }
       })
-    
-
-
-    this.leaderProfile.getCandidatesCandidatures(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
+      this.leaderProfile.getCandidatesCandidatures(this.CANDIDATE_ID, this.CONSTITUENCY_ID)
       .subscribe(res => {
         this.leader_history = [...res['data']];
       });
@@ -134,9 +126,8 @@ data: {
   }
 
   ngOnDestroy() {
-    this.cookie.eraseCookie(['candidate_id','assembly_id']);
-  //  this.subs.unsubscribe();
-   // this.subs1.unsubscribe();
-
+  this.cookie.eraseCookie(['candidate_id','assembly_id']);
+  this.subs.unsubscribe();
+  this.subs1.unsubscribe();
   }
 }
