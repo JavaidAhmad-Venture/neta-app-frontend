@@ -72,7 +72,9 @@ export class VotingBoothComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showCandidates(this.constituency_id);
+    let id=this.cookieService.readCookie('assembly_id');
+    console.log("javid",id);
+    this.showCandidates(id||this.constituency_id);
     console.log('firebase',firebase);
   }
 
