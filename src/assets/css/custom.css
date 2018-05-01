@@ -633,3 +633,24 @@ button.signup-btn.btn {
           /* appearance: none; */
           margin: 0; 
       }
+
+.profile{ position: relative;}
+.profile:hover .profile-dropdown {display: block !important; }
+.profile-dropdown::after {
+    content: '';
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    position: absolute;
+    right: 21px;
+    top: -10px;}
+.profile-dropdown  { display: none; width: 200px; min-height: 1px;  background: #fff; -webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px; position: absolute; top:48px; right:-11px; box-shadow: 4px 6.928px 10px 0 rgba(0,0,0,.3); }   
+.profile-dropdown .outer{ float: left; width: 100%; padding:12px;} 
+.profile-dropdown .outer .icon-outer{ float: left; position: relative; width: 35px; height: 35px; background: #574e6f; -webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px;}
+.profile-dropdown .outer .icon-outer i{color: #fff;font-size: 20px;  position: absolute; top: 6px; left: 8px;}
+.profile-dropdown .outer a.text-outer { float: left; width: calc(100% - 35px); font-size: 0.9rem; color: #545a63; padding-left: 16px; padding-top: 5px; background: none; text-align: left;  height: auto;  display: block; border:none; }
+.profile-dropdown .outer a.text-outer span{ float:right;}
+.profile-dropdown .outer a.text-outer span i{ font-size: 20px; padding-top:2px; color: #dbdcea; }
+.profile-dropdown  .link-button{ background:#f6f7f8; float: left; width: 100%; height:auto; border-radius: 0;   padding:12px; font-size: 0.9rem; border: none; -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; color:#ca2325; text-transform: uppercase; font-size: 12px; font-weight:500; }
+.profile-dropdown  .link-button i{ font-size: 20px; padding-right:5px;}    
