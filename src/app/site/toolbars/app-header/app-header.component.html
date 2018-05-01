@@ -84,6 +84,24 @@
                     <a routerLink="/profile" routerLinkActive="active">
                         <img src="assets/images/user.png" alt="user" />
                     </a>
+                    <div class="profile-dropdown">
+                        <div class="outer">
+                            <div class="icon-outer">
+                                    <i class="material-icons">person</i>
+                            </div>
+                            <a href="#" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                        </div>
+                        <div class="outer">
+                                <div class="icon-outer">
+                                       <i class="material-icons">mode_edit</i>
+                                </div>
+                                <a href="#" class="text-outer">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+    
+    
+                            </div>
+
+                            <a href="javascript:void(0)" class="link-button" (click)="onLogout()" *ngIf="userId"><i class="material-icons">reply</i> Logout</a>
+                    </div>
                  </li>
             </ul> 
         </div>   
