@@ -28,7 +28,7 @@ export class LocationDetectorComponent implements OnInit {
 
   constructor(private locationService: LocationService,
     private helperService: HelperService,
-    private cookies: CookieService) { }
+    private cookieService: CookieService) { }
 
   ngOnInit() {
     this.locationService.getStates()
@@ -63,6 +63,9 @@ export class LocationDetectorComponent implements OnInit {
     return null;
   }
   onNext() {
+    this.cookieService.createCookie('assembly_id',this.assemblyId,null);
+    this.cookieService.createCookie('state_name',this.selectedState,null);
+    this.cookieService.createCookie('assembly_name',this.selectedCons,null);
     this.C_ID.emit({
       id:this.stateId,
       d_id: this.parliamentId,
@@ -116,8 +119,8 @@ export class LocationDetectorComponent implements OnInit {
     this.selectedDistrict = '';
     this.selectedCons = '';
 
-    let lat = this.cookies.readCookie('lat');
-    let lng = this.cookies.readCookie('lng');
+    let lat = this.cookieService.readCookie('lat');
+    let lng = this.cookieService.readCookie('lng');
     if (lat && lng)//if lat lng available then get current address
     {
       this.locationService.getCurrentAddress(lat, lng)
@@ -128,8 +131,8 @@ export class LocationDetectorComponent implements OnInit {
       window.navigator.geolocation.getCurrentPosition(
         position => {
           //console.log('Position before lat and long:', position);
-          this.cookies.createCookie('lat', position.coords.latitude, null, null);
-          this.cookies.createCookie('lng', position.coords.longitude, null, null);
+          this.cookieService.createCookie('lat', position.coords.latitude, null, null);
+          this.cookieService.createCookie('lng', position.coords.longitude, null, null);
 
           this.locationService.getCurrentAddress(position.coords.latitude, position.coords.longitude)
             .subscribe(res => { this.showData(res) });

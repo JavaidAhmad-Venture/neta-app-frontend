@@ -85,7 +85,7 @@ data: {
       res=resp;
       console.log("Helper in phone popup", res);
 
-      if (res.type == "voteLoginPopup") {
+      if (res.type  == "voteLoginPopup") {
         // this.state=res.data.state;
         this.cName = res.data.name;
         this.cPic = res.data.public_id;
