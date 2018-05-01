@@ -57,11 +57,12 @@ export class ResultsComponent implements OnInit {
     private cUrl: CloudnaryService,
     private helperService: HelperService) {
 
-    this.showDataForCountry();
+   
     this.curl = this.cUrl.cloudnaryUrl;
   }
 
   ngOnInit() {
+    this.showDataForCountry();
     let res: any = {
       type: '',
       data: {
@@ -134,7 +135,7 @@ export class ResultsComponent implements OnInit {
 
         let i = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
-          if (i == 2) {
+          if (i == 4) {
             break;
           }
           this.partiesInfo_cons.push(p);

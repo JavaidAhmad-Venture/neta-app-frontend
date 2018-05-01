@@ -33,6 +33,13 @@ export class SidebarComponent implements OnInit{
   }
 
   ngOnInit() {
+    let resp:any;
+    this.helperService.getEmitter().subscribe(res=>{
+      resp=res
+      if(resp.type=='location'){
+        this.fetchPopularPeople();
+      }
+    })
     this.fetchPopularPeople();
    jQuery('.carousel').carousel();
   }
@@ -48,6 +55,7 @@ export class SidebarComponent implements OnInit{
   }
 
   fetchPopularPeople(){ 
+    this.topSixInfluencers =[];
     this.popularPeople.getPopularPeople()
     .subscribe(res=>{
       this.response = res.data;

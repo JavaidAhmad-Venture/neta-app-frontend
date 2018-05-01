@@ -7,6 +7,7 @@ import { HelperService } from './../../services/helper.service';
 import { Component, Input, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
+
 import { CookieService } from '../../services/cookie.service';
 import { environment } from './../../../../environments/environment.prod';
 import { WindowService } from './../../services/window.service';
@@ -22,6 +23,7 @@ declare var $: any;
 })
 export class PhoneLoginComponent implements OnInit {
 
+  registrationId:string='';
   cName: string;
   cPic: string;
   pImage: string;
@@ -85,7 +87,7 @@ data: {
       res=resp;
       console.log("Helper in phone popup", res);
 
-      if (res.type == "voteLoginPopup") {
+      if (res.type  == "voteLoginPopup") {
         // this.state=res.data.state;
         this.cName = res.data.name;
         this.cPic = res.data.public_id;
@@ -94,7 +96,7 @@ data: {
     })
     this.getMasterData();
 
-
+   
   }
   sendLoginCode() {
     
@@ -157,6 +159,10 @@ data: {
             u_id: 'abc'
           }
         });
+
+        this.registrationId=this.cookieService.readCookie('registration_id');
+        console.log('your registration id is:',this.registrationId);
+        if(!this.registrationId)
         $('#register-profile').modal('show');
       })
   }
@@ -208,9 +214,10 @@ data: {
     this.userService.updateUserFirstTime(name)
     .subscribe(res=>{
       console.log('patch response:'+res);
-      if(res.status===200){
-    
-      }
+      let data= res.json().data;
+      let registrationId=data.id;
+      this.cookieService.createCookie('registration_id',registrationId,null);
+
     });
   }
 } 

@@ -45,7 +45,7 @@
           </div>
         <nav role="navigation">
                 <ul class="navigation">
-                        <li  class="ripple-dark">
+                        <li *ngIf="false" class="ripple-dark">
                             <a routerLink="/discussion" routerLinkActive="active">
                                 <i class="material-icons">chat</i><span>Discussion</span></a>
                         </li>
@@ -83,13 +83,13 @@
                             <div class="icon-outer">
                                     <i class="material-icons">person</i>
                             </div>
-                            <a href="#" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                            <a routerLink="/profile" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
                         </div>
                         <div class="outer">
                                 <div class="icon-outer">
                                        <i class="material-icons">mode_edit</i>
                                 </div>
-                                <a href="#" class="text-outer">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                                <a href="javascript:void(0)" class="text-outer" data-toggle="modal" data-target="#update-profile">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
     
     
                             </div>

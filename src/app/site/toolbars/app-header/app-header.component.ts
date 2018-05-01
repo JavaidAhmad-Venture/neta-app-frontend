@@ -47,6 +47,8 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
           });
     }
     ngOnInit() {
+        this.state = JSON.parse(this.cookieService.readCookie('state_name'));
+        this.assembly = JSON.parse(this.cookieService.readCookie('assembly_name'));
         let res:any= { type: '',
         data: {
             state: "",
@@ -60,6 +62,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
             
             res=resp;
             console.log("respn", res);
+          
             if (res.type == "location") {
                 this.state = res.data.state;
                 this.assembly = res.data.a_name;
@@ -81,10 +84,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
 
     }
     onLogout() {
-        this.cookieService.eraseCookie(['access-token'])
-        this.cookieService.eraseCookie(['_uid'])
-        this.cookieService.eraseCookie(['_client'])
-        this.cookieService.eraseCookie(['phoneNumber'])
+        this.cookieService.eraseCookie(['access-token','_uid','_client','phoneNumber'])
         console.log('After erasing token is:', this.cookieService.readCookie('access-token'));
         
         this.helperService.setEmitter({
