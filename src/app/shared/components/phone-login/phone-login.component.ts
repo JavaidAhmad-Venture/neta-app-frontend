@@ -172,7 +172,7 @@ data: {
   onSubmit(user){
     const fd=new FormData();
     fd.append('image',this.selectedFile,this.selectedFile.name);
-    console.log('Updated User:',user.value);
+    console.log('Updated User:',JSON.parse(user.value.month)+'-'+JSON.parse(user.value.date));
     let startDate = user.value.year+'-'+user.value.month+'-'+user.value.date;
     console.log('date format:',new Date(startDate).toISOString());
 
@@ -208,7 +208,9 @@ data: {
     this.userService.updateUserFirstTime(name)
     .subscribe(res=>{
       console.log('patch response:'+res);
-      
+      if(res.status===200){
+    
+      }
     });
   }
 } 
