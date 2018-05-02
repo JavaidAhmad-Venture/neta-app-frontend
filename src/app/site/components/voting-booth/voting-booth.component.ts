@@ -26,7 +26,7 @@ export class VotingBoothComponent implements OnInit {
   ID={a_id:"",d_id:""}
   currentLocation={dname:"Select Location",aname:"Select Location"}//auqib
   loading:boolean = false;
-  candidates:Candidate[];
+  candidates:Candidate[]=null;
   cUrl: string = '';
   constituency_id: string = '44443cf7-51ad-422d-a9c6-11a322d5797a';
   isActiveName:boolean = false;
@@ -86,8 +86,11 @@ export class VotingBoothComponent implements OnInit {
   }
 
   showCandidates(id){
+    this.isActiveName= false;
+    this.isActiveVotes= true;
+    this.isVoted = true;
     this.loading = true;
-    this.candidates=[];
+    this.candidates=null;
     let i_d =id || this.constituency_id;
     console.log("my iddddddddddddddd",i_d);
     this.candidateService.getAllCandidates(i_d).subscribe(data => {

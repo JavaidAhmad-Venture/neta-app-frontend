@@ -5,18 +5,18 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-lg-3 rs-width">
                     <div class="leader-profile-pic">
-                        <img src="{{cloudNaryUrl+info.profile_pic.cloudinary.public_id}}.jpg"  alt="leader"/>                         
+                        <img  *ngIf="info" src="{{cloudNaryUrl+info.profile_pic.cloudinary.public_id}}.jpg"  alt="leader"/>                         
                     </div>
                      <!-- mobile view -->
-                    <div class="hide rs-show rs-profile-view">
+                    <div *ngIf="party_info"class="hide rs-show rs-profile-view">
                         <h3 >{{ party_info.candidature.candidate_name }}</h3>
                         <div class="rs-can-outer">
-                            <span class="lead-info-icons noborder rs-view">
+                            <span *ngIf="party_info" class="lead-info-icons noborder rs-view">
                                 <!-- <img src=" alt="" /> -->
-                            <img src="{{cloudNaryUrl + party_info.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
+                            <img  src="{{cloudNaryUrl + party_info.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
                             </span>{{party_info.party_name}}
                         </div>
-                        <span><i class="material-icons">place</i> {{party_info.candidature.constituency_name}}</span>
+                        <span *ngIf="party_info"><i class="material-icons">place</i> {{party_info.candidature.constituency_name}}</span>
 
                     </div>        
                          <!-- mobile view end-->
@@ -24,7 +24,7 @@
                 <div class="col-md-9 col-sm-9 col-lg-9 rs-np rs-width">
                     <div  class="rs-show rs-statdata-outer hide">
                             <div class="stat-data" >
-                                    <div class="voste-stat" >
+                                    <div  *ngIf="party_info"class="voste-stat" >
                                         <span>
                                             <img src="assets/images/vote1.png">VOTES</span>
                                             <h6>{{party_info.candidate_vote_count}}
@@ -66,7 +66,7 @@
         <div class="row custom-row">
             <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12 rs-hide">
                 <div class="left-sidebar">
-                    <div class="info-side-block">
+                    <div *ngIf="party_info"class="info-side-block">
                         <h3>{{ party_info.candidature.candidate_name }}
                             <span *ngIf="label" class="new-badges" >{{info.label.name}}</span>
                         </h3>
@@ -209,7 +209,7 @@
             </div>
             <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">
                     <aside role="slidebar">
-                            <div class="profile-block">
+                            <div *ngIf="access_Token"class="profile-block">
                                 <span class="cross">
                                     <i class="material-icons">clear</i>
                                 </span>
