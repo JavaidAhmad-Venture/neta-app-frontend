@@ -1,11 +1,11 @@
+import { environment } from './../../../environments/environment';
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Injectable()
 export class CloudnaryService extends BaseService{
-
-  cloudnaryUrl = 'http://res.cloudinary.com/neta-dev/image/upload/';
+  cloudnaryUrl = environment.CLOUD_URL;
   
   constructor(private _http:Http) { 
     super();
