@@ -153,8 +153,8 @@ export class ResultsComponent implements OnInit {
 
   }
 
-  // selectedState(){
-  //   console.log(this.selectedState,"..........");
-  //   //this.router.navigate(["result",this.selectedState]);
-  // }
+  onSelectedState(){
+ 
+    this.router.navigate(["result",this.state]);
+  }
 }
