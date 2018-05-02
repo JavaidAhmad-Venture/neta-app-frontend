@@ -119,7 +119,7 @@
                       </ul>
                     </div> -->
 
-                <h1 *ngIf class="main-heading hidden-xs">Candidates
+                <h1 *ngIf="candidates" class="main-heading hidden-xs">Candidates
                   <!-- <div class="sort-option">
                     <ul>
                       <li>
@@ -136,7 +136,7 @@
               </div>
             </div>
             <ul class="candidate-list candidate-block" >
-              <li *ngFor="let candidate of candidates " [class.voted]="isVoted">
+              <li *ngFor="let candidate of candidates " [class.voted]="candidate.is_voted_by_me">
                 <div [class.selected]="candidate.is_voted_by_me" >
                   <a href="javascript:void(0)" (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)"  class="clickable-anchor"></a>
                 <span class="candidate-pic">
