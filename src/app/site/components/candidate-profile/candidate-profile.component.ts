@@ -13,7 +13,7 @@ import { HelperService } from '../../../shared/services/helper.service';
   styleUrls: ['./candidate-profile.component.css']
 })
 export class CandidateProfileComponent implements OnInit {
-
+  access_Token:string=null;
   tab: any = {
     about: true,
     activity: false,
@@ -49,6 +49,7 @@ export class CandidateProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    this.access_Token= this.cookie.readCookie('access_token');
     let res:any= { type: '',
 data: {
   state: "",
@@ -74,7 +75,7 @@ data: {
   }
   start() {
      console.log("hello==========>>>");
-     this.c_profile=null;
+     
     this.loading = true;
     this.CANDIDATE_ID = JSON.parse(this.cookie.readCookie("candidate_id"));
     this.CONSTITUENCY_ID = JSON.parse(this.cookie.readCookie("assembly_id"));
@@ -86,7 +87,7 @@ data: {
         this.contact_info = this.c_profile.contact_info;
         this.party_info = this.c_profile.party_and_support_info;
         this.info = this.c_profile.info;
-        this.label=this.info.label.name?true:false;
+        this.label=this.info.hasOwnProperty('label')?true:false;
         this.CANDIDATURE_ID = this.party_info.candidature.candidature_id;
         console.log("profile",this.c_profile);
         if(this.c_profile){

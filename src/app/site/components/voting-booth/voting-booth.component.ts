@@ -86,6 +86,9 @@ export class VotingBoothComponent implements OnInit {
   }
 
   showCandidates(id){
+    this.isActiveName= false;
+    this.isActiveVotes= true;
+    this.isVoted = true;
     this.loading = true;
     this.candidates=[];
     let i_d =id || this.constituency_id;

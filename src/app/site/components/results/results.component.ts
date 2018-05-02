@@ -47,7 +47,8 @@ export class ResultsComponent implements OnInit {
   state="State";
 
   access_Token:string=null
-  totalSeats: number;
+  totalSeatsC: number;
+  totalSeatsS: number;
   partiesInfo: party[] = [];
   TopPartiesCons: any[] = [];
   partiesInfo_cons: party[] = [];
@@ -63,11 +64,11 @@ export class ResultsComponent implements OnInit {
     private cookieService:CookieService,
     private helperService: HelperService,private router:Router) {
 
-   
     this.curl = this.cUrl.cloudnaryUrl;
   }
 
   ngOnInit() {
+    this.state=JSON.parse(this.cookieService.readCookie("state_name"))||"Punjab";
     this.showDataForCountry();
     let res: any = {
       type: '',
@@ -83,10 +84,13 @@ export class ResultsComponent implements OnInit {
    this.access_Token= this.cookieService.readCookie('access_token');
     this.helperService.getEmitter()
       .subscribe(resp => {
+       
         res=resp;
+       if(res.type=="location"){
         this.state=res.data.state;
         console.log("auqib",res);
         this.showDataForState(res.data.a_id,res.data.id,);
+      }
       })
 
   }
@@ -98,9 +102,10 @@ export class ResultsComponent implements OnInit {
       .subscribe(res => {
         let data = res['data'];
         data.parties_data
+        this.a=0;this.b=100;
         this.imgMap = data.parties_data.image.cloudinary.public_id;
         console.log("Map is", this.imgMap);
-        this.totalSeats = data.parties_data.seat_count;
+        this.totalSeatsC = data.parties_data.seat_count;
         console.log("data", data);
         this.TopPartiesCons = data.parties_data.top_parties_by_constituencies;
 
@@ -119,7 +124,10 @@ export class ResultsComponent implements OnInit {
         }
         this.loading = false;
       });
-    this.showDataForState("40887c1a-af96-4f05-a801-ac694307d0d7","ecaece95-c372-48f1-a1b3-e82868d610e3");
+      let sid=JSON.parse(this.cookieService.readCookie("state_id"));
+      let aid=JSON.parse(this.cookieService.readCookie("assembly_id"));
+      console.log("sid",sid,aid);
+    this.showDataForState(aid||"40887c1a-af96-4f05-a801-ac694307d0d7",sid||"ecaece95-c372-48f1-a1b3-e82868d610e3");
   }
 
   showDataForState(a_id,s_id) {
@@ -127,22 +135,24 @@ export class ResultsComponent implements OnInit {
     this.resultService.getResultState(a_id,s_id)
       .subscribe(res => {
         let data = res['data'];
+        this.c=0;this.d=100;
         console.log("console", data)
         this.imgMapC = data.parties_data.image.cloudinary.public_id;
         console.log("Map state is", this.imgMap);
-        this.totalSeats = data.parties_data.seat_count;
+       
         console.log("data", data);
+        
         this.TopPartiesCons_cons = data.parties_data.top_parties_by_constituencies;
 
         
         for(let j=0;j<2;j++){
-          this.c+=this.TopPartiesCons[j].constituencies_won;
+          this.c+=this.TopPartiesCons_cons[j].constituencies_won;
           this.d-= data.parties_data.top_parties_by_votes[j].percentage;
         }
-
+        this.totalSeatsS = data.parties_data.seat_count
         let i = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
-          if (i == 4) {
+          if (i == 2) {
             break;
           }
           this.partiesInfo_cons.push(p);
@@ -153,8 +163,7 @@ export class ResultsComponent implements OnInit {
 
   }
 
-  // selectedState(){
-  //   console.log(this.selectedState,"..........");
-  //   //this.router.navigate(["result",this.selectedState]);
-  // }
+  onSelectedState(){
+    this.router.navigate(["result",this.state]);
+  }
 }

@@ -31,9 +31,10 @@ export class CandidateProfileService extends BaseService {
   ) {
     super();
   }
-  //   ngOnInit() {
-  //     this.location.onPopState(() => console.log("event happens"));
-  // }
+    // ngOnInit() {
+    //   // this.location.onPopState(() => console.log("event happens"));
+  
+    // }
 
   getCanditateProfile(CANDIDATE_ID, CONSTITUENCY_ID) {
     return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/?constituency_id=" + CONSTITUENCY_ID, this.httpOptions)
@@ -45,12 +46,12 @@ export class CandidateProfileService extends BaseService {
     this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
     // // alert("i am here")
-    // this.helperService.setEmitter({
-    //   type: 'navigateCandidate',
-    //   data: {
-    //     dd: "candidateEvent"
-    //   }
-    // });
+    this.helperService.setEmitter({
+      type: 'navigateCandidate',
+      data: {
+        dd: "candidateEvent"
+      }
+    });
 
     this.router.navigate(['candidate'])
 

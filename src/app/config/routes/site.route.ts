@@ -18,7 +18,7 @@ export const SITE_ROUTES: Routes = [
 		component: SiteComponent,
 		children:[
 			{
-				path:'',redirectTo:'result',pathMatch:'full'
+				path:'',redirectTo:"result/.",pathMatch:'full'
 			},
 			{
 				path:'result',component:ResultsComponent,

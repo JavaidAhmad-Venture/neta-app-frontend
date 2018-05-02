@@ -2,10 +2,10 @@
   <div class="upper-tab-section">
     <div class="container main-container">
       <ul class="nav nav-tabs nav-justified">
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="tab.mla_candidates" data-toggle="tab" role="tab" (click)="switchTab('mla_candidates')">MLA Candidates </a>
+        <li class="nav-item emptyAnchor">
+          <a class="nav-link " [class.active]="tab.mla_candidates" data-toggle="tab" role="tab" (click)="switchTab('mla_candidates')">MLA Candidates </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item emptyAnchor">
           <a class="nav-link" [class.active]="tab.mp_candidates" data-toggle="tab" role="tab" (click)="switchTab('mp_candidates')">MP Candidates</a>
         </li>
         <!-- <li class="nav-item">
@@ -42,7 +42,7 @@
                       </ul>
                     </div> -->
                
-                <h1 class="main-heading hidden-xs">Candidates
+                <h1 *ngIf="candidates" class="main-heading hidden-xs">Candidates
                   <!-- <div class="sort-option">
                     <ul>
                       <li>
@@ -73,9 +73,6 @@
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
                   <h4  class="emptyAnchor">{{candidate.candidate_name}}</h4>
                 </div>
-
-
-
                 <div class="voste-stat">
                   <span>
                     <img src="assets/images/vote1.png" />VOTES</span>
@@ -122,7 +119,7 @@
                       </ul>
                     </div> -->
 
-                <h1 class="main-heading hidden-xs">Candidates
+                <h1 *ngIf class="main-heading hidden-xs">Candidates
                   <!-- <div class="sort-option">
                     <ul>
                       <li>
@@ -161,15 +158,15 @@
                     </span> -->
                     <span>({{candidate.percentage | number : '1.2-2'}})</span>{{candidate.votes}}</h6>
                 </div>
-                <button class="btn vote-btn ripple" (click)="onVote(candidate)">
+                <button class="btn vote-btn ripple" (click)="onVote(candidate)" *ngIf="!candidate.is_voted_by_me">
                   <img src="assets/images/vote.png" />Vote Now</button>
-                <div class="done-vote" *ngIf="isVoted && candidate.is_voted_by_me">
+                <div [class.done-vote]="candidate.is_voted_by_me" *ngIf="candidate.is_voted_by_me">
                   <i class="material-icons">done</i>
                 </div>
-                <div class="done-vote other-vote" *ngIf="isVoted && !candidate.is_voted_by_me">
+                <div class="done-vote other-vote" *ngIf="!candidate.is_voted_by_me">
                   <i class="material-icons" >keyboard_arrow_right</i>
                 </div>
-                <div  *ngIf="isVoted" class="progress-bar">
+                <div *ngIf="candidate.is_voted_by_me" class="progress-bar">
                     <div class="progress" [ngStyle]="{'width':candidate.percentage+'%'}"></div>
                   </div>
                 </div>
