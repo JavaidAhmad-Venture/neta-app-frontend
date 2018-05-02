@@ -1,10 +1,15 @@
 export const environment = {
   production: false,
-  BASE_URL:' https://neta-dev.herokuapp.com',
+  BASE_URL:' https://www.neta-app.com',
   PROTOCOL: 'https://',
+  
+  CLOUDNAME: 'neta-app',
+  CLOUD_URL:"http://res.cloudinary.com/neta-app/image/upload/",
+  
   CLIENT_ID: 'netawebapp',
   CLIENT_SECRET: '$2a$10$0.dfDGl.8Es9cAm3ZJyvdO7ElHwBG.pnJjJxUP/LUtacIqk6eUmCa',
   APP_EXTENSION: '',
+
   QB_APP_ID: 60280,
   QB_AUTH_KEY: "sM7EW2rPwr7Ynkd",
   QB_AUTH_SECRET: "5cNb26pXXe5pyh9",

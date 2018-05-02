@@ -63,6 +63,7 @@ export class SidebarComponent implements OnInit{
       this.p_candidates  = this.response.popular_candidates;
       this.p_influencers  = this.response.popular_influencers;
       let count = 0;
+     
       this.p_influencers.forEach(influencer=>{
         if(count<6){
           this.topSixInfluencers.push(influencer);

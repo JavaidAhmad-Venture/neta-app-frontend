@@ -3,6 +3,8 @@ export const environment = {
     BASE_URL:' https://neta-dev.herokuapp.com',
     PROTOCOL: 'https://',
     CLIENT_ID: 'netawebapp',
+    CLOUDNAME: 'neta-dev',
+    CLOUD_URL:"http://res.cloudinary.com/neta-dev/image/upload/",  
     CLIENT_SECRET: '$2a$10$0.dfDGl.8Es9cAm3ZJyvdO7ElHwBG.pnJjJxUP/LUtacIqk6eUmCa',
     APP_EXTENSION: '',
     QB_APP_ID: 60280,

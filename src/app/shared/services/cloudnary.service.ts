@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { BaseService } from './base.service';
+import { environment } from './../../../environments/environment';
 
 @Injectable()
-export class CloudnaryService {
+export class CloudnaryService{
 
-  cloudnaryUrl = 'http://res.cloudinary.com/neta-dev/image/upload/';
+  cloudnaryUrl = environment.CLOUD_URL;
   
-  constructor() { }
+  constructor() { 
+  }
 
 }
