@@ -14,9 +14,9 @@ declare var jQuery:any;
 })
 export class SidebarComponent implements OnInit{
 
-  p_candidates:PopularCandidate[]=[];
-  p_influencers:PopularInfluencer[]=[];
-  topSixInfluencers:PopularInfluencer[]=[];
+  p_candidates:PopularCandidate[]=null;
+  p_influencers:PopularInfluencer[]=null;
+  topSixInfluencers:PopularInfluencer[]=null;
   response:any={};
   cUrl: string = '';
   constituency_id: string = '875189f9-3bba-4667-9109-dff1dd4a23ae';

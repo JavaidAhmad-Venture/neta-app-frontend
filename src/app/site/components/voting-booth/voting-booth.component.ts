@@ -17,7 +17,7 @@ declare var $:any;
   styleUrls: ['./voting-booth.component.css']
 })
 export class VotingBoothComponent implements OnInit {
-
+  access_Token:string=null
   tab: any = {
 		mla_candidates: true,
 		mp_candidates: false,
@@ -47,6 +47,8 @@ export class VotingBoothComponent implements OnInit {
   
   ) {
     this.cUrl = cloudnaryService.cloudnaryUrl;
+    this.access_Token= this.cookieService.readCookie('access_token');
+ 
     let res:any= { type: '',
     data: {
       state: "",
@@ -65,10 +67,10 @@ export class VotingBoothComponent implements OnInit {
           this.currentLocation.dname=res.data.d_name;
           this.ID.d_id=res.data.d_id;
           this.ID.a_id=res.data.a_id;
-          this.cookieService.createCookie("id_dis",res.data.d_id,null,null);
-          this.cookieService.createCookie("id_ass",res.data.a_id,null,null);
           this.showCandidates(this.ID.a_id);
-      }
+      
+      console.log("hhh");
+        }
   })
  
   }

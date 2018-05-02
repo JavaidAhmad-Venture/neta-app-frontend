@@ -18,7 +18,13 @@ export const SITE_ROUTES: Routes = [
 		component: SiteComponent,
 		children:[
 			{
-				path:'',component:ResultsComponent,
+				path:'',redirectTo:'result',pathMatch:'full'
+			},
+			{
+				path:'result',component:ResultsComponent,
+			},
+			{
+				path:'result/:state',component:ResultsComponent,
 			},
 			{ 
 				path: 'discussion', component:DiscussionComponent

@@ -44,13 +44,13 @@ export class CandidateProfileService extends BaseService {
 
     this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
-    // alert("i am here")
-    this.helperService.setEmitter({
-      type: 'navigateCandidate',
-      data: {
-        dd: "candidateEvent"
-      }
-    });
+    // // alert("i am here")
+    // this.helperService.setEmitter({
+    //   type: 'navigateCandidate',
+    //   data: {
+    //     dd: "candidateEvent"
+    //   }
+    // });
 
     this.router.navigate(['candidate'])
 

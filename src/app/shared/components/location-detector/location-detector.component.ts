@@ -74,6 +74,9 @@ export class LocationDetectorComponent implements OnInit {
       a_name: this.selectedCons,
     });//send cons and assembly id to parent component;
     // this.helperService.setObservable("Apple");
+
+    this.cookieService.createCookie("id_dis",this.parliamentId,null,null);
+    this.cookieService.createCookie("id_ass",this.assemblyId,null,null);
     this.helperService.setEmitter({
       type: 'location',
       data: {

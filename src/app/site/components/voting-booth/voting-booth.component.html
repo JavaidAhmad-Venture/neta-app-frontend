@@ -182,7 +182,7 @@
       </div>
       <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12">
           <aside role="slidebar">
-              <div class="profile-block">
+              <div *ngIf="access_Token" class="profile-block">
                   <span class="cross">
                       <i class="material-icons">clear</i>
                   </span>
