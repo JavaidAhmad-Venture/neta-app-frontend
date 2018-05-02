@@ -83,8 +83,7 @@ export class ResultsComponent implements OnInit {
     }
    this.access_Token= this.cookieService.readCookie('access_token');
     this.helperService.getEmitter()
-      .subscribe(resp => {
-       
+      .subscribe(resp => {       
         res=resp;
        if(res.type=="location"){
         this.state=res.data.state;

@@ -71,6 +71,9 @@ export class VotingBoothComponent implements OnInit {
       
       console.log("hhh");
         }
+        if(res.type=="signIn"){
+          this.ngOnInit();
+        }
   })
  
   }
@@ -170,7 +173,7 @@ export class VotingBoothComponent implements OnInit {
         this.isVoted = true;
         this.candidates = [];
         let currentAssemblyId = JSON.parse(this.cookieService.readCookie('id_ass'));
-        this.candidateService.getAllCandidates(currentAssemblyId)
+        this.candidateService.getAllCandidates(candidate.candidature_constituency_id)
         .subscribe(res=>{
           console.log('new response after vote:',res)
           this.candidates = res.data;

@@ -192,7 +192,7 @@ data: {
     this.calculateAge(new Date(startDate));
   }
   onFileSelected(event){
-    this.selectedFile = event.target.files[0];
+    this.fetchCloudnaryConfig();
   }
   getMasterData(){
     this.userService.getMasterData()
@@ -234,8 +234,15 @@ data: {
       let data=res.data;
       console.log('Existing response:',data);
       console.log('Existing id:',data.id);
-      if(!data.id)
+      if(!data.info.name)
       $('#register-profile').modal('show');
     },err=>$('#register-profile').modal('show'))
+  }
+
+  fetchCloudnaryConfig(){
+    this.cloudService.getCloudnaryConfig()
+    .subscribe(res=>{
+      console.log('Clounary configuration is:',res);
+    })
   }
 } 
