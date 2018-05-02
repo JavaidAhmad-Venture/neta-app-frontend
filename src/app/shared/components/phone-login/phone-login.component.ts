@@ -62,7 +62,7 @@ export class PhoneLoginComponent implements OnInit {
     }
     this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
 
-
+      'key': '6LcDsFYUAAAAAOyHJKnT5H66G0o3Xw9-JuCX_-Bc',
       'size': 'invisible',
       'lang': 'en',
       'callback': (response) => {
@@ -109,7 +109,7 @@ data: {
       .then(result => {
         this.windowRef.confirmationResult = result;
         
-
+        
       })
       .catch(error => console.log(error));
 
@@ -123,7 +123,7 @@ data: {
         this.user = result.user;
         //fetching access token
         this.loading = false;
-        console.log('firebase user:', this.user);
+        
        
         this.phoneNumber.country = '';
         this.phoneNumber.line = '';
@@ -134,6 +134,7 @@ data: {
         
       })
       .catch(error => {
+    
         this.loading = false;
         this.incorrectCode = true;
         console.log(error, "Incorrect code entered?")
