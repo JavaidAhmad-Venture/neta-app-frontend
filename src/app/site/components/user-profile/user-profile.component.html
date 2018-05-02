@@ -9,7 +9,7 @@
                     </div>
                     <!-- mobile view -->
                     <div class="hide rs-show rs-profile-view">
-                        <h3 class="mt10" >Sandeep Anand</h3>
+                        <h3 class="mt10" >{{ name || 'Your Name'}}</h3>
                         <span><i class="material-icons">place</i> Phagwara</span>
                     </div>        
                      <!-- mobile view end-->
@@ -58,10 +58,11 @@
             <div class="co-md-3 col-lg-3 col-xs-12 col-sm-12 rs-hide">
                 <div class="left-sidebar">
                     <div class="info-side-block">
-                        <h3 >ABCDEF</h3>
+                        <h3 >{{ name || 'Your Name'}}</h3>
 
                         <!-- Developer's test  -->
-                        <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#update-profile" >Update Profile</button>                      
+                      
+                        
 
                         <div class="stat-data ">
                             <div class="voste-stat">
@@ -150,7 +151,7 @@
                     <!--.Panel 1-->
                     <div class="tab-pane fade in show active" id="About" role="tabpanel">
                           
-                        <div class="leader-profile-block">
+                        <div class="leader-profile-block" *ngIf="false">
                             <h2>Info</h2>
                             <div class="panel cust-panel extra-padding">
                                 <div class="panel-body ">
@@ -238,7 +239,7 @@
 
                             </div>
                         </div>
-                        <div class="leader-profile-block">
+                        <div class="leader-profile-block" *ngIf="false">
                             <h2>Popularity Trend</h2>
                             <div class="panel cust-panel">
                                 <div class="panel-body">
@@ -247,7 +248,7 @@
 
                             </div>
                         </div>
-                        <div class="leader-profile-block">
+                        <div class="leader-profile-block" *ngIf="false">
                             <h2>Info</h2>
                             <div class="panel cust-panel extra-padding">
                                 <div class="panel-body ">
@@ -289,7 +290,7 @@
         
         
                     <div class="tab-pane fade" id="Feed" role="tabpanel">
-                        <div class="my-feed">
+                        <div class="my-feed" *ngIf="false">
                             <div class="my-feed-header">
                                 <div class="feeder-img">
                                     <img src="assets/images/user.png" alt="user" />
@@ -369,7 +370,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="my-feed">
+                        <div class="my-feed" *ngIf="false">
                             <div class="my-feed-header">
                                 <div class="feeder-img">
                                     <img src="assets/images/user.png" alt="user" />
@@ -525,7 +526,7 @@
                     </div>
                    
          <div class="tab-pane fade" id="History" role="tabpanel">
-                        <div class="my-feed history">
+                        <div class="my-feed history" *ngIf="false">
                             <div class="my-feed-body mt0">
                                 <div class="issue-block-info">
                                     <p class="issue">ISSUE
@@ -579,7 +580,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="my-feed history">
+                        <div class="my-feed history" *ngIf="false">
 
                             <div class="my-feed-body mt0">
                                 <div class="issue-block-info poll-block">
@@ -667,7 +668,7 @@
                     <!--/.Panel 2-->
                     <!--Panel 3-->
                     <div class="tab-pane fade" id="Manifesto" role="tabpanel">
-                       <div class="leader-profile-block">
+                       <div class="leader-profile-block" *ngIf="false">
                            <h2>Score Log</h2>
                            <div class="timeline">
                                <div class="timeline-block">

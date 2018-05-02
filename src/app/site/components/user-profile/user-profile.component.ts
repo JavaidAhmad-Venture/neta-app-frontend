@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  userId:any;
+  name:any;
   phoneNumber:string;
   constructor(private cookieService:CookieService) { }
 
   ngOnInit() {
-    this.userId = this.cookieService.readCookie('userId');
+    this.name = JSON.parse(this.cookieService.readCookie('name'));
     this.phoneNumber=JSON.parse(this.cookieService.readCookie('phoneNumber'));
   }
 

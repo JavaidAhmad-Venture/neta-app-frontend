@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ResultsService } from '../../../shared/services/results.service';
 import { CloudnaryService } from '../../../shared/services/cloudnary.service';
 import { HelperService } from '../../../shared/services/helper.service';
+import { Router } from '@angular/router';
+import { CookieService } from '../../../shared/services/cookie.service';
 // import { ResultsService } from '../../../shared/services/results.service';
 interface party {
   id: string,
@@ -19,6 +21,7 @@ interface party {
   constituencies_won: number,
 
 }
+
 
 // interface Other{
 //   country:{
@@ -42,6 +45,8 @@ export class ResultsComponent implements OnInit {
   imgMap: string;
   imgMapC: string;
   state="State";
+
+  access_Token:string=null
   totalSeats: number;
   partiesInfo: party[] = [];
   TopPartiesCons: any[] = [];
@@ -55,7 +60,8 @@ export class ResultsComponent implements OnInit {
  c=0;d=100;//other states seats and vote percentage for state
   constructor(private resultService: ResultsService,
     private cUrl: CloudnaryService,
-    private helperService: HelperService) {
+    private cookieService:CookieService,
+    private helperService: HelperService,private router:Router) {
 
    
     this.curl = this.cUrl.cloudnaryUrl;
@@ -74,6 +80,7 @@ export class ResultsComponent implements OnInit {
         a_name: "",
       }
     }
+   this.access_Token= this.cookieService.readCookie('access_token');
     this.helperService.getEmitter()
       .subscribe(resp => {
         res=resp;
@@ -146,5 +153,8 @@ export class ResultsComponent implements OnInit {
 
   }
 
-
+  // selectedState(){
+  //   console.log(this.selectedState,"..........");
+  //   //this.router.navigate(["result",this.selectedState]);
+  // }
 }

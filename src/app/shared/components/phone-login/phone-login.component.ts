@@ -220,9 +220,11 @@ data: {
       jwt_token: user.qa,
       uid: user.uid
     }
-
+    console.log('my credentials:',credentials);
+    
+    this.cookieService.createCookie('uniqueIdFromFirebase',user.uid,null)
     this.cookieService.createCookie('phoneNumber',user.phoneNumber,null)
-    this.userService.getAccessToken(credentials)
+    this.userService.getAccessToken(credentials) 
       .subscribe(res => {
         console.log('Response from login api:', res);
         let data=res['data'];
@@ -237,9 +239,11 @@ data: {
         });
 
         this.registrationId=this.cookieService.readCookie('registration_id');
+        let uniqueIdFromFirebase=this.cookieService.readCookie('uniqueIdFromFirebase');
         console.log('your registration id is:',this.registrationId);
-        if(!this.registrationId)
-        $('#register-profile').modal('show');
+        // if(!uniqueIdFromFirebase)
+        this.getExistingUser();
+      
       })
   }
   
@@ -295,8 +299,21 @@ data: {
       console.log('patch response:'+res);
       let data= res.json().data;
       let registrationId=data.id;
+      let name=data.info.name;
+      this.cookieService.createCookie('name',name,null);
       this.cookieService.createCookie('registration_id',registrationId,null);
 
     });
+  }
+  getExistingUser(){
+    let constituency_id=JSON.parse(this.cookieService.readCookie("assembly_id"))
+    this.userService.fetchExistingUsers(constituency_id)
+    .subscribe(res=>{
+      let data=res.data;
+      console.log('Existing response:',data);
+      console.log('Existing id:',data.id);
+      if(!data.id)
+      $('#register-profile').modal('show');
+    },err=>$('#register-profile').modal('show'))
   }
 } 
