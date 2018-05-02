@@ -31,12 +31,12 @@ export class VotingBoothComponent implements OnInit {
   constituency_id: string = '44443cf7-51ad-422d-a9c6-11a322d5797a';
   isActiveName:boolean = false;
   isActiveVotes:boolean = true;
-  isVoted:boolean = false;
+  isVoted:boolean = true;
   registerToVote:boolean=false;
   candidateName:string='';
   candidatePic:string='';
   partyImage:string='';
-
+  loggedName:string='';
   constructor(
 
     private candidateService: CondidatesService,
@@ -76,7 +76,8 @@ export class VotingBoothComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id= JSON.parse(this.cookieService.readCookie('id_dis'))
+    this.loggedName = JSON.parse(this.cookieService.readCookie('name'));
+    let id= JSON.parse(this.cookieService.readCookie('id_ass'))
     if(!id)id=this.constituency_id;
     //console.log("javid",id);
     console.log(id,'.....................................');
@@ -153,9 +154,7 @@ export class VotingBoothComponent implements OnInit {
           
         }
       })
-      $('#if-not-login').modal('show',()=>{
-        this.isVoted = true;
-      });
+      $('#if-not-login').modal('show');
       
     }
    
@@ -165,11 +164,19 @@ export class VotingBoothComponent implements OnInit {
       // let dataCons={constituency_id:candidate.candidature_constituency_id};
       this.candidateService.onVote(candidate.candidature_id,candidate.candidature_constituency_id).subscribe(res=>{
         console.log('on vote response:',res);
+        this.isVoted = true;
+        this.candidates = [];
+        let currentAssemblyId = JSON.parse(this.cookieService.readCookie('id_ass'));
+        this.candidateService.getAllCandidates(currentAssemblyId)
+        .subscribe(res=>{
+          console.log('new response after vote:',res)
+          this.candidates = res.data;
+        })
       })
       // candidate.votes++;
       // candidate.percentage += 4.5; 
       // candidate.is_voted_by_me = true;
-      this.isVoted = true;
+     
       console.log(this.isVoted);
 
     }
