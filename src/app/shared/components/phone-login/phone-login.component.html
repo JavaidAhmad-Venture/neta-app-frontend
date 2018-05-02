@@ -278,9 +278,12 @@
             <div class="col align-center">
 
               <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
-              <label class="myLabel circle-outer">
-                  <input type="file" (change)="onFileSelected($event)" required/>
-                  <span class=""><i class="material-icons">add</i> <br/>Profile Photo</span>
+              <div class="cir-img-outer">
+              <img src="{{cUrlUpdated}}"  id="img-preview" />
+            </div>
+              <label class="myLabel circle-outer" for="file-upload" #elementRef>
+                  <input type="file" id="file-upload" required/>
+                  <span class=""><i class="material-icons">add</i> <br/>{{name}}</span>
               </label>
             </div>
           </div>

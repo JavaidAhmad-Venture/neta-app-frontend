@@ -4,7 +4,8 @@ import { FirebaseUser } from './../../models/firebase-user';
 import { UserService } from './../../services/user.service';
 import { CloudnaryService } from './../../services/cloudnary.service';
 import { HelperService } from './../../services/helper.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,ElementRef, Renderer2,ViewChild, AfterViewInit } from '@angular/core';
+import {Cloudinary} from '@cloudinary/angular';
 import * as firebase from 'firebase';
 
 
@@ -14,6 +15,7 @@ import { WindowService } from './../../services/window.service';
 
 //import * as firebase from 'firebase';
 declare var $: any;
+declare var axios;
 //  import * as auth from 'firebase/auth';
 
 @Component({
@@ -21,7 +23,26 @@ declare var $: any;
   templateUrl: './phone-login.component.html'
   // styleUrls: ['./phone-login.component.css']
 })
-export class PhoneLoginComponent implements OnInit {
+export class PhoneLoginComponent implements OnInit,AfterViewInit {
+  
+  CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/venturepact/upload";
+  CLOUDINARY_UPLOAD_PRESET = 'qo45u92n';
+  name="Profile Photo";
+  cUrlUpdated:any;
+  img="https://res.cloudinary.com/venturepact/image/upload/v1525193449/fmjk2q8p92bpth7jepsb.jpg";
+
+  @ViewChild('elementRef') fileUpload;
+  
+  
+  formData:any;
+ 
+
+
+
+
+
+
+
 
   registrationId:string='';
   cName: string;
@@ -47,11 +68,66 @@ export class PhoneLoginComponent implements OnInit {
     private cookieService: CookieService,
     private helperService: HelperService,
     private cloudService: CloudnaryService,
-    private userService: UserService) {
+    private userService: UserService,
+  
+    private elementRef:ElementRef,
+    private renderer:Renderer2) {
     console.log('firebase', firebase)
     this.cUrl = cloudService.cloudnaryUrl;
     }
   incorrectCode: boolean = false;
+
+
+
+
+//Edited By Shubham
+  ngAfterViewInit(){
+    console.log("Hello");
+    console.log("ElementRef is:",this.elementRef, this.fileUpload.nativeElement);
+    this.renderer.listen(this.fileUpload.nativeElement,'change',(event)=>{
+      console.log("Event is: ",event);
+      
+      this.selectedFile = event.target.files[0];
+      let t=this.selectedFile.type.split('/');
+  console.log("This file size is:",this.selectedFile.size);
+      if(t[0] == 'image'  && this.selectedFile.size<500000){
+  //      console.log("This file is:",this.selectedFile);
+      this.name =this.selectedFile.name;
+      this.formData = new FormData();
+      this.formData.append('file',this.selectedFile);
+      this.formData.append('upload_preset',this.CLOUDINARY_UPLOAD_PRESET);
+       
+      axios({
+        url:this.CLOUDINARY_URL,
+        method:'POST',
+        headers: {
+          'Content-Type':'application/x-www-form-urlencoded',
+        },
+        data :this.formData
+      }).then((res)=>{
+          console.log("Response is", res.data.secure_url, res);
+          this.cUrlUpdated= res.data.secure_url;
+          console.log("Url is:",this.cUrl);
+      }).catch(function(err){
+        console.log("Error is",err);
+      })
+    }
+    else{
+      alert("file should be image or size less than 5 Mb");
+    }
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
   ngOnInit() {
     console.log('Firabse id: ', firebase);
     this.windowRef = this.win.windowRef;
@@ -186,9 +262,12 @@ data: {
     console.log('selected  file:',this.selectedFile);
     this.calculateAge(new Date(startDate));
   }
+
   onFileSelected(event){
     this.selectedFile = event.target.files[0];
   }
+
+
   getMasterData(){
     this.userService.getMasterData()
     .subscribe(res=>{
