@@ -258,14 +258,14 @@
       <!-- Modal Header -->
       <div class="modal-header bb0 header-c">
         <div class="cover-outer">
-            <div class="text-inner">
-                <label class="myLabel">
-                    <input type="file" required/>
+            <div class="text-inner" class="cover-img">
+                <label class="myLabel" >
+                    <input type="file"  required/>
                     <span><i class="material-icons">add</i> <br/>Cover Photo</span>
                 </label>
-              <!-- <a href="" type="file"></a> -->
             </div>
-
+                <!-- <div class=""   > -->
+            <!-- </div> -->
         </div>
 
         <!-- <a class="close" data-dismiss="modal">&times;</a> -->
@@ -278,12 +278,12 @@
             <div class="col align-center">
 
               <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
-              <div class="cir-img-outer">
-              <img src="{{cUrlUpdated}}"  id="img-preview" />
-            </div>
-              <label class="myLabel circle-outer" for="file-upload" #elementRef>
-                  <input type="file" id="file-upload" required/>
-                  <span class=""><i class="material-icons">add</i> <br/>{{name}}</span>
+              <!-- <div class="cir-img-outer">
+                 <img src="{{cUrlUpdated}}"  id="img-preview" />
+              </div> -->
+              <label class="myLabel circle-outer" >
+                  <input type="file" required/>
+                  <span class=""><i class="material-icons">add</i> <br/>Profile Photo</span>
               </label>
             </div>
           </div>
@@ -397,9 +397,13 @@
           <div class="row pt25 ">
             <div class="col align-center">
 
+              <div class="cir-img-outer">
+                <img src="{{cUrlUpdated}}"  id="img-preview" />
+                    </div>
               <!-- <input class="custom-file-input" type="file" (change)="onFileSelected($event)" placeholder="choose file..." #fileInput  /> -->
-              <label class="myLabel circle-outer">
-                  <input type="file" (change)="onFileSelected($event)" #fileInputUser />
+              <label class="myLabel circle-outer "  for="file-upload" #elementRef [class.hide]="isSelected">
+                  <!-- <input type="file" id="file-upload" #fileInputUser /> -->
+                  <input type="file" id="file-upload" required #fileInputUser />
                   <span class=""><i class="material-icons">add</i> <br/>Profile Photo</span>
               </label>
 

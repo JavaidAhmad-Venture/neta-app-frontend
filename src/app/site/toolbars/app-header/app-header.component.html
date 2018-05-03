@@ -1,102 +1,170 @@
-
 <div class="mobiie-navigation">
     <div class="scrollbar">
-    <ul>
-        <li><a routerLink="/profile" class="ripple-dark"><span>1</span>Your Profile</a></li>
-        <li><a href="javascript:void(0)" class="ripple-dark disbled"><span>2</span>Register to Vote<span class="cs"> Coming soon</span></a></li>
-        <li><a href="javascript:void(0)" class="ripple-dark disbled"><span>3</span>Your Voter Slip<span class="cs">Coming soon</span></a></li>
-        <li><a href="javascript:void(0)" class="ripple-dark"><span>4</span>Become A Star Citizen</a></li>
-        <li><a href="javascript:void(0)" class="ripple-dark"><span>5</span>For Leaders</a></li>
-    </ul>
-    <h5>Application</h5>
-    <ul>
-            <li><a routerLink="/profile" class="ripple-dark"><span><i class="material-icons">language</i></span>Language</a></li>
-            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Help & Support</a></li>
-            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="material-icons">lock</i></span>Terms and  Conditions</a></li>
-            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="fas fa-info"></i></span>About</a></li>
-            <li><a href="javascript:void(0)" class="ripple-dark"><span><i class="far fa-life-ring"></i></span>Tutorial</a></li>
+        <ul>
+            <li>
+                <a routerLink="/profile" class="ripple-dark">
+                    <span>1</span>Your Profile</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark disbled">
+                    <span>2</span>Register to Vote
+                    <span class="cs"> Coming soon</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark disbled">
+                    <span>3</span>Your Voter Slip
+                    <span class="cs">Coming soon</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>4</span>Become A Star Citizen</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>5</span>For Leaders</a>
+            </li>
+        </ul>
+        <h5>Application</h5>
+        <ul>
+            <li>
+                <a routerLink="/profile" class="ripple-dark">
+                    <span>
+                        <i class="material-icons">language</i>
+                    </span>Language</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>
+                        <i class="far fa-life-ring"></i>
+                    </span>Help & Support</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>
+                        <i class="material-icons">lock</i>
+                    </span>Terms and Conditions</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>
+                        <i class="fas fa-info"></i>
+                    </span>About</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="ripple-dark">
+                    <span>
+                        <i class="far fa-life-ring"></i>
+                    </span>Tutorial</a>
+            </li>
         </ul>
     </div>
-        <button class="btn logout-btn ripple-dark" (click)="onLogout()" *ngIf="userId"><i class="material-icons" >reply</i>Logout</button>
-        <button class="btn logout-btn login-btn ripple-dark"  data-toggle="modal" data-target="#register" *ngIf="!userId"><i class="material-icons" >reply</i>Login</button>
+    <button class="btn logout-btn ripple-dark" (click)="onLogout()" *ngIf="userId">
+        <i class="material-icons">reply</i>Logout</button>
+    <button class="btn logout-btn login-btn ripple-dark" data-toggle="modal" data-target="#register" *ngIf="!userId">
+        <i class="material-icons">reply</i>Login</button>
 
 
 </div>
 <header>
-        
+
     <div class="container main-container">
-         
+
         <div class="logo-section">
             <a routerLink="/">
                 <img src="assets/images/logo.png" alt="logo" />
             </a>
         </div>
-      
-         <button type="button" data-toggle="collapse" class="navbar-toggle my-toggle " #ele>
-           
+
+        <button type="button" data-toggle="collapse" class="navbar-toggle my-toggle " #ele>
+
             <i class="material-icons">menu</i>
         </button>
         <!-- edit profile mobile icon  -->
-        <a href="javascript void(0)" class="profile-edit-icon hide rs-show" data-target="#update-profile" data-toggle="modal"><i class="material-icons">mode_edit</i> </a>
-         <!-- edit profile mobile icon end -->
+        <a href="javascript void(0)" class="profile-edit-icon hide rs-show" data-target="#update-profile" data-toggle="modal">
+            <i class="material-icons">mode_edit</i>
+        </a>
+        <!-- edit profile mobile icon end -->
         <div class="location-detctor emptyAnchor" data-toggle="modal" data-target="#welcome-back">
-                <span class="state">{{state || 'State' | titlecase }}</span>
-                <div class="location">{{assembly || 'Assembly' | titlecase }} <span class="caret"><i class="material-icons">keyboard_arrow_down</i></span></div>
-          </div>
+            <span class="state">{{state || 'State' | titlecase }}</span>
+            <div class="location">{{assembly || 'Assembly' | titlecase }}
+                <span class="caret">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </span>
+            </div>
+        </div>
         <nav role="navigation">
-                <ul class="navigation">
-                        <li *ngIf="false" class="ripple-dark">
-                            <a routerLink="/discussion" routerLinkActive="active">
-                                <i class="material-icons">chat</i><span>Discussion</span></a>
-                        </li>
-                        <li  class="ripple-dark">
-                            <a routerLink="/voting-booth" routerLinkActive="active">
-                                <i class="material-icons">person</i><span>Voting Booth</span></a>
-                        </li>
-                        <li  class="ripple-dark">
-                            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <i class="material-icons">home</i><span>Results</span></a>
-                        </li>
-                        <li  class="ripple-dark">
-                            <a routerLink="/star-citizens" routerLinkActive="active">
-                                <i class="material-icons">group</i><span>Star Citizens</span></a>
-                        </li>
-    
-                  </ul>
-        </nav>    
-    
-   
-      
-         <div class="right-part">   <!-- <div class="search-
+            <ul class="navigation">
+                <li *ngIf="false" class="ripple-dark">
+                    <a routerLink="/discussion" routerLinkActive="active">
+                        <i class="material-icons">chat</i>
+                        <span>Discussion</span>
+                    </a>
+                </li>
+                <li class="ripple-dark">
+                    <a routerLink="/voting-booth" routerLinkActive="active">
+                        <i class="material-icons">person</i>
+                        <span>Voting Booth</span>
+                    </a>
+                </li>
+                <li class="ripple-dark">
+                    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="material-icons">home</i>
+                        <span>Results</span>
+                    </a>
+                </li>
+                <li class="ripple-dark">
+                    <a routerLink="/star-citizens" routerLinkActive="active">
+                        <i class="material-icons">group</i>
+                        <span>Star Citizens</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+
+
+        <div class="right-part">
+            <!-- <div class="search-
                 <input type="search" class="search-input" placeholder="Search" />
                 <button class="search-btn">
                     <ss="material-icons">sear           </button>
             </div> -->
             <ul class="profile-menu">
-                <button class="signup btn" data-toggle="modal" data-target="#register" *ngIf="!userId">Sign in</button>             
-                 <li class="profile" *ngIf="userId">
+                <button class="signup btn" data-toggle="modal" data-target="#register" *ngIf="!userId">Sign in</button>
+                <li class="profile" *ngIf="userId">
                     <a routerLink="/profile" routerLinkActive="active">
                         <img src="assets/images/user.png" alt="user" />
                     </a>
                     <div class="profile-dropdown">
                         <div class="outer">
                             <div class="icon-outer">
-                                    <i class="material-icons">person</i>
+                                <i class="material-icons">person</i>
                             </div>
-                            <a routerLink="/profile" class="text-outer">View Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
+                            <a routerLink="/profile" class="text-outer">View Profile
+                                <span>
+                                    <i class="material-icons">keyboard_arrow_right</i>
+                                </span>
+                            </a>
                         </div>
                         <div class="outer">
-                                <div class="icon-outer">
-                                       <i class="material-icons">mode_edit</i>
-                                </div>
-                                <a href="javascript:void(0)" class="text-outer" data-toggle="modal" data-target="#update-profile">Edit Profile <span><i class="material-icons">keyboard_arrow_right</i></span></a>
-    
-    
+                            <div class="icon-outer">
+                                <i class="material-icons">mode_edit</i>
                             </div>
+                            <a href="javascript:void(0)" class="text-outer" data-toggle="modal" data-target="#update-profile">Edit Profile
+                                <span>
+                                    <i class="material-icons">keyboard_arrow_right</i>
+                                </span>
+                            </a>
 
-                            <a href="javascript:void(0)" class="link-button" (click)="onLogout()" *ngIf="userId"><i class="material-icons">reply</i> Logout</a>
+
+                        </div>
+
+                        <a href="javascript:void(0)" class="link-button" (click)="onLogout()" *ngIf="userId">
+                            <i class="material-icons">reply</i> Logout</a>
                     </div>
-                 </li>
-            </ul> 
-        </div>   
-
+                </li>
+            </ul>
+        </div>

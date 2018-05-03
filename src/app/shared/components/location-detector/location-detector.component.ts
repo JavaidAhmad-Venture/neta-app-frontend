@@ -54,6 +54,8 @@ export class LocationDetectorComponent implements OnInit {
     //this.states.push({ name: address.name, id: address.id,isSelected:true });
     this.parliaments.push({ name: curParliament.name, id: curParliament.id, isSelected: true });
     this.assemblies.push({ name: curConstituency.name, id: curConstituency.id, isSelected: true });
+    // this.getParliament(this.stateId);
+    // this.getAssemblies(this.parliamentId);
   }
   findObjectByKey(array, key, value) {
     for (let o of array) {
@@ -66,6 +68,7 @@ export class LocationDetectorComponent implements OnInit {
     this.cookieService.createCookie('assembly_id',this.assemblyId,null);
     this.cookieService.createCookie('state_name',this.selectedState,null);
     this.cookieService.createCookie('assembly_name',this.selectedCons,null);
+    this.cookieService.createCookie('state_id',this.stateId,null);
     this.C_ID.emit({
       id:this.stateId,
       d_id: this.parliamentId,

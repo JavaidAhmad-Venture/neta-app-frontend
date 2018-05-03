@@ -11,6 +11,7 @@ import {
 import { AuthService } from './../../../shared/guards/auth.service';
 import { CookieService } from './../../../shared/services/cookie.service';
 import { HelperService } from './../../../shared/services/helper.service';
+import { Router } from '@angular/router';
 
 
 declare var jQuery: any;
@@ -31,9 +32,11 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         private ele: ElementRef,
         private renderer: Renderer2,
         private cookieService: CookieService,
-        private auth: AuthService) {
+        private auth: AuthService,
+        private route:Router) {
            
          
+
     }
     ngAfterViewInit() {
 
@@ -109,8 +112,10 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
                 console.log('check',this.userId);
             }
             if(res.type=="logout"){
+             
                 this.cookieService.eraseCookie(['access_token'])
-             }
+            this.route.navigate(['result'])
+            }
         });
         this.userId = this.cookieService.readCookie('access_token');
     

@@ -49,7 +49,7 @@
 /* Style the checkmark/indicator */
 .checkbod-outer .checkmark:after {left: 8px; top: 1px; width: 7px; height: 16px; border: solid white; border-width: 0 2px 2px 0;-webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);}
 .neta-modal ul{ margin: 0 ;padding :0;}
-.neta-modal ul li{ float:left; display: inline;}
+.neta-modal ul li{float:left; display:inline;}
 .neta-modal ul li a{ margin-right: 20px; -webkit-border-radius: 50px; -moz-border-radius: 50px; position: relative; border-radius: 50px; padding: 5px; background: #f0f0f0; height: 40px; width:40px; float: left;  transition: box-shadow 1s; }
 .neta-modal ul li a:hover{ box-shadow: 1px 3px 7px #ccc;}
 .neta-modal ul li a i{ color: #6d6d6d; padding:7px;}
@@ -166,9 +166,9 @@ label.myLabel input[type="file"] {
    cursor: pointer;
 }
 
-.myLabel:active {
+/* .myLabel:active {
    
-}
+} */
 .circle-outer{ background: #544f70; -webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px; height: 80px; width: 80px; text-align: center;line-height: 11px; padding-top: 18px;} 
 .circle-outer span{ font-size: 10px; color: #fff; padding-top: 10px; }
 .circle-outer span i{ font-size: 18px; line-height: 20px;}
@@ -190,3 +190,4 @@ label.myLabel input[type="file"] {
 .neta-modal#update-profile  .row{ margin: 0 !important;}
 .neta-modal#update-profile .nav-tabs .nav-link.active{ border-bottom:2px solid var(--main-color);  transition: transform .5s; transform: scale(1,1);}
 
+#register-profile .cir-img-outer{ padding-bottom: 0 !important;}
