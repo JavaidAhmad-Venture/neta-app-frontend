@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-lg-3 rs-width">
                     <div class="leader-profile-pic">
-                        <img  *ngIf="info" src="{{cloudNaryUrl+info.profile_pic.cloudinary.public_id}}.jpg"  alt="leader"/>                         
+                        <img  *ngIf="info" src="{{cloudNaryUrl+info?.profile_pic.cloudinary.public_id}}.jpg"  alt="leader"/>                         
                     </div>
                      <!-- mobile view -->
                     <div *ngIf="party_info"class="hide rs-show rs-profile-view">
@@ -13,7 +13,7 @@
                         <div class="rs-can-outer">
                             <span *ngIf="party_info" class="lead-info-icons noborder rs-view">
                                 <!-- <img src=" alt="" /> -->
-                            <img  src="{{cloudNaryUrl + party_info.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
+                            <img  src="{{cloudNaryUrl + party_info?.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
                             </span>{{party_info.party_name}}
                         </div>
                         <span *ngIf="party_info"><i class="material-icons">place</i> {{party_info.candidature.constituency_name}}</span>
@@ -39,6 +39,9 @@
                                        
                                 </div>
                                 <button type="button" *ngIf="!isVoted" class="btn issue-btn rs-btn" (click)="onVoted()">Vote Now</button>
+                                <div class="done-vote" *ngIf="">
+                                    <i class="material-icons">done</i>
+                                  </div>
                                 </div>
                                 
                     </div>
@@ -74,7 +77,7 @@
                             <li>
                                 <span class="lead-info-icons noborder">
                                     <!-- <img src=" alt="" /> -->
-                             <img src="{{cloudNaryUrl + party_info.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
+                             <img src="{{cloudNaryUrl + party_info?.party_profile_pic.cloudinary.public_id }}.jpg" style="height:auto;width:100%;object-fit: cover;"/>
                                 </span>{{party_info.party_name}}</li>
                             <li>
                                 <span class="lead-info-icons">

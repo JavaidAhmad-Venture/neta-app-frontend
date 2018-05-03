@@ -62,12 +62,12 @@
             <ul class="candidate-list candidate-block">
               <li *ngFor="let candidate of candidates "  [class.voted]="candidate.is_voted_by_me" >
                 <div [class.selected]="candidate.is_voted_by_me">
-                <a href="javascript:void(0)" (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="clickable-anchor"></a>
+                <a href="javascript:void(0)" (click)="onProfileView(candidate.candidate_id,candidate.candidate_name,candidate.is_voted_by_me)" class="clickable-anchor"></a>
                 <span class="candidate-pic">
                   <span class="candidate-party">
-                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                    <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name,candidate.is_voted_by_me)" class="emptyAnchor" src="{{ cUrl + candidate.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                   </span>
-                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+                  <img (click)="onProfileView(candidate.candidate_id,candidate.candidate_name,candidate.is_voted_by_me)" class="emptyAnchor" src="{{ cUrl + candidate.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
                 </span>
                 <div class="candidate-info">
                   <h6 class="candidate-party-name">{{candidate.party_abbreviation}}</h6>
