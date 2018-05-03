@@ -83,7 +83,7 @@ export class CandidateProfileComponent implements OnInit {
       .subscribe(resp => {
         // console.log('===>>>>>>>', resp);
         if (resp.status != 1) {
-          alert("unable to fetch user");
+         console.log("unable to fetch user",resp);
         }
         this.c_profile = resp.data;
         this.contact_info = this.c_profile.contact_info;
