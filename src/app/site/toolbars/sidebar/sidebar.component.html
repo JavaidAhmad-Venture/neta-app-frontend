@@ -1,9 +1,9 @@
-<div *ngIf="p_candidates && !loading"class="candidate-block popular-candidate">
-  <h3>Popular Candidates</h3>
+<div class="candidate-block popular-candidate">
+  <h3 *ngIf="!loading && datacomming" >Popular Candidates</h3>
 
   <ul class="candidate-list">
     <div class="loader-sidebar"  *ngIf="loading"><loader></loader></div>
-    <li *ngFor="let pc of p_candidates">
+    <li *ngFor="let pc of p_candidates;">
       <span class="candidate-pic">
         <span class="candidate-party">
           <img src="{{ cUrl + pc.party_image?.cloudinary.public_id + '.jpg' }}" class="imageStyle">
@@ -14,18 +14,18 @@
         <h6 class="candidate-party-name">{{pc.party_abbreviation}}</h6>
         <h4 (click)="onProfileView(pc.candidate_id,pc.candidate_name)" class="emptyAnchor">{{pc.candidate_name}}</h4>
       </div>
-      <button class="btn vote-btn">Vote Now</button>
+      <button class="btn vote-btn">{{pc.votes}} Votes</button>
     </li>
 
   </ul>
   <div class="more-news">
-    <a href="javascript:void(0)" class="more-det">See ALL
+    <!-- <a href="javascript:void(0)" class="more-det">See ALL
       <i class="fas fa-chevron-right"></i>
-    </a>
+    </a> -->
   </div>
 </div>
-<div *ngIf="p_influencers !loading" class="candidate-block Influencers-candidate">
-  <h3>Popular Influencers</h3>
+<div class="candidate-block Influencers-candidate">
+  <h3 *ngIf="!loading && datacomming"  >Popular Influencers</h3>
   <ul class="candidate-list">
     <li *ngFor="let pi of topSixInfluencers; let i = index" >
 
@@ -39,12 +39,12 @@
         <h6 class="candidate-party-name">INC</h6>
         <h4 (click)="onProfileViewInfluencer()" class="emptyAnchor">{{pi.influencer_name}}</h4>
       </div>
-      <button class="btn vote-btn slected">Vote Now</button>
+      <button class="btn vote-btn slected">{{pi.score}} {{'(#'+pi.rank+')'}}</button>
     </li>
   </ul>
   <div class="more-news">
-    <a href="javascript:void(0)" class="more-det">See ALL
+    <!-- <a href="javascript:void(0)" class="more-det">See ALL
       <i class="fas fa-chevron-right"></i>
-    </a>
+    </a> -->
   </div>
 </div>

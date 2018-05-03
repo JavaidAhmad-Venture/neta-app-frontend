@@ -41,11 +41,11 @@ export class CandidateProfileService extends BaseService {
       .map(res => res.json());
   }
 
-  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID, name,isVoted) {
+  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID) {
 
     this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
-    this.paramsService.createCookie("isVotedByMe", isVoted, null, null);
+    // this.paramsService.createCookie("isVotedByMe", isVoted, null, null);
 
     // // alert("i am here")
     this.helperService.setEmitter({
