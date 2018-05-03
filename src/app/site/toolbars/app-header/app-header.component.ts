@@ -34,7 +34,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         private cookieService: CookieService,
         private auth: AuthService,
         private route:Router) {
-           
+              
          
 
     }
@@ -89,6 +89,10 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.state = JSON.parse(this.cookieService.readCookie('state_name'));
         this.assembly = JSON.parse(this.cookieService.readCookie('assembly_name'));
+        if(!this.state||!this.assembly){
+            // data-target="#update-profile" data-toggle="modal"
+            jQuery('#welcome-back').modal('show');
+        }
         let res:any= { type: '',
         data: {
             state: "",

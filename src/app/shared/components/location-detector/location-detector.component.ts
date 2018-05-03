@@ -1,14 +1,14 @@
 import { HelperService } from './../../services/helper.service';
 import { CookieService } from './../../services/cookie.service';
 import { LocationService } from './../../services/location.service';
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
-
+import { Component, EventEmitter, OnInit, Output, Input, AfterViewInit } from '@angular/core';
+declare var jQuery: any;
 
 @Component({
   selector: 'location-detector',
   templateUrl: './location-detector.component.html'
 })
-export class LocationDetectorComponent implements OnInit {
+export class LocationDetectorComponent implements OnInit,AfterViewInit {
   loading = false;
   states: any[] = [];
   parliaments: any[] = [];
@@ -26,6 +26,7 @@ export class LocationDetectorComponent implements OnInit {
   parliament: any[] = [];
   assembly: any;
   parliamenttt: any;
+  disablePopup:string=null;
   @Output("ids") C_ID = new EventEmitter<{}>();
 
   constructor(private locationService: LocationService,
@@ -37,7 +38,18 @@ export class LocationDetectorComponent implements OnInit {
       .subscribe(res => {
         this.states = res.data;
       });
-  }
+      
+     
+      
+      console.log("this is my state",this.state);
+      jQuery('#welcome-back').on('shown.bs.modal',()=>{
+        this.state = JSON.parse(this.cookieService.readCookie('state_name'));
+        this.assembly = JSON.parse(this.cookieService.readCookie('assembly_name'));
+        //console.log(this.state,this.assembly)
+        if(!this.state)this.disablePopup="none";
+        if(this.state)this.disablePopup=null;
+      });
+    }
 
   showData(res) {
     this.loading = false;
@@ -66,6 +78,10 @@ export class LocationDetectorComponent implements OnInit {
     }
     return null;
   }
+  // if(!this.state||!this.assembly){
+    // data-target="#update-profile" data-toggle="modal"
+
+
   onNext() {
     this.cookieService.createCookie('assembly_id', this.assemblyId, null);
     this.cookieService.createCookie('state_name', this.selectedState, null);
