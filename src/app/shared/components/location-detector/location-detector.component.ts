@@ -42,10 +42,10 @@ export class LocationDetectorComponent implements OnInit {
   showData(res) {
     this.loading = false;
     let address = res.data;
-    console.log("Auqibresponse", res);
+    // console.log("Auqibresponse", res);
     let curParliament = this.findObjectByKey(address.parliament, 'id', address.selected.parliamentary_id);
     let curConstituency = this.findObjectByKey(curParliament.assembly, 'id', address.selected.assembly_id);
-    console.log("helllo", curParliament);
+    // console.log("helllo", curParliament);
 
     this.stateId = address.id;
     this.selectedState = address.name;
@@ -97,9 +97,9 @@ export class LocationDetectorComponent implements OnInit {
 
 
   getParliament(a) {
-    console.log("option sected", a);
+    // console.log("option sected", a);
     this.locationService.getParliament(a).subscribe(res => {
-      console.log(res.data.parliament);//got constituencies
+      // console.log(res.data.parliament);//got constituencies
       this.parliaments = res.data.parliament;
 
       this.parliament = res.data.parliament.map(p => {
@@ -107,23 +107,23 @@ export class LocationDetectorComponent implements OnInit {
           name: p.name, id: p.id, isSelected: p.name == this.selectedDistrict ? true : false
         }
       })
-      console.log('parliaments', this.parliament);
+      // console.log('parliaments', this.parliament);
       this.getAssemblies(this.parliamentId);
     })
   }
   selectedConstituency(id) {
 
-    console.log("i am selected option", id);
+    // console.log("i am selected option", id);
     //  this.Address.getAssemblies();
   }
   getAssemblies(id) {
-    console.log('district id', id);
+    // console.log('district id', id);
     this.parliaments.forEach(element => {
       if (element.id === id) {
         this.assemblies = element.assembly;
       }
     })
-    console.log('assemblies:', this.assemblies);
+    // console.log('assemblies:', this.assemblies);
 
 
   }
@@ -177,7 +177,7 @@ export class LocationDetectorComponent implements OnInit {
     this.getParliament(e);
     let state =  this.states.find((s) => s.id == e);
     this.selectedState = state.name;
-    console.log("on change state", state);
+    // console.log("on change state", state);
 
   }
   onChangeParliament(e) {//auqib
@@ -185,14 +185,14 @@ export class LocationDetectorComponent implements OnInit {
     this.parliamentId = e
     let parliament =  this.parliament.find((p) => p.id == e);
       this.selectedDistrict = parliament.name,
-      console.log("this is my Assembly", e);
+      // console.log("this is my Assembly", e);
     this.getAssemblies(this.parliamentId);
   }
   onChangeAssembly(e) {//Auqib
     this.assemblyId = e;
     let assembly =  this.assemblies.find((a) => a.id == e);
     this.selectedCons = assembly.name;
-    console.log("assembly",assembly);
+    // console.log("assembly",assembly);
   }
 
 }

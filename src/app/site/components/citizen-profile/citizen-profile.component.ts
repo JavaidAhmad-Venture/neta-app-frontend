@@ -27,7 +27,7 @@ export class CitizenProfileComponent implements OnInit {
 
                 this.citizenProfileservice.getCitizenProfile()
                 .subscribe(res=>{
-                  console.log("citizen profile",res['data']);
+                  // console.log("citizen profile",res['data']);
                   this.profile=res['data'];
                   this.contact_info=this.profile.contact_info;
                   this.info=this.profile.info;

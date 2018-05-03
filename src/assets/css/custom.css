@@ -656,3 +656,15 @@ button.signup-btn.btn {
 .profile-dropdown  .link-button i{ font-size: 20px; padding-right:5px;}  
 .profile-edit-icon{ float:right; margin-top: 13px; }  
 .profile-edit-icon i{ color: #fff; font-size: 18px;}
+.cover-img{
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* .cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} */

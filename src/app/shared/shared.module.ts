@@ -42,7 +42,7 @@ import { environment } from '../../environments/environment';
     LoaderComponent,
     SmallLoaderComponent,
     LocationDetectorComponent,
-    PhoneLoginComponent
+    PhoneLoginComponent,
   ],
   providers:[CondidatesService,
     CandidateProfileService,

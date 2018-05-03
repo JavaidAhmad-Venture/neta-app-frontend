@@ -51,7 +51,7 @@ isActiveName = false;
     this.citizenProfileService.getAllCitizens(this.id)
     .subscribe(res=>{
       this.citizens = [...res['data']];
-      console.log("citizens",this.citizens)
+      //console.log("citizens",this.citizens)
       this.loading = false;
     })
   } 

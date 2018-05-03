@@ -125,7 +125,7 @@ export class CandidateProfileComponent implements OnInit {
         this.tab[key] = false;
     }
     this.tab[type] = true;
-    console.log("this is my tab", this.tab)
+    // console.log("this is my tab", this.tab)
   }
 
   ngOnDestroy() {
