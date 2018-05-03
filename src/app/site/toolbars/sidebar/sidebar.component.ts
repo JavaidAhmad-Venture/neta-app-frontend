@@ -59,7 +59,7 @@ export class SidebarComponent implements OnInit{
     this.popularPeople.getPopularPeople()
     .subscribe(res=>{
       this.response = res.data;
-      console.log('Popular people:',this.response);
+     // console.log('Popular people:',this.response);
       this.p_candidates  = this.response.popular_candidates;
       this.p_influencers  = this.response.popular_influencers;
       let count = 0;
@@ -71,7 +71,7 @@ export class SidebarComponent implements OnInit{
         }
         if(this.response) this.loading = false;
       })
-      console.log('top 6:',this.topSixInfluencers);
+      //console.log('top 6:',this.topSixInfluencers);
     })
   }
   onProfileViewInfluencer(){

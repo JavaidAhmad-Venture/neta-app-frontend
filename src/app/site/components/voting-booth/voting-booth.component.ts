@@ -59,7 +59,7 @@ export class VotingBoothComponent implements OnInit {
     }
     }
     this.helperService.getEmitter().subscribe((resp)=>{
-      console.log("respn",res);
+      // console.log("respn",res);
       res=resp;
       if(res.type=="location"){
           // this.state=res.data.state;
@@ -69,7 +69,7 @@ export class VotingBoothComponent implements OnInit {
           this.ID.a_id=res.data.a_id;
           this.showCandidates(this.ID.a_id);
       
-      console.log("hhh");
+      // console.log("hhh");
         }
         if(res.type=="signIn"){
           this.ngOnInit();
@@ -83,9 +83,9 @@ export class VotingBoothComponent implements OnInit {
     let id= JSON.parse(this.cookieService.readCookie('id_ass'))
     if(!id)id=this.constituency_id;
     //console.log("javid",id);
-    console.log(id,'.....................................');
+    // console.log(id,'.....................................');
     this.showCandidates(id);
-    console.log('firebase',firebase);
+    // console.log('firebase',firebase);
   }
 
   showCandidates(id){
@@ -95,24 +95,24 @@ export class VotingBoothComponent implements OnInit {
     this.loading = true;
     this.candidates=null;
     let i_d =id || this.constituency_id;
-    console.log("my iddddddddddddddd",i_d);
+    // console.log("my iddddddddddddddd",i_d);
     this.candidateService.getAllCandidates(i_d).subscribe(data => {
       this.loading = false;
       
       this.candidates = data.data;
-      console.log(data,'Dattttaa');
+      // console.log(data,'Dattttaa');
     })
   }
 
   onProfileView(candidate_id,candidate_name,isVoted) {
-    console.log('Loading:' + candidate_name);
+    // console.log('Loading:' + candidate_name);
     this.profileService.navigateCandidate(candidate_id, this.constituency_id,candidate_name,isVoted);
   }
   //added by auqib
   selectedId(ids){
    
-    console.log('District id in voting booth:',ids.d_id);
-    console.log('Assembly id in voting booth:',ids.a_id);
+    // console.log('District id in voting booth:',ids.d_id);
+    // console.log('Assembly id in voting booth:',ids.a_id);
     if(this.tab.mla_candidates)
     {
     this.showCandidates(ids.a_id);
@@ -125,7 +125,7 @@ export class VotingBoothComponent implements OnInit {
     this.currentLocation.dname=ids.d_name;
     this.currentLocation.aname=ids.a_name;
 
-    console.log('ID CHECK',this.ID);
+    // console.log('ID CHECK',this.ID);
   }
 
   sortByName(){
@@ -144,10 +144,10 @@ export class VotingBoothComponent implements OnInit {
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     
-   console.log('check my candidate:',candidate);
+  //  console.log('check my candidate:',candidate);
     const access_token=this.cookieService.readCookie('access_token');
 
-    console.log('get user id:',access_token);
+    // console.log('get user id:',access_token);
     
     if(!access_token){
       this.registerToVote = true;
@@ -166,16 +166,16 @@ export class VotingBoothComponent implements OnInit {
    
     else {
       this.registerToVote = false;    
-      console.log('on vote candidate:',candidate);
+      // console.log('on vote candidate:',candidate);
       // let dataPshaCons={constituency_id:candidate.candidature_constituency_id};
       this.candidateService.onVote(candidate.candidature_id,candidate.candidature_constituency_id).subscribe(res=>{
-        console.log('on vote response:',res);
+        // console.log('on vote response:',res);
         this.isVoted = true;
         this.candidates = [];
         let currentAssemblyId = JSON.parse(this.cookieService.readCookie('id_ass'));
         this.candidateService.getAllCandidates(candidate.candidature_constituency_id)
         .subscribe(res=>{
-          console.log('new response after vote:',res)
+          // console.log('new response after vote:',res)
           this.candidates = res.data;
         })
       })
@@ -183,7 +183,7 @@ export class VotingBoothComponent implements OnInit {
       // candidate.percentage += 4.5; 
       // candidate.is_voted_by_me = true;
      
-      console.log(this.isVoted);
+      // console.log(this.isVoted);
 
     }
    
@@ -200,13 +200,13 @@ export class VotingBoothComponent implements OnInit {
 		}
     this.tab[type] = true;
     if(this.tab.mla_candidates){
-      console.log("i am mla",);
+      // console.log("i am mla",);
       let id= JSON.parse(this.cookieService.readCookie('id_ass'))
       if(!id)id=this.constituency_id;
      this.showCandidates(id);
     }
     if(this.tab.mp_candidates){
-      console.log("iam Mp")
+      // console.log("iam Mp")
       let id= JSON.parse(this.cookieService.readCookie('id_dis'))
       if(!id)id=this.constituency_id;
       this.showCandidates(id);

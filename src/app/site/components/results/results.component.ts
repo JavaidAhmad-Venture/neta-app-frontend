@@ -88,7 +88,7 @@ limit=2;
         res=resp;
        if(res.type=="location"){
         this.state=res.data.state;
-        console.log("auqib",res);
+        // console.log("auqib",res);
         this.showDataForState(res.data.a_id,res.data.id,);
       }
       })

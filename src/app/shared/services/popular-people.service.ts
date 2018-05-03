@@ -21,7 +21,7 @@ export class PopularPeopleService extends BaseService {
   getPopularPeople(): Observable<PopularPeople>{
     this.cons_id = JSON.parse(this.cookieService.readCookie('assembly_id'));
     if(!this.cons_id)this.cons_id='875189f9-3bba-4667-9109-dff1dd4a23ae';
-    console.log('constuency id in popular people',this.cons_id);
+   // console.log('constuency id in popular people',this.cons_id);
     return this.http.get<PopularPeople>(this._url+'/api/v1/dashboard-data?constituency_id='+this.cons_id,this.httpOptions)
     // .map(res => JSON.parse(JSON.stringify(res)));  
   }
