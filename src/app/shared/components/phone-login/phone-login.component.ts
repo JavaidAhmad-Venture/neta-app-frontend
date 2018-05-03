@@ -1,3 +1,4 @@
+import { Influencer } from './../../models/influencer';
 import { UserProfileUpdate } from './../../models/userProfileUpdate';
 import { PhoneNumber } from './../../models/phoneNumber';
 import { FirebaseUser } from './../../models/firebase-user';
@@ -23,6 +24,7 @@ declare var $: any;
 })
 export class PhoneLoginComponent implements OnInit {
 
+  influencerName:string='';
   registrationId:string='';
   cName: string;
   cPic: string;
@@ -192,7 +194,7 @@ data: {
     this.calculateAge(new Date(startDate));
   }
   onFileSelected(event){
-    this.selectedFile = event.target.files[0];
+    this.fetchCloudnaryConfig();
   }
   getMasterData(){
     this.userService.getMasterData()
@@ -221,8 +223,9 @@ data: {
       console.log('patch response:'+res);
       let data= res.json().data;
       let registrationId=data.id;
-      let name=data.info.name;
-      this.cookieService.createCookie('name',name,null);
+      this.influencerName=data.info.name;
+      if(this.influencerName)
+      this.cookieService.createCookie('name',this.influencerName,null);
       this.cookieService.createCookie('registration_id',registrationId,null);
 
     });
@@ -234,8 +237,19 @@ data: {
       let data=res.data;
       console.log('Existing response:',data);
       console.log('Existing id:',data.id);
-      if(!data.id)
+      if(!data.info.name)
       $('#register-profile').modal('show');
+      else this.influencerName = data.info.name;
+
+      if(this.influencerName)
+      this.cookieService.createCookie('name',this.influencerName,null);
     },err=>$('#register-profile').modal('show'))
+  }
+
+  fetchCloudnaryConfig(){
+    this.cloudService.getCloudnaryConfig()
+    .subscribe(res=>{
+      console.log('Clounary configuration is:',res);
+    })
   }
 } 

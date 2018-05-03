@@ -61,6 +61,7 @@ export class CandidateProfileService extends BaseService {
 
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {
     return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/candidatures?constituency_id=" + CONSTITUENCY_ID, this.get_options())
+    .map(res=>res.json())
   }
 
   getCandidatesManifesto(CANDIDATURE_ID, CONSTITUENCY_ID) {
