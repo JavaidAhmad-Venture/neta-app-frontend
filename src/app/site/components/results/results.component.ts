@@ -45,7 +45,7 @@ export class ResultsComponent implements OnInit {
   imgMap: string;
   imgMapC: string;
   state="State";
-
+limit=2;
   access_Token:string=null
   totalSeatsC: number;
   totalSeatsS: number;
@@ -103,21 +103,20 @@ export class ResultsComponent implements OnInit {
         let data = res['data'];
         data.parties_data
         this.a=0;this.b=100;
-        console.log(data,'.............')
         this.imgMap = data.parties_data.image.cloudinary.public_id;
-        console.log("Map is", this.imgMap);
+     //   console.log("Map is", this.imgMap);
         this.totalSeatsC = data.parties_data.seat_count;
-        console.log("data", data);
+       // console.log("country data", data);
         this.TopPartiesCons = data.parties_data.top_parties_by_constituencies;
 
-        for(let i=0;i<2;i++){
+        for(let i=0;i<this.limit;i++){
           this.a+=this.TopPartiesCons[i].constituencies_won;
           this.b-= data.parties_data.top_parties_by_votes[i].percentage;
         }
 //        console.log("checkResult",this.countryOther);
         let j = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
-          if (j == 2) {
+          if (j == this.limit) {
             break;
           }
           this.partiesInfo.push(p);
@@ -127,7 +126,7 @@ export class ResultsComponent implements OnInit {
       });
       let sid=JSON.parse(this.cookieService.readCookie("state_id"));
       let aid=JSON.parse(this.cookieService.readCookie("assembly_id"));
-      console.log("sid",sid,aid);
+      //console.log("sid",sid,aid);
     this.showDataForState(aid||"40887c1a-af96-4f05-a801-ac694307d0d7",sid||"ecaece95-c372-48f1-a1b3-e82868d610e3");
   }
 
@@ -137,23 +136,23 @@ export class ResultsComponent implements OnInit {
       .subscribe(res => {
         let data = res['data'];
         this.c=0;this.d=100;
-        console.log("console", data)
+        //console.log("state data", data)
         this.imgMapC = data.parties_data.image.cloudinary.public_id;
-        console.log("Map state is", this.imgMap);
+        //console.log("Map state is", this.imgMap);
        
-        console.log("data", data);
+        //console.log("data", data);
         
         this.TopPartiesCons_cons = data.parties_data.top_parties_by_constituencies;
 
         
-        for(let j=0;j<2;j++){
+        for(let j=0;j<this.limit;j++){
           this.c+=this.TopPartiesCons_cons[j].constituencies_won;
           this.d-= data.parties_data.top_parties_by_votes[j].percentage;
         }
         this.totalSeatsS = data.parties_data.seat_count
         let i = 0;
         for (let p of data.parties_data.top_parties_by_votes) {
-          if (i == 2) {
+          if (i == this.limit) {
             break;
           }
           this.partiesInfo_cons.push(p);

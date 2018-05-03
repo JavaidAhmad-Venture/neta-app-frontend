@@ -1,9 +1,18 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import {
+     AfterViewInit,
+     Component,
+     ElementRef,
+     OnInit,
+     Renderer2,
+     Renderer,
+     ViewChild,
+      } from '@angular/core';
 
 import { AuthService } from './../../../shared/guards/auth.service';
 import { CookieService } from './../../../shared/services/cookie.service';
 import { HelperService } from './../../../shared/services/helper.service';
 import { Router } from '@angular/router';
+
 
 declare var jQuery: any;
 
@@ -13,27 +22,38 @@ declare var jQuery: any;
     styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit, AfterViewInit {
+    @ViewChild('ele') inp;
     location = false;
     state = "State";
     assembly = "Assembly";
     userId: any;
-    constructor(private helperService: HelperService,
-         private eleRf: ElementRef,
-          private cookieService: CookieService,
-           private auth: AuthService,
+    constructor(
+        private helperService: HelperService,
+        private ele: ElementRef,
+        private renderer: Renderer2,
+        private cookieService: CookieService,
+        private auth: AuthService,
         private route:Router) {
+           
+         
 
     }
     ngAfterViewInit() {
-        jQuery('.overlay').click(function () {
-            jQuery('body').removeClass('open');
+
+        // jQuery('.overlay').click(function () {
+        //     jQuery('body').removeClass('open');
+        // });
+   
+        this.renderer.listen(this.inp.nativeElement, 'click' ,()=>{
+            this.renderer.addClass(document.body, 'open');
         });
-        jQuery('.my-toggle').click(function () {
-            jQuery('body').addClass('open');
-        });
-        jQuery('button.search-btn').click(function () {
-            jQuery('header').toggleClass('open');
-        });
+        //  jQuery('.my-toggle').click(function () {
+        //      jQuery('body').addClass('open');
+        //  });
+        // jQuery('button.search-btn').click(function () {
+        //     jQuery('header').toggleClass('open');
+        // });
+
         jQuery(window).scroll(function() {
             if (jQuery(this).scrollTop() > 45){
               jQuery('.upper-tab-section').addClass('sticky');
@@ -42,6 +62,19 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
               jQuery('.upper-tab-section').removeClass('sticky');
             }
           });
+
+// this.renderer.listen('this.windowRef','scroll',(event)=>{
+//     if(this.document.documentElement.scrollTop>45){
+//         this.renderer.addClass('.upper-tab-section','sticky');
+//     }
+//     else{
+//         this.renderer.removeClass('.upper-tab-section','sticky');
+//     }
+// });
+
+
+
+
           jQuery(window).scroll(function() {
             if (jQuery(this).scrollTop() > 200){
               jQuery('.profile-tab').addClass('sticky');
@@ -51,6 +84,8 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
             }
           });
     }
+   
+
     ngOnInit() {
         this.state = JSON.parse(this.cookieService.readCookie('state_name'));
         this.assembly = JSON.parse(this.cookieService.readCookie('assembly_name'));
@@ -85,10 +120,10 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         this.userId = this.cookieService.readCookie('access_token');
     
     }
+   
+
     showLocation() {
-
         this.location = !this.location;
-
     }
     onLogout() {
         this.cookieService.eraseCookie(['access-token'])

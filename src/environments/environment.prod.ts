@@ -6,6 +6,9 @@ export const environment = {
   CLOUDNAME: 'neta-app',
   CLOUD_URL:"http://res.cloudinary.com/neta-app/image/upload/",
   
+  CLOUDINARY_URL_UPLOAD :"https://api.cloudinary.com/v1_1/neta-app/upload",
+  CLOUDINARY_UPLOAD_PRESET :'atuau6b9',//prod side
+  
   CLIENT_ID: 'netawebapp',
   CLIENT_SECRET: '$2a$10$0.dfDGl.8Es9cAm3ZJyvdO7ElHwBG.pnJjJxUP/LUtacIqk6eUmCa',
   APP_EXTENSION: '',

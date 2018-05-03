@@ -23,13 +23,15 @@ export class UserService extends BaseService{
     })
   }
 
-  updateUserFirstTime(name:any){  
+  updateUserFirstTime(name:any,timestamp?:any,public_id?:any,imageFormat?:any,signature?:any){  
     console.log('name in update patch service:',name);
 
     let data={
       name:name,
       constituency_id:JSON.parse(this.cookieService.readCookie("assembly_id"))
     }
+    // profile_pic:'image/upload/v'+timestamp+'/'+public_id+'.'+imageFormat+'#'+signature,
+    // console.log('Profile pic url:',profile_pic);
     return this._http.patch(this._url+'/api/v1/influencers/influencer/update',data,this.patch_options()) 
   }
   fetchExistingUsers(ass_id){

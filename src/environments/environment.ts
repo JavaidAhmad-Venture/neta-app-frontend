@@ -7,6 +7,9 @@ export const environment = {
   production: false,
   BASE_URL:' https://neta-dev.herokuapp.com',
   PROTOCOL: 'https://',
+
+  CLOUDINARY_URL_UPLOAD :"https://api.cloudinary.com/v1_1/neta-dev/upload",
+  CLOUDINARY_UPLOAD_PRESET :'m4g21aaq',//dev side
   
   CLIENT_ID: 'netawebapp',
   CLOUDNAME: 'neta-dev',

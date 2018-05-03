@@ -50,7 +50,7 @@ export class SidebarComponent implements OnInit{
    
     //console.log('Loading :' + candidate_name);
    
-    this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name);
+    this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name,false);
   
   }
 
