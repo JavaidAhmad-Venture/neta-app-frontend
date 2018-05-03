@@ -25,7 +25,7 @@ import { PopularPeopleService } from './services/popular-people.service';
 import { WindowService } from './services/window.service';
 import { CitizenProfileService } from './services/citizen-profile.service';
 import { ResultsService } from './services/results.service';
-import { CustomDirectiveDirective } from './directive/custom-directive.directive';
+import { environment } from '../../environments/environment';
 
 
 
@@ -36,14 +36,13 @@ import { CustomDirectiveDirective } from './directive/custom-directive.directive
     HttpModule,
     HttpClientModule,
     FormsModule,
-    CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'neta-dev' } as CloudinaryConfiguration)
+    CloudinaryModule.forRoot({Cloudinary}, { cloud_name: environment.CLOUDNAME } as CloudinaryConfiguration)
   ],
   declarations: [NotFoundComponent, 
     LoaderComponent,
     SmallLoaderComponent,
     LocationDetectorComponent,
     PhoneLoginComponent,
-    CustomDirectiveDirective
   ],
   providers:[CondidatesService,
     CandidateProfileService,

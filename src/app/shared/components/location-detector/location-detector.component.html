@@ -47,10 +47,12 @@
             <div class="row">
               <div class="col pb10">
                 <div class="field-title">State</div>
-                <select class="form-control demo-default select-beast" placeholder="State" [(ngModel)]="state" name="state" (ngModelChange)="onChangeState($event)">
+                <select #state class="form-control demo-default select-beast" placeholder="State"  name="state" 
+                (change)="onChangeState(state.value)">
                   <!-- <option  [value]="s_state.id" *ngIf="s_state">{{s_state.name}}</option> -->
                   <!-- <option *ngFor="let state of states" #s="state.name" ngModel name="state">{{state.name}}</option> -->
-                  <option *ngFor="let s of states" [ngValue]="s" [selected]="s.name == selectedState">{{s.name}}</option>
+                  <option value="" hidden>Select State</option>
+                  <option *ngFor="let s of states" [value]="s.id" [selected]="s.name == selectedState">{{s.name}}</option>
                 </select>
               </div>
             </div>
@@ -58,17 +60,17 @@
               <div class="col">
                 <div class="field-title">District</div>
 
-                <select class="form-control demo-default select-beast" [(ngModel)]="parliament" (ngModelChange)="onChangeParliament($event)"
-                  name="par" placeholder="Select ">
-                  <option *ngFor=" let p of parliaments" [ngValue]="p" [selected]="p.name == selectedDistrict">{{p.name}}</option>
+                <select #district class="form-control demo-default select-beast" (change)="onChangeParliament(district.value)"
+                  name="parliamenttt" placeholder="Select ">
+                  <option value="" hidden>Select District</option>
+                  <option *ngFor=" let p of parliament" [value]="p.id" [selected]="p.isSelected">{{p.name}}</option>
                 </select>
               </div>
               <div class="col">
                 <div class="field-title">Constituency</div>
-                <select class="demo-default select-beast"  [(ngModel)]="assembly" (ngModelChange)=" onChangeAssembly($event)" name="asmbly">
-        
-                  <option *ngFor="let a of assemblies" [ngValue]="a" [selected]="a.name === selectedCons">{{a.name}}</option>
-
+                <select #constituency class="demo-default select-beast"  (change)=" onChangeAssembly(constituency.value)" name="asmbly">
+                  <option value="" hidden>Select Constituency</option>
+                  <option *ngFor="let a of assemblies" [value]="a.id" [selected]="a.name === selectedCons">{{a.name}}</option>
                 </select>
               </div>
             </div>

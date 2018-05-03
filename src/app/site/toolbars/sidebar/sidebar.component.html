@@ -1,4 +1,4 @@
-<div *ngIf="p_candidates"class="candidate-block popular-candidate">
+<div *ngIf="p_candidates && !loading"class="candidate-block popular-candidate">
   <h3>Popular Candidates</h3>
 
   <ul class="candidate-list">
@@ -6,9 +6,9 @@
     <li *ngFor="let pc of p_candidates">
       <span class="candidate-pic">
         <span class="candidate-party">
-          <img src="{{ cUrl + pc.party_image.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+          <img src="{{ cUrl + pc.party_image?.cloudinary.public_id + '.jpg' }}" class="imageStyle">
         </span>
-        <img (click)="onProfileView(pc.candidate_id,pc.candidate_name)"  class="emptyAnchor" src="{{ cUrl + pc.candidate_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+        <img (click)="onProfileView(pc.candidate_id,pc.candidate_name)"  class="emptyAnchor" src="{{ cUrl + pc.candidate_profile_pic?.cloudinary.public_id + '.jpg' }}" class="imageStyle">
       </span>
       <div class="candidate-info">
         <h6 class="candidate-party-name">{{pc.party_abbreviation}}</h6>
@@ -24,7 +24,7 @@
     </a>
   </div>
 </div>
-<div *ngIf="p_influencers" class="candidate-block Influencers-candidate">
+<div *ngIf="p_influencers !loading" class="candidate-block Influencers-candidate">
   <h3>Popular Influencers</h3>
   <ul class="candidate-list">
     <li *ngFor="let pi of topSixInfluencers; let i = index" >
@@ -33,7 +33,7 @@
         <span class="candidate-party">
           <img src="assets/images/congress.png" alt="congress.png" />
         </span>
-        <img src="{{ cUrl + pi.influencer_profile_pic.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+        <img src="{{ cUrl + pi.influencer_profile_pic?.cloudinary.public_id + '.jpg' }}" class="imageStyle">
       </span>
       <div class="candidate-info" >
         <h6 class="candidate-party-name">INC</h6>

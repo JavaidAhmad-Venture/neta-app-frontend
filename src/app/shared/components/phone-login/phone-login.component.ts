@@ -1,3 +1,4 @@
+import { Influencer } from './../../models/influencer';
 import { UserProfileUpdate } from './../../models/userProfileUpdate';
 import { PhoneNumber } from './../../models/phoneNumber';
 import { FirebaseUser } from './../../models/firebase-user';
@@ -35,7 +36,8 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
   public_id:any;
   isSelected: boolean = false;
 
-  registrationId: string = '';
+  influencerName:string='';
+  registrationId:string='';
   cName: string;
   cPic: string;
   pImage: string;
@@ -285,25 +287,37 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     // const fd=new FormData();
     // fd.append('image',this.selectedFile,this.selectedFile.name);
     this.userService.updateUserFirstTime(name)
-      .subscribe(res => {
-        console.log('patch response:' + res);
-        let data = res.json().data;
-        let registrationId = data.id;
-        let name = data.info.name;
-        this.cookieService.createCookie('name', name, null);
-        this.cookieService.createCookie('registration_id', registrationId, null);
+    .subscribe(res=>{
+      console.log('patch response:'+res);
+      let data= res.json().data;
+      let registrationId=data.id;
+      this.influencerName=data.info.name;
+      if(this.influencerName)
+      this.cookieService.createCookie('name',this.influencerName,null);
+      this.cookieService.createCookie('registration_id',registrationId,null);
 
       });
   }
   getExistingUser() {
     let constituency_id = JSON.parse(this.cookieService.readCookie("assembly_id"))
     this.userService.fetchExistingUsers(constituency_id)
-      .subscribe(res => {
-        let data = res.data;
-        console.log('Existing response:', data);
-        console.log('Existing id:', data.id);
-        if (!data.name)
-          $('#register-profile').modal('show');
-      }, err => $('#register-profile').modal('show'))
+    .subscribe(res=>{
+      let data=res.data;
+      console.log('Existing response:',data);
+      console.log('Existing id:',data.id);
+      if(!data.info.name)
+      $('#register-profile').modal('show');
+      else this.influencerName = data.info.name;
+
+      if(this.influencerName)
+      this.cookieService.createCookie('name',this.influencerName,null);
+    },err=>$('#register-profile').modal('show'))
+  }
+
+  fetchCloudnaryConfig(){
+    this.cloudService.getCloudnaryConfig()
+    .subscribe(res=>{
+      console.log('Clounary configuration is:',res);
+    })
   }
 } 

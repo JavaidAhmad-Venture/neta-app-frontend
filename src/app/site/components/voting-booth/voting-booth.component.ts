@@ -71,6 +71,9 @@ export class VotingBoothComponent implements OnInit {
       
       console.log("hhh");
         }
+        if(res.type=="signIn"){
+          this.ngOnInit();
+        }
   })
  
   }
@@ -141,7 +144,7 @@ export class VotingBoothComponent implements OnInit {
     this.candidatePic = candidate.candidate_profile_pic.cloudinary.public_id;
     this.partyImage = candidate.party_image.cloudinary.public_id; 
     
-   
+   console.log('check my candidate:',candidate);
     const access_token=this.cookieService.readCookie('access_token');
 
     console.log('get user id:',access_token);
@@ -164,13 +167,13 @@ export class VotingBoothComponent implements OnInit {
     else {
       this.registerToVote = false;    
       console.log('on vote candidate:',candidate);
-      // let dataCons={constituency_id:candidate.candidature_constituency_id};
+      // let dataPshaCons={constituency_id:candidate.candidature_constituency_id};
       this.candidateService.onVote(candidate.candidature_id,candidate.candidature_constituency_id).subscribe(res=>{
         console.log('on vote response:',res);
         this.isVoted = true;
         this.candidates = [];
         let currentAssemblyId = JSON.parse(this.cookieService.readCookie('id_ass'));
-        this.candidateService.getAllCandidates(currentAssemblyId)
+        this.candidateService.getAllCandidates(candidate.candidature_constituency_id)
         .subscribe(res=>{
           console.log('new response after vote:',res)
           this.candidates = res.data;

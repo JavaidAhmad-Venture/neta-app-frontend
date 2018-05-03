@@ -65,7 +65,7 @@
                                     </select> -->
 
                 <div class="form-group">
-                  <input type="text" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
+                  <input type="tel" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
                     id="title" #country="ngModel" (keypress)="keyPress($event)" required>
                   <!-- <div class="icon-outer"> <i class="material-icons">priority_high</i></div> -->
                   <label> + </label>
@@ -74,7 +74,7 @@
               </div>
               <div class="right-sec">
                 <div class="form-group">
-                  <input type="text" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
+                  <input type="tel" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
                     id="title" minlength=10 maxlength=10 #phone="ngModel" required>
                   <!-- <div class="icon-outer"> <i class="material-icons">priority_high</i></div> -->
                 </div>
@@ -125,7 +125,7 @@
             <div class="col pb20">
 
               <div class="form-group">
-                <input type="text" placeholder="- - - - - -" [(ngModel)]="verificationCode" class="form-control" id="title" name="otp" (keypress)="keyPress($event)"
+                <input type="tel" placeholder="- - - - - -" [(ngModel)]="verificationCode" class="form-control" id="title" name="otp" (keypress)="keyPress($event)"
                   minlength=6 maxlength=6 #otp="ngModel" required>
               </div>
             </div>
@@ -174,7 +174,7 @@
             <div class="col pb20 register-modal">
               <div class="left-sec">
                 <div class="form-group">
-                  <input type="text" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
+                  <input type="tel" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
                     id="title" #country="ngModel" (keypress)="keyPress($event)" required>
                   <label> + </label>
                   <img src="assets/images/flag.png">
@@ -182,7 +182,7 @@
               </div>
               <div class="right-sec">
                 <div class="form-group">
-                  <input type="text" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
+                  <input type="tel" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
                     id="title" minlength=10 maxlength=10 #phone="ngModel" required>
                 </div>
               </div>
@@ -223,7 +223,7 @@
             <div class="col pb20 register-modal">
               <div class="left-sec">
                 <div class="form-group">
-                  <input type="text" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
+                  <input type="tel" placeholder="91" name="cntry" [(ngModel)]="phoneNumber.country" minlength=2 maxlength=2 class="form-control"
                     id="title" #country="ngModel" (keypress)="keyPress($event)" required>
                   <label> + </label>
                   <img src="assets/images/flag.png">
@@ -231,7 +231,7 @@
               </div>
               <div class="right-sec">
                 <div class="form-group">
-                  <input type="text" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
+                  <input type="tel" placeholder="Phone Number" name="ph" [(ngModel)]="phoneNumber.line" (keypress)="keyPress($event)" class="form-control"
                     id="title" minlength=10 maxlength=10 #phone="ngModel" required>
                 </div>
               </div>

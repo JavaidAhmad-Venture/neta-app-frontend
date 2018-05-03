@@ -14,16 +14,18 @@ export class LocationDetectorComponent implements OnInit {
   parliaments: any[] = [];
   assemblies: any[] = [];
   selectedState: string = '';
-
+  pp: any;
   selectedCons: string = '';
   selectedDistrict: string = '';
   parliamentId: string = '';
+
   assemblyId: string = '';
   //for two binding
-  stateId:any;
+  stateId: any;
   state: any;
-  parliament: any;
+  parliament: any[] = [];
   assembly: any;
+  parliamenttt: any;
   @Output("ids") C_ID = new EventEmitter<{}>();
 
   constructor(private locationService: LocationService,
@@ -40,22 +42,22 @@ export class LocationDetectorComponent implements OnInit {
   showData(res) {
     this.loading = false;
     let address = res.data;
-    console.log("Auqibresponse",res);
+    console.log("Auqibresponse", res);
     let curParliament = this.findObjectByKey(address.parliament, 'id', address.selected.parliamentary_id);
     let curConstituency = this.findObjectByKey(curParliament.assembly, 'id', address.selected.assembly_id);
     console.log("helllo", curParliament);
 
-    this.stateId=address.id;
+    this.stateId = address.id;
     this.selectedState = address.name;
     this.selectedDistrict = curParliament.name;
     this.selectedCons = curConstituency.name;
     this.parliamentId = curParliament.id;
     this.assemblyId = curConstituency.id;
     //this.states.push({ name: address.name, id: address.id,isSelected:true });
-    this.parliaments.push({ name: curParliament.name, id: curParliament.id, isSelected: true });
+    // this.parliament.push({ name: curParliament.name, id: curParliament.id, isSelected: true });
     this.assemblies.push({ name: curConstituency.name, id: curConstituency.id, isSelected: true });
-    // this.getParliament(this.stateId);
-    // this.getAssemblies(this.parliamentId);
+    this.getParliament(this.stateId);
+
   }
   findObjectByKey(array, key, value) {
     for (let o of array) {
@@ -65,12 +67,12 @@ export class LocationDetectorComponent implements OnInit {
     return null;
   }
   onNext() {
-    this.cookieService.createCookie('assembly_id',this.assemblyId,null);
-    this.cookieService.createCookie('state_name',this.selectedState,null);
-    this.cookieService.createCookie('assembly_name',this.selectedCons,null);
-    this.cookieService.createCookie('state_id',this.stateId,null);
+    this.cookieService.createCookie('assembly_id', this.assemblyId, null);
+    this.cookieService.createCookie('state_name', this.selectedState, null);
+    this.cookieService.createCookie('assembly_name', this.selectedCons, null);
+    this.cookieService.createCookie('state_id', this.stateId, null);
     this.C_ID.emit({
-      id:this.stateId,
+      id: this.stateId,
       d_id: this.parliamentId,
       d_name: this.selectedDistrict,
       a_id: this.assemblyId,
@@ -78,12 +80,12 @@ export class LocationDetectorComponent implements OnInit {
     });//send cons and assembly id to parent component;
     // this.helperService.setObservable("Apple");
 
-    this.cookieService.createCookie("id_dis",this.parliamentId,null,null);
-    this.cookieService.createCookie("id_ass",this.assemblyId,null,null);
+    this.cookieService.createCookie("id_dis", this.parliamentId, null, null);
+    this.cookieService.createCookie("id_ass", this.assemblyId, null, null);
     this.helperService.setEmitter({
       type: 'location',
       data: {
-        id:this.stateId,
+        id: this.stateId,
         state: this.selectedState,
         d_id: this.parliamentId,
         d_name: this.selectedDistrict,
@@ -99,7 +101,14 @@ export class LocationDetectorComponent implements OnInit {
     this.locationService.getParliament(a).subscribe(res => {
       console.log(res.data.parliament);//got constituencies
       this.parliaments = res.data.parliament;
-      console.log('parliaments', this.parliaments);
+
+      this.parliament = res.data.parliament.map(p => {
+        return {
+          name: p.name, id: p.id, isSelected: p.name == this.selectedDistrict ? true : false
+        }
+      })
+      console.log('parliaments', this.parliament);
+      this.getAssemblies(this.parliamentId);
     })
   }
   selectedConstituency(id) {
@@ -163,24 +172,27 @@ export class LocationDetectorComponent implements OnInit {
   }
   onChangeState(e) {
     //this.parliamentId = e.id;
-    this.stateId=e.id;
-    console.log("stateId",e.id);
+    this.stateId = e;
     this.assemblies = [];
-    this.getParliament(e.id);
-    this.selectedState=e.name;
-    console.log("on change state",e);
+    this.getParliament(e);
+    let state =  this.states.find((s) => s.id == e);
+    this.selectedState = state.name;
+    console.log("on change state", state);
 
   }
   onChangeParliament(e) {//auqib
-    this.parliamentId = e.id,
-      this.selectedDistrict = e.name,
+
+    this.parliamentId = e
+    let parliament =  this.parliament.find((p) => p.id == e);
+      this.selectedDistrict = parliament.name,
       console.log("this is my Assembly", e);
-    this.getAssemblies(e.id);
+    this.getAssemblies(this.parliamentId);
   }
   onChangeAssembly(e) {//Auqib
-    this.assemblyId = e.id;
-    this.selectedCons = e.name;
-
+    this.assemblyId = e;
+    let assembly =  this.assemblies.find((a) => a.id == e);
+    this.selectedCons = assembly.name;
+    console.log("assembly",assembly);
   }
 
 }
