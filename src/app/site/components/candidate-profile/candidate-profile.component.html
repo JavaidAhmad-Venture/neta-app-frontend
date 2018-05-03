@@ -38,7 +38,7 @@
                                     <div class="after-vote" *ngIf="isVoted">
                                        
                                 </div>
-                                <button type="button" *ngIf="!isVoted" class="btn issue-btn rs-btn" (click)="onVoted()">Vote Now</button>
+                                <button type="button" *ngIf="false" class="btn issue-btn rs-btn" (click)="onVoted()">Vote Now</button>
                                 </div>
                                 
                     </div>
@@ -101,7 +101,7 @@
                                
                         </div>
                         </div>
-                        <button type="button" *ngIf="!isVoted" class="btn issue-btn" (click)="onVoted()">Vote Now</button>
+                        <button type="button" *ngIf="false" class="btn issue-btn" (click)="onVoted()">Vote Now</button>
                     </div>
 
                     <contact-info [ContactInfo]="contact_info"></contact-info> <!--passed contact info to contact-info component -->

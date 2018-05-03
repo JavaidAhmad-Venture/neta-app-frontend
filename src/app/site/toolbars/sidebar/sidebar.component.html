@@ -33,7 +33,7 @@
         <span class="candidate-party">
           <img src="assets/images/congress.png" alt="congress.png" />
         </span>
-        <img src="{{ cUrl + pi.influencer_profile_pic?.cloudinary.public_id + '.jpg' }}" class="imageStyle">
+        <img src="{{ pi.influencer_profile_pic?.cloudinary.public_id?cUrl + pi.influencer_profile_pic?.cloudinary.public_id + '.jpg':'assets/images/user.png'}}" class="imageStyle">
       </span>
       <div class="candidate-info" >
         <h6 class="candidate-party-name">INC</h6>

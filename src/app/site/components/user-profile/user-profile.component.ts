@@ -9,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class UserProfileComponent implements OnInit {
   name:any;
   phoneNumber:string;
+  assemblyName:string;
   constructor(private cookieService:CookieService) { }
 
   ngOnInit() {
     this.name = JSON.parse(this.cookieService.readCookie('name'));
     this.phoneNumber=JSON.parse(this.cookieService.readCookie('phoneNumber'));
+    this.assemblyName=JSON.parse(this.cookieService.readCookie('assembly_name'));
+
   }
 
 }
