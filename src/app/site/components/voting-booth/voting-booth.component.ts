@@ -104,9 +104,9 @@ export class VotingBoothComponent implements OnInit {
     })
   }
 
-  onProfileView(candidate_id,candidate_name) {
+  onProfileView(candidate_id,candidate_name,isVoted) {
     console.log('Loading:' + candidate_name);
-    this.profileService.navigateCandidate(candidate_id, this.constituency_id,candidate_name);
+    this.profileService.navigateCandidate(candidate_id, this.constituency_id,candidate_name,isVoted);
   }
   //added by auqib
   selectedId(ids){

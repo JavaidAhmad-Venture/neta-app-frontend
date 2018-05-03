@@ -22,7 +22,7 @@ export class CandidateProfileService extends BaseService {
   };
 
   constructor(
-    private _http: HttpClient,
+    private _http: Http,
     private router: Router,
     private paramsService: CookieService,
     private route: ActivatedRoute,
@@ -37,14 +37,16 @@ export class CandidateProfileService extends BaseService {
     // }
 
   getCanditateProfile(CANDIDATE_ID, CONSTITUENCY_ID) {
-    return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/?constituency_id=" + CONSTITUENCY_ID, this.httpOptions)
-      .map(res => JSON.parse(JSON.stringify(res)));
+    return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/?constituency_id=" + CONSTITUENCY_ID, this.get_options())
+      .map(res => res.json());
   }
 
-  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID, name) {
+  navigateCandidate(CANDIDATE_ID, CONSTITUENCY_ID, name,isVoted) {
 
     this.paramsService.createCookie("candidate_id", CANDIDATE_ID, null, null);
     this.paramsService.createCookie("assembly_id", CONSTITUENCY_ID, null, null);
+    this.paramsService.createCookie("isVotedByMe", isVoted, null, null);
+
     // // alert("i am here")
     this.helperService.setEmitter({
       type: 'navigateCandidate',
@@ -58,11 +60,13 @@ export class CandidateProfileService extends BaseService {
   }
 
   getCandidatesCandidatures(CANDIDATE_ID, CONSTITUENCY_ID) {
-    return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/candidatures?constituency_id=" + CONSTITUENCY_ID, this.httpOptions)
+    return this._http.get(this._url + "/api/v1/candidates/" + CANDIDATE_ID + "/candidatures?constituency_id=" + CONSTITUENCY_ID, this.get_options())
+    .map(res=>res.json())
   }
 
   getCandidatesManifesto(CANDIDATURE_ID, CONSTITUENCY_ID) {
-    return this._http.get(this._url + "/api/v1/candidatures/" + CANDIDATURE_ID + "/manifesto?constituency_id" + CONSTITUENCY_ID);
+    return this._http.get(this._url + "/api/v1/candidatures/" + CANDIDATURE_ID + "/manifesto?constituency_id" + CONSTITUENCY_ID,this.get_options())
+    .map(res=>res.json());
   }
 
   private spaceRemove(str) {
@@ -78,25 +82,6 @@ export class CandidateProfileService extends BaseService {
 
   }
 
-  private addTostack(cid, did) {
-    //    let nav=[{"a_id":aid,"d_id":did}];
-    let c_id = JSON.parse(this._cookie.readCookie("c_id")) || [];
-    let d_id = JSON.parse(this._cookie.readCookie("d_id")) || [];
-    c_id.push(cid);
-    d_id.push(did);
-    this._cookie.createCookie("c_id", c_id, null, Object);
-    this._cookie.addCookie("d_id", d_id, null, null)
-    this.removeFromStack();
-  }
-  private removeFromStack() {
-    let a = this._cookie.readCookie("c_id");
-    let b = this._cookie.readCookie("d_id");
-    console.log("from stack remove", a);
-
-  }
-  private getFromStack() {
-    console.log("It is An important", this._cookie.readCookie("a_id"));
-  }
 
 }
 
