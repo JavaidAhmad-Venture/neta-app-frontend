@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   BASE_URL:' https://www.neta-app.com',
   PROTOCOL: 'https://',
   

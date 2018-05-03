@@ -53,7 +53,7 @@ export class ResultsComponent implements OnInit {
   TopPartiesCons: any[] = [];
   partiesInfo_cons: party[] = [];
   TopPartiesCons_cons: any[] = [];
-
+  loggedName:string='';
 //countryOther:Other;
 //stateOther:Other;
 
@@ -69,6 +69,7 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.state=JSON.parse(this.cookieService.readCookie("state_name"))||"Punjab";
+    this.loggedName = JSON.parse(this.cookieService.readCookie('name'));
     this.showDataForCountry();
     let res: any = {
       type: '',
@@ -102,6 +103,7 @@ export class ResultsComponent implements OnInit {
         let data = res['data'];
         data.parties_data
         this.a=0;this.b=100;
+        console.log(data,'.............')
         this.imgMap = data.parties_data.image.cloudinary.public_id;
         console.log("Map is", this.imgMap);
         this.totalSeatsC = data.parties_data.seat_count;

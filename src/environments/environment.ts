@@ -30,3 +30,4 @@ export const environment = {
   DEFAULT_DISTRICT_ID:"",
   DEFAULT_ASSEMLY_ID:"",
 };
+
