@@ -34,7 +34,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         private cookieService: CookieService,
         private auth: AuthService,
         private route:Router) {
-           
+              
          
 
     }
@@ -89,6 +89,10 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.state = JSON.parse(this.cookieService.readCookie('state_name'));
         this.assembly = JSON.parse(this.cookieService.readCookie('assembly_name'));
+        if(!this.state||!this.assembly){
+            // data-target="#update-profile" data-toggle="modal"
+            jQuery('#welcome-back').modal('show');
+        }
         let res:any= { type: '',
         data: {
             state: "",
@@ -101,7 +105,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         this.helperService.getEmitter().subscribe((resp) => {
             
             res=resp;
-            console.log("respn", res);
+           // console.log("respn", res);
           
             if (res.type == "location") {
                 this.state = res.data.state;
@@ -109,7 +113,7 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
             }
             if(res.type=="signIn"){
                 this.userId = this.cookieService.readCookie('access_token');
-                console.log('check',this.userId);
+               // console.log('check',this.userId);
             }
             if(res.type=="logout"){
              
@@ -130,9 +134,10 @@ export class AppHeaderComponent implements OnInit, AfterViewInit {
         this.cookieService.eraseCookie(['_uid'])
         this.cookieService.eraseCookie(['_client'])
         this.cookieService.eraseCookie(['phoneNumber'])
-        console.log('After erasing token is:', this.cookieService.readCookie('access-token'));
+        //console.log('After erasing token is:', this.cookieService.readCookie('access-token'));
         
         this.helperService.setEmitter({
+            
             type: 'logout',
             data: {
               u_id:'logout'

@@ -42,10 +42,10 @@ export class ResultsComponent implements OnInit {
   loading = true;
   curl: any;
   Statistics: any;
-  imgMap: string;
+  imgMapS: string;
   imgMapC: string;
   state="State";
-limit=2;
+limit=3;
   access_Token:string=null
   totalSeatsC: number;
   totalSeatsS: number;
@@ -88,7 +88,7 @@ limit=2;
         res=resp;
        if(res.type=="location"){
         this.state=res.data.state;
-        console.log("auqib",res);
+        // console.log("auqib",res);
         this.showDataForState(res.data.a_id,res.data.id,);
       }
       })
@@ -103,14 +103,16 @@ limit=2;
         let data = res['data'];
         data.parties_data
         this.a=0;this.b=100;
-        this.imgMap = data.parties_data.image.cloudinary.public_id;
+        this.imgMapC = data.parties_data.image.cloudinary.public_id;
      //   console.log("Map is", this.imgMap);
         this.totalSeatsC = data.parties_data.seat_count;
        // console.log("country data", data);
         this.TopPartiesCons = data.parties_data.top_parties_by_constituencies;
 
         for(let i=0;i<this.limit;i++){
+          if(this.TopPartiesCons[i]){
           this.a+=this.TopPartiesCons[i].constituencies_won;
+        }
           this.b-= data.parties_data.top_parties_by_votes[i].percentage;
         }
 //        console.log("checkResult",this.countryOther);
@@ -137,7 +139,7 @@ limit=2;
         let data = res['data'];
         this.c=0;this.d=100;
         //console.log("state data", data)
-        this.imgMapC = data.parties_data.image.cloudinary.public_id;
+        this.imgMapS = data.parties_data.image.cloudinary.public_id;
         //console.log("Map state is", this.imgMap);
        
         //console.log("data", data);
@@ -146,7 +148,9 @@ limit=2;
 
         
         for(let j=0;j<this.limit;j++){
+          if(this.TopPartiesCons_cons[j]){
           this.c+=this.TopPartiesCons_cons[j].constituencies_won;
+        }
           this.d-= data.parties_data.top_parties_by_votes[j].percentage;
         }
         this.totalSeatsS = data.parties_data.seat_count

@@ -13,7 +13,7 @@ declare var jQuery:any;
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit{
-
+  datacomming:boolean=false;
   p_candidates:PopularCandidate[]=null;
   p_influencers:PopularInfluencer[]=null;
   topSixInfluencers:PopularInfluencer[]=null;
@@ -50,7 +50,7 @@ export class SidebarComponent implements OnInit{
    
     //console.log('Loading :' + candidate_name);
    
-    this.profileService.navigateCandidate(candidate_id,this.constituency_id,candidate_name,false);
+    this.profileService.navigateCandidate(candidate_id,this.constituency_id);
   
   }
 
@@ -58,23 +58,31 @@ export class SidebarComponent implements OnInit{
     this.topSixInfluencers =[];
     this.popularPeople.getPopularPeople()
     .subscribe(res=>{
+      // console.log(res)
       this.response = res.data;
-      console.log('Popular people:',this.response);
+      // console.log('PopularPeople:',this.response);
       this.p_candidates  = this.response.popular_candidates;
       this.p_influencers  = this.response.popular_influencers;
       let count = 0;
-     
+    //  console.log("p_candidates",this.p_candidates);
+     if(this.p_candidates.length==0){
+      this.loading=false;
+      this.datacomming=false;
+     }else{
       this.p_influencers.forEach(influencer=>{
         if(count<6){
           this.topSixInfluencers.push(influencer);
           count++;
         }
-        if(this.response) this.loading = false;
+        this.datacomming=true;
+        this.loading = false;
       })
-      console.log('top 6:',this.topSixInfluencers);
+      // console.log('top 6:',this.topSixInfluencers);
+    }
     })
+    
   }
   onProfileViewInfluencer(){
-    alert('Sorry for now, team is working on it!!')
+    // alert('Sorry for now, team is working on it!!')
   }
 }

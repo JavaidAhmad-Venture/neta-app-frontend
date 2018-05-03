@@ -70,9 +70,9 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
 
     private elementRef: ElementRef,
     private renderer: Renderer2) {
-    console.log('firebase', firebase)
+   // console.log('firebase', firebase)
     this.cUrl = cloudService.cloudnaryUrl;
-    console.log("This curl is", this.cUrl);
+    //console.log("This curl is", this.cUrl);
   }
   incorrectCode: boolean = false;
 
@@ -90,7 +90,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
       this.isSelected = !this.isSelected;
       this.selectedFile = event.target.files[0];
       let t = this.selectedFile.type.split('/');
-      console.log("This file size is:", this.selectedFile.size);
+      //console.log("This file size is:", this.selectedFile.size);
       if (t[0] == 'image' && this.selectedFile.size < 500000) {
         //      console.log("This file is:",this.selectedFile);
         //this.name =this.selectedFile.name;
@@ -107,6 +107,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
         }).then((res) => {
           this.public_id = res.data.public_id;
           this.cUrlUpdated = res.data.secure_url;
+<<<<<<< HEAD
           this.imageFormat = res.data.format;
           this.signature = res.data.signature;
           this.timestamp = res.data.version;
@@ -114,8 +115,11 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
           console.log('timestamp:v',this.timestamp);
           
          
+=======
+         // console.log("public_id", this.public_id);
+>>>>>>> c5a32ab8e6d967bdd31ced4edee23a6de5824ba8
         }).catch(function (err) {
-          console.log("Error is", err);
+         // console.log("Error is", err);
         })
       }
       else {
@@ -127,9 +131,9 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    console.log('Firabse id: ', firebase);
+    //console.log('Firabse id: ', firebase);
     this.windowRef = this.win.windowRef;
-    console.log('Window is: ', this.windowRef);
+    //console.log('Window is: ', this.windowRef);
 
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebase)
@@ -141,7 +145,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
       'lang': 'en',
       'callback': (response) => {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
-        console.log("REsponse is:", response);
+        //console.log("REsponse is:", response);
         this.sendLoginCode()
       }
     })
@@ -160,7 +164,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     }
     this.helperService.getEmitter().subscribe((resp) => {
       res = resp;
-      console.log("Helper in phone popup", res);
+     // console.log("Helper in phone popup", res);
 
       if (res.type == "voteLoginPopup") {
         // this.state=res.data.state;
@@ -179,8 +183,8 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     var appVerifier = this.windowRef.recaptchaVerifier;
     //console.log("App verifier is:",appVerifier);
     const num = this.phoneNumber.e164;
-    console.log("In method number is:", num);
-    console.log("firebase  is:", firebase);
+    //console.log("In method number is:", num);
+    //console.log("firebase  is:", firebase);
     firebase.auth().signInWithPhoneNumber(num, appVerifier)
       .then(result => {
         this.windowRef.confirmationResult = result;
@@ -221,13 +225,13 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
       jwt_token: user.qa,
       uid: user.uid
     }
-    console.log('my credentials:', credentials);
+    //console.log('my credentials:', credentials);
 
     this.cookieService.createCookie('uniqueIdFromFirebase', user.uid, null)
     this.cookieService.createCookie('phoneNumber', user.phoneNumber, null)
     this.userService.getAccessToken(credentials)
       .subscribe(res => {
-        console.log('Response from login api:', res);
+        //console.log('Response from login api:', res);
         let data = res['data'];
         this.cookieService.createCookie('access_token', data['access-token'], data['expiry'], null);
         this.cookieService.createCookie('_client', data['client'], data['expiry'], null);
@@ -241,7 +245,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
 
         this.registrationId = this.cookieService.readCookie('registration_id');
         let uniqueIdFromFirebase = this.cookieService.readCookie('uniqueIdFromFirebase');
-        console.log('your registration id is:', this.registrationId);
+        //console.log('your registration id is:', this.registrationId);
         // if(!uniqueIdFromFirebase)
         this.getExistingUser();
 
@@ -259,12 +263,12 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
   onSubmit(user) {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    console.log('Updated User:', JSON.parse(user.value.month) + '-' + JSON.parse(user.value.date));
+    //console.log('Updated User:', JSON.parse(user.value.month) + '-' + JSON.parse(user.value.date));
     let startDate = user.value.year + '-' + user.value.month + '-' + user.value.date;
-    console.log('date format:', new Date(startDate).toISOString());
+    //console.log('date format:', new Date(startDate).toISOString());
 
 
-    console.log('selected  file:', this.selectedFile);
+    //console.log('selected  file:', this.selectedFile);
     this.calculateAge(new Date(startDate));
   }
 
@@ -277,7 +281,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     this.userService.getMasterData()
       .subscribe(res => {
         let data: any = res['data'];
-        console.log('Master Data:', res);
+        //console.log('Master Data:', res);
         this.educations = data.educations;
         this.professions = data.professions;
         this.religions = data.religions;
@@ -287,17 +291,17 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
   calculateAge(birthday) { // birthday is a date
     let ageDifMs = Date.now() - birthday.getTime();
     let ageDate = new Date(ageDifMs); // miliseconds from epoch
-    console.log('total age is:' + Math.abs(ageDate.getUTCFullYear() - 1970));
+    //console.log('total age is:' + Math.abs(ageDate.getUTCFullYear() - 1970));
 
   }
   onFirstTimeReg(user) {
-    console.log('User in patch:', user.value.name)
+   // console.log('User in patch:', user.value.name)
     let name = user.value.name
     // const fd=new FormData();
     // fd.append('image',this.selectedFile,this.selectedFile.name);
     this.userService.updateUserFirstTime(name,this.timestamp,this.public_id,this.imageFormat,this.signature)
     .subscribe(res=>{
-      console.log('patch response:'+res);
+      //console.log('patch response:'+res);
       let data= res.json().data;
       let registrationId=data.id;
       this.influencerName=data.info.name;
@@ -316,7 +320,12 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     this.userService.fetchExistingUsers(constituency_id)
     .subscribe(res=>{
       let data=res.data;
+<<<<<<< HEAD
       console.log('Existing response:',data);
+=======
+     // console.log('Existing response:',data);
+     // console.log('Existing id:',data.id);
+>>>>>>> c5a32ab8e6d967bdd31ced4edee23a6de5824ba8
       if(!data.info.name)
       $('#register-profile').modal('show');
       else this.influencerName = data.info.name;
@@ -329,7 +338,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
   fetchCloudnaryConfig(){
     this.cloudService.getCloudnaryConfig()
     .subscribe(res=>{
-      console.log('Clounary configuration is:',res);
+     // console.log('Clounary configuration is:',res);
     })
   }
 } 

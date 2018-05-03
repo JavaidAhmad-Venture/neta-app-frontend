@@ -103,7 +103,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="vote-result">
-                                                        <h5 *ngIf="i<2">{{TopPartiesCons[i].constituencies_won}}</h5>
+                                                        <h5 *ngIf="TopPartiesCons[i]">{{TopPartiesCons[i].constituencies_won}}</h5>
                                                         <span>{{party.percentage|number:'1.2-2'}}% votes</span>
                                                     </div>
                                                 </li>
@@ -131,9 +131,9 @@
                                             </ul>
                                         </div>
                                         <div class="panel-footer">
-                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                            <!-- <a href="javascript:void(0)" class="more-det">SEE DETAILS
                                                 <i class="fas fa-chevron-right"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -146,13 +146,13 @@
                                                 <option>last 24 hours</option>
                                             </select>
                                         </div>
-                                        <div class="panel-body">
-                                            <img src="{{curl+imgMap}}.jpg" class="graph" alt="graph" />
+                                        <div *ngIf="imgMapC" class="panel-body">
+                                            <img src="{{curl+imgMapC}}.jpg" class="graph" alt="graph" />
                                         </div>
                                         <div class="panel-footer">
-                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                            <!-- <a href="javascript:void(0)" class="more-det">SEE DETAILS
                                                 <i class="fas fa-chevron-right"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -379,7 +379,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="vote-result">
-                                                        <h5 *ngIf="i<2">{{TopPartiesCons_cons[i].constituencies_won}}</h5>
+                                                        <h5 *ngIf="TopPartiesCons_cons[i]">{{TopPartiesCons_cons[i].constituencies_won}}</h5>
                                                         <span>{{party.percentage|number:'1.2-2'}}% votes</span>
                                                     </div>
                                                 </li>
@@ -408,9 +408,9 @@
                                             </ul>
                                         </div>
                                         <div class="panel-footer">
-                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                            <!-- <a href="javascript:void(0)" class="more-det">SEE DETAILS
                                                 <i class="fas fa-chevron-right"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -423,13 +423,13 @@
                                                 <option>last 24 hours</option>
                                             </select>
                                         </div>
-                                        <div class="panel-body">
-                                            <img src="{{curl+imgMapC}}.jpg" class="graph" alt="graph" />
+                                        <div *ngIf="imgMapS" class="panel-body">
+                                            <img src="{{curl+imgMapS}}.jpg" class="graph" alt="graph" />
                                         </div>
                                         <div class="panel-footer">
-                                            <a href="javascript:void(0)" class="more-det">SEE DETAILS
+                                            <!-- <a href="javascript:void(0)" class="more-det">SEE DETAILS
                                                 <i class="fas fa-chevron-right"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </div>
