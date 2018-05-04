@@ -45,7 +45,7 @@ export class ResultsComponent implements OnInit {
   imgMapS: string;
   imgMapC: string;
   state="State";
-limit=3;
+  limit=3;
   access_Token:string=null
   totalSeatsC: number;
   totalSeatsS: number;
@@ -101,7 +101,6 @@ limit=3;
     this.resultService.getResultCountry()
       .subscribe(res => {
         let data = res['data'];
-        data.parties_data
         this.a=0;this.b=100;
         this.imgMapC = data.parties_data.image.cloudinary.public_id;
      //   console.log("Map is", this.imgMap);
@@ -126,8 +125,12 @@ limit=3;
         }
         this.loading = false;
       });
-      let sid=JSON.parse(this.cookieService.readCookie("state_id"));
-      let aid=JSON.parse(this.cookieService.readCookie("assembly_id"));
+      let sid=this.cookieService.readCookie("state_id");
+      if(sid)
+       sid=JSON.parse(sid);
+      let aid=this.cookieService.readCookie("assembly_id");
+      if(aid)
+      aid=JSON.parse(aid)
       //console.log("sid",sid,aid);
     this.showDataForState(aid||"40887c1a-af96-4f05-a801-ac694307d0d7",sid||"ecaece95-c372-48f1-a1b3-e82868d610e3");
   }
@@ -139,6 +142,7 @@ limit=3;
         let data = res['data'];
         this.c=0;this.d=100;
         //console.log("state data", data)
+        if(data.parties_data.hasOwnProperty('image'))
         this.imgMapS = data.parties_data.image.cloudinary.public_id;
         //console.log("Map state is", this.imgMap);
        

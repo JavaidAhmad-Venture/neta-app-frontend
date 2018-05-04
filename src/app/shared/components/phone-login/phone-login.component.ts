@@ -107,7 +107,6 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
         }).then((res) => {
           this.public_id = res.data.public_id;
           this.cUrlUpdated = res.data.secure_url;
-<<<<<<< HEAD
           this.imageFormat = res.data.format;
           this.signature = res.data.signature;
           this.timestamp = res.data.version;
@@ -115,9 +114,6 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
           console.log('timestamp:v',this.timestamp);
           
          
-=======
-         // console.log("public_id", this.public_id);
->>>>>>> c5a32ab8e6d967bdd31ced4edee23a6de5824ba8
         }).catch(function (err) {
          // console.log("Error is", err);
         })
@@ -173,7 +169,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
         this.pImage = res.data.party_image;
       }
     })
-    this.getPublicId();  
+    // this.getPublicId();  
     this.getMasterData();
 
 
@@ -320,12 +316,7 @@ export class PhoneLoginComponent implements OnInit, AfterViewInit {
     this.userService.fetchExistingUsers(constituency_id)
     .subscribe(res=>{
       let data=res.data;
-<<<<<<< HEAD
       console.log('Existing response:',data);
-=======
-     // console.log('Existing response:',data);
-     // console.log('Existing id:',data.id);
->>>>>>> c5a32ab8e6d967bdd31ced4edee23a6de5824ba8
       if(!data.info.name)
       $('#register-profile').modal('show');
       else this.influencerName = data.info.name;
